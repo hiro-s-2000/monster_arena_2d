@@ -1,0 +1,28 @@
+{
+  "generator": "forge_meganium_mega_actions",
+  "key": "0154_meganium-mega",
+  "dex": 154,
+  "cell_w": 96,
+  "cell_h": 110,
+  "foot_y": 106,
+  "sprite_h": 93,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 26,
+  "off_palette_colors": 0
+}

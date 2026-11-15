@@ -1,0 +1,92 @@
+{
+  "status": "pass",
+  "method": "forge_palette.quantize_image: OKLab-nearest palette colour per pixel (exact palette colours kept), alpha binary at the threshold, then the written PNGs re-read and measured with forge_palette.fit_report against the palette",
+  "notProven": [
+    "Visual quality after snapping: compare an output with its input.",
+    "Indexed PNGs are engine exports; they are not checked by builders.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "output_off_palette_px",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "output_partial_alpha_px",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.0,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../sources/B.png",
+      "sha256": "6568ed239376f19aee49c057b35cdad01cf8e894cf1765b2d53ab80e4fda0489",
+      "bytes": 3947
+    },
+    {
+      "path": "../sources/F.png",
+      "sha256": "ad81a64ad3ff963b86f59bb069f8993f51195d10ccf4c817bb291ac2b44de2eb",
+      "bytes": 4149
+    },
+    {
+      "path": "../palette_lock/palette.json",
+      "sha256": "81c90496d18d233d21ea510b6639983168da220a2e713b0f8dc69be6d1747b5e",
+      "bytes": 1157
+    }
+  ],
+  "outputs": [
+    {
+      "path": "B.png",
+      "sha256": "6568ed239376f19aee49c057b35cdad01cf8e894cf1765b2d53ab80e4fda0489",
+      "bytes": 3947
+    },
+    {
+      "path": "F.png",
+      "sha256": "ad81a64ad3ff963b86f59bb069f8993f51195d10ccf4c817bb291ac2b44de2eb",
+      "bytes": 4149
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "fit": {
+    "B.png": {
+      "measured_px": 5588,
+      "alpha_threshold": 128,
+      "off_palette_px": 0,
+      "partial_alpha_px": 0,
+      "colors": 14,
+      "palette_colors_used": 14,
+      "mean_delta_e": 0.0,
+      "p95_delta_e": 0.0,
+      "max_delta_e": 0.0
+    },
+    "F.png": {
+      "measured_px": 6150,
+      "alpha_threshold": 128,
+      "off_palette_px": 0,
+      "partial_alpha_px": 0,
+      "colors": 15,
+      "palette_colors_used": 15,
+      "mean_delta_e": 0.0,
+      "p95_delta_e": 0.0,
+      "max_delta_e": 0.0
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.0,
+    "worst_p95_delta_e": 0.0,
+    "off_palette_px": 0
+  },
+  "locked_inputs": []
+}

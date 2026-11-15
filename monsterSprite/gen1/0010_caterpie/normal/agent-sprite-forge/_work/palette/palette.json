@@ -1,0 +1,77 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "0010_caterpie",
+  "colors": [
+    {
+      "hex": "#f6f6ec",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#000000"
+    },
+    {
+      "hex": "#020301"
+    },
+    {
+      "hex": "#080807"
+    },
+    {
+      "hex": "#031103"
+    },
+    {
+      "hex": "#17492c"
+    },
+    {
+      "hex": "#145734"
+    },
+    {
+      "hex": "#772f3e"
+    },
+    {
+      "hex": "#495d43"
+    },
+    {
+      "hex": "#1f663f"
+    },
+    {
+      "hex": "#2b8642"
+    },
+    {
+      "hex": "#747d47"
+    },
+    {
+      "hex": "#319642"
+    },
+    {
+      "hex": "#e9433d"
+    },
+    {
+      "hex": "#39a642"
+    },
+    {
+      "hex": "#4cbb32"
+    },
+    {
+      "hex": "#fb8e47"
+    },
+    {
+      "hex": "#6acd34"
+    },
+    {
+      "hex": "#ddc98c"
+    },
+    {
+      "hex": "#9fe54b"
+    },
+    {
+      "hex": "#eee68d"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 22 colours, seed 0"
+}

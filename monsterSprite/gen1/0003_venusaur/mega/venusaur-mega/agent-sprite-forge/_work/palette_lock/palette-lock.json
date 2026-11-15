@@ -1,0 +1,118 @@
+{
+  "schema": "generate2dsprite.palette_lock.v1",
+  "palette": {
+    "path": "palette.json",
+    "sha256": "69a456a3c21db5f059460093709ca9300de79b046b08bd909d453c7814ff4bad",
+    "bytes": 1379
+  },
+  "colors": [
+    "#f6ffce",
+    "#9ce854",
+    "#060906",
+    "#121510",
+    "#152822",
+    "#3b1b12",
+    "#1a3c31",
+    "#5a2d20",
+    "#165047",
+    "#7b3620",
+    "#286333",
+    "#1d6561",
+    "#934932",
+    "#327f3e",
+    "#137d7a",
+    "#bb4940",
+    "#ad654b",
+    "#419b3f",
+    "#e55259",
+    "#21a7a0",
+    "#a5957a",
+    "#e47272",
+    "#51b651",
+    "#66bfba",
+    "#f9898d",
+    "#60d25d",
+    "#e9b0b0",
+    "#f0da49",
+    "#ead3d3",
+    "#f6f4f3"
+  ],
+  "transparent_index": 255,
+  "sources": [
+    {
+      "path": "../stills_raw/N.png",
+      "sha256": "9fa4db3e15afdc93df9673380957e8661c03acb233722fc1467bb8049bf4c015",
+      "fit": {
+        "measured_px": 5359,
+        "alpha_threshold": 1,
+        "off_palette_px": 5357,
+        "partial_alpha_px": 0,
+        "colors": 4389,
+        "palette_colors_used": 28,
+        "mean_delta_e": 0.021795,
+        "p95_delta_e": 0.0465,
+        "max_delta_e": 0.099549
+      }
+    },
+    {
+      "path": "../stills_raw/NE.png",
+      "sha256": "848695c6b403ca8f46ffeedead2881d9963e99a86e20e0841be9742d7d9721f0",
+      "fit": {
+        "measured_px": 4630,
+        "alpha_threshold": 1,
+        "off_palette_px": 4630,
+        "partial_alpha_px": 0,
+        "colors": 3475,
+        "palette_colors_used": 28,
+        "mean_delta_e": 0.024091,
+        "p95_delta_e": 0.049277,
+        "max_delta_e": 0.121927
+      }
+    },
+    {
+      "path": "../stills_raw/S.png",
+      "sha256": "89a48a840967b02cb945dcc5851268f724f141c35a5702788705629d67101974",
+      "fit": {
+        "measured_px": 5229,
+        "alpha_threshold": 1,
+        "off_palette_px": 5229,
+        "partial_alpha_px": 0,
+        "colors": 4718,
+        "palette_colors_used": 28,
+        "mean_delta_e": 0.025218,
+        "p95_delta_e": 0.054422,
+        "max_delta_e": 0.121281
+      }
+    },
+    {
+      "path": "../stills_raw/SW.png",
+      "sha256": "f6b3ce186c085f0fb0a88b4a1a22916db4c0f52556283259d8d027e33b1af9dc",
+      "fit": {
+        "measured_px": 4884,
+        "alpha_threshold": 1,
+        "off_palette_px": 4884,
+        "partial_alpha_px": 0,
+        "colors": 3652,
+        "palette_colors_used": 28,
+        "mean_delta_e": 0.024309,
+        "p95_delta_e": 0.052281,
+        "max_delta_e": 0.119641
+      }
+    },
+    {
+      "path": "../stills_raw/W.png",
+      "sha256": "785819418d9439eacd3b34c940af2d8a7ea79a2a1a9022e7c8a2950fb81148dd",
+      "fit": {
+        "measured_px": 4800,
+        "alpha_threshold": 1,
+        "off_palette_px": 4800,
+        "partial_alpha_px": 0,
+        "colors": 3735,
+        "palette_colors_used": 28,
+        "mean_delta_e": 0.023718,
+        "p95_delta_e": 0.050741,
+        "max_delta_e": 0.123759
+      }
+    }
+  ]
+}

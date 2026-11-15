@@ -1,0 +1,88 @@
+{
+ "version": "0015_beedrill_agy_v1",
+ "hash": "8a11418af344",
+ "palette_colors": 30,
+ "off_palette_colors": 0,
+ "alpha_partial": 0,
+ "edge_touching_frames": {},
+ "still_diff": {},
+ "S_still_height": 59,
+ "official_height": 59,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 12,
+   "lastInclusive": 11,
+   "frames": 12,
+   "seconds": 0.923077,
+   "files": [
+    "00.png",
+    "11.png"
+   ],
+   "amplitude_steps": 1.500946,
+   "turnaround_steps": 0.892203,
+   "playback_frames": 22,
+   "holds_inside": [],
+   "root_dx_px_per_loop": 0.04459,
+   "ground_dy_px_per_loop": 2.0,
+   "root_drift_pct_body": 3.390673
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "durations_ms": [
+   77,
+   77,
+   77,
+   77,
+   77,
+   77,
+   76,
+   77,
+   77,
+   77,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.607797,
+    "amplitude": 0.166982,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.166982,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-11 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+    "Frames from 14 on drift (scale -3.2% at frame 14) and were not used."
+   ]
+  },
+  "seam": {
+   "frames": 22,
+   "seam": 55.168908,
+   "adjacent_median": 40.783052,
+   "adjacent_p95": 49.97278,
+   "adjacent_max": 55.168908,
+   "seam_over_median": 1.352741,
+   "seam_over_p95": 1.103979,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no loop window: every one- and two-stride window includes unusable frames, runs past the drift-free range or fails the seam checks; review the clip manually"
+}

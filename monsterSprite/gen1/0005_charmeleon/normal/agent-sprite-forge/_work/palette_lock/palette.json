@@ -1,0 +1,109 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "charmeleon",
+  "colors": [
+    {
+      "hex": "#101010",
+      "reserved": true
+    },
+    {
+      "hex": "#6a6a6a",
+      "reserved": true
+    },
+    {
+      "hex": "#942010",
+      "reserved": true
+    },
+    {
+      "hex": "#b48b5a",
+      "reserved": true
+    },
+    {
+      "hex": "#b4b4b4",
+      "reserved": true
+    },
+    {
+      "hex": "#cd3939",
+      "reserved": true
+    },
+    {
+      "hex": "#cdac7b",
+      "reserved": true
+    },
+    {
+      "hex": "#e6cdac",
+      "reserved": true
+    },
+    {
+      "hex": "#ff4100",
+      "reserved": true
+    },
+    {
+      "hex": "#ff524a",
+      "reserved": true
+    },
+    {
+      "hex": "#ff836a",
+      "reserved": true
+    },
+    {
+      "hex": "#ffa400",
+      "reserved": true
+    },
+    {
+      "hex": "#ffde29",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#005aff",
+      "reserved": true
+    },
+    {
+      "hex": "#fff6c4",
+      "reserved": true
+    },
+    {
+      "hex": "#0c0504"
+    },
+    {
+      "hex": "#291a18"
+    },
+    {
+      "hex": "#242449"
+    },
+    {
+      "hex": "#4f1b19"
+    },
+    {
+      "hex": "#433936"
+    },
+    {
+      "hex": "#75201d"
+    },
+    {
+      "hex": "#b2292c"
+    },
+    {
+      "hex": "#b4473e"
+    },
+    {
+      "hex": "#ef423b"
+    },
+    {
+      "hex": "#da653a"
+    },
+    {
+      "hex": "#f1781e"
+    },
+    {
+      "hex": "#e6b984"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 28 colours, seed 0; locked by palette_tool lock"
+}

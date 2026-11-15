@@ -1,0 +1,1 @@
+{"key": "0005_charmeleon", "status": "done", "v": "0005_charmeleon_agy_v1", "note": "agy keys 1st try OK; script tools/forge_gen1_0005_charmeleon_actions.py; off-palette 0, edge-touch 0, still diff 0, S height 56 = official front; attack = fire claw slash (front arm, tail flame flares, 3 curved burning claw marks); gait idle cycle, walk no gait period (in-place step)"}

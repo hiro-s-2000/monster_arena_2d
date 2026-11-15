@@ -1,0 +1,28 @@
+{
+  "generator": "forge_ampharos_mega_actions",
+  "key": "0181_ampharos-mega",
+  "dex": 181,
+  "cell_w": 82,
+  "cell_h": 90,
+  "foot_y": 86,
+  "sprite_h": 74,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 11,
+  "off_palette_colors": 0
+}

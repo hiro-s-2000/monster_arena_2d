@@ -1,0 +1,63 @@
+{
+  "schema": "agent-sprite-forge.meta.v2",
+  "key": "0227_skarmory-mega",
+  "archetype": "avian_raptor_hover",
+  "rig_parts": [
+    "wing_L",
+    "tail",
+    "leg_L",
+    "leg_R",
+    "torso",
+    "wing_R",
+    "lower_jaw",
+    "head_upper"
+  ],
+  "Idle": "../../pokeSprite/gen2/0227_skarmory/mega/skarmory-mega/agent-sprite-forge/idle.png",
+  "Walk": "../../pokeSprite/gen2/0227_skarmory/mega/skarmory-mega/agent-sprite-forge/walk.png",
+  "Attack": "../../pokeSprite/gen2/0227_skarmory/mega/skarmory-mega/agent-sprite-forge/attack.png",
+  "Hurt": "../../pokeSprite/gen2/0227_skarmory/mega/skarmory-mega/agent-sprite-forge/hurt.png",
+  "Sheet": "../../pokeSprite/gen2/0227_skarmory/mega/skarmory-mega/agent-sprite-forge/sheet.png",
+  "Preview": "../../pokeSprite/gen2/0227_skarmory/mega/skarmory-mega/agent-sprite-forge/preview.png",
+  "cols": 16,
+  "rows": 8,
+  "cellW": 106,
+  "cellH": 104,
+  "footY": 100,
+  "paletteCount": 13,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": {
+    "idle": {
+      "rowStart": 0,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    },
+    "walk": {
+      "rowStart": 8,
+      "rows": 8,
+      "frames": 16,
+      "fps": 14
+    },
+    "attack": {
+      "rowStart": 16,
+      "rows": 8,
+      "frames": 16,
+      "fps": 16
+    },
+    "hurt": {
+      "rowStart": 24,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    }
+  }
+}

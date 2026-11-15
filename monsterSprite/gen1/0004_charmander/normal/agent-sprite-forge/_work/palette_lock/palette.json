@@ -1,0 +1,83 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "0004_charmander",
+  "colors": [
+    {
+      "hex": "#fff6be",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#000000"
+    },
+    {
+      "hex": "#020000"
+    },
+    {
+      "hex": "#090101"
+    },
+    {
+      "hex": "#120100"
+    },
+    {
+      "hex": "#0c0605"
+    },
+    {
+      "hex": "#1d0201"
+    },
+    {
+      "hex": "#101010"
+    },
+    {
+      "hex": "#1c110e"
+    },
+    {
+      "hex": "#631704"
+    },
+    {
+      "hex": "#0b3773"
+    },
+    {
+      "hex": "#7c2403"
+    },
+    {
+      "hex": "#af2d13"
+    },
+    {
+      "hex": "#c7361d"
+    },
+    {
+      "hex": "#d73820"
+    },
+    {
+      "hex": "#2c8bbd"
+    },
+    {
+      "hex": "#f42e02"
+    },
+    {
+      "hex": "#f96f15"
+    },
+    {
+      "hex": "#fb8e36"
+    },
+    {
+      "hex": "#e6ab4e"
+    },
+    {
+      "hex": "#eebb5d"
+    },
+    {
+      "hex": "#fcd405"
+    },
+    {
+      "hex": "#fada8a"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 24 colours, seed 0; locked by palette_tool lock"
+}

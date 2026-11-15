@@ -1,0 +1,111 @@
+{
+  "generator": "forge_raichu_mega_x_actions",
+  "version": "raichu_mega_x_agy_v1",
+  "key": "0026_raichu-mega-x",
+  "dex": 26,
+  "source_art": [
+    "art/agy_keys_2x2.png",
+    "art/agy_sw_single.png"
+  ],
+  "made_from": [
+    "art/raimX_front.webp",
+    "art/raimX_back.webp"
+  ],
+  "cell_w": 232,
+  "cell_h": 132,
+  "foot_y": 122,
+  "sprite_h": 91,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 30,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    35,
+    32,
+    164,
+    91,
+    26,
+    28,
+    175,
+    95,
+    32,
+    32,
+    116,
+    91,
+    33,
+    32,
+    162,
+    92,
+    37,
+    33,
+    162,
+    91,
+    37,
+    32,
+    162,
+    92,
+    84,
+    32,
+    116,
+    91,
+    31,
+    28,
+    175,
+    95
+  ]
+}

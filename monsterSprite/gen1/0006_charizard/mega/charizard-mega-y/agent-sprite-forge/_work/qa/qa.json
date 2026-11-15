@@ -1,0 +1,76 @@
+{
+ "version": "0006_charizard_mega_y_rig_v1",
+ "hash": "edbe231b8a99",
+ "palette_colors": 30,
+ "off_palette_colors": 0,
+ "alpha_partial": 0,
+ "edge_touching_frames": {},
+ "still_diff": {},
+ "S_still_height": 96,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 7,
+   "lastInclusive": 6,
+   "frames": 7,
+   "seconds": 0.538462,
+   "files": [
+    "00.png",
+    "06.png"
+   ],
+   "amplitude_steps": 3.892694,
+   "turnaround_steps": 0.369853,
+   "playback_frames": 12,
+   "holds_inside": [],
+   "root_dx_px_per_loop": 0.286881,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.295754
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "durations_ms": [
+   77,
+   77,
+   77,
+   76,
+   77,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 1.0,
+    "amplitude": 0.964231,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.5,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-6 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 12,
+   "seam": 6.865876,
+   "adjacent_median": 9.453014,
+   "adjacent_p95": 16.330207,
+   "adjacent_max": 16.330207,
+   "seam_over_median": 0.726316,
+   "seam_over_p95": 0.42044,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no loop window: every one- and two-stride window includes unusable frames, runs past the drift-free range or fails the seam checks; review the clip manually"
+}

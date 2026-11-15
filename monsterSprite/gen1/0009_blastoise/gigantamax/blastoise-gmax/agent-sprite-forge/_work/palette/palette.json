@@ -1,0 +1,107 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "blastoise-gmax",
+  "colors": [
+    {
+      "hex": "#c8f0ff",
+      "reserved": true
+    },
+    {
+      "hex": "#50b0f0",
+      "reserved": true
+    },
+    {
+      "hex": "#0c0c0d"
+    },
+    {
+      "hex": "#19191a"
+    },
+    {
+      "hex": "#292520"
+    },
+    {
+      "hex": "#11273e"
+    },
+    {
+      "hex": "#352f28"
+    },
+    {
+      "hex": "#13385b"
+    },
+    {
+      "hex": "#413b31"
+    },
+    {
+      "hex": "#124573"
+    },
+    {
+      "hex": "#653729"
+    },
+    {
+      "hex": "#4a453d"
+    },
+    {
+      "hex": "#114d85"
+    },
+    {
+      "hex": "#564f42"
+    },
+    {
+      "hex": "#3a5571"
+    },
+    {
+      "hex": "#86432f"
+    },
+    {
+      "hex": "#5f5e5d"
+    },
+    {
+      "hex": "#2260a5"
+    },
+    {
+      "hex": "#a7472d"
+    },
+    {
+      "hex": "#6a6d6f"
+    },
+    {
+      "hex": "#376eb0"
+    },
+    {
+      "hex": "#bd4c30"
+    },
+    {
+      "hex": "#7c7d7e"
+    },
+    {
+      "hex": "#5586c2"
+    },
+    {
+      "hex": "#cd5d3d"
+    },
+    {
+      "hex": "#8e8f90"
+    },
+    {
+      "hex": "#a2a3a5"
+    },
+    {
+      "hex": "#65c4ce"
+    },
+    {
+      "hex": "#b5b5b8"
+    },
+    {
+      "hex": "#c8c9cd"
+    },
+    {
+      "hex": "#e2e2e3"
+    },
+    {
+      "hex": "#fbfbfb"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 32 colours, seed 0"
+}

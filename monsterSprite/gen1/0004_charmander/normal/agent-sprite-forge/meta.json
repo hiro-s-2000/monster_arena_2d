@@ -1,0 +1,111 @@
+{
+  "generator": "forge_gen1_0004_charmander_actions",
+  "version": "0004_charmander_agy_v1",
+  "key": "0004_charmander",
+  "dex": 4,
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "made_from": [
+    "front.png",
+    "back.png"
+  ],
+  "cell_w": 128,
+  "cell_h": 88,
+  "foot_y": 78,
+  "sprite_h": 42,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 24,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    49,
+    37,
+    42,
+    42,
+    41,
+    37,
+    37,
+    42,
+    38,
+    38,
+    41,
+    41,
+    37,
+    38,
+    39,
+    41,
+    48,
+    38,
+    40,
+    41,
+    52,
+    38,
+    39,
+    41,
+    49,
+    38,
+    41,
+    41,
+    50,
+    37,
+    37,
+    42
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "key": "0009_blastoise-gmax",
+  "dex": 9,
+  "version": "original_rig_v4",
+  "generator": "forge_gmax_original_actions.py",
+  "art_source": "existing",
+  "source_art": [
+    "front.png",
+    "back.png"
+  ],
+  "source_mapping": {
+    "F": [
+      "back.png",
+      true
+    ],
+    "B": [
+      "front.png",
+      true
+    ]
+  },
+  "direction_sources": {
+    "S": [
+      "F",
+      false
+    ],
+    "SE": [
+      "F",
+      true
+    ],
+    "E": [
+      "F",
+      true
+    ],
+    "NE": [
+      "B",
+      false
+    ],
+    "N": [
+      "B",
+      false
+    ],
+    "NW": [
+      "B",
+      true
+    ],
+    "W": [
+      "F",
+      false
+    ],
+    "SW": [
+      "F",
+      false
+    ]
+  },
+  "direction_limit": "two source angles plus mirrors; no fabricated side projection",
+  "cell_w": 224,
+  "cell_h": 160,
+  "foot_y": 128,
+  "sprite_h": 93,
+  "frames": 16,
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "frame_time": [
+    0.085,
+    0.075,
+    0.065,
+    0.065
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "idle_bounds_S_to_SW": [
+    65,
+    36,
+    95,
+    93,
+    64,
+    36,
+    95,
+    93,
+    64,
+    36,
+    95,
+    93,
+    68,
+    39,
+    91,
+    90,
+    68,
+    39,
+    91,
+    90,
+    65,
+    39,
+    91,
+    90,
+    65,
+    36,
+    95,
+    93,
+    65,
+    36,
+    95,
+    93
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0
+}

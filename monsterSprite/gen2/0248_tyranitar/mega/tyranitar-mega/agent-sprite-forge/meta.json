@@ -1,0 +1,64 @@
+{
+  "schema": "agent-sprite-forge.meta.v2",
+  "key": "0248_tyranitar-mega",
+  "archetype": "biped_kaiju_stomper",
+  "rig_parts": [
+    "tail",
+    "back_spikes",
+    "arm_far",
+    "foot_L",
+    "torso",
+    "foot_R",
+    "lower_jaw",
+    "head_upper",
+    "arm_near"
+  ],
+  "Idle": "../../pokeSprite/gen2/0248_tyranitar/mega/tyranitar-mega/agent-sprite-forge/idle.png",
+  "Walk": "../../pokeSprite/gen2/0248_tyranitar/mega/tyranitar-mega/agent-sprite-forge/walk.png",
+  "Attack": "../../pokeSprite/gen2/0248_tyranitar/mega/tyranitar-mega/agent-sprite-forge/attack.png",
+  "Hurt": "../../pokeSprite/gen2/0248_tyranitar/mega/tyranitar-mega/agent-sprite-forge/hurt.png",
+  "Sheet": "../../pokeSprite/gen2/0248_tyranitar/mega/tyranitar-mega/agent-sprite-forge/sheet.png",
+  "Preview": "../../pokeSprite/gen2/0248_tyranitar/mega/tyranitar-mega/agent-sprite-forge/preview.png",
+  "cols": 16,
+  "rows": 8,
+  "cellW": 114,
+  "cellH": 108,
+  "footY": 98,
+  "paletteCount": 13,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": {
+    "idle": {
+      "rowStart": 0,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    },
+    "walk": {
+      "rowStart": 8,
+      "rows": 8,
+      "frames": 16,
+      "fps": 14
+    },
+    "attack": {
+      "rowStart": 16,
+      "rows": 8,
+      "frames": 16,
+      "fps": 16
+    },
+    "hurt": {
+      "rowStart": 24,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    }
+  }
+}

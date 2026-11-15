@@ -1,0 +1,108 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "wartortle",
+  "colors": [
+    {
+      "hex": "#101010",
+      "reserved": true
+    },
+    {
+      "hex": "#29416a",
+      "reserved": true
+    },
+    {
+      "hex": "#31414a",
+      "reserved": true
+    },
+    {
+      "hex": "#627bc5",
+      "reserved": true
+    },
+    {
+      "hex": "#6a4a18",
+      "reserved": true
+    },
+    {
+      "hex": "#8b5a20",
+      "reserved": true
+    },
+    {
+      "hex": "#8bacf6",
+      "reserved": true
+    },
+    {
+      "hex": "#946262",
+      "reserved": true
+    },
+    {
+      "hex": "#ac8b62",
+      "reserved": true
+    },
+    {
+      "hex": "#acc5ff",
+      "reserved": true
+    },
+    {
+      "hex": "#bdc5e6",
+      "reserved": true
+    },
+    {
+      "hex": "#d5eef6",
+      "reserved": true
+    },
+    {
+      "hex": "#dec58b",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#cd8320",
+      "reserved": true
+    },
+    {
+      "hex": "#020204"
+    },
+    {
+      "hex": "#070811"
+    },
+    {
+      "hex": "#262631"
+    },
+    {
+      "hex": "#734c43"
+    },
+    {
+      "hex": "#4a577a"
+    },
+    {
+      "hex": "#5b6c9c"
+    },
+    {
+      "hex": "#b66519"
+    },
+    {
+      "hex": "#7d86a2"
+    },
+    {
+      "hex": "#7f98db"
+    },
+    {
+      "hex": "#96a0bd"
+    },
+    {
+      "hex": "#c2a154"
+    },
+    {
+      "hex": "#c7b086"
+    },
+    {
+      "hex": "#abb6d8"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 28 colours, seed 0; locked by palette_tool lock"
+}

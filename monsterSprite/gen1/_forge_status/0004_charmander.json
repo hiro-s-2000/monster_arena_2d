@@ -1,0 +1,1 @@
+{"key": "0004_charmander", "status": "done", "v": "0004_charmander_agy_v1", "note": "agy keys ok on 1st try; off-palette 0, edge 0, still diff 0, S height 42 = official; idle pingpong, walk gait_loop 'no loop window' (in-place steps, same as reference)"}

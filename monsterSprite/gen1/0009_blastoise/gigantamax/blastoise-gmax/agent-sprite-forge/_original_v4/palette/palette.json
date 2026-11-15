@@ -1,0 +1,69 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "0009_blastoise-gmax",
+  "colors": [
+    {
+      "hex": "#083962",
+      "reserved": true
+    },
+    {
+      "hex": "#101010",
+      "reserved": true
+    },
+    {
+      "hex": "#2062ac",
+      "reserved": true
+    },
+    {
+      "hex": "#352e27",
+      "reserved": true
+    },
+    {
+      "hex": "#494136",
+      "reserved": true
+    },
+    {
+      "hex": "#4a4a4a",
+      "reserved": true
+    },
+    {
+      "hex": "#5a8bcd",
+      "reserved": true
+    },
+    {
+      "hex": "#5f5647",
+      "reserved": true
+    },
+    {
+      "hex": "#6ce8d6",
+      "reserved": true
+    },
+    {
+      "hex": "#949494",
+      "reserved": true
+    },
+    {
+      "hex": "#94ace6",
+      "reserved": true
+    },
+    {
+      "hex": "#c75435",
+      "reserved": true
+    },
+    {
+      "hex": "#cdcdd5",
+      "reserved": true
+    },
+    {
+      "hex": "#ea7957",
+      "reserved": true
+    },
+    {
+      "hex": "#fdfdfd",
+      "reserved": true
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 2 image(s), 15 colours, seed 0"
+}

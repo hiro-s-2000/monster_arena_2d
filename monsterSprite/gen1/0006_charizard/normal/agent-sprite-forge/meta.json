@@ -1,0 +1,111 @@
+{
+  "generator": "forge_gen1_0006_charizard_actions",
+  "version": "0006_charizard_agy_v1",
+  "key": "0006_charizard",
+  "dex": 6,
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "made_from": [
+    "front.png",
+    "back.png"
+  ],
+  "cell_w": 208,
+  "cell_h": 136,
+  "foot_y": 122,
+  "sprite_h": 80,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 30,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    36,
+    43,
+    136,
+    80,
+    55,
+    27,
+    97,
+    96,
+    29,
+    43,
+    109,
+    80,
+    38,
+    44,
+    131,
+    79,
+    38,
+    43,
+    133,
+    80,
+    39,
+    44,
+    131,
+    79,
+    70,
+    43,
+    109,
+    80,
+    56,
+    27,
+    97,
+    96
+  ]
+}

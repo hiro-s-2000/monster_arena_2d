@@ -1,0 +1,69 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "0003_venusaur-gmax",
+  "colors": [
+    {
+      "hex": "#101010",
+      "reserved": true
+    },
+    {
+      "hex": "#105241",
+      "reserved": true
+    },
+    {
+      "hex": "#107b6a",
+      "reserved": true
+    },
+    {
+      "hex": "#20b49c",
+      "reserved": true
+    },
+    {
+      "hex": "#5a9c39",
+      "reserved": true
+    },
+    {
+      "hex": "#5ad5c5",
+      "reserved": true
+    },
+    {
+      "hex": "#833100",
+      "reserved": true
+    },
+    {
+      "hex": "#83de7b",
+      "reserved": true
+    },
+    {
+      "hex": "#bd6a31",
+      "reserved": true
+    },
+    {
+      "hex": "#de4141",
+      "reserved": true
+    },
+    {
+      "hex": "#debd29",
+      "reserved": true
+    },
+    {
+      "hex": "#fdfdfd",
+      "reserved": true
+    },
+    {
+      "hex": "#ff7b73",
+      "reserved": true
+    },
+    {
+      "hex": "#ffbdbd",
+      "reserved": true
+    },
+    {
+      "hex": "#ffee52",
+      "reserved": true
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 2 image(s), 15 colours, seed 0"
+}

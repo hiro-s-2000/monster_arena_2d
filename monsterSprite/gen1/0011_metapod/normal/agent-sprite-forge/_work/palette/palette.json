@@ -1,0 +1,71 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "cocoon",
+  "colors": [
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#e8ffb0",
+      "reserved": true
+    },
+    {
+      "hex": "#060906"
+    },
+    {
+      "hex": "#0e130e"
+    },
+    {
+      "hex": "#1c241b"
+    },
+    {
+      "hex": "#283625"
+    },
+    {
+      "hex": "#354c34"
+    },
+    {
+      "hex": "#446441"
+    },
+    {
+      "hex": "#4f7742"
+    },
+    {
+      "hex": "#668757"
+    },
+    {
+      "hex": "#5b913e"
+    },
+    {
+      "hex": "#769360"
+    },
+    {
+      "hex": "#889189"
+    },
+    {
+      "hex": "#6aa144"
+    },
+    {
+      "hex": "#89a77b"
+    },
+    {
+      "hex": "#73b242"
+    },
+    {
+      "hex": "#78c13d"
+    },
+    {
+      "hex": "#83cc3b"
+    },
+    {
+      "hex": "#9dcf53"
+    },
+    {
+      "hex": "#b2e057"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 20 colours, seed 0"
+}

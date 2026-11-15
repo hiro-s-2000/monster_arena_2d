@@ -1,0 +1,84 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "0007_squirtle",
+  "colors": [
+    {
+      "hex": "#e2f8ff",
+      "reserved": true
+    },
+    {
+      "hex": "#48a0ec",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#000000"
+    },
+    {
+      "hex": "#010304"
+    },
+    {
+      "hex": "#050707"
+    },
+    {
+      "hex": "#050d0f"
+    },
+    {
+      "hex": "#0f1111"
+    },
+    {
+      "hex": "#2b190f"
+    },
+    {
+      "hex": "#48230b"
+    },
+    {
+      "hex": "#622d06"
+    },
+    {
+      "hex": "#874406"
+    },
+    {
+      "hex": "#1f6570"
+    },
+    {
+      "hex": "#327c88"
+    },
+    {
+      "hex": "#b46709"
+    },
+    {
+      "hex": "#4b949f"
+    },
+    {
+      "hex": "#cc8c44"
+    },
+    {
+      "hex": "#b29869"
+    },
+    {
+      "hex": "#7ec0ca"
+    },
+    {
+      "hex": "#c8b799"
+    },
+    {
+      "hex": "#cac2bf"
+    },
+    {
+      "hex": "#eebd66"
+    },
+    {
+      "hex": "#b0dee4"
+    },
+    {
+      "hex": "#fae6a9"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 24 colours, seed 0"
+}

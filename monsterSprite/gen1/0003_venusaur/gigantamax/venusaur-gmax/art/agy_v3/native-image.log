@@ -1,0 +1,8 @@
+`[██░░░░░░░░] 20% - (1/5) 参照画像の読み込みと確認`
+- 🔄 実行中: 参照画像 (`front.png`, `back.png`) の読み込み
+- ⏳ 待機中: `image-generator` による Output A (`out/keys_2x2.png`) の生成
+- ⏳ 待機中: `image-generator` による Output B (`out/sw_single.png`) の生成
+- ⏳ 待機中: 生成画像の配置とサイズ確認
+- ⏳ 待機中: 完了報告とトークン使用量の集計
+
+まずは元の参照画像2枚を読み込みます。

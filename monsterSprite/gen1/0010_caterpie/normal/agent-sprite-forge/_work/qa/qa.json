@@ -1,0 +1,86 @@
+{
+ "version": "0010_caterpie_agy_v1",
+ "hash": "51eea1aec3fb",
+ "palette_colors": 22,
+ "off_palette_colors": 0,
+ "alpha_not_binary": 0,
+ "edge_touching_frames": {},
+ "still_diff_px": 0,
+ "S_height": 35,
+ "official_height": 35,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 13,
+   "lastInclusive": 12,
+   "frames": 13,
+   "seconds": 1.0,
+   "files": [
+    "00.png",
+    "12.png"
+   ],
+   "amplitude_steps": 5.45279,
+   "turnaround_steps": 0.323514,
+   "playback_frames": 24,
+   "holds_inside": [
+    1,
+    5,
+    8,
+    12
+   ],
+   "root_dx_px_per_loop": 0.341895,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.949707
+  },
+  "sourceIndices": [
+   0,
+   2,
+   3,
+   4,
+   6,
+   7,
+   9,
+   10,
+   11
+  ],
+  "durations_ms": [
+   154,
+   77,
+   77,
+   154,
+   76,
+   154,
+   77,
+   77,
+   154
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 1.0,
+    "amplitude": 1.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.5,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-12 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 16,
+   "seam": 3.112854,
+   "adjacent_median": 5.333641,
+   "adjacent_p95": 21.812731,
+   "adjacent_max": 21.812731,
+   "seam_over_median": 0.583626,
+   "seam_over_p95": 0.142708,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no loop window: every one- and two-stride window includes unusable frames, runs past the drift-free range or fails the seam checks; review the clip manually"
+}

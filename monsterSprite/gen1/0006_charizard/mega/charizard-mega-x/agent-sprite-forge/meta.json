@@ -1,0 +1,111 @@
+{
+  "generator": "forge_gen1_0006_charizard_mega_x_actions",
+  "version": "0006_charizard_mega_x_agy_v1",
+  "key": "0006_charizard-mega-x",
+  "dex": 6,
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "made_from": [
+    "front.png",
+    "back.png"
+  ],
+  "cell_w": 232,
+  "cell_h": 140,
+  "foot_y": 128,
+  "sprite_h": 82,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 30,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    52,
+    47,
+    128,
+    82,
+    56,
+    47,
+    92,
+    82,
+    17,
+    47,
+    129,
+    82,
+    48,
+    43,
+    141,
+    86,
+    50,
+    45,
+    132,
+    84,
+    43,
+    43,
+    141,
+    86,
+    86,
+    47,
+    129,
+    82,
+    84,
+    47,
+    92,
+    82
+  ]
+}

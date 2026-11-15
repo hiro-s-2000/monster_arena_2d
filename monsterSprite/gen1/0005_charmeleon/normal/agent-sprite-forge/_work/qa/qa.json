@@ -1,0 +1,98 @@
+{
+ "version": "0005_charmeleon_agy_v1",
+ "hash": "136672c81f8c",
+ "palette_colors": 28,
+ "off_palette_colors": 0,
+ "partial_alpha_px": 0,
+ "edge_touching_frames": {},
+ "still_diff": {},
+ "S_height": 56,
+ "gait_idle": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 14,
+   "lastInclusive": 13,
+   "frames": 14,
+   "seconds": 1.076923,
+   "files": [
+    "00.png",
+    "13.png"
+   ],
+   "closure_pose_steps": 0.265646,
+   "closure_velocity_steps": 0.275623,
+   "closure_steps": 0.403457,
+   "amplitude_steps": 3.100066,
+   "wrap_steps": 2.426474,
+   "holds_inside": [
+    1
+   ],
+   "root_dx_px_per_loop": 0.068479,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.121201,
+   "score": 0.403457,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": [
+     "held duplicate frames 1 are dropped; their time goes to the frame they repeat"
+    ]
+   }
+  },
+  "sourceIndices": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "durations_ms": [
+   154,
+   77,
+   77,
+   77,
+   77,
+   77,
+   76,
+   77,
+   77,
+   77,
+   77,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "closure": 1.0,
+    "amplitude": 0.700022
+   },
+   "overall": 0.700022,
+   "label": "high",
+   "review_priority": "spot-check",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 13,
+   "seam": 26.245113,
+   "adjacent_median": 10.504887,
+   "adjacent_p95": 19.48259,
+   "adjacent_max": 20.312462,
+   "seam_over_median": 2.498372,
+   "seam_over_p95": 1.347106,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no gait period: the lag profile is flat: the best repeat at 6 frames is only 2% below the profile mean (need 15%); the motion does not repeat"
+}

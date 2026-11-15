@@ -1,0 +1,7 @@
+{
+  "key": "0003_venusaur-gmax",
+  "status": "done",
+  "v": "legacy_idle",
+  "user_locked_legacy": true,
+  "note": "User requested rollback before actions_8dir adoption on 2026-11-04. Legacy dir8 idle sheet restored, 2d Forge override removed. Do not regenerate/re-enable without a new explicit request."
+}

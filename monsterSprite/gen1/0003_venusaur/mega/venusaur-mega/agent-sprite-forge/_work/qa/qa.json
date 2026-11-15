@@ -1,0 +1,89 @@
+{
+ "version": "venusaur_mega_agy_v1",
+ "hash": "c48b30474fd8",
+ "palette_colors": 30,
+ "off_palette_colors": 0,
+ "alpha_partial": 0,
+ "edge_touching_frames": {},
+ "still_diff": {
+  "S": 0,
+  "SW": 0,
+  "W": 0,
+  "NE": 0,
+  "N": 0
+ },
+ "s_height": 74,
+ "official_height": 74,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 10,
+   "lastInclusive": 9,
+   "frames": 10,
+   "seconds": 0.769231,
+   "files": [
+    "00.png",
+    "09.png"
+   ],
+   "amplitude_steps": 5.060851,
+   "turnaround_steps": 0.435755,
+   "playback_frames": 18,
+   "holds_inside": [
+    1
+   ],
+   "root_dx_px_per_loop": 0.280696,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.379319
+  },
+  "sourceIndices": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "durations_ms": [
+   154,
+   77,
+   77,
+   77,
+   76,
+   77,
+   77,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 1.0,
+    "amplitude": 1.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.5,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-9 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 16,
+   "seam": 5.49756,
+   "adjacent_median": 3.91989,
+   "adjacent_p95": 10.978683,
+   "adjacent_max": 10.978683,
+   "seam_over_median": 1.402478,
+   "seam_over_p95": 0.500749,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no loop window: every one- and two-stride window includes unusable frames, runs past the drift-free range or fails the seam checks; review the clip manually"
+}

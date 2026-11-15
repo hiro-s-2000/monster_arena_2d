@@ -1,0 +1,28 @@
+{
+  "generator": "forge_steelix_mega_actions",
+  "key": "0208_steelix-mega",
+  "dex": 208,
+  "cell_w": 116,
+  "cell_h": 106,
+  "foot_y": 102,
+  "sprite_h": 90,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 21,
+  "off_palette_colors": 0
+}

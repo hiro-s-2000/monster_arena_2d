@@ -1,0 +1,7 @@
+{
+  "status": "incomplete_no_generated_artifacts",
+  "route": "Antigravity CLI (agy), sandbox, accept-edits",
+  "originals_modified": false,
+  "result": "The CLI logged the reference-reading step only. No generated images were saved. The tool session is no longer available, and process inspection found no running agy CLI process. Exit cause and code could not be recovered; no quota error was observed.",
+  "use_for_actions": false
+}

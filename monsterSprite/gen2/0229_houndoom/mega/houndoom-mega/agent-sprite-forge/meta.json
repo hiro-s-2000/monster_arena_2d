@@ -1,0 +1,65 @@
+{
+  "schema": "agent-sprite-forge.meta.v2",
+  "key": "0229_houndoom-mega",
+  "archetype": "quadruped_beast",
+  "rig_parts": [
+    "tail",
+    "leg_0",
+    "leg_2",
+    "torso",
+    "leg_1",
+    "leg_3",
+    "head_upper",
+    "bone_collar",
+    "lower_jaw",
+    "horns"
+  ],
+  "Idle": "../../pokeSprite/gen2/0229_houndoom/mega/houndoom-mega/agent-sprite-forge/idle.png",
+  "Walk": "../../pokeSprite/gen2/0229_houndoom/mega/houndoom-mega/agent-sprite-forge/walk.png",
+  "Attack": "../../pokeSprite/gen2/0229_houndoom/mega/houndoom-mega/agent-sprite-forge/attack.png",
+  "Hurt": "../../pokeSprite/gen2/0229_houndoom/mega/houndoom-mega/agent-sprite-forge/hurt.png",
+  "Sheet": "../../pokeSprite/gen2/0229_houndoom/mega/houndoom-mega/agent-sprite-forge/sheet.png",
+  "Preview": "../../pokeSprite/gen2/0229_houndoom/mega/houndoom-mega/agent-sprite-forge/preview.png",
+  "cols": 16,
+  "rows": 8,
+  "cellW": 88,
+  "cellH": 100,
+  "footY": 96,
+  "paletteCount": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": {
+    "idle": {
+      "rowStart": 0,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    },
+    "walk": {
+      "rowStart": 8,
+      "rows": 8,
+      "frames": 16,
+      "fps": 14
+    },
+    "attack": {
+      "rowStart": 16,
+      "rows": 8,
+      "frames": 16,
+      "fps": 16
+    },
+    "hurt": {
+      "rowStart": 24,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    }
+  }
+}

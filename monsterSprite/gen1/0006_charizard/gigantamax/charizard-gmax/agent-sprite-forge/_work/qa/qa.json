@@ -1,0 +1,359 @@
+{
+  "off_palette_colors": 0,
+  "intermediate_alpha": 0,
+  "edge_touching_frames": [],
+  "static_diff_pixels": {
+    "S/idle": 0,
+    "S/walk": 0,
+    "S/attack": 0,
+    "S/hurt": 0,
+    "W/idle": 0,
+    "W/walk": 0,
+    "W/attack": 0,
+    "W/hurt": 0,
+    "NE/idle": 0,
+    "NE/walk": 0,
+    "NE/attack": 0,
+    "NE/hurt": 0,
+    "N/idle": 0,
+    "N/walk": 0,
+    "N/attack": 0,
+    "N/hurt": 0,
+    "SW/idle": 0,
+    "SW/walk": 0,
+    "SW/attack": 0,
+    "SW/hurt": 0
+  },
+  "source_route": "Antigravity CLI (existing recovered key art)",
+  "manual_loop_checks": {
+    "S/idle": {
+      "seam_delta": 1.3505,
+      "adjacent_median": 5.7965,
+      "adjacent_max": 23.5608,
+      "seam_to_median": 0.233,
+      "virtual_frame_16_diff": 0
+    },
+    "S/walk": {
+      "seam_delta": 6.3566,
+      "adjacent_median": 17.4256,
+      "adjacent_max": 28.9712,
+      "seam_to_median": 0.3648,
+      "virtual_frame_16_diff": 0
+    },
+    "W/idle": {
+      "seam_delta": 4.1476,
+      "adjacent_median": 5.0696,
+      "adjacent_max": 19.2241,
+      "seam_to_median": 0.8181,
+      "virtual_frame_16_diff": 0
+    },
+    "W/walk": {
+      "seam_delta": 15.1951,
+      "adjacent_median": 22.3831,
+      "adjacent_max": 29.2341,
+      "seam_to_median": 0.6789,
+      "virtual_frame_16_diff": 0
+    },
+    "NE/idle": {
+      "seam_delta": 4.3621,
+      "adjacent_median": 7.7131,
+      "adjacent_max": 22.4813,
+      "seam_to_median": 0.5655,
+      "virtual_frame_16_diff": 0
+    },
+    "NE/walk": {
+      "seam_delta": 11.2525,
+      "adjacent_median": 18.2085,
+      "adjacent_max": 29.0182,
+      "seam_to_median": 0.618,
+      "virtual_frame_16_diff": 0
+    },
+    "N/idle": {
+      "seam_delta": 5.9365,
+      "adjacent_median": 9.1654,
+      "adjacent_max": 23.4887,
+      "seam_to_median": 0.6477,
+      "virtual_frame_16_diff": 0
+    },
+    "N/walk": {
+      "seam_delta": 9.6823,
+      "adjacent_median": 15.1987,
+      "adjacent_max": 28.0155,
+      "seam_to_median": 0.637,
+      "virtual_frame_16_diff": 0
+    },
+    "SW/idle": {
+      "seam_delta": 0.125,
+      "adjacent_median": 3.4114,
+      "adjacent_max": 22.0443,
+      "seam_to_median": 0.0366,
+      "virtual_frame_16_diff": 0
+    },
+    "SW/walk": {
+      "seam_delta": 8.2661,
+      "adjacent_median": 19.3786,
+      "adjacent_max": 30.2244,
+      "seam_to_median": 0.4266,
+      "virtual_frame_16_diff": 0
+    }
+  },
+  "walk_foot_contact": {
+    "S": {
+      "leg_l": [
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leg_r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1
+      ]
+    },
+    "W": {
+      "leg_l": [
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leg_r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1
+      ]
+    },
+    "NE": {
+      "leg_l": [
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leg_r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1
+      ]
+    },
+    "N": {
+      "leg_l": [
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leg_r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1
+      ]
+    },
+    "SW": {
+      "leg_l": [
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leg_r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        -3,
+        -3,
+        -3,
+        -2,
+        -1
+      ]
+    }
+  },
+  "loop_note": "16 unique samples of a periodic gait; virtual frame 16 equals frame 0. Last stored frame 15 is the preceding phase, not a duplicated endpoint. Foot offsets: 0 is support, negative is lift.",
+  "gait_idle": {
+    "policy": "pingpong",
+    "cycles": 1,
+    "window": {
+      "start": 0,
+      "endExclusive": 6,
+      "lastInclusive": 5,
+      "frames": 6,
+      "seconds": 0.5,
+      "files": [
+        "00.png",
+        "05.png"
+      ],
+      "amplitude_steps": 4.861867,
+      "turnaround_steps": 0.364863,
+      "playback_frames": 10,
+      "holds_inside": [],
+      "root_dx_px_per_loop": 0.058865,
+      "ground_dy_px_per_loop": 0.0,
+      "root_drift_pct_body": 0.061638
+    },
+    "sourceIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "durations_ms": [
+      83,
+      84,
+      83,
+      83,
+      84,
+      83
+    ],
+    "confidence": {
+      "components": {
+        "turnaround": 1.0,
+        "amplitude": 1.0,
+        "no_closing_cycle": 0.5
+      },
+      "overall": 0.5,
+      "label": "medium",
+      "review_priority": "review",
+      "review": [
+        "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+        "No window closes as a cycle: pingpong plays frames 0-5 forward then back. Use it only for breathing or sway, never for walks or strikes."
+      ]
+    },
+    "seam": {
+      "frames": 10,
+      "seam": 6.453524,
+      "adjacent_median": 6.501253,
+      "adjacent_p95": 22.534784,
+      "adjacent_max": 22.534784,
+      "seam_over_median": 0.992659,
+      "seam_over_p95": 0.286381,
+      "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+      "mask": "union of visible pixels"
+    }
+  },
+  "gait_walk": {
+    "error": "error: no gait period: the lag profile is flat: the best repeat at 8 frames is only 12% below the profile mean (need 15%); the motion does not repeat"
+  }
+}

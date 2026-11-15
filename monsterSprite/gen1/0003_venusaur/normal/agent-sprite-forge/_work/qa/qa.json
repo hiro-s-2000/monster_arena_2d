@@ -1,0 +1,17 @@
+{
+ "version": "0003_venusaur_agy_v1",
+ "hash": "0f1701e09763",
+ "palette_colors": 28,
+ "off_palette_colors": 0,
+ "alpha_not_binary": 0,
+ "edge_touching_frames": {},
+ "still_diff": {
+  "S": 0,
+  "W": 0,
+  "NE": 0,
+  "N": 0,
+  "SW": 0
+ },
+ "S_height": 69,
+ "official_front_height": 69
+}

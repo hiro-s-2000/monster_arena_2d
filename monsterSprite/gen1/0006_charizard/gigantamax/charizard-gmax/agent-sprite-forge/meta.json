@@ -1,0 +1,114 @@
+{
+  "generator": "forge_gen1_0006_charizard_gmax_actions",
+  "version": "charizard_gmax_agy_v1",
+  "key": "0006_charizard-gmax",
+  "dex": 6,
+  "art_source": "existing",
+  "route": "Antigravity CLI",
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "cell_w": 224,
+  "cell_h": 144,
+  "foot_y": 126,
+  "sprite_h": 95,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "palette_colors": 32,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    68,
+    32,
+    105,
+    95,
+    57,
+    32,
+    92,
+    95,
+    35,
+    34,
+    115,
+    93,
+    26,
+    34,
+    159,
+    93,
+    29,
+    32,
+    168,
+    95,
+    39,
+    34,
+    159,
+    93,
+    74,
+    34,
+    115,
+    93,
+    75,
+    32,
+    92,
+    95
+  ],
+  "motion": "independent fire wings, head, arms, two alternating legs and counterbalancing tail; brace / exhale / recover",
+  "source_notes": [
+    "Recovered pre-existing Antigravity images; source edge contact retained in original art."
+  ],
+  "qa": "qa.json"
+}

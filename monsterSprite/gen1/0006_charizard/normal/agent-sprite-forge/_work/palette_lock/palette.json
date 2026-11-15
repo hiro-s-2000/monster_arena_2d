@@ -1,0 +1,102 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "charizard",
+  "colors": [
+    {
+      "hex": "#fff4b0",
+      "reserved": true
+    },
+    {
+      "hex": "#ffb028",
+      "reserved": true
+    },
+    {
+      "hex": "#f05418",
+      "reserved": true
+    },
+    {
+      "hex": "#090201"
+    },
+    {
+      "hex": "#150807"
+    },
+    {
+      "hex": "#191919"
+    },
+    {
+      "hex": "#310f09"
+    },
+    {
+      "hex": "#252829"
+    },
+    {
+      "hex": "#481d13"
+    },
+    {
+      "hex": "#433731"
+    },
+    {
+      "hex": "#632717"
+    },
+    {
+      "hex": "#084552"
+    },
+    {
+      "hex": "#7e2915"
+    },
+    {
+      "hex": "#125a67"
+    },
+    {
+      "hex": "#604e41"
+    },
+    {
+      "hex": "#92391a"
+    },
+    {
+      "hex": "#b42710"
+    },
+    {
+      "hex": "#17727e"
+    },
+    {
+      "hex": "#ab4d22"
+    },
+    {
+      "hex": "#856e50"
+    },
+    {
+      "hex": "#d22e10"
+    },
+    {
+      "hex": "#ca512d"
+    },
+    {
+      "hex": "#df3e05"
+    },
+    {
+      "hex": "#da6625"
+    },
+    {
+      "hex": "#ad9066"
+    },
+    {
+      "hex": "#f86a03"
+    },
+    {
+      "hex": "#ec791f"
+    },
+    {
+      "hex": "#e5b350"
+    },
+    {
+      "hex": "#c9c1bd"
+    },
+    {
+      "hex": "#f1e080"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 30 colours, seed 0; locked by palette_tool lock"
+}

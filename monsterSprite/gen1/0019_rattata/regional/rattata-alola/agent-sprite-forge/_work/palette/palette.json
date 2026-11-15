@@ -1,0 +1,82 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "0019_rattata-alola",
+  "colors": [
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#000000"
+    },
+    {
+      "hex": "#020000"
+    },
+    {
+      "hex": "#000100"
+    },
+    {
+      "hex": "#020201"
+    },
+    {
+      "hex": "#020402"
+    },
+    {
+      "hex": "#040603"
+    },
+    {
+      "hex": "#070906"
+    },
+    {
+      "hex": "#0d0d0d"
+    },
+    {
+      "hex": "#1e231b"
+    },
+    {
+      "hex": "#313730"
+    },
+    {
+      "hex": "#393f37"
+    },
+    {
+      "hex": "#464c44"
+    },
+    {
+      "hex": "#555e51"
+    },
+    {
+      "hex": "#6d5740"
+    },
+    {
+      "hex": "#5d6658"
+    },
+    {
+      "hex": "#bc2a22"
+    },
+    {
+      "hex": "#7d654b"
+    },
+    {
+      "hex": "#6e7e77"
+    },
+    {
+      "hex": "#997d5f"
+    },
+    {
+      "hex": "#b49373"
+    },
+    {
+      "hex": "#8ca19f"
+    },
+    {
+      "hex": "#c4ac8a"
+    },
+    {
+      "hex": "#d9c49e"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 24 colours, seed 0"
+}

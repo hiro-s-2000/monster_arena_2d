@@ -1,0 +1,82 @@
+{
+ "version": "0009_blastoise_gmax_agy_v1",
+ "hash": "6bbe1ee2668f",
+ "palette_colors": 32,
+ "off_palette_colors": 0,
+ "edge_touching_frames": {},
+ "still_diff_px": {
+  "S": 0,
+  "SW": 0,
+  "W": 0,
+  "NE": 0,
+  "N": 0
+ },
+ "alpha_binary": true,
+ "sprite_h_S": 90,
+ "official_front_h": 90,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 7,
+   "lastInclusive": 6,
+   "frames": 7,
+   "seconds": 0.538462,
+   "files": [
+    "00.png",
+    "06.png"
+   ],
+   "amplitude_steps": 2.981957,
+   "turnaround_steps": 0.166009,
+   "playback_frames": 12,
+   "holds_inside": [
+    4,
+    6
+   ],
+   "root_dx_px_per_loop": 0.027876,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.030633
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   5
+  ],
+  "durations_ms": [
+   77,
+   77,
+   77,
+   153,
+   154
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 1.0,
+    "amplitude": 0.660652,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.5,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-6 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 8,
+   "seam": 1.746345,
+   "adjacent_median": 10.033858,
+   "adjacent_p95": 12.226001,
+   "adjacent_max": 12.226001,
+   "seam_over_median": 0.174045,
+   "seam_over_p95": 0.142839,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no gait period: the lag profile is flat: the best repeat at 6 frames is only -2% below the profile mean (need 15%); the motion does not repeat"
+}

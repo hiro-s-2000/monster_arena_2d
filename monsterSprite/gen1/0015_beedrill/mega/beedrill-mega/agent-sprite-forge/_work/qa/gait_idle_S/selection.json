@@ -1,0 +1,69 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/S/idle",
+  "sourceHashes": [
+    "9561403c985b140aca9fcccf2ae2b226925fe6f815ea8edc6773d5d12424ad79",
+    "997a0c91799695c8b7c7154c3bf3e838a52057f1a856eadb0927a012554493cc",
+    "c4f828d14723f93916d5f376af47342f849ff8b1517f88c3fde4ea266f7a8315",
+    "7f7aae960735785a09ed3457d9564e707c73af9553409ccc9184339cf7a5d237",
+    "c38ab16ae8103ffc34073a32fcf9eac124f7eaec426a70805606df80ca8df5b7",
+    "b7e5b741b84f36393194d81496836feb1d9166f5f4a549845366e2e195055e21",
+    "2b3e93933c0674386ffbae2df8b981428753a4cc7f73d496aeea6e7bcb5be1e5",
+    "2880c402fe85ca30e23b56debe754f0f61d5a79358708dfaf5f7a596bfe8c42d"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png"
+  ],
+  "start": 0,
+  "endExclusive": 8,
+  "sourceIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "durations_ms": [
+    77,
+    77,
+    77,
+    77,
+    76,
+    77,
+    77,
+    77
+  ],
+  "fps": "13/1",
+  "loopPolicy": "pingpong",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself. No window closes as a cycle: pingpong plays frames 0-7 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+  "method": "gait_loop select (idle): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+  "kind": "idle",
+  "cycles": 1,
+  "confidence": {
+    "label": "low",
+    "overall": 0.230549
+  },
+  "seam": {
+    "frames": 14,
+    "seam": 46.424445,
+    "adjacent_median": 32.465628,
+    "adjacent_p95": 53.057707,
+    "adjacent_max": 53.057707,
+    "seam_over_median": 1.429957,
+    "seam_over_p95": 0.87498,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

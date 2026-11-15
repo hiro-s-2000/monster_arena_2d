@@ -1,0 +1,79 @@
+{
+ "version": "0015_beedrill_mega_agy_v1",
+ "hash": "4130ca9dc4f2",
+ "palette_colors": 30,
+ "off_palette_colors": 0,
+ "alpha_partial": 0,
+ "edge_touching_frames": {},
+ "still_diff": {},
+ "S_still_height": 74,
+ "official_height": 74,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 8,
+   "lastInclusive": 7,
+   "frames": 8,
+   "seconds": 0.615385,
+   "files": [
+    "00.png",
+    "07.png"
+   ],
+   "amplitude_steps": 1.691647,
+   "turnaround_steps": 0.777583,
+   "playback_frames": 14,
+   "holds_inside": [],
+   "root_dx_px_per_loop": 0.107992,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.145935
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "durations_ms": [
+   77,
+   77,
+   77,
+   77,
+   76,
+   77,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.722417,
+    "amplitude": 0.230549,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.230549,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-7 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 14,
+   "seam": 46.424445,
+   "adjacent_median": 32.465628,
+   "adjacent_p95": 53.057707,
+   "adjacent_max": 53.057707,
+   "seam_over_median": 1.429957,
+   "seam_over_p95": 0.87498,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no gait period: the lag profile is flat: the best repeat at 7 frames is only 2% below the profile mean (need 15%); the motion does not repeat"
+}

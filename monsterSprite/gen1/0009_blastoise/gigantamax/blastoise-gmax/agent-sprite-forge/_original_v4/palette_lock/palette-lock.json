@@ -1,0 +1,58 @@
+{
+  "schema": "generate2dsprite.palette_lock.v1",
+  "palette": {
+    "path": "palette.json",
+    "sha256": "81c90496d18d233d21ea510b6639983168da220a2e713b0f8dc69be6d1747b5e",
+    "bytes": 1157
+  },
+  "colors": [
+    "#083962",
+    "#101010",
+    "#2062ac",
+    "#352e27",
+    "#494136",
+    "#4a4a4a",
+    "#5a8bcd",
+    "#5f5647",
+    "#6ce8d6",
+    "#949494",
+    "#94ace6",
+    "#c75435",
+    "#cdcdd5",
+    "#ea7957",
+    "#fdfdfd"
+  ],
+  "transparent_index": 255,
+  "sources": [
+    {
+      "path": "../sources/B.png",
+      "sha256": "6568ed239376f19aee49c057b35cdad01cf8e894cf1765b2d53ab80e4fda0489",
+      "fit": {
+        "measured_px": 5588,
+        "alpha_threshold": 1,
+        "off_palette_px": 0,
+        "partial_alpha_px": 0,
+        "colors": 14,
+        "palette_colors_used": 14,
+        "mean_delta_e": 0.0,
+        "p95_delta_e": 0.0,
+        "max_delta_e": 0.0
+      }
+    },
+    {
+      "path": "../sources/F.png",
+      "sha256": "ad81a64ad3ff963b86f59bb069f8993f51195d10ccf4c817bb291ac2b44de2eb",
+      "fit": {
+        "measured_px": 6150,
+        "alpha_threshold": 1,
+        "off_palette_px": 0,
+        "partial_alpha_px": 0,
+        "colors": 15,
+        "palette_colors_used": 15,
+        "mean_delta_e": 0.0,
+        "p95_delta_e": 0.0,
+        "max_delta_e": 0.0
+      }
+    }
+  ]
+}

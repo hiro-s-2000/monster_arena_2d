@@ -1,0 +1,75 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/S/idle",
+  "sourceHashes": [
+    "eed84dc3fd591e1b44e6b9e5d811818b99dd282137c5d394532b9aca0a0289d9",
+    "5ceb9beff75a9fbb146697695bfd968366f8971ebd6a411eb3696325012a8d04",
+    "50b9578077d97083c58f54d0ab917d5beeab2a417528b01b2afeb6f4b4d76b31",
+    "29fcd2f540fa27bd33578e02ff8f7b7e74ebc4ef7aaff861c899891d4c8dc8ed",
+    "75a5a313d4292c308d2e94c218b1200a34981fb3ca4f59b59d437a2fa5399198",
+    "e62ebf5fa618ad9a0c909fe4d39538c0ed8355f7d7b57a1b03abbfbc7ad70ba8",
+    "9e4fc15f7300f526131a099697f88164b42fe646b16a2bed8bebaf1feeef1eb2",
+    "e52f49c047b6fda725786c092f59d1013a74848e8fefae3794c1c110e81de209",
+    "05f5b3fcf6e1615fe42e2924151b599916d8353ec1f72e06b580db69361f2300",
+    "6c768e039a0dd80d7902a1f3a270332dcc09a5a627be3a134c309b448b4be30d",
+    "62d78a338bc30e7b824d210b50a5a14e5c1d14656c0b2a3141b577e0839c7f01",
+    "27a032d74519d51a08ca3ab58ec2040179acd502a6ecc052f57f8ebac894efc0"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png",
+    "08.png",
+    "09.png",
+    "10.png",
+    "11.png"
+  ],
+  "start": 0,
+  "endExclusive": 12,
+  "sourceIndices": [
+    0,
+    2,
+    4,
+    6,
+    7,
+    9,
+    10
+  ],
+  "durations_ms": [
+    154,
+    154,
+    154,
+    76,
+    154,
+    77,
+    154
+  ],
+  "fps": "13/1",
+  "loopPolicy": "cycle",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+  "method": "gait_loop select (idle): pose + 0.5 x velocity closure with non-maximum suppression",
+  "kind": "idle",
+  "cycles": 1,
+  "confidence": {
+    "label": "medium",
+    "overall": 0.657
+  },
+  "seam": {
+    "frames": 7,
+    "seam": 10.995766,
+    "adjacent_median": 7.316038,
+    "adjacent_p95": 13.5742,
+    "adjacent_max": 14.09951,
+    "seam_over_median": 1.502967,
+    "seam_over_p95": 0.810049,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

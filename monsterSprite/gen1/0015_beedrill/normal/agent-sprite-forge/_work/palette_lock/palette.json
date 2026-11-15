@@ -1,0 +1,101 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "beedrill",
+  "colors": [
+    {
+      "hex": "#f6d6ff",
+      "reserved": true
+    },
+    {
+      "hex": "#9c40ce",
+      "reserved": true
+    },
+    {
+      "hex": "#171716"
+    },
+    {
+      "hex": "#1b1b1a"
+    },
+    {
+      "hex": "#252323"
+    },
+    {
+      "hex": "#312d2c"
+    },
+    {
+      "hex": "#3f3833"
+    },
+    {
+      "hex": "#454450"
+    },
+    {
+      "hex": "#674720"
+    },
+    {
+      "hex": "#545364"
+    },
+    {
+      "hex": "#9e231e"
+    },
+    {
+      "hex": "#875c23"
+    },
+    {
+      "hex": "#716478"
+    },
+    {
+      "hex": "#c6453a"
+    },
+    {
+      "hex": "#827489"
+    },
+    {
+      "hex": "#a8712c"
+    },
+    {
+      "hex": "#94869d"
+    },
+    {
+      "hex": "#bf822d"
+    },
+    {
+      "hex": "#aa8c7f"
+    },
+    {
+      "hex": "#ab9bb4"
+    },
+    {
+      "hex": "#e09325"
+    },
+    {
+      "hex": "#baabc4"
+    },
+    {
+      "hex": "#ecb037"
+    },
+    {
+      "hex": "#c9bcd3"
+    },
+    {
+      "hex": "#fbc844"
+    },
+    {
+      "hex": "#d7cce1"
+    },
+    {
+      "hex": "#e6dfec"
+    },
+    {
+      "hex": "#f8ea8f"
+    },
+    {
+      "hex": "#f2eef5"
+    },
+    {
+      "hex": "#fefefe"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 30 colours, seed 0; locked by palette_tool lock"
+}

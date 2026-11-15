@@ -1,0 +1,92 @@
+{
+ "version": "0009_blastoise_mega_agy_v1",
+ "hash": "648abd47544a",
+ "palette_colors": 30,
+ "off_palette_colors": 0,
+ "alpha_partial": 0,
+ "edge_touching_frames": {},
+ "still_diff": {},
+ "S_still_height": 87,
+ "official_height": 87,
+ "gait_idle": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 13,
+   "lastInclusive": 12,
+   "frames": 13,
+   "seconds": 1.0,
+   "files": [
+    "00.png",
+    "12.png"
+   ],
+   "closure_pose_steps": 0.0,
+   "closure_velocity_steps": 0.0,
+   "closure_steps": 0.0,
+   "amplitude_steps": 4.684107,
+   "wrap_steps": 3.31102,
+   "holds_inside": [
+    1,
+    4,
+    6,
+    8,
+    9,
+    11
+   ],
+   "root_dx_px_per_loop": 0.0,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.0,
+   "score": 0.0,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": [
+     "held duplicate frames 1, 4, 6, 8-9, 11 are dropped; their time goes to the frame they repeat"
+    ]
+   }
+  },
+  "sourceIndices": [
+   0,
+   2,
+   3,
+   5,
+   7,
+   10,
+   12
+  ],
+  "durations_ms": [
+   154,
+   77,
+   154,
+   153,
+   231,
+   154,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "closure": 1.0,
+    "amplitude": 1.0
+   },
+   "overall": 1.0,
+   "label": "high",
+   "review_priority": "spot-check",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 7,
+   "seam": 17.250296,
+   "adjacent_median": 4.033282,
+   "adjacent_p95": 15.616133,
+   "adjacent_max": 19.071766,
+   "seam_over_median": 4.276987,
+   "seam_over_p95": 1.104646,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no gait period: the lag profile is flat: the best repeat at 4 frames is only -3% below the profile mean (need 15%); the motion does not repeat"
+}

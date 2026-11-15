@@ -1,0 +1,84 @@
+{
+ "version": "0019_rattata_alola_agy_v1",
+ "hash": "3388f850714c",
+ "palette_colors": 24,
+ "off_palette_colors": 0,
+ "alpha_not_binary": 0,
+ "edge_touching_frames": {},
+ "still_diff_px": 0,
+ "S_height": 44,
+ "official_height": 44,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 11,
+   "lastInclusive": 10,
+   "frames": 11,
+   "seconds": 0.846154,
+   "files": [
+    "00.png",
+    "10.png"
+   ],
+   "amplitude_steps": 11.098607,
+   "turnaround_steps": 1.153349,
+   "playback_frames": 20,
+   "holds_inside": [
+    1,
+    8
+   ],
+   "root_dx_px_per_loop": 0.116633,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.259185
+  },
+  "sourceIndices": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   9,
+   10
+  ],
+  "durations_ms": [
+   154,
+   77,
+   77,
+   77,
+   76,
+   77,
+   154,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.346651,
+    "amplitude": 1.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.346651,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-10 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 16,
+   "seam": 0.866716,
+   "adjacent_median": 2.192852,
+   "adjacent_p95": 16.267684,
+   "adjacent_max": 16.267684,
+   "seam_over_median": 0.395246,
+   "seam_over_p95": 0.053278,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no loop window: every one- and two-stride window includes unusable frames, runs past the drift-free range or fails the seam checks; review the clip manually"
+}

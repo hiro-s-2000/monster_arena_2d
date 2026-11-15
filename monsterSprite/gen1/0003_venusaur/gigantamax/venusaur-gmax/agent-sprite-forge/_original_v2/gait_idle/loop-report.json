@@ -1,0 +1,318 @@
+{
+  "schema": "video2dsprite.loop_report.v1",
+  "tool": {
+    "name": "gait_loop",
+    "version": "0.4.0"
+  },
+  "frames": {
+    "directory": "../frames/F/idle",
+    "count": 16,
+    "first": "00.png",
+    "last": "15.png",
+    "fps": "13/1",
+    "canvas": [
+      224,
+      160
+    ]
+  },
+  "indexing": "0-based positions in the sorted *.png list; intervals are [start, endExclusive)",
+  "kind": "idle",
+  "state": null,
+  "analysis": {
+    "union": [
+      62,
+      37,
+      162,
+      131
+    ],
+    "global_size": [
+      160,
+      150
+    ],
+    "legs_size": null,
+    "legs_top_px": null,
+    "registration": false,
+    "reduction": 1,
+    "drift": {
+      "cx_slope_px_per_frame": 0.0,
+      "ground_slope_px_per_frame": 0.0
+    },
+    "lengths": {
+      "minFrames": 7,
+      "maxFrames": 52
+    },
+    "stepMedian": 0.012446,
+    "bodyHeightMedianPx": 89.0
+  },
+  "usableRange": {
+    "start": 0,
+    "endExclusive": 16,
+    "reference": [
+      0,
+      7
+    ],
+    "smoothFrames": 27,
+    "tolerance": 0.03,
+    "signals": [
+      "ground",
+      "scale",
+      "x"
+    ],
+    "reason": null,
+    "maxDeviation": 0.004686
+  },
+  "holds": [
+    4,
+    5,
+    12,
+    13
+  ],
+  "unusableFrames": [],
+  "period": null,
+  "recommendation": {
+    "policy": "cycle",
+    "cycles": 1,
+    "window": {
+      "start": 0,
+      "endExclusive": 8,
+      "lastInclusive": 7,
+      "frames": 8,
+      "seconds": 0.615385,
+      "files": [
+        "00.png",
+        "07.png"
+      ],
+      "closure_pose_steps": 0.0,
+      "closure_velocity_steps": 1.925511,
+      "closure_steps": 0.962755,
+      "amplitude_steps": 3.040529,
+      "wrap_steps": 0.523523,
+      "holds_inside": [
+        4,
+        5
+      ],
+      "root_dx_px_per_loop": 0.0,
+      "ground_dy_px_per_loop": 0.0,
+      "root_drift_pct_body": 0.0,
+      "score": 0.962755,
+      "classification": {
+        "class": "valid-cycle",
+        "reasons": [],
+        "notes": [
+          "held duplicate frames 4-5 are dropped; their time goes to the frame they repeat"
+        ]
+      }
+    },
+    "sourceIndices": [
+      0,
+      1,
+      2,
+      3,
+      6,
+      7
+    ],
+    "durations_ms": [
+      77,
+      77,
+      77,
+      230,
+      77,
+      77
+    ],
+    "confidence": {
+      "components": {
+        "closure": 0.537245,
+        "amplitude": 0.680176
+      },
+      "overall": 0.537245,
+      "label": "medium",
+      "review_priority": "review",
+      "review": [
+        "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+      ]
+    },
+    "seam": {
+      "frames": 6,
+      "seam": 3.000212,
+      "adjacent_median": 5.413644,
+      "adjacent_p95": 9.342119,
+      "adjacent_max": 9.342119,
+      "seam_over_median": 0.554195,
+      "seam_over_p95": 0.321149,
+      "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+      "mask": "union of visible pixels"
+    }
+  },
+  "candidates": {
+    "closing": [
+      {
+        "start": 0,
+        "endExclusive": 8,
+        "lastInclusive": 7,
+        "frames": 8,
+        "seconds": 0.615385,
+        "files": [
+          "00.png",
+          "07.png"
+        ],
+        "closure_pose_steps": 0.0,
+        "closure_velocity_steps": 1.925511,
+        "closure_steps": 0.962755,
+        "amplitude_steps": 3.040529,
+        "wrap_steps": 0.523523,
+        "holds_inside": [
+          4,
+          5
+        ],
+        "root_dx_px_per_loop": 0.0,
+        "ground_dy_px_per_loop": 0.0,
+        "root_drift_pct_body": 0.0,
+        "score": 0.962755,
+        "classification": {
+          "class": "valid-cycle",
+          "reasons": [],
+          "notes": [
+            "held duplicate frames 4-5 are dropped; their time goes to the frame they repeat"
+          ]
+        }
+      }
+    ]
+  },
+  "evaluated": [],
+  "aids": null,
+  "qa": {
+    "status": "needs-visual-review",
+    "method": "gait_loop select (idle): pose + 0.5 x velocity closure with non-maximum suppression",
+    "notProven": [
+      "foot contact, sliding and ground penetration",
+      "hand, hair, scarf or prop identity drift between frames",
+      "art quality, anatomy and facing",
+      "left/right alternation beyond the pixel evidence reported here"
+    ],
+    "checks": [
+      {
+        "id": "loop-found",
+        "status": "pass",
+        "value": [
+          0,
+          8
+        ]
+      },
+      {
+        "id": "seam_over_p95",
+        "status": "pass",
+        "value": 0.321149,
+        "threshold": 1.0
+      },
+      {
+        "id": "confidence",
+        "status": "pass",
+        "value": 0.537245,
+        "threshold": 0.4
+      },
+      {
+        "id": "drift-free-range",
+        "status": "pass",
+        "value": 16
+      },
+      {
+        "id": "visual-review",
+        "status": "needs-visual-review",
+        "value": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../frames/F/idle/00.png",
+        "sha256": "8c023d5d171b23f475dca67385efe93b18cda6176025f7510a0d5b66d7645bdf",
+        "bytes": 3972
+      },
+      {
+        "path": "../frames/F/idle/01.png",
+        "sha256": "7f30b2ebfd170c78a113dd6bc51e1ff9a7368a457b45ae6d91cc719847b203cc",
+        "bytes": 4018
+      },
+      {
+        "path": "../frames/F/idle/02.png",
+        "sha256": "0ed81624d0a39d48673690bc4629deef38c7b9b87d0d900e44351bf901ea2acb",
+        "bytes": 4119
+      },
+      {
+        "path": "../frames/F/idle/03.png",
+        "sha256": "99f23452a9f4f7342185d7dcb342c2fd8ea0bdfbe3fc5a3a6cafc9cb936d9692",
+        "bytes": 4300
+      },
+      {
+        "path": "../frames/F/idle/04.png",
+        "sha256": "2bf05e9b25b637e9760ac7805a91e807a11bec72cd2b28201687c64a757d5d37",
+        "bytes": 4325
+      },
+      {
+        "path": "../frames/F/idle/05.png",
+        "sha256": "99f23452a9f4f7342185d7dcb342c2fd8ea0bdfbe3fc5a3a6cafc9cb936d9692",
+        "bytes": 4300
+      },
+      {
+        "path": "../frames/F/idle/06.png",
+        "sha256": "0ed81624d0a39d48673690bc4629deef38c7b9b87d0d900e44351bf901ea2acb",
+        "bytes": 4119
+      },
+      {
+        "path": "../frames/F/idle/07.png",
+        "sha256": "7f30b2ebfd170c78a113dd6bc51e1ff9a7368a457b45ae6d91cc719847b203cc",
+        "bytes": 4018
+      },
+      {
+        "path": "../frames/F/idle/08.png",
+        "sha256": "8c023d5d171b23f475dca67385efe93b18cda6176025f7510a0d5b66d7645bdf",
+        "bytes": 3972
+      },
+      {
+        "path": "../frames/F/idle/09.png",
+        "sha256": "53cce9a49ab528051d152f509bcd49f43702f004813aced1b5a8545d50b48033",
+        "bytes": 3991
+      },
+      {
+        "path": "../frames/F/idle/10.png",
+        "sha256": "17e77dde4383edd6e0271ee5ea91e4b8304d8d2cec491f1a7f12b68fa87cf028",
+        "bytes": 4218
+      },
+      {
+        "path": "../frames/F/idle/11.png",
+        "sha256": "c99a9a5e3a498eb81c32f92d143531197aa3c5f10cebacda31c225d697f10148",
+        "bytes": 4254
+      },
+      {
+        "path": "../frames/F/idle/12.png",
+        "sha256": "e2993973a1adcd2c410bd739288ef3e05a7a6573252140c273edcc513edbba92",
+        "bytes": 4202
+      },
+      {
+        "path": "../frames/F/idle/13.png",
+        "sha256": "c99a9a5e3a498eb81c32f92d143531197aa3c5f10cebacda31c225d697f10148",
+        "bytes": 4254
+      },
+      {
+        "path": "../frames/F/idle/14.png",
+        "sha256": "17e77dde4383edd6e0271ee5ea91e4b8304d8d2cec491f1a7f12b68fa87cf028",
+        "bytes": 4218
+      },
+      {
+        "path": "../frames/F/idle/15.png",
+        "sha256": "53cce9a49ab528051d152f509bcd49f43702f004813aced1b5a8545d50b48033",
+        "bytes": 3991
+      }
+    ],
+    "outputs": [
+      {
+        "path": "selection.json",
+        "sha256": "a1ba30e2a62142362d832714325a426fea3896dbb038346b68b3d421319d45d1",
+        "bytes": 1814
+      }
+    ],
+    "tool": {
+      "name": "gait_loop",
+      "version": "0.4.0"
+    }
+  }
+}

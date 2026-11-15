@@ -1,0 +1,112 @@
+{
+  "generator": "forge_gen1_0019_rattata_alola_actions",
+  "version": "0019_rattata_alola_agy_v1",
+  "key": "0019_rattata-alola",
+  "dex": 19,
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "made_from": [
+    "front.png",
+    "back.png"
+  ],
+  "sw_fix": "two generator-added feet painted out (fix_sw)",
+  "cell_w": 128,
+  "cell_h": 88,
+  "foot_y": 78,
+  "sprite_h": 44,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 24,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    49,
+    35,
+    39,
+    44,
+    30,
+    35,
+    54,
+    44,
+    39,
+    36,
+    43,
+    43,
+    40,
+    35,
+    40,
+    44,
+    48,
+    35,
+    40,
+    44,
+    48,
+    35,
+    40,
+    44,
+    46,
+    36,
+    43,
+    43,
+    44,
+    35,
+    54,
+    44
+  ]
+}

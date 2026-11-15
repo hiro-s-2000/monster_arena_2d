@@ -1,0 +1,28 @@
+{
+  "generator": "forge_feraligatr_mega_actions",
+  "key": "0160_feraligatr-mega",
+  "dex": 160,
+  "cell_w": 110,
+  "cell_h": 94,
+  "foot_y": 90,
+  "sprite_h": 78,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 16,
+  "off_palette_colors": 0
+}

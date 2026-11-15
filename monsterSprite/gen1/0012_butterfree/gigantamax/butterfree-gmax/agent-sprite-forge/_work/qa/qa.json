@@ -1,0 +1,99 @@
+{
+ "version": "0012_butterfree_gmax_agy_v1",
+ "hash": "7f12eb3b0520",
+ "palette_colors": 30,
+ "off_palette_colors": 0,
+ "edge_touching_frames": {},
+ "still_diff_px": {
+  "S": 0,
+  "N": 0,
+  "W": 0,
+  "SW": 0,
+  "NE": 0
+ },
+ "alpha_binary": true,
+ "sprite_h_S": 93,
+ "official_front_h": 93,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 15,
+   "lastInclusive": 14,
+   "frames": 15,
+   "seconds": 1.153846,
+   "files": [
+    "00.png",
+    "14.png"
+   ],
+   "amplitude_steps": 1.372827,
+   "turnaround_steps": 0.555211,
+   "playback_frames": 28,
+   "holds_inside": [],
+   "root_dx_px_per_loop": 0.140443,
+   "ground_dy_px_per_loop": 1.0,
+   "root_drift_pct_body": 1.085821
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14
+  ],
+  "durations_ms": [
+   77,
+   77,
+   77,
+   77,
+   77,
+   77,
+   77,
+   76,
+   77,
+   77,
+   77,
+   77,
+   77,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.944789,
+    "amplitude": 0.124276,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.124276,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-14 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 28,
+   "seam": 40.228411,
+   "adjacent_median": 32.399855,
+   "adjacent_p95": 38.533029,
+   "adjacent_max": 40.228411,
+   "seam_over_median": 1.241623,
+   "seam_over_p95": 1.043998,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no loop window: every one- and two-stride window includes unusable frames, runs past the drift-free range or fails the seam checks; review the clip manually"
+}

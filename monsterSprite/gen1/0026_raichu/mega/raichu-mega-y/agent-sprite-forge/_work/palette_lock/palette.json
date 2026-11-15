@@ -1,0 +1,101 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "raichu-mega-y",
+  "colors": [
+    {
+      "hex": "#fffcd6",
+      "reserved": true
+    },
+    {
+      "hex": "#ffd628",
+      "reserved": true
+    },
+    {
+      "hex": "#0d0a09"
+    },
+    {
+      "hex": "#17110e"
+    },
+    {
+      "hex": "#1e1a16"
+    },
+    {
+      "hex": "#281f17"
+    },
+    {
+      "hex": "#32271d"
+    },
+    {
+      "hex": "#343331"
+    },
+    {
+      "hex": "#463019"
+    },
+    {
+      "hex": "#563c1f"
+    },
+    {
+      "hex": "#464441"
+    },
+    {
+      "hex": "#674823"
+    },
+    {
+      "hex": "#7a5126"
+    },
+    {
+      "hex": "#5d5d5c"
+    },
+    {
+      "hex": "#836123"
+    },
+    {
+      "hex": "#a0671a"
+    },
+    {
+      "hex": "#977d2c"
+    },
+    {
+      "hex": "#b97719"
+    },
+    {
+      "hex": "#af902e"
+    },
+    {
+      "hex": "#d27f08"
+    },
+    {
+      "hex": "#db9517"
+    },
+    {
+      "hex": "#c3a330"
+    },
+    {
+      "hex": "#dbaa0b"
+    },
+    {
+      "hex": "#f0a80a"
+    },
+    {
+      "hex": "#ddbb1a"
+    },
+    {
+      "hex": "#f5b71e"
+    },
+    {
+      "hex": "#ecca2b"
+    },
+    {
+      "hex": "#d8d3c6"
+    },
+    {
+      "hex": "#f8e311"
+    },
+    {
+      "hex": "#f6f6f1"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 30 colours, seed 0; locked by palette_tool lock"
+}

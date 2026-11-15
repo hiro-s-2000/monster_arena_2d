@@ -1,0 +1,86 @@
+{
+ "version": "0011_metapod_agy_v1",
+ "hash": "cd01052440dd",
+ "palette_colors": 20,
+ "off_palette_colors": 0,
+ "semi_alpha_px": 0,
+ "edge_touching_frames": {},
+ "still_diff_px": 0,
+ "loop_end_diff_px(info)": 2370,
+ "S_height": 37,
+ "official_front_height": 37,
+ "gait_idle": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 8,
+   "lastInclusive": 7,
+   "frames": 8,
+   "seconds": 0.615385,
+   "files": [
+    "00.png",
+    "07.png"
+   ],
+   "closure_pose_steps": 0.0,
+   "closure_velocity_steps": 0.043569,
+   "closure_steps": 0.021785,
+   "amplitude_steps": 4.464606,
+   "wrap_steps": 0.043569,
+   "holds_inside": [
+    1,
+    4,
+    5
+   ],
+   "root_dx_px_per_loop": 0.0,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.0,
+   "score": 0.021785,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": [
+     "held duplicate frames 1, 4-5 are dropped; their time goes to the frame they repeat"
+    ]
+   }
+  },
+  "sourceIndices": [
+   0,
+   2,
+   3,
+   6,
+   7
+  ],
+  "durations_ms": [
+   154,
+   77,
+   230,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "closure": 1.0,
+    "amplitude": 1.0
+   },
+   "overall": 1.0,
+   "label": "high",
+   "review_priority": "spot-check",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 5,
+   "seam": 0.237522,
+   "adjacent_median": 7.963425,
+   "adjacent_p95": 12.382616,
+   "adjacent_max": 12.418244,
+   "seam_over_median": 0.029827,
+   "seam_over_p95": 0.019182,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no loop window: every one- and two-stride window includes unusable frames, runs past the drift-free range or fails the seam checks; review the clip manually"
+}

@@ -1,0 +1,151 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 32,
+      "threshold": 32
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.154809,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../stills_raw/N.png",
+      "sha256": "870885599080fc8af3cd4a96ce8a56ad1092237dc25d10b9f591db83f438fdec",
+      "bytes": 15342
+    },
+    {
+      "path": "../stills_raw/NE.png",
+      "sha256": "c3f19b7338bcf3d91b4641259fc262e4a6cf236bcc66e5d81852129d580e1fc4",
+      "bytes": 16693
+    },
+    {
+      "path": "../stills_raw/S.png",
+      "sha256": "8eedf8ea98655357539f1a266ead9c16c7655863657bc159cf70713b35b02836",
+      "bytes": 17748
+    },
+    {
+      "path": "../stills_raw/SW.png",
+      "sha256": "1372dd7276ca39441839d5636fa8d50e42d41ec00d52ad025ef6b1a8c1fb5c31",
+      "bytes": 21097
+    },
+    {
+      "path": "../stills_raw/W.png",
+      "sha256": "1b0826cdf9b6064221f19477602e99f5ae4b59c1bc3d367fd2daf7f9a65f684f",
+      "bytes": 18417
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "70fb6dc742be69d10a34a9340f6d189a9fe9c78f5217c176ed5a32146493eaef",
+      "bytes": 1424
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "06fca64465bafca27c012d71a968d3d0d6ae25c883830ba32499b00272aaf47e",
+      "bytes": 688
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "a8b2976d5b57bbe65568748e1b40c68e99e4950ea925a911952fa01684a96b3d",
+      "bytes": 224
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "7ac9804c91e0e9ae0f611057140d39f4fe09d02485ab0ecbe46be63f053111dd",
+      "bytes": 507
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 32,
+    "reserved": 2,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../stills_raw/N.png": {
+      "measured_px": 5817,
+      "alpha_threshold": 128,
+      "off_palette_px": 5800,
+      "partial_alpha_px": 0,
+      "colors": 3620,
+      "palette_colors_used": 30,
+      "mean_delta_e": 0.014333,
+      "p95_delta_e": 0.032186,
+      "max_delta_e": 0.071549
+    },
+    "../stills_raw/NE.png": {
+      "measured_px": 6131,
+      "alpha_threshold": 128,
+      "off_palette_px": 6112,
+      "partial_alpha_px": 0,
+      "colors": 3884,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.014191,
+      "p95_delta_e": 0.033657,
+      "max_delta_e": 0.09143
+    },
+    "../stills_raw/S.png": {
+      "measured_px": 6473,
+      "alpha_threshold": 128,
+      "off_palette_px": 6453,
+      "partial_alpha_px": 0,
+      "colors": 4767,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.016216,
+      "p95_delta_e": 0.036691,
+      "max_delta_e": 0.110327
+    },
+    "../stills_raw/SW.png": {
+      "measured_px": 8316,
+      "alpha_threshold": 128,
+      "off_palette_px": 8304,
+      "partial_alpha_px": 0,
+      "colors": 4024,
+      "palette_colors_used": 31,
+      "mean_delta_e": 0.013632,
+      "p95_delta_e": 0.034972,
+      "max_delta_e": 0.154809
+    },
+    "../stills_raw/W.png": {
+      "measured_px": 6866,
+      "alpha_threshold": 128,
+      "off_palette_px": 6844,
+      "partial_alpha_px": 0,
+      "colors": 4202,
+      "palette_colors_used": 32,
+      "mean_delta_e": 0.014639,
+      "p95_delta_e": 0.033986,
+      "max_delta_e": 0.10429
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.154809,
+    "worst_p95_delta_e": 0.036691,
+    "off_palette_px": 33513
+  }
+}

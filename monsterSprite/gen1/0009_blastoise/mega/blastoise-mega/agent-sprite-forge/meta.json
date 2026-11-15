@@ -1,0 +1,111 @@
+{
+  "generator": "forge_gen1_0009_blastoise_mega_actions",
+  "version": "0009_blastoise_mega_agy_v1",
+  "key": "0009_blastoise-mega",
+  "dex": 9,
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "made_from": [
+    "front.png",
+    "back.png"
+  ],
+  "cell_w": 232,
+  "cell_h": 136,
+  "foot_y": 124,
+  "sprite_h": 87,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 30,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    69,
+    38,
+    94,
+    87,
+    74,
+    38,
+    87,
+    87,
+    70,
+    42,
+    78,
+    83,
+    76,
+    40,
+    87,
+    85,
+    71,
+    38,
+    90,
+    87,
+    69,
+    40,
+    87,
+    85,
+    84,
+    42,
+    78,
+    83,
+    71,
+    38,
+    87,
+    87
+  ]
+}

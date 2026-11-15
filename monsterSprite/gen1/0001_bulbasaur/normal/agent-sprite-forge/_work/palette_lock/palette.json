@@ -1,0 +1,83 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "bulb-quad",
+  "colors": [
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#ecffaa",
+      "reserved": true
+    },
+    {
+      "hex": "#010303"
+    },
+    {
+      "hex": "#080d0c"
+    },
+    {
+      "hex": "#121a18"
+    },
+    {
+      "hex": "#152c27"
+    },
+    {
+      "hex": "#213f31"
+    },
+    {
+      "hex": "#15504b"
+    },
+    {
+      "hex": "#22635f"
+    },
+    {
+      "hex": "#9e283c"
+    },
+    {
+      "hex": "#466620"
+    },
+    {
+      "hex": "#2b7672"
+    },
+    {
+      "hex": "#568718"
+    },
+    {
+      "hex": "#278985"
+    },
+    {
+      "hex": "#43938c"
+    },
+    {
+      "hex": "#62a415"
+    },
+    {
+      "hex": "#5cad9a"
+    },
+    {
+      "hex": "#e18388"
+    },
+    {
+      "hex": "#83bf1d"
+    },
+    {
+      "hex": "#63caaa"
+    },
+    {
+      "hex": "#9bd51f"
+    },
+    {
+      "hex": "#71e2b7"
+    },
+    {
+      "hex": "#a8ea49"
+    },
+    {
+      "hex": "#b4f967"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 24 colours, seed 0; locked by palette_tool lock"
+}

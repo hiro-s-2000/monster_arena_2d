@@ -1,0 +1,16 @@
+{
+  "status": "blocked_quota",
+  "route": "Antigravity CLI",
+  "error": "429 RESOURCE_EXHAUSTED",
+  "reset_utc": "2026-11-04T15:17:14Z",
+  "reset_jst": "2026-11-05T00:17:14+09:00",
+  "prompt": "prompt.txt",
+  "references": [
+    "front.png",
+    "back.png"
+  ],
+  "log": "scoped-image.log",
+  "new_artifacts": [],
+  "published": false,
+  "next": "After quota resets, generate keys_2x2.png and sw_single.png, visually match original references, then build five-view anatomical rigs and eight-direction actions; do not publish the old two-view approximation as the requested Antigravity remake."
+}

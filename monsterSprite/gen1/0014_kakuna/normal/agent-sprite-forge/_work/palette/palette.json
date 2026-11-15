@@ -1,0 +1,73 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "golden-cocoon",
+  "colors": [
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#fffad0",
+      "reserved": true
+    },
+    {
+      "hex": "#c860e8",
+      "reserved": true
+    },
+    {
+      "hex": "#7828a0",
+      "reserved": true
+    },
+    {
+      "hex": "#18150e"
+    },
+    {
+      "hex": "#221f16"
+    },
+    {
+      "hex": "#362c16"
+    },
+    {
+      "hex": "#403c32"
+    },
+    {
+      "hex": "#503d0b"
+    },
+    {
+      "hex": "#644d11"
+    },
+    {
+      "hex": "#785c15"
+    },
+    {
+      "hex": "#8c6d12"
+    },
+    {
+      "hex": "#9c790c"
+    },
+    {
+      "hex": "#b1880e"
+    },
+    {
+      "hex": "#c49610"
+    },
+    {
+      "hex": "#cea321"
+    },
+    {
+      "hex": "#dcb120"
+    },
+    {
+      "hex": "#eabe1d"
+    },
+    {
+      "hex": "#f0c934"
+    },
+    {
+      "hex": "#f8e69a"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 20 colours, seed 0"
+}

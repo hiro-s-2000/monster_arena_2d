@@ -1,0 +1,28 @@
+{
+  "generator": "forge_scizor_mega_actions",
+  "key": "0212_scizor-mega",
+  "dex": 212,
+  "cell_w": 102,
+  "cell_h": 102,
+  "foot_y": 98,
+  "sprite_h": 86,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 22,
+  "off_palette_colors": 0
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "blastoise",
+  "colors": [
+    {
+      "hex": "#083962",
+      "reserved": true
+    },
+    {
+      "hex": "#101010",
+      "reserved": true
+    },
+    {
+      "hex": "#2062ac",
+      "reserved": true
+    },
+    {
+      "hex": "#4a4a4a",
+      "reserved": true
+    },
+    {
+      "hex": "#5a3918",
+      "reserved": true
+    },
+    {
+      "hex": "#5a8bcd",
+      "reserved": true
+    },
+    {
+      "hex": "#8b6241",
+      "reserved": true
+    },
+    {
+      "hex": "#949494",
+      "reserved": true
+    },
+    {
+      "hex": "#94ace6",
+      "reserved": true
+    },
+    {
+      "hex": "#cdcdd5",
+      "reserved": true
+    },
+    {
+      "hex": "#d5ac4a",
+      "reserved": true
+    },
+    {
+      "hex": "#e6c573",
+      "reserved": true
+    },
+    {
+      "hex": "#f6d59c",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    },
+    {
+      "hex": "#e2f6ff",
+      "reserved": true
+    },
+    {
+      "hex": "#80c4f8",
+      "reserved": true
+    },
+    {
+      "hex": "#000000"
+    },
+    {
+      "hex": "#030406"
+    },
+    {
+      "hex": "#1b4577"
+    },
+    {
+      "hex": "#14508d"
+    },
+    {
+      "hex": "#575b66"
+    },
+    {
+      "hex": "#7b5128"
+    },
+    {
+      "hex": "#6b6d78"
+    },
+    {
+      "hex": "#417cbd"
+    },
+    {
+      "hex": "#80828d"
+    },
+    {
+      "hex": "#bd9541"
+    },
+    {
+      "hex": "#acadba"
+    },
+    {
+      "hex": "#c1bfd5"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 28 colours, seed 0"
+}

@@ -1,0 +1,111 @@
+{
+  "generator": "forge_gen1_0008_wartortle_actions",
+  "version": "0008_wartortle_agy_v1",
+  "key": "0008_wartortle",
+  "dex": 8,
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "made_from": [
+    "front.png",
+    "back.png"
+  ],
+  "cell_w": 144,
+  "cell_h": 96,
+  "foot_y": 86,
+  "sprite_h": 57,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 28,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    48,
+    30,
+    59,
+    57,
+    36,
+    30,
+    59,
+    57,
+    40,
+    30,
+    51,
+    57,
+    43,
+    27,
+    52,
+    60,
+    33,
+    27,
+    62,
+    60,
+    49,
+    27,
+    52,
+    60,
+    53,
+    30,
+    51,
+    57,
+    49,
+    30,
+    59,
+    57
+  ]
+}

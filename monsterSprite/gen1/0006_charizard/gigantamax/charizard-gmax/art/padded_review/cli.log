@@ -1,0 +1,9 @@
+`[██░░░░░░░░] 20% - (1/5) 参照画像（keys_2x2.png, sw_single.png, ref_front.png, ref_back.png）の読み込みと確認`
+
+- 🔄 Step 1: 参照画像の読み込みとクリッピング箇所の視覚確認
+- ⏳ Step 2: `image-generator` サブエージェントによる修正版 `keys_2x2.png` 生成
+- ⏳ Step 3: `image-generator` サブエージェントによる修正版 `sw_single.png` 生成
+- ⏳ Step 4: 生成結果の検証と `padded_review/` への保存
+- ⏳ Step 5: 生成元パス・解像度・詳細レポートの出力
+
+まずは参照用の4枚の画像ファイルを読み込みます。

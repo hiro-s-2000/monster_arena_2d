@@ -1,0 +1,101 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "name": "venusaur-gmax",
+  "colors": [
+    {
+      "hex": "#fffde2",
+      "reserved": true
+    },
+    {
+      "hex": "#fff08c",
+      "reserved": true
+    },
+    {
+      "hex": "#090b07"
+    },
+    {
+      "hex": "#121d15"
+    },
+    {
+      "hex": "#38150f"
+    },
+    {
+      "hex": "#193025"
+    },
+    {
+      "hex": "#5e2518"
+    },
+    {
+      "hex": "#204434"
+    },
+    {
+      "hex": "#21563f"
+    },
+    {
+      "hex": "#7e2f16"
+    },
+    {
+      "hex": "#236750"
+    },
+    {
+      "hex": "#9b3422"
+    },
+    {
+      "hex": "#0e7765"
+    },
+    {
+      "hex": "#377c3c"
+    },
+    {
+      "hex": "#ba3c31"
+    },
+    {
+      "hex": "#9c6134"
+    },
+    {
+      "hex": "#d83338"
+    },
+    {
+      "hex": "#49983f"
+    },
+    {
+      "hex": "#db5a50"
+    },
+    {
+      "hex": "#25a28b"
+    },
+    {
+      "hex": "#bb8536"
+    },
+    {
+      "hex": "#8e9f98"
+    },
+    {
+      "hex": "#57b65d"
+    },
+    {
+      "hex": "#fb726a"
+    },
+    {
+      "hex": "#2dbca0"
+    },
+    {
+      "hex": "#66d264"
+    },
+    {
+      "hex": "#d7b230"
+    },
+    {
+      "hex": "#fba8a5"
+    },
+    {
+      "hex": "#c8cfcc"
+    },
+    {
+      "hex": "#f7e143"
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 5 image(s), 30 colours, seed 0; locked by palette_tool lock"
+}

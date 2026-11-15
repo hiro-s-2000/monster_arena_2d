@@ -1,0 +1,81 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/S/idle",
+  "sourceHashes": [
+    "decc211bcc4958e35d458397074e325fd52350fd27030cf26e3609dafb505c53",
+    "decc211bcc4958e35d458397074e325fd52350fd27030cf26e3609dafb505c53",
+    "4b980d8d35da85b246ab448a23e10e52834668b13e4c932b892a8f8311210b12",
+    "64b2a09e416a1db2babc3ee8f70416d96f2b830a9c8abcdd7c3191f3ece90f31",
+    "8536cebd7efc03ece1015af77f4fa32bd6191793bd906084097fd6aa9c894fb7",
+    "793996bfe47312f0b863a1302848a61cca9526cfd63a1069f7ad13788e059c29",
+    "4373cd2a9cf1b898f68dc514e3ee18f9c825085726e1218000268138b9aeec6f",
+    "73dd91ea2bd9115646d53e1fcfa1e0611fce573e0518f515b06d0e8c59102037",
+    "73dd91ea2bd9115646d53e1fcfa1e0611fce573e0518f515b06d0e8c59102037",
+    "b84ac0e4992ded107de1151ae917bd827d5a7c27df85cb2a548f07bb50ae78f0",
+    "599d0b4fb5fad82bd97d19d9dfa9b29a0f84a0fa28d7fa04f1d6dc0d2ebfef61",
+    "ee6cce21836b74abf3a7379add9967f14c9d839f08a14f5eedbbafa029344908",
+    "854b61d94aed1da339235ccd8fb3e59d1c976652abdd8bd4f1e5dbeff66c7cc6"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png",
+    "08.png",
+    "09.png",
+    "10.png",
+    "11.png",
+    "12.png"
+  ],
+  "start": 0,
+  "endExclusive": 13,
+  "sourceIndices": [
+    0,
+    2,
+    3,
+    4,
+    6,
+    7,
+    9,
+    10,
+    11
+  ],
+  "durations_ms": [
+    154,
+    77,
+    77,
+    154,
+    76,
+    154,
+    77,
+    77,
+    154
+  ],
+  "fps": "13/1",
+  "loopPolicy": "pingpong",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself. No window closes as a cycle: pingpong plays frames 0-12 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+  "method": "gait_loop select (idle): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+  "kind": "idle",
+  "cycles": 1,
+  "confidence": {
+    "label": "medium",
+    "overall": 0.5
+  },
+  "seam": {
+    "frames": 16,
+    "seam": 3.112854,
+    "adjacent_median": 5.333641,
+    "adjacent_p95": 21.812731,
+    "adjacent_max": 21.812731,
+    "seam_over_median": 0.583626,
+    "seam_over_p95": 0.142708,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

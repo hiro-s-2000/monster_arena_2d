@@ -1,0 +1,62 @@
+{
+  "schema": "agent-sprite-forge.meta.v2",
+  "key": "0214_heracross-mega",
+  "archetype": "biped_horn_grappler",
+  "rig_parts": [
+    "arm_far",
+    "foot_L",
+    "foot_R",
+    "torso",
+    "head",
+    "horn_crest",
+    "arm_near"
+  ],
+  "Idle": "../../pokeSprite/gen2/0214_heracross/mega/heracross-mega/agent-sprite-forge/idle.png",
+  "Walk": "../../pokeSprite/gen2/0214_heracross/mega/heracross-mega/agent-sprite-forge/walk.png",
+  "Attack": "../../pokeSprite/gen2/0214_heracross/mega/heracross-mega/agent-sprite-forge/attack.png",
+  "Hurt": "../../pokeSprite/gen2/0214_heracross/mega/heracross-mega/agent-sprite-forge/hurt.png",
+  "Sheet": "../../pokeSprite/gen2/0214_heracross/mega/heracross-mega/agent-sprite-forge/sheet.png",
+  "Preview": "../../pokeSprite/gen2/0214_heracross/mega/heracross-mega/agent-sprite-forge/preview.png",
+  "cols": 16,
+  "rows": 8,
+  "cellW": 110,
+  "cellH": 94,
+  "footY": 90,
+  "paletteCount": 13,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": {
+    "idle": {
+      "rowStart": 0,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    },
+    "walk": {
+      "rowStart": 8,
+      "rows": 8,
+      "frames": 16,
+      "fps": 14
+    },
+    "attack": {
+      "rowStart": 16,
+      "rows": 8,
+      "frames": 16,
+      "fps": 16
+    },
+    "hurt": {
+      "rowStart": 24,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    }
+  }
+}

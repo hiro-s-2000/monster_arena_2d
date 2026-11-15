@@ -1,0 +1,98 @@
+{
+ "version": "0008_wartortle_agy_v1",
+ "hash": "ff3c63a02694",
+ "palette_colors": 28,
+ "off_palette_colors": 0,
+ "off_list": [],
+ "partial_alpha_px": 0,
+ "edge_touching_frames": {},
+ "still_diff": {},
+ "S_height": 57,
+ "gait_idle": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 14,
+   "lastInclusive": 13,
+   "frames": 14,
+   "seconds": 1.076923,
+   "files": [
+    "00.png",
+    "13.png"
+   ],
+   "closure_pose_steps": 0.29625,
+   "closure_velocity_steps": 0.268987,
+   "closure_steps": 0.430743,
+   "amplitude_steps": 2.613171,
+   "wrap_steps": 2.103462,
+   "holds_inside": [
+    1,
+    7
+   ],
+   "root_dx_px_per_loop": 0.031866,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.05542,
+   "score": 0.430743,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": [
+     "held duplicate frames 1, 7 are dropped; their time goes to the frame they repeat"
+    ]
+   }
+  },
+  "sourceIndices": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ],
+  "durations_ms": [
+   154,
+   77,
+   77,
+   77,
+   77,
+   153,
+   77,
+   77,
+   77,
+   77,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "closure": 1.0,
+    "amplitude": 0.537724
+   },
+   "overall": 0.537724,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 12,
+   "seam": 25.803857,
+   "adjacent_median": 11.54005,
+   "adjacent_p95": 17.03155,
+   "adjacent_max": 18.704359,
+   "seam_over_median": 2.236026,
+   "seam_over_p95": 1.515062,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no gait period: the lag profile is flat: the best repeat at 8 frames is only 10% below the profile mean (need 15%); the motion does not repeat"
+}

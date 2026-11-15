@@ -1,0 +1,122 @@
+{
+ "version": "0002_ivysaur_agy_v1",
+ "hash": "a11c331c54f5",
+ "palette_colors": 26,
+ "off_palette_colors": 0,
+ "alpha_not_binary": 0,
+ "edge_touching_frames": {},
+ "still_diff_px": 0,
+ "S_height": 51,
+ "official_height": 51,
+ "mouth_lines": {
+  "S": [
+   [
+    59,
+    62
+   ],
+   [
+    78,
+    62
+   ]
+  ],
+  "SW": [
+   [
+    55,
+    61
+   ],
+   [
+    61,
+    61
+   ]
+  ],
+  "W": null,
+  "NE": null,
+  "N": null
+ },
+ "gait_idle": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 14,
+   "lastInclusive": 13,
+   "frames": 14,
+   "seconds": 1.076923,
+   "files": [
+    "00.png",
+    "13.png"
+   ],
+   "closure_pose_steps": 0.009948,
+   "closure_velocity_steps": 0.009948,
+   "closure_steps": 0.014921,
+   "amplitude_steps": 3.498904,
+   "wrap_steps": 0.076889,
+   "holds_inside": [
+    1,
+    2,
+    10
+   ],
+   "root_dx_px_per_loop": -0.009787,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.018822,
+   "score": 0.014921,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": [
+     "held duplicate frames 1-2, 10 are dropped; their time goes to the frame they repeat"
+    ]
+   }
+  },
+  "sourceIndices": [
+   0,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   11,
+   12,
+   13
+  ],
+  "durations_ms": [
+   231,
+   77,
+   77,
+   77,
+   77,
+   76,
+   77,
+   154,
+   77,
+   77,
+   77
+  ],
+  "confidence": {
+   "components": {
+    "closure": 1.0,
+    "amplitude": 0.832968
+   },
+   "overall": 0.832968,
+   "label": "high",
+   "review_priority": "spot-check",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 11,
+   "seam": 0.588259,
+   "adjacent_median": 7.636914,
+   "adjacent_p95": 9.328235,
+   "adjacent_max": 9.386581,
+   "seam_over_median": 0.077028,
+   "seam_over_p95": 0.063062,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "error: no loop window: every one- and two-stride window includes unusable frames, runs past the drift-free range or fails the seam checks; review the clip manually"
+}

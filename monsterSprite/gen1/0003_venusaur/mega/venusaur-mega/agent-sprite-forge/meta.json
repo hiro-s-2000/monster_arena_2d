@@ -1,0 +1,111 @@
+{
+  "generator": "forge_gen1_0003_venusaur_mega_actions",
+  "version": "venusaur_mega_agy_v1",
+  "key": "0003_venusaur-mega",
+  "dex": 3,
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "made_from": [
+    "art/ref_front.png",
+    "art/ref_back.png"
+  ],
+  "cell_w": 184,
+  "cell_h": 124,
+  "foot_y": 112,
+  "sprite_h": 74,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 30,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    44,
+    39,
+    97,
+    74,
+    44,
+    39,
+    98,
+    74,
+    44,
+    43,
+    100,
+    70,
+    48,
+    42,
+    89,
+    71,
+    42,
+    42,
+    101,
+    71,
+    47,
+    42,
+    89,
+    71,
+    40,
+    43,
+    100,
+    70,
+    42,
+    39,
+    98,
+    74
+  ]
+}
