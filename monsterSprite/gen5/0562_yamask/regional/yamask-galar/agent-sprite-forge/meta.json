@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_yamask-galar_actions",
+  "version": "yamask-galar_v1",
+  "key": "0562_yamask-galar",
+  "dex": 562,
+  "variant": "yamask-galar",
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 141,
+  "sprite_h": 42,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      false
+    ],
+    "SE": [
+      "front",
+      false
+    ],
+    "E": [
+      "front",
+      false
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      true
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      true
+    ],
+    "SW": [
+      "front",
+      true
+    ]
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "archetype": "floating ghost (one eye, two arms, rune slab, no mouth, no legs)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front eye x 47.95, face tip x 54, faces screen-right; back eye sliver x 52.56"
+}

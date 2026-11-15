@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_minccino_actions",
+  "version": "minccino_v1",
+  "key": "0572_minccino",
+  "dex": 572,
+  "variant": "minccino",
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 146,
+  "sprite_h": 49,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 9,
+  "off_palette_colors": 0,
+  "archetype": "biped chinchilla (two ear tips, broom curl, broom brush, two feet, no mouth)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (face tip x < eye x); back tail is screen-left so the snout side is screen-right"
+}

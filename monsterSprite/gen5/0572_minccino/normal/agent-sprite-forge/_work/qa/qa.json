@@ -1,0 +1,18 @@
+{
+ "version": "minccino_v1",
+ "hash": "84d0fca310b7",
+ "rest_diff": 0,
+ "idle0": 0,
+ "off_palette_colors": 0,
+ "partial_alpha": 0,
+ "edge_touch": 0,
+ "edge_touching": [],
+ "body_main_min": 0.997,
+ "sprite_h": 49,
+ "cell": [
+  192,
+  192,
+  146
+ ],
+ "ok": true
+}

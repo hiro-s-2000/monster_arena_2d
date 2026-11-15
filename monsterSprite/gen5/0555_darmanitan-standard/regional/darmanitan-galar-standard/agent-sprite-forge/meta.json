@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_darmanitan-galar-standard_actions",
+  "version": "darmanitan-galar-standard_v1",
+  "key": "0555_darmanitan-galar-standard",
+  "dex": 555,
+  "variant": "darmanitan-galar-standard",
+  "cell_w": 208,
+  "cell_h": 208,
+  "foot_y": 169,
+  "sprite_h": 72,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "snowman biped: heavy ice fist, small ice fist, one front peg, two back feet, ice brows and beard, no mouth",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (chin tip x35 < eye-white mean x44.4); N is the back drawing"
+}

@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_sigilyph_actions",
+  "version": "sigilyph_v1",
+  "key": "0561_sigilyph",
+  "dex": 561,
+  "variant": "sigilyph",
+  "cell_w": 256,
+  "cell_h": 256,
+  "foot_y": 220,
+  "sprite_h": 91,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      false
+    ],
+    "SE": [
+      "front",
+      false
+    ],
+    "E": [
+      "front",
+      false
+    ],
+    "NE": [
+      "back",
+      true
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      false
+    ],
+    "W": [
+      "front",
+      true
+    ],
+    "SW": [
+      "front",
+      true
+    ]
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "floating sigil (two wings with eyes, central eye on the torso, hanging tail, no mouth, no feet)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-right (iris x52.6 > white x50.1, crest x84-87); back crest x8 is away-left"
+}

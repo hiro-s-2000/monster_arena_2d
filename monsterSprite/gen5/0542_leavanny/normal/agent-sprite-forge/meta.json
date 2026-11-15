@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_leavanny_actions",
+  "version": "leavanny_v1",
+  "key": "0542_leavanny",
+  "dex": 542,
+  "variant": "leavanny",
+  "cell_w": 256,
+  "cell_h": 256,
+  "foot_y": 223,
+  "sprite_h": 77,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "biped leaf-arm striker (two eyes, no mouth, two antennae, two leaf blades, two legs, gold leaf foot)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (yellow chin mean x 45.0 < eye mean x 45.18)"
+}

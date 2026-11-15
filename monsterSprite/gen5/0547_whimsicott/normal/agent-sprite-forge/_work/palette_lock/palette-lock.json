@@ -1,0 +1,43 @@
+{
+  "schema": "generate2dsprite.palette_lock.v1",
+  "palette": {
+    "path": "palette.json",
+    "sha256": "0f0f015e3f96f6c85a96e7a8f16de35246243328956b54dbc501c47fdeb9e13e",
+    "bytes": 1124
+  },
+  "colors": [
+    "#101010",
+    "#184a18",
+    "#417b41",
+    "#523929",
+    "#52a44a",
+    "#6a5a41",
+    "#735241",
+    "#946a41",
+    "#ac4a62",
+    "#ac6a10",
+    "#ac945a",
+    "#c5b48b",
+    "#e68300",
+    "#e6decd",
+    "#ffffff"
+  ],
+  "transparent_index": 255,
+  "sources": [
+    {
+      "path": "../../../front.png",
+      "sha256": "be90cc59b35682cd41b078ef8ae9d3c982d3590a4df42a9976f465f072528cec",
+      "fit": {
+        "measured_px": 2170,
+        "alpha_threshold": 1,
+        "off_palette_px": 0,
+        "partial_alpha_px": 0,
+        "colors": 15,
+        "palette_colors_used": 15,
+        "mean_delta_e": 0.0,
+        "p95_delta_e": 0.0,
+        "max_delta_e": 0.0
+      }
+    }
+  ]
+}

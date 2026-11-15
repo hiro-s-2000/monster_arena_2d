@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_solosis_actions",
+  "version": "solosis_v1",
+  "key": "0577_solosis",
+  "dex": 577,
+  "variant": "solosis",
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 118,
+  "sprite_h": 28,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      true
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "archetype": "floating cell (membrane, two eyes, mouth, yellow nucleus; no limbs)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (mouth mean x 44.57 < eye mean x 45.0); back nucleus is on the left and has no mouth"
+}

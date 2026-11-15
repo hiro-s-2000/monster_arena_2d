@@ -1,0 +1,72 @@
+{
+  "generator": "forge_gen5_petilil_actions",
+  "version": "petilil_v1",
+  "key": "0548_petilil",
+  "dex": 548,
+  "variant": "petilil",
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 149,
+  "sprite_h": 45,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      true
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      false
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "archetype": "plant (three crown leaves, two leaf feet, no mouth)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true
+}

@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_emboar_mega_actions",
+  "version": "emboar-mega_v1m",
+  "key": "0500_emboar-mega",
+  "dex": 500,
+  "variant": "emboar-mega",
+  "cell_w": 272,
+  "cell_h": 272,
+  "foot_y": 235,
+  "sprite_h": 96,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 16,
+  "off_palette_colors": 0,
+  "archetype": "biped fire boar (two fists, two hooves, mane, shoulder flames, hanging flame beard, jaw and tusks)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (nose x 41.0 < eye x 41.3); back beard is left of the body"
+}

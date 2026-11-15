@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_tympole_actions",
+  "version": "tympole_v1",
+  "key": "0535_tympole",
+  "dex": 535,
+  "variant": "tympole",
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 100,
+  "sprite_h": 34,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      false
+    ],
+    "SE": [
+      "front",
+      false
+    ],
+    "E": [
+      "front",
+      false
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      true
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      true
+    ],
+    "SW": [
+      "front",
+      true
+    ]
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "archetype": "tadpole (round head, cream face, mouth, two cheek fins, hanging tail, no feet)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-right (mouth mean x 46.0 > eye mean x 45.17); back has no face, tail on the left as drawn"
+}

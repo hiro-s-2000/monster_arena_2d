@@ -1,0 +1,64 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "colors": [
+    {
+      "hex": "#000000",
+      "reserved": true
+    },
+    {
+      "hex": "#00acd5",
+      "reserved": true
+    },
+    {
+      "hex": "#183929",
+      "reserved": true
+    },
+    {
+      "hex": "#184a31",
+      "reserved": true
+    },
+    {
+      "hex": "#186a83",
+      "reserved": true
+    },
+    {
+      "hex": "#296a4a",
+      "reserved": true
+    },
+    {
+      "hex": "#5a4a41",
+      "reserved": true
+    },
+    {
+      "hex": "#737373",
+      "reserved": true
+    },
+    {
+      "hex": "#7b6a5a",
+      "reserved": true
+    },
+    {
+      "hex": "#a48b73",
+      "reserved": true
+    },
+    {
+      "hex": "#bd317b",
+      "reserved": true
+    },
+    {
+      "hex": "#bdbdbd",
+      "reserved": true
+    },
+    {
+      "hex": "#ee52a4",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 1 image(s), 14 colours, seed 0; locked by palette_tool lock"
+}

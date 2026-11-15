@@ -1,0 +1,76 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "colors": [
+    {
+      "hex": "#202020",
+      "reserved": true
+    },
+    {
+      "hex": "#4a4a4a",
+      "reserved": true
+    },
+    {
+      "hex": "#626262",
+      "reserved": true
+    },
+    {
+      "hex": "#785c6b",
+      "reserved": true
+    },
+    {
+      "hex": "#7b3929",
+      "reserved": true
+    },
+    {
+      "hex": "#949494",
+      "reserved": true
+    },
+    {
+      "hex": "#a28a96",
+      "reserved": true
+    },
+    {
+      "hex": "#bdbdbd",
+      "reserved": true
+    },
+    {
+      "hex": "#c55a18",
+      "reserved": true
+    },
+    {
+      "hex": "#cb611e",
+      "reserved": true
+    },
+    {
+      "hex": "#cbbbc0",
+      "reserved": true
+    },
+    {
+      "hex": "#de2939",
+      "reserved": true
+    },
+    {
+      "hex": "#e66273",
+      "reserved": true
+    },
+    {
+      "hex": "#e6e6e6",
+      "reserved": true
+    },
+    {
+      "hex": "#f9f7f5",
+      "reserved": true
+    },
+    {
+      "hex": "#fa8d3a",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    }
+  ],
+  "transparent_index": 255,
+  "locked": false,
+  "source": "palette_tool build: OKLab k-means++ of 1 image(s), 17 colours, seed 0"
+}

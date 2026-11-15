@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_excadrill_mega_actions",
+  "version": "excadrill-mega_v1",
+  "key": "0530_excadrill-mega",
+  "dex": 530,
+  "variant": "excadrill-mega",
+  "cell_w": 224,
+  "cell_h": 196,
+  "foot_y": 136,
+  "sprite_h": 74,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 22,
+  "off_palette_colors": 0,
+  "archetype": "biped mole (head drill, two drill claws, two stub feet, open mouth)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (mouth x 57.8 < eye x 62.0); back big claw is on the right"
+}

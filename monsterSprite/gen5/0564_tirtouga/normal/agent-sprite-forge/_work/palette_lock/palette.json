@@ -1,0 +1,17 @@
+{
+  "colors": [
+    "#101010",
+    "#205273",
+    "#31394a",
+    "#3173ac",
+    "#4a9cde",
+    "#526273",
+    "#6a7b8b",
+    "#8bcdde",
+    "#c5627b",
+    "#e6e6e6",
+    "#f67b9c",
+    "#394a52"
+  ],
+  "source": "front.png+back.png opaque union"
+}

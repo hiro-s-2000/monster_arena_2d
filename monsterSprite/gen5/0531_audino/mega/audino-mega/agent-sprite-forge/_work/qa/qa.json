@@ -1,0 +1,35 @@
+{
+ "version": "audino-mega_v1",
+ "hash": "e87d58df46ed",
+ "rest_diff": {
+  "S": 0,
+  "SE": 0,
+  "E": 0,
+  "NE": 0,
+  "N": 0,
+  "NW": 0,
+  "W": 0,
+  "SW": 0
+ },
+ "idle0": {
+  "S": 0,
+  "SE": 0,
+  "E": 0,
+  "NE": 0,
+  "N": 0,
+  "NW": 0,
+  "W": 0,
+  "SW": 0
+ },
+ "off_palette_colors": 0,
+ "partial_alpha": 0,
+ "edge_touching": [],
+ "edge_n": 0,
+ "sprite_h": 64,
+ "cell": [
+  224,
+  224,
+  174
+ ],
+ "ok": true
+}

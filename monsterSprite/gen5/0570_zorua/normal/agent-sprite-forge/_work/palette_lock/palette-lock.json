@@ -1,0 +1,54 @@
+{
+  "schema": "generate2dsprite.palette_lock.v1",
+  "palette": {
+    "path": "palette.json",
+    "sha256": "f951ae6e95a906566b619b536f44cb92d9415a41d70d8ba9fd3be104a8dd4416",
+    "bytes": 884
+  },
+  "colors": [
+    "#101010",
+    "#18b4b4",
+    "#202031",
+    "#313141",
+    "#318383",
+    "#410810",
+    "#414152",
+    "#5a5a73",
+    "#6a2039",
+    "#ac1041",
+    "#ffffff"
+  ],
+  "transparent_index": 255,
+  "sources": [
+    {
+      "path": "../../../front.png",
+      "sha256": "202d8d5868a7d47ae74ecf2750561c18a77b72c719b8cf4c0766aae33efe3dde",
+      "fit": {
+        "measured_px": 1075,
+        "alpha_threshold": 1,
+        "off_palette_px": 0,
+        "partial_alpha_px": 0,
+        "colors": 10,
+        "palette_colors_used": 10,
+        "mean_delta_e": 0.0,
+        "p95_delta_e": 0.0,
+        "max_delta_e": 0.0
+      }
+    },
+    {
+      "path": "../../../back.png",
+      "sha256": "e5d8223cb817618de515abbceca618e4ad4ed6d915e4a0843f6a6e06847fa6dc",
+      "fit": {
+        "measured_px": 1008,
+        "alpha_threshold": 1,
+        "off_palette_px": 0,
+        "partial_alpha_px": 0,
+        "colors": 8,
+        "palette_colors_used": 8,
+        "mean_delta_e": 0.0,
+        "p95_delta_e": 0.0,
+        "max_delta_e": 0.0
+      }
+    }
+  ]
+}

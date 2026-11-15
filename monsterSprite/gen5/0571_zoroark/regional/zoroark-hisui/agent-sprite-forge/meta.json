@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_zoroark_hisui_actions",
+  "version": "zoroark-hisui_v1",
+  "key": "0571_zoroark-hisui",
+  "dex": 571,
+  "variant": "zoroark-hisui",
+  "cell_w": 256,
+  "cell_h": 256,
+  "foot_y": 217,
+  "sprite_h": 78,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "archetype": "biped spectral fox (gold eyes, white mane, red hair locks, two clawed feet, no mouth cavity)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (muzzle tip x15 < eye mean x37.2); back faces screen-right"
+}

@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_scraggy_actions",
+  "version": "scraggy_v1",
+  "key": "0559_scraggy",
+  "dex": 559,
+  "variant": "scraggy",
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 144,
+  "sprite_h": 41,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "biped loose-skin striker (open grin, red crest, two feet, rear hem tail)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (teeth mean x 37.75 < eye mean x 48.57); back eye sliver is on the right"
+}

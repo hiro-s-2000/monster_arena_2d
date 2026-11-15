@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_zorua_hisui_actions",
+  "version": "zorua-hisui_v1",
+  "key": "0570_zorua-hisui",
+  "dex": 570,
+  "variant": "zorua-hisui",
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 142,
+  "sprite_h": 63,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      false
+    ],
+    "SE": [
+      "front",
+      false
+    ],
+    "E": [
+      "front",
+      false
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      true
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      true
+    ],
+    "SW": [
+      "front",
+      true
+    ]
+  },
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "archetype": "quadruped fox (head flame, side tuft, curled tail, four toes, no mouth)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-right (face tip x53 > eye mean x39); back tail is screen-left"
+}

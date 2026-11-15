@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_carracosta_actions",
+  "version": "carracosta_v1",
+  "key": "0565_carracosta",
+  "dex": 565,
+  "variant": "carracosta",
+  "cell_w": 224,
+  "cell_h": 224,
+  "foot_y": 182,
+  "sprite_h": 61,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "archetype": "biped turtle (two flippers, two feet, plastron, small tail, no open mouth)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front faces screen-left (tip x 22 < eye x 41.0); back faces screen-right (tip x 67 > eye x 62.5)"
+}

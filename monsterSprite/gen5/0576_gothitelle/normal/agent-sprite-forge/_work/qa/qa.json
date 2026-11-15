@@ -1,0 +1,35 @@
+{
+ "version": "gothitelle_v1",
+ "hash": "c5a647174418",
+ "rest_diff": {
+  "S": 0,
+  "SE": 0,
+  "E": 0,
+  "NE": 0,
+  "N": 0,
+  "NW": 0,
+  "W": 0,
+  "SW": 0
+ },
+ "idle0": {
+  "S": 0,
+  "SE": 0,
+  "E": 0,
+  "NE": 0,
+  "N": 0,
+  "NW": 0,
+  "W": 0,
+  "SW": 0
+ },
+ "off_palette": 0,
+ "partial_alpha": 0,
+ "edge_touch": 0,
+ "edge_touching": [],
+ "body_main_min": 0.997,
+ "sprite_h": 73,
+ "cell": [
+  208,
+  208,
+  168
+ ]
+}

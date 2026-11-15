@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_darmanitan-standard_actions",
+  "version": "darmanitan-standard_v1",
+  "key": "0555_darmanitan-standard",
+  "dex": 555,
+  "variant": "darmanitan-standard",
+  "cell_w": 224,
+  "cell_h": 224,
+  "foot_y": 200,
+  "sprite_h": 65,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "archetype": "biped heavy puncher (open toothed mouth, two flame brows, near fist and far fist, two short soles, no tail)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (mouth tip x 35 < eye mean x 43.53)"
+}

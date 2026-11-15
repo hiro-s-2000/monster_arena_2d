@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_gothitelle_actions",
+  "version": "gothitelle_v1",
+  "key": "0576_gothitelle",
+  "dex": 576,
+  "variant": "gothitelle",
+  "cell_w": 208,
+  "cell_h": 208,
+  "foot_y": 168,
+  "sprite_h": 73,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "dress humanoid (two bow loops, two hands, no feet, mouth on the front)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "mouth mean x 46.5 sits between the eyes (midpoint 46.79), so the front faces the viewer; back mass is slightly screen-right"
+}

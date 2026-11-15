@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_timburr_actions",
+  "version": "timburr_v1",
+  "key": "0532_timburr",
+  "dex": 532,
+  "variant": "timburr",
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 140,
+  "sprite_h": 42,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      true
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "archetype": "biped (pink nose, small mouth, wooden beam, two stubby feet)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front nose mean x is left of the eyes; back eye is right of the nose (away-right)"
+}

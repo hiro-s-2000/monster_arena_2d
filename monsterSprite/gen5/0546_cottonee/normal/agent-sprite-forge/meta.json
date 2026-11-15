@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_cottonee_actions",
+  "version": "cottonee_v1",
+  "key": "0546_cottonee",
+  "dex": 546,
+  "variant": "cottonee",
+  "cell_w": 176,
+  "cell_h": 160,
+  "foot_y": 104,
+  "sprite_h": 27,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      false
+    ],
+    "SE": [
+      "front",
+      false
+    ],
+    "E": [
+      "front",
+      false
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      true
+    ],
+    "SW": [
+      "front",
+      true
+    ]
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "archetype": "floating cotton puff (no feet; two side leaves; mouth on the front only)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-right (iris x43.67, mouth x44.0); back tuft is on the right"
+}

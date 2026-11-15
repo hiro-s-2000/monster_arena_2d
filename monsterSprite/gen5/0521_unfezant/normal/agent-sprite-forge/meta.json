@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_unfezant_actions",
+  "version": "unfezant_v1",
+  "key": "0521_unfezant",
+  "dex": 521,
+  "variant": "unfezant",
+  "cell_w": 200,
+  "cell_h": 200,
+  "foot_y": 180,
+  "sprite_h": 75,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "biped bird (pink heart crest, closed yellow beak, barred tail, two feet)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (beak x30 < eye mean x39.5); tail trails screen-right"
+}

@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_dewott_actions",
+  "version": "dewott_v1",
+  "key": "0502_dewott",
+  "dex": 502,
+  "variant": "dewott",
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 154,
+  "sprite_h": 56,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "biped otter (two scalchops, one arm, two feet, no mouth, no separate tail)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front nose mean x 45.6 sits on the eye midpoint 45.75, so the still faces the viewer; back cheek whites are on the screen-right"
+}

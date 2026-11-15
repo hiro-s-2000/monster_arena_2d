@@ -1,0 +1,87 @@
+{
+  "status": "pass",
+  "method": "forge_palette.build_palette (weighted k-means++ in OKLab over unique colours, reserved colours fixed, coverage skipping) then forge_palette.fit_report of every input: OKLab dE of each pixel with alpha >= the threshold to its nearest palette colour",
+  "notProven": [
+    "Visual quality of the palette: look at swatches.png and an applied frame.",
+    "Colours of pixels below the alpha threshold were not sampled or measured.",
+    "No --max-delta-e gate was set."
+  ],
+  "checks": [
+    {
+      "id": "palette_colors",
+      "status": "pass",
+      "value": 12,
+      "threshold": 12
+    },
+    {
+      "id": "inputs_without_samples",
+      "status": "pass",
+      "value": 0,
+      "threshold": 0,
+      "files": []
+    },
+    {
+      "id": "max_delta_e",
+      "status": "skipped",
+      "value": 0.0,
+      "threshold": null
+    }
+  ],
+  "inputs": [
+    {
+      "path": "../../../front.png",
+      "sha256": "718ce74e21c279bd2479040fa8cb7b8d5f2365097d661a7fe346af44e87692e8",
+      "bytes": 761
+    }
+  ],
+  "outputs": [
+    {
+      "path": "palette.json",
+      "sha256": "a45662355a380f508fb5ade9aeab39d160213f902be93e2f55dc180ae6f02e11",
+      "bytes": 916
+    },
+    {
+      "path": "palette.gpl",
+      "sha256": "6f3a92edc6d8fedbc4285c432d760dff619f9556934c38ec0b1e19a467688638",
+      "bytes": 300
+    },
+    {
+      "path": "palette.hex",
+      "sha256": "35e2573b6096b1ce7935e95a0903e21d1010d44a9eb424b5e58c1198e2bdebd0",
+      "bytes": 84
+    },
+    {
+      "path": "swatches.png",
+      "sha256": "19685c3fa8a3184c326bf9cdf52ff2852d31b27696903ccd81f93e01d392e3c8",
+      "bytes": 258
+    }
+  ],
+  "tool": {
+    "name": "palette_tool",
+    "version": "0.4.0"
+  },
+  "palette": {
+    "colors": 12,
+    "reserved": 12,
+    "transparent_index": 255,
+    "seed": 0
+  },
+  "fit": {
+    "../../../front.png": {
+      "measured_px": 1709,
+      "alpha_threshold": 128,
+      "off_palette_px": 0,
+      "partial_alpha_px": 0,
+      "colors": 12,
+      "palette_colors_used": 12,
+      "mean_delta_e": 0.0,
+      "p95_delta_e": 0.0,
+      "max_delta_e": 0.0
+    }
+  },
+  "totals": {
+    "max_delta_e": 0.0,
+    "worst_p95_delta_e": 0.0,
+    "off_palette_px": 0
+  }
+}

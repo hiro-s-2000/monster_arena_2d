@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_cofagrigus_actions",
+  "version": "cofagrigus_v1",
+  "key": "0563_cofagrigus",
+  "dex": 563,
+  "variant": "cofagrigus",
+  "cell_w": 256,
+  "cell_h": 256,
+  "foot_y": 217,
+  "sprite_h": 76,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      false
+    ],
+    "SE": [
+      "front",
+      false
+    ],
+    "E": [
+      "front",
+      false
+    ],
+    "NE": [
+      "back",
+      false
+    ],
+    "N": [
+      "back",
+      true
+    ],
+    "NW": [
+      "back",
+      true
+    ],
+    "W": [
+      "front",
+      true
+    ],
+    "SW": [
+      "front",
+      true
+    ]
+  },
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "archetype": "floating sarcophagus (open mouth, four shadow arms, no feet)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-right (mouth mean x 48.08 > eye mean x 47.24)"
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "generate2dsprite.palette.v1",
+  "colors": [
+    {
+      "hex": "#101010",
+      "reserved": true
+    },
+    {
+      "hex": "#292018",
+      "reserved": true
+    },
+    {
+      "hex": "#413129",
+      "reserved": true
+    },
+    {
+      "hex": "#505359",
+      "reserved": true
+    },
+    {
+      "hex": "#614f47",
+      "reserved": true
+    },
+    {
+      "hex": "#63322e",
+      "reserved": true
+    },
+    {
+      "hex": "#69322e",
+      "reserved": true
+    },
+    {
+      "hex": "#696c72",
+      "reserved": true
+    },
+    {
+      "hex": "#834141",
+      "reserved": true
+    },
+    {
+      "hex": "#8d4742",
+      "reserved": true
+    },
+    {
+      "hex": "#8f4742",
+      "reserved": true
+    },
+    {
+      "hex": "#9699a0",
+      "reserved": true
+    },
+    {
+      "hex": "#ac5252",
+      "reserved": true
+    },
+    {
+      "hex": "#bd4141",
+      "reserved": true
+    },
+    {
+      "hex": "#bec1c7",
+      "reserved": true
+    },
+    {
+      "hex": "#cd736a",
+      "reserved": true
+    },
+    {
+      "hex": "#d25339",
+      "reserved": true
+    },
+    {
+      "hex": "#e96142",
+      "reserved": true
+    },
+    {
+      "hex": "#ebebeb",
+      "reserved": true
+    },
+    {
+      "hex": "#ee837b",
+      "reserved": true
+    },
+    {
+      "hex": "#ff7a4e",
+      "reserved": true
+    },
+    {
+      "hex": "#ffffff",
+      "reserved": true
+    }
+  ],
+  "transparent_index": 255,
+  "locked": true,
+  "source": "palette_tool build: OKLab k-means++ of 1 image(s), 22 colours, seed 0; locked by palette_tool lock"
+}

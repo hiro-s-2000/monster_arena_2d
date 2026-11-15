@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gen5_tirtouga_actions",
+  "version": "tirtouga_v1",
+  "key": "0564_tirtouga",
+  "dex": 564,
+  "variant": "tirtouga",
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 101,
+  "sprite_h": 39,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": [
+      "front",
+      true
+    ],
+    "SE": [
+      "front",
+      true
+    ],
+    "E": [
+      "front",
+      true
+    ],
+    "NE": [
+      "back",
+      true
+    ],
+    "N": [
+      "back",
+      false
+    ],
+    "NW": [
+      "back",
+      false
+    ],
+    "W": [
+      "front",
+      false
+    ],
+    "SW": [
+      "front",
+      false
+    ]
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "archetype": "turtle (grey shell torso, left and right flippers, small upper-right flipper, beaked head, back tail stub)",
+  "source": "front.png / back.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front still faces screen-left (beak xmin 39 is left of eye mean 42.67)"
+}

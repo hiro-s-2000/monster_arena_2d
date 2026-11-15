@@ -1,0 +1,18 @@
+GIMP Palette
+Name: Agent Sprite Forge palette
+Columns: 14
+#
+ 16  16  16	#101010
+ 98  74 106	#624a6a
+131  65  98	#834162
+131  90 148	#835a94
+172  41  65	#ac2941
+172 123 205	#ac7bcd
+205 139 189	#cd8bbd
+222  41  65	#de2941
+222 123 189	#de7bbd
+230 172 197	#e6acc5
+246 139 213	#f68bd5
+255 197 205	#ffc5cd
+255 213 222	#ffd5de
+255 255 255	#ffffff
