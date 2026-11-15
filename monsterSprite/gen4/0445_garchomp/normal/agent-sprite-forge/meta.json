@@ -1,0 +1,48 @@
+{
+  "generator": "forge_garchomp_actions",
+  "version": "garchomp_v2",
+  "key": "0445_garchomp",
+  "dex": 445,
+  "variant": "garchomp",
+  "form": "normal",
+  "archetype": "biped_scythe",
+  "facing_still": "left",
+  "jaw_tip_x": 33,
+  "eye_mean_x": 39.75,
+  "eye_mean_y": 24.0,
+  "cell_w": 200,
+  "cell_h": 200,
+  "foot_y": 168,
+  "sprite_h": 76,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_left": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "gifs_untouched": true
+}

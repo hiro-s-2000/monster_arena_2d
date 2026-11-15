@@ -1,0 +1,44 @@
+{
+  "generator": "forge_grotle_actions",
+  "version": "grotle_v2",
+  "key": "0388_grotle",
+  "dex": 388,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 58,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "facing": "left",
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "anatomy": "two shell bushes, three visible feet, closed beak, no invented mouth"
+}

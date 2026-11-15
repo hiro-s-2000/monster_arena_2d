@@ -1,0 +1,51 @@
+{
+  "generator": "forge_staraptor_actions",
+  "version": "staraptor_v2",
+  "key": "0398_staraptor",
+  "dex": 398,
+  "form": "normal",
+  "variant": "staraptor",
+  "cell_w": 176,
+  "cell_h": 184,
+  "foot_y": 160,
+  "sprite_h": 64,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "beak_tip_x": 27,
+  "eye_x": 31,
+  "wings": 1,
+  "talons": 2,
+  "south_attack_ratio_min": 0.9891,
+  "south_attack_ratio_max": 1.0201
+}

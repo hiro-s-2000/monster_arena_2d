@@ -1,0 +1,285 @@
+{
+ "version": "monferno_v2",
+ "hash": "bcceb6378dc6",
+ "parts": {
+  "head": 422,
+  "torso": 107,
+  "tail": 94,
+  "flame": 127,
+  "left_arm": 213,
+  "right_arm": 158,
+  "left_leg": 116,
+  "right_leg": 124
+ },
+ "sprite_h": 52,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "spin_main_frac_S": {
+  "5": 1.0,
+  "6": 1.0,
+  "7": 1.0,
+  "8": 1.0,
+  "9": 1.0,
+  "10": 1.0
+ },
+ "attack_S_opaque": [
+  {
+   "f": 0,
+   "opaque": 1361,
+   "ratio": 1.0,
+   "w": 60,
+   "main": 1.0
+  },
+  {
+   "f": 1,
+   "opaque": 1386,
+   "ratio": 1.0184,
+   "w": 66,
+   "main": 1.0
+  },
+  {
+   "f": 2,
+   "opaque": 1414,
+   "ratio": 1.0389,
+   "w": 70,
+   "main": 1.0
+  },
+  {
+   "f": 3,
+   "opaque": 1428,
+   "ratio": 1.0492,
+   "w": 71,
+   "main": 1.0
+  },
+  {
+   "f": 4,
+   "opaque": 1389,
+   "ratio": 1.0206,
+   "w": 67,
+   "main": 1.0
+  },
+  {
+   "f": 5,
+   "opaque": 1440,
+   "ratio": 1.058,
+   "w": 72,
+   "main": 1.0
+  },
+  {
+   "f": 6,
+   "opaque": 1427,
+   "ratio": 1.0485,
+   "w": 72,
+   "main": 1.0
+  },
+  {
+   "f": 7,
+   "opaque": 1427,
+   "ratio": 1.0485,
+   "w": 72,
+   "main": 1.0
+  },
+  {
+   "f": 8,
+   "opaque": 1427,
+   "ratio": 1.0485,
+   "w": 72,
+   "main": 1.0
+  },
+  {
+   "f": 9,
+   "opaque": 1436,
+   "ratio": 1.0551,
+   "w": 71,
+   "main": 1.0
+  },
+  {
+   "f": 10,
+   "opaque": 1440,
+   "ratio": 1.058,
+   "w": 72,
+   "main": 1.0
+  },
+  {
+   "f": 11,
+   "opaque": 1455,
+   "ratio": 1.0691,
+   "w": 84,
+   "main": 0.9746
+  },
+  {
+   "f": 12,
+   "opaque": 1436,
+   "ratio": 1.0551,
+   "w": 81,
+   "main": 0.9742
+  },
+  {
+   "f": 13,
+   "opaque": 1357,
+   "ratio": 0.9971,
+   "w": 64,
+   "main": 0.9985
+  },
+  {
+   "f": 14,
+   "opaque": 1360,
+   "ratio": 0.9993,
+   "w": 62,
+   "main": 1.0
+  },
+  {
+   "f": 15,
+   "opaque": 1361,
+   "ratio": 1.0,
+   "w": 60,
+   "main": 1.0
+  }
+ ],
+ "gait_idle": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 6,
+   "lastInclusive": 5,
+   "frames": 6,
+   "seconds": 0.5,
+   "files": [
+    "00.png",
+    "05.png"
+   ],
+   "closure_pose_steps": 0.0,
+   "closure_velocity_steps": 1.101356,
+   "closure_steps": 0.550678,
+   "amplitude_steps": 2.023061,
+   "wrap_steps": 1.258483,
+   "holds_inside": [],
+   "root_dx_px_per_loop": 0.0,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.0,
+   "score": 0.550678,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": []
+   }
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "closure": 0.949322,
+    "amplitude": 0.34102
+   },
+   "overall": 0.34102,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 6,
+   "seam": 13.171472,
+   "adjacent_median": 11.061737,
+   "adjacent_p95": 11.661262,
+   "adjacent_max": 11.801052,
+   "seam_over_median": 1.190724,
+   "seam_over_p95": 1.129507,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 8,
+   "lastInclusive": 7,
+   "frames": 8,
+   "seconds": 0.666667,
+   "files": [
+    "00.png",
+    "07.png"
+   ],
+   "closure_pose_steps": 0.0,
+   "closure_velocity_steps": 1.61252,
+   "closure_steps": 0.80626,
+   "amplitude_steps": 2.619526,
+   "wrap_steps": 2.1871,
+   "holds_inside": [],
+   "root_dx_px_per_loop": 0.0,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.0,
+   "score": 0.80626,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": []
+   }
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   84,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "closure": 0.69374,
+    "amplitude": 0.539842
+   },
+   "overall": 0.539842,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 8,
+   "seam": 42.533695,
+   "adjacent_median": 15.203883,
+   "adjacent_p95": 40.032981,
+   "adjacent_max": 40.263849,
+   "seam_over_median": 2.797555,
+   "seam_over_p95": 1.062466,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ }
+}

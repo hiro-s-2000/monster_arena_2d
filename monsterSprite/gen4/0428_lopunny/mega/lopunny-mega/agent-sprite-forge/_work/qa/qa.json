@@ -1,0 +1,32 @@
+{
+ "version": "lopunny_mega_v2",
+ "hash": "3315f367fc94",
+ "parts": {
+  "ears": 196,
+  "side": 405,
+  "arm_l": 261,
+  "leg_l": 124,
+  "leg_r": 114,
+  "head": 354,
+  "torso": 425
+ },
+ "sprite_h": 68,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "spin_main_frac_W": {
+  "5": 0.99,
+  "6": 0.994,
+  "7": 0.994,
+  "8": 0.994,
+  "9": 0.99,
+  "10": 0.995
+ },
+ "facing": "left",
+ "eye_x": 51.0,
+ "arm_tip_x": 16,
+ "gait_idle": "skipped_existing"
+}

@@ -1,0 +1,66 @@
+{
+ "version": "heatran_mega_v3",
+ "hash": "cc20c2982c3d",
+ "parts": {
+  "torso": 2947,
+  "jaw": 118,
+  "leg_l": 168,
+  "leg_r": 201
+ },
+ "sprite_h": 62,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "spin_main_E": {
+  "5": {
+   "frac": 1.0,
+   "best": 3370
+  },
+  "6": {
+   "frac": 0.996,
+   "best": 3400
+  },
+  "7": {
+   "frac": 0.982,
+   "best": 3421
+  },
+  "8": {
+   "frac": 0.965,
+   "best": 3397
+  },
+  "9": {
+   "frac": 0.964,
+   "best": 3446
+  },
+  "10": {
+   "frac": 0.97,
+   "best": 3436
+  }
+ },
+ "hurt_main_E": {
+  "1": {
+   "frac": 1.0,
+   "best": 3433
+  },
+  "3": {
+   "frac": 0.999,
+   "best": 3443
+  },
+  "6": {
+   "frac": 0.999,
+   "best": 3433
+  }
+ },
+ "facing": "right",
+ "top_centroid_x": 54.57,
+ "cell": [
+  200,
+  200,
+  156
+ ],
+ "gait_idle": "skipped_existing",
+ "gait_walk": "skipped_existing"
+}

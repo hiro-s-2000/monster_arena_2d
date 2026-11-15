@@ -1,0 +1,56 @@
+{
+  "generator": "forge_porygon_z_actions",
+  "version": "porygon-z_v1",
+  "key": "0474_porygon-z",
+  "dex": 474,
+  "variant": "porygon-z",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 52,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "parts": {
+    "torso": 168,
+    "arm_back": 116,
+    "tail": 86,
+    "arm_fwd": 97,
+    "head": 248,
+    "crest": 28
+  },
+  "facing": "left",
+  "beak_x": 34,
+  "eye_x": 49.0,
+  "feet": 0,
+  "archetype": "levitating_virtual (head floats free)",
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

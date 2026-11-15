@@ -1,0 +1,45 @@
+{
+  "generator": "forge_staraptor_mega_actions",
+  "version": "staraptor_mega_v2m",
+  "key": "0398_staraptor-mega",
+  "dex": 398,
+  "cell_w": 208,
+  "cell_h": 208,
+  "foot_y": 180,
+  "sprite_h": 94,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 19,
+  "off_palette_colors": 0,
+  "facing": "right",
+  "beak_x": 82,
+  "eye_x": 61.0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

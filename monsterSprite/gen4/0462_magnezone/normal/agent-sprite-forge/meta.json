@@ -1,0 +1,72 @@
+{
+  "generator": "forge_magnezone_actions",
+  "version": "magnezone_v2",
+  "key": "0462_magnezone",
+  "dex": 462,
+  "variant": "magnezone",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 124,
+  "sprite_h": 56,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.009,
+    1.019,
+    1.018,
+    1.009,
+    0.998,
+    0.999,
+    0.999,
+    0.999,
+    0.999,
+    0.998,
+    1.001,
+    1.0,
+    1.001,
+    0.999,
+    1.0
+  ],
+  "parts": {
+    "antenna": 66,
+    "screw_l": 38,
+    "screw_r": 71,
+    "magnet_l": 223,
+    "magnet_r": 244,
+    "torso": 1399
+  },
+  "facing": "front",
+  "feet": 0,
+  "mouth": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

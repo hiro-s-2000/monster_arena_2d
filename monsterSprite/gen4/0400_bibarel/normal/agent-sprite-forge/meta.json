@@ -1,0 +1,52 @@
+{
+  "generator": "forge_bibarel_actions",
+  "version": "bibarel_v2",
+  "key": "0400_bibarel",
+  "dex": 400,
+  "archetype": "quadruped_beaver",
+  "facing": "left",
+  "unflipped": [
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "flipped": [
+    "S",
+    "SE",
+    "E",
+    "NE"
+  ],
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 56,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_ratio_min": 0.99569151227919,
+  "attack_ratio_max": 1.005170185264972,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

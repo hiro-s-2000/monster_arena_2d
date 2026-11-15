@@ -1,0 +1,56 @@
+{
+  "generator": "forge_tangrowth_actions",
+  "version": "tangrowth_v2",
+  "key": "0465_tangrowth",
+  "dex": 465,
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 164,
+  "sprite_h": 65,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "viewer",
+  "archetype": "vine_mass_red_feet",
+  "mouth": 0,
+  "feet": 2,
+  "red_tips": 4,
+  "parts": {
+    "hand_l": 72,
+    "hand_r": 67,
+    "foot_bc": 33,
+    "foot_bl": 30,
+    "torso": 3052
+  },
+  "palette_colors": 11,
+  "off_palette_colors": 0,
+  "south_min": 0.992,
+  "south_max": 1.012,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

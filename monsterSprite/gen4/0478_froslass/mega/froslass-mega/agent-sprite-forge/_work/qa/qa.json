@@ -1,0 +1,48 @@
+{
+ "version": "froslass_mega_v2",
+ "hash": "e755a26f0cae",
+ "parts": {
+  "horn_l": 35,
+  "horn_r": 45,
+  "head": 667,
+  "hair_l": 183,
+  "hair_r": 113,
+  "sleeve_l": 224,
+  "sleeve_r": 103,
+  "hem": 867,
+  "torso": 255
+ },
+ "sprite_h": 94,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "spin_main_frac_E": {
+  "5": 1.0,
+  "6": 0.997,
+  "7": 0.99,
+  "8": 0.995,
+  "9": 0.992,
+  "10": 0.995
+ },
+ "spin_second_E": {
+  "5": 0,
+  "6": 9,
+  "7": 9,
+  "8": 8,
+  "9": 16,
+  "10": 14
+ },
+ "facing": "front-right-bias",
+ "eye_x": 52.5,
+ "eye_y": 19.75,
+ "cell": [
+  176,
+  176,
+  156
+ ],
+ "gait_idle": "skipped_existing",
+ "gait_walk": "skipped_existing"
+}

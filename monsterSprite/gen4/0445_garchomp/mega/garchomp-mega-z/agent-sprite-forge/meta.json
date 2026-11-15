@@ -1,0 +1,45 @@
+{
+  "generator": "forge_garchomp_mega_z_actions",
+  "version": "garchomp_mega_z_v2m",
+  "key": "0445_garchomp-mega-z",
+  "dex": 445,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 156,
+  "sprite_h": 85,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "facing": "left",
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "avian_raptor_hover",
+  "limbs": "two wings, crest, one tail, no legs",
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

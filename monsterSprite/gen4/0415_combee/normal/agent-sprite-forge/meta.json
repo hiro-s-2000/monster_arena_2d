@@ -1,0 +1,55 @@
+{
+  "generator": "forge_combee_actions",
+  "version": "combee_v2",
+  "key": "0415_combee",
+  "dex": 415,
+  "form": "normal",
+  "variant": "combee",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 33,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "mirror": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 9,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "bees": 3,
+  "wings": 2,
+  "antennae": 2,
+  "mouth": 0,
+  "parts": {
+    "ant_l": 12,
+    "ant_r": 12,
+    "wing_l": 80,
+    "wing_r": 158,
+    "body": 671
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "generator": "forge_bronzor_actions",
+  "version": "bronzor_v2",
+  "key": "0436_bronzor",
+  "dex": 436,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 37,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "archetype": "disc_hover",
+  "face": {
+    "bbox": [
+      33,
+      30,
+      63,
+      66
+    ],
+    "opaque": 802,
+    "eyes": [
+      15,
+      4,
+      18
+    ],
+    "tips": 47,
+    "faces": "viewer",
+    "limbs": 0,
+    "mouth": 0
+  },
+  "parts": {
+    "eye_l": 15,
+    "glint": 4,
+    "eye_r": 18,
+    "tips": 47,
+    "disc": 802
+  },
+  "palette_colors": 8,
+  "off_palette_colors": 0,
+  "attack_s_min": 1.0,
+  "attack_s_max": 1.071,
+  "attack_s_ratios": [
+    1.0,
+    1.061,
+    1.071,
+    1.071,
+    1.061,
+    1.051,
+    1.051,
+    1.051,
+    1.051,
+    1.051,
+    1.051,
+    1.069,
+    1.057,
+    1.01,
+    1.0,
+    1.0
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/idle/S",
+  "sourceHashes": [
+    "9ae8e7495b15b800acf2af1b90fae39505de311844bf9bdb7fe3bbc3addf5df5",
+    "48eaf444b5518ff1ffd8a33d36d044c2676eb525dc21383f7e196673e1ff47ac",
+    "fc341106a869bce6f9c3ab481b8ed2871fa270b79d03c11e469b0806ece74730",
+    "fcaa1f20310c9854f1a680fb4ea5e65fa8f1ba2232ee0931e34efb1d86153e68",
+    "fc341106a869bce6f9c3ab481b8ed2871fa270b79d03c11e469b0806ece74730",
+    "48eaf444b5518ff1ffd8a33d36d044c2676eb525dc21383f7e196673e1ff47ac"
+  ],
+  "sourceFiles": [
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png"
+  ],
+  "start": 1,
+  "endExclusive": 7,
+  "sourceIndices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "durations_ms": [
+    83,
+    84,
+    83,
+    83,
+    84,
+    83
+  ],
+  "fps": "12/1",
+  "loopPolicy": "cycle",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+  "method": "gait_loop select (hover): pose + 0.5 x velocity closure with non-maximum suppression",
+  "kind": "hover",
+  "cycles": 1,
+  "confidence": {
+    "label": "low",
+    "overall": 0.371565
+  },
+  "seam": {
+    "frames": 6,
+    "seam": 7.726722,
+    "adjacent_median": 4.867218,
+    "adjacent_p95": 7.154821,
+    "adjacent_max": 7.726722,
+    "seam_over_median": 1.587503,
+    "seam_over_p95": 1.079932,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

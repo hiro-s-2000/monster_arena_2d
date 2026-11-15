@@ -1,0 +1,78 @@
+{
+  "generator": "forge_purugly_actions",
+  "version": "purugly_v2",
+  "key": "0432_purugly",
+  "dex": 432,
+  "form": "normal",
+  "variant": "purugly",
+  "cell_w": 176,
+  "cell_h": 184,
+  "foot_y": 156,
+  "sprite_h": 58,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "eye_x": 40.77,
+  "centroid_x": 49.84,
+  "paws": 2,
+  "tail": "one_right_curl",
+  "mouth": "none",
+  "parts": {
+    "torso": 1301,
+    "tail": 274,
+    "lpaw": 53,
+    "rpaw": 69,
+    "lear": 148,
+    "rear": 184
+  },
+  "south_attack_ratio_min": 0.9744,
+  "south_attack_ratio_max": 1.0084,
+  "south_attack_ratios": [
+    1.0,
+    1.001,
+    1.0049,
+    1.0084,
+    1.0005,
+    0.9808,
+    0.9744,
+    0.9744,
+    0.9744,
+    0.9768,
+    0.9808,
+    0.9941,
+    0.9966,
+    0.999,
+    0.998,
+    1.0
+  ]
+}

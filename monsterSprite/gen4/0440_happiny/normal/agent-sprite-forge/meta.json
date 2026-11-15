@@ -1,0 +1,120 @@
+{
+  "generator": "forge_happiny_actions",
+  "version": "happiny_v2",
+  "key": "0440_happiny",
+  "dex": 440,
+  "variant": "happiny",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 42,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "left",
+  "feet": 2,
+  "mouth": false,
+  "egg": "inside torso pouch",
+  "parts": {
+    "curl": 82,
+    "foot_l": 11,
+    "foot_r": 24,
+    "torso": 570
+  },
+  "palette_colors": 9,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.0029,
+    1.0058,
+    1.0029,
+    1.0,
+    0.9942,
+    0.9957,
+    0.9957,
+    0.9957,
+    0.9957,
+    0.9942,
+    1.0043,
+    1.0029,
+    0.9899,
+    0.9885,
+    0.9885
+  ],
+  "attack_s_opaque": [
+    695,
+    697,
+    699,
+    697,
+    695,
+    691,
+    692,
+    692,
+    692,
+    692,
+    691,
+    698,
+    697,
+    688,
+    687,
+    687
+  ],
+  "spin_body": [
+    {
+      "f": 5,
+      "main": 1.0,
+      "egg": 1.0,
+      "ratio": 0.9942
+    },
+    {
+      "f": 6,
+      "main": 1.0,
+      "egg": 1.0,
+      "ratio": 0.9957
+    },
+    {
+      "f": 7,
+      "main": 1.0,
+      "egg": 1.0,
+      "ratio": 0.9957
+    },
+    {
+      "f": 8,
+      "main": 1.0,
+      "egg": 1.0,
+      "ratio": 0.9957
+    },
+    {
+      "f": 9,
+      "main": 1.0,
+      "egg": 1.0,
+      "ratio": 0.9957
+    },
+    {
+      "f": 10,
+      "main": 1.0,
+      "egg": 1.0,
+      "ratio": 0.9942
+    }
+  ],
+  "gifs_untouched": true
+}

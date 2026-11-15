@@ -1,0 +1,54 @@
+{
+  "generator": "forge_probopass_actions",
+  "version": "probopass_v1",
+  "key": "0476_probopass",
+  "dex": 476,
+  "variant": "probopass",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 62,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "parts": {
+    "hat": 561,
+    "mustache": 410,
+    "mini_l": 79,
+    "mini_r": 275,
+    "nose": 560,
+    "body": 677
+  },
+  "facing": "left",
+  "feet": 0,
+  "mouth": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

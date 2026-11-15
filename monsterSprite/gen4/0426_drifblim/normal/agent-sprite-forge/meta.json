@@ -1,0 +1,88 @@
+{
+  "generator": "forge_drifblim_actions",
+  "version": "drifblim_v2",
+  "key": "0426_drifblim",
+  "dex": 426,
+  "cell_w": 192,
+  "cell_h": 184,
+  "foot_y": 164,
+  "sprite_h": 59,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "face": {
+    "x_mark": 67,
+    "cheeks": 12,
+    "arms": 3,
+    "centroid_x": 45.83,
+    "bbox": [
+      18,
+      19,
+      77,
+      77
+    ],
+    "parts": {
+      "body": 1369,
+      "arm_l": 125,
+      "arm_in": 155,
+      "arm_out": 106
+    }
+  },
+  "parts": {
+    "body": 1369,
+    "arm_l": 125,
+    "arm_in": 155,
+    "arm_out": 106
+  },
+  "arms": 3,
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "attack_s_min": 1.0,
+  "attack_s_max": 1.049,
+  "attack_s_ratios": [
+    1.0,
+    1.006,
+    1.035,
+    1.049,
+    1.014,
+    1.003,
+    1.002,
+    1.002,
+    1.002,
+    1.003,
+    1.003,
+    1.011,
+    1.005,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

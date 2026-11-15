@@ -1,0 +1,46 @@
+{
+  "generator": "forge_glaceon_actions",
+  "version": "glaceon_v2",
+  "key": "0471_glaceon",
+  "dex": 471,
+  "cell_w": 192,
+  "cell_h": 184,
+  "foot_y": 160,
+  "sprite_h": 53,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 11,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "archetype": "quadruped_beast",
+  "feet": 4,
+  "mouth": "none_ear_ribbon_flare"
+}

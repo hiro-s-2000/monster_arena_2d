@@ -1,0 +1,69 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/walk/S",
+  "sourceHashes": [
+    "3b66a0e320bcc5cb22a23567139a1be3de734e0074a30caeab08448bde9aebc0",
+    "320bf424165dc33868db0fbaa54c341c48b5faeed5e88a44342eac61ab75ec8f",
+    "c098c219e44259a45c4d2ad6309920447bc0b4c6484d2def052edb1d36eac921",
+    "320bf424165dc33868db0fbaa54c341c48b5faeed5e88a44342eac61ab75ec8f",
+    "3b66a0e320bcc5cb22a23567139a1be3de734e0074a30caeab08448bde9aebc0",
+    "4962b9c151224783191660c06609b3276c9d29517983879443f3d16445acd808",
+    "15cd8307017afa40f2a46f797094770f6c64f13cf81ea17febbc5ccd0184a18b",
+    "4962b9c151224783191660c06609b3276c9d29517983879443f3d16445acd808"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png"
+  ],
+  "start": 0,
+  "endExclusive": 8,
+  "sourceIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "durations_ms": [
+    83,
+    84,
+    83,
+    84,
+    83,
+    83,
+    84,
+    83
+  ],
+  "fps": "12/1",
+  "loopPolicy": "cycle",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+  "method": "gait_loop select (hover): pose + 0.5 x velocity closure with non-maximum suppression",
+  "kind": "hover",
+  "cycles": 1,
+  "confidence": {
+    "label": "high",
+    "overall": 0.786201
+  },
+  "seam": {
+    "frames": 8,
+    "seam": 31.365806,
+    "adjacent_median": 11.433099,
+    "adjacent_p95": 38.677426,
+    "adjacent_max": 38.677426,
+    "seam_over_median": 2.743421,
+    "seam_over_p95": 0.810959,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "generator": "forge_bastiodon_actions",
+  "version": "bastiodon_v2",
+  "key": "0411_bastiodon",
+  "dex": 411,
+  "form": "normal",
+  "variant": "bastiodon",
+  "cell_w": 184,
+  "cell_h": 176,
+  "foot_y": 152,
+  "sprite_h": 57,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "feet": 4,
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "attack_ratios": [
+    1.0,
+    1.0016,
+    1.0067,
+    1.007,
+    1.007,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0129,
+    1.0078,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "face_plate": "attached"
+}

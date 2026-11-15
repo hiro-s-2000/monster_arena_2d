@@ -1,0 +1,278 @@
+{
+  "schema": "video2dsprite.loop_report.v1",
+  "tool": {
+    "name": "gait_loop",
+    "version": "0.4.0"
+  },
+  "frames": {
+    "directory": "../../frames/idle/S",
+    "count": 16,
+    "first": "00.png",
+    "last": "15.png",
+    "fps": "12/1",
+    "canvas": [
+      176,
+      168
+    ]
+  },
+  "indexing": "0-based positions in the sorted *.png list; intervals are [start, endExclusive)",
+  "kind": "idle",
+  "state": null,
+  "analysis": {
+    "union": [
+      72,
+      97,
+      103,
+      149
+    ],
+    "global_size": [
+      95,
+      160
+    ],
+    "legs_size": null,
+    "legs_top_px": null,
+    "registration": false,
+    "reduction": 1,
+    "drift": {
+      "cx_slope_px_per_frame": 0.0,
+      "ground_slope_px_per_frame": 0.0
+    },
+    "lengths": {
+      "minFrames": 6,
+      "maxFrames": 48
+    },
+    "stepMedian": 0.005056,
+    "bodyHeightMedianPx": 50.0
+  },
+  "usableRange": {
+    "start": 0,
+    "endExclusive": 16,
+    "reference": [
+      0,
+      6
+    ],
+    "smoothFrames": 25,
+    "tolerance": 0.03,
+    "signals": [
+      "ground",
+      "scale",
+      "x"
+    ],
+    "reason": null,
+    "maxDeviation": 0.000297
+  },
+  "holds": [
+    1
+  ],
+  "unusableFrames": [],
+  "period": null,
+  "recommendation": {
+    "policy": "pingpong",
+    "cycles": 1,
+    "window": {
+      "start": 0,
+      "endExclusive": 9,
+      "lastInclusive": 8,
+      "frames": 9,
+      "seconds": 0.75,
+      "files": [
+        "00.png",
+        "08.png"
+      ],
+      "amplitude_steps": 4.18775,
+      "turnaround_steps": 1.051992,
+      "playback_frames": 16,
+      "holds_inside": [
+        1
+      ],
+      "root_dx_px_per_loop": -0.151105,
+      "ground_dy_px_per_loop": 0.0,
+      "root_drift_pct_body": 0.30221
+    },
+    "sourceIndices": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "durations_ms": [
+      167,
+      83,
+      83,
+      84,
+      83,
+      83,
+      84,
+      83
+    ],
+    "confidence": {
+      "components": {
+        "turnaround": 0.448008,
+        "amplitude": 1.0,
+        "no_closing_cycle": 0.5
+      },
+      "overall": 0.448008,
+      "label": "medium",
+      "review_priority": "review",
+      "review": [
+        "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+        "No window closes as a cycle: pingpong plays frames 0-8 forward then back. Use it only for breathing or sway, never for walks or strikes."
+      ]
+    },
+    "seam": {
+      "frames": 14,
+      "seam": 2.236364,
+      "adjacent_median": 2.326989,
+      "adjacent_p95": 2.933807,
+      "adjacent_max": 2.933807,
+      "seam_over_median": 0.961055,
+      "seam_over_p95": 0.762274,
+      "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+      "mask": "union of visible pixels"
+    }
+  },
+  "candidates": {
+    "closing": []
+  },
+  "evaluated": [],
+  "aids": null,
+  "qa": {
+    "status": "needs-visual-review",
+    "method": "gait_loop select (idle): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+    "notProven": [
+      "foot contact, sliding and ground penetration",
+      "hand, hair, scarf or prop identity drift between frames",
+      "art quality, anatomy and facing",
+      "left/right alternation beyond the pixel evidence reported here"
+    ],
+    "checks": [
+      {
+        "id": "loop-found",
+        "status": "pass",
+        "value": [
+          0,
+          9
+        ]
+      },
+      {
+        "id": "seam_over_p95",
+        "status": "pass",
+        "value": 0.762274,
+        "threshold": 1.0
+      },
+      {
+        "id": "confidence",
+        "status": "pass",
+        "value": 0.448008,
+        "threshold": 0.4
+      },
+      {
+        "id": "drift-free-range",
+        "status": "pass",
+        "value": 16
+      },
+      {
+        "id": "visual-review",
+        "status": "needs-visual-review",
+        "value": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../frames/idle/S/00.png",
+        "sha256": "768ad6ac234349f3232fb08e6fde995358fa5ecee22e5595620721b6ef6fbb9d",
+        "bytes": 1209
+      },
+      {
+        "path": "../../frames/idle/S/01.png",
+        "sha256": "768ad6ac234349f3232fb08e6fde995358fa5ecee22e5595620721b6ef6fbb9d",
+        "bytes": 1209
+      },
+      {
+        "path": "../../frames/idle/S/02.png",
+        "sha256": "b346cfd8b6e6e4e73fc8c30f88b28c44a8a752bcf0e10a6e66b70cab546e8508",
+        "bytes": 1226
+      },
+      {
+        "path": "../../frames/idle/S/03.png",
+        "sha256": "729d5a425da6ccab4ee1dfa380710bade645a4706627d96657c5eec1f83e5af5",
+        "bytes": 1230
+      },
+      {
+        "path": "../../frames/idle/S/04.png",
+        "sha256": "6e45769e8305a29c568bdd3e789a532a0d9dc1c4d961b0966412e82b704b006d",
+        "bytes": 1227
+      },
+      {
+        "path": "../../frames/idle/S/05.png",
+        "sha256": "935c97a110040b551b0d43fb2813863c9276a60bcc9cec77cc85dc860073043a",
+        "bytes": 1231
+      },
+      {
+        "path": "../../frames/idle/S/06.png",
+        "sha256": "75532243892aae414bbf3a6790193aa1d27e940957c6550054f28977b0da98d9",
+        "bytes": 1217
+      },
+      {
+        "path": "../../frames/idle/S/07.png",
+        "sha256": "a12c1651e66a43e7ca1a9d58b6fdc7b6bc28d66093f252ad84599759d96b5c3d",
+        "bytes": 1223
+      },
+      {
+        "path": "../../frames/idle/S/08.png",
+        "sha256": "cf558a8f653f4d77b030373d5a1f2a92e7aaa369401de8267b81dff7a745a599",
+        "bytes": 1243
+      },
+      {
+        "path": "../../frames/idle/S/09.png",
+        "sha256": "6020038a8fe4b3c3ab1aa4aa44404d641fd24f293864d7ce0ae2baddd8d02a42",
+        "bytes": 1260
+      },
+      {
+        "path": "../../frames/idle/S/10.png",
+        "sha256": "8c3a65b99baa04b034fe634562e7cf8b08d5f48bd72c6cd6b8ed32202e55b179",
+        "bytes": 1264
+      },
+      {
+        "path": "../../frames/idle/S/11.png",
+        "sha256": "321bddd3227c9cc03b4d5b5c5b161d2417117ee75b130e16a107ea82bf907766",
+        "bytes": 1258
+      },
+      {
+        "path": "../../frames/idle/S/12.png",
+        "sha256": "f0910c8de3d85f831dd51b1a68e0d7cfbcf6d9b7d64c74a20fc7211d3f3dd204",
+        "bytes": 1266
+      },
+      {
+        "path": "../../frames/idle/S/13.png",
+        "sha256": "4b3304626422bed16ac840dea8d0434dc63d2f48c42e6dc578920fe6fff3e433",
+        "bytes": 1243
+      },
+      {
+        "path": "../../frames/idle/S/14.png",
+        "sha256": "67182316b61f41551ff3bbd01aaa893f32f70c14c01d07bb15e6cf57b39fbb33",
+        "bytes": 1226
+      },
+      {
+        "path": "../../frames/idle/S/15.png",
+        "sha256": "9ff2283782d32f8bd1bd11798f0cbb508eb5f076b7dfe582e3075f5d8cbba099",
+        "bytes": 1220
+      }
+    ],
+    "outputs": [
+      {
+        "path": "selection.json",
+        "sha256": "8f9775ec0c0d823b6c3d5b08a0ae5c44b9adeaee7a57e61708f63d1fccd303cf",
+        "bytes": 2118
+      }
+    ],
+    "tool": {
+      "name": "gait_loop",
+      "version": "0.4.0"
+    }
+  }
+}

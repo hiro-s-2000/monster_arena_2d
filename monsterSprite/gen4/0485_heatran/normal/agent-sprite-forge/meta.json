@@ -1,0 +1,72 @@
+{
+  "generator": "forge_heatran_actions",
+  "version": "heatran_v1",
+  "key": "0485_heatran",
+  "dex": 485,
+  "form": "normal",
+  "variant": "heatran",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 55,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": {
+      "still": "front",
+      "mirrored": false
+    },
+    "SE": {
+      "still": "front",
+      "mirrored": true
+    },
+    "E": {
+      "still": "front",
+      "mirrored": true
+    },
+    "NE": {
+      "still": "back",
+      "mirrored": false
+    },
+    "N": {
+      "still": "back",
+      "mirrored": false
+    },
+    "NW": {
+      "still": "back",
+      "mirrored": true
+    },
+    "W": {
+      "still": "front",
+      "mirrored": false
+    },
+    "SW": {
+      "still": "front",
+      "mirrored": false
+    }
+  },
+  "archetype": "quadruped_beast (heavy lava-dome crouch, 3 drawn legs)",
+  "off_palette_colors": 0,
+  "source": "front.png + back.png 96x96",
+  "gifs_untouched": true
+}

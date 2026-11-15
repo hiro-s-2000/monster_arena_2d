@@ -1,0 +1,47 @@
+{
+  "generator": "forge_infernape_actions",
+  "version": "infernape_v2",
+  "key": "0392_infernape",
+  "dex": 392,
+  "variant": "infernape",
+  "form": "normal",
+  "archetype": "biped",
+  "facing_still": "left",
+  "snout_x": 19,
+  "eye_mean_x": 37.8,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 148,
+  "sprite_h": 68,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_left": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "gifs_untouched": true
+}

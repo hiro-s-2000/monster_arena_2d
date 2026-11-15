@@ -1,0 +1,65 @@
+{
+  "generator": "forge_stunky_actions",
+  "version": "stunky_v2",
+  "key": "0434_stunky",
+  "dex": 434,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 42,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "feet": 3,
+  "mouth": false,
+  "archetype": "quadruped_side_three_visible_paws",
+  "tail": "raised plume, not a foot",
+  "attack_S_ratios": [
+    1.0,
+    1.0403,
+    1.0632,
+    1.0752,
+    1.0532,
+    1.0431,
+    1.0522,
+    1.0522,
+    1.0522,
+    1.0513,
+    1.0431,
+    1.0605,
+    1.0532,
+    1.0266,
+    1.0128,
+    1.0
+  ]
+}

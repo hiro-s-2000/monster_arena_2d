@@ -1,0 +1,59 @@
+{
+  "generator": "forge_rhyperior_actions",
+  "version": "rhyperior_v2",
+  "key": "0464_rhyperior",
+  "dex": 464,
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 168,
+  "sprite_h": 68,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "left",
+  "archetype": "biped_kaiju_stomper",
+  "feet": 2,
+  "drill_pixels": 298,
+  "tail_pixels": 263,
+  "tail_is_leg": false,
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0117,
+    1.0156,
+    1.0167,
+    1.0156,
+    1.0117,
+    1.0195,
+    1.0207,
+    1.0207,
+    1.0207,
+    1.0204,
+    1.0195,
+    1.0212,
+    1.0162,
+    1.005,
+    1.0006,
+    1.0
+  ],
+  "gifs_untouched": true
+}

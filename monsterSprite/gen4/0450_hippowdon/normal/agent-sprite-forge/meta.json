@@ -1,0 +1,71 @@
+{
+  "generator": "forge_hippowdon_actions",
+  "version": "hippowdon_v2",
+  "key": "0450_hippowdon",
+  "dex": 450,
+  "variant": "hippowdon",
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 148,
+  "sprite_h": 61,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    0.998,
+    0.995,
+    0.997,
+    1.001,
+    0.981,
+    0.98,
+    0.98,
+    0.98,
+    0.981,
+    0.981,
+    0.984,
+    0.989,
+    0.997,
+    1.0,
+    1.0
+  ],
+  "parts": {
+    "sole": 437,
+    "tail": 73,
+    "jaw": 562,
+    "dorsal": 278,
+    "torso": 1713
+  },
+  "facing": "left",
+  "feet": 0,
+  "ground_contacts": 1,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

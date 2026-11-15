@@ -1,0 +1,87 @@
+{
+  "generator": "forge_cherubi_actions",
+  "version": "cherubi_v2",
+  "key": "0420_cherubi",
+  "dex": 420,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 156,
+  "sprite_h": 32,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "archetype": "two_cherries_on_stem",
+  "face": {
+    "eyes": [
+      36,
+      45
+    ],
+    "eye_y": [
+      51,
+      53
+    ],
+    "bbox": [
+      33,
+      32,
+      63,
+      63
+    ],
+    "opaque": 577
+  },
+  "parts": {
+    "leaf": 182,
+    "stem": 30,
+    "cherry_l": 279,
+    "cherry_r": 86
+  },
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "attack_s_min": 0.948,
+  "attack_s_max": 1.0,
+  "attack_s_ratios": [
+    1.0,
+    0.992,
+    0.979,
+    0.979,
+    0.992,
+    0.951,
+    0.948,
+    0.948,
+    0.948,
+    0.949,
+    0.951,
+    0.99,
+    0.97,
+    0.966,
+    0.972,
+    1.0
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

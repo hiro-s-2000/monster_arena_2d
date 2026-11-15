@@ -1,0 +1,65 @@
+{
+  "generator": "forge_mime_jr_actions",
+  "version": "mime-jr_v1",
+  "key": "0439_mime-jr",
+  "dex": 439,
+  "variant": "mime-jr",
+  "form": "normal",
+  "archetype": "small biped mime (2 arms, 2 feet, pompom)",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 58,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "left",
+  "parts": {
+    "tuft": 71,
+    "arm_l": 46,
+    "arm_r": 42,
+    "foot_near": 34,
+    "foot_far": 26,
+    "torso": 712
+  },
+  "palette_colors": 13,
+  "qa": {
+    "alphas": [
+      0,
+      255
+    ],
+    "partial_alpha": 0,
+    "off_palette": 0,
+    "clip_frames": 0,
+    "still_diff_dirs": 0,
+    "body_main_min": {
+      "idle": 1.0,
+      "walk": 1.0,
+      "attack": 1.0,
+      "hurt": 1.0
+    },
+    "hurt_deg_max": 34,
+    "sprite_h": 58,
+    "foot_y": 148
+  },
+  "gifs_untouched": true
+}

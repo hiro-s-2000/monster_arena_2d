@@ -1,0 +1,83 @@
+{
+  "generator": "forge_roserade_actions",
+  "version": "roserade_v2",
+  "key": "0407_roserade",
+  "dex": 407,
+  "variant": "roserade",
+  "form": "normal",
+  "archetype": "biped",
+  "facing_still": "left",
+  "eye_mean_x": 45.92,
+  "hair_mean_x": 49.46,
+  "hair_max_x": 64,
+  "unflipped": [
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "flipped": [
+    "S",
+    "SE",
+    "E",
+    "NE"
+  ],
+  "cell_w": 192,
+  "cell_h": 180,
+  "foot_y": 160,
+  "sprite_h": 58,
+  "opaque_bottom": 159,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "parts": {
+    "rose_pink": 284,
+    "rose_blue": 234,
+    "leg_l": 26,
+    "leg_r": 20,
+    "torso": 1110
+  },
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "attack_ratios": [
+    1.0,
+    1.0245,
+    1.0335,
+    1.0323,
+    1.0245,
+    1.0251,
+    1.0227,
+    1.0227,
+    1.0227,
+    1.0257,
+    1.0251,
+    1.009,
+    1.0054,
+    1.0012,
+    0.9994,
+    1.0
+  ],
+  "attack_ratio_min": 0.9994026284348865,
+  "attack_ratio_max": 1.033452807646356,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

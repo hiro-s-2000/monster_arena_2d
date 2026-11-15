@@ -1,0 +1,66 @@
+{
+  "generator": "forge_toxicroak_actions",
+  "version": "toxicroak_v2",
+  "key": "0454_toxicroak",
+  "dex": 454,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 156,
+  "sprite_h": 58,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "left",
+  "feet": 2,
+  "throat_pixels": 171,
+  "arms_are_feet": false,
+  "parts": {
+    "crest": 114,
+    "throat": 171,
+    "arm_l": 124,
+    "arm_r": 142,
+    "foot_l": 82,
+    "foot_r": 89,
+    "torso": 962
+  },
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.0041,
+    1.0035,
+    1.0047,
+    0.9982,
+    0.9988,
+    0.9988,
+    0.9988,
+    0.9988,
+    0.9982,
+    0.9988,
+    0.9994,
+    0.9988,
+    0.9924,
+    0.9859,
+    0.9859
+  ],
+  "gifs_untouched": true
+}

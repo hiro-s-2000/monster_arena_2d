@@ -1,0 +1,48 @@
+{
+  "generator": "forge_shinx_actions",
+  "version": "shinx_v2",
+  "key": "0403_shinx",
+  "dex": 403,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 36,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "paws": 3,
+  "forehead_star": 2,
+  "archetype": "quadruped_three_visible_paws",
+  "south_attack_ratio_min": 1.0,
+  "south_attack_ratio_max": 1.0122
+}

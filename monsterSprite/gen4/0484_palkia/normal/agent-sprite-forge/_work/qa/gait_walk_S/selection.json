@@ -1,0 +1,81 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/walk/S",
+  "sourceHashes": [
+    "49c0fe8b42c689ea054beff1fa9169ad211815e34b4eb4e65731a7c78343340e",
+    "3be065deb519d53aaaafeaf6c1a70b70e1279e6074b233125dfcbc37bf47f158",
+    "f55db1af63fe171af90171ad9adb153ccfd18d234114a9e0621af57d36d6e946",
+    "e3c80d660dc8c1d551bab5fa054d9fc442ecd5909207c0c1ad5fa14f577b5eaa",
+    "544d3b3951c2828377a5ba2e59b64b68f1511e033e85797030f92b32e87b42f1",
+    "c61ace75ee172fbeb67bd09077b1fa9b829b3ce6038f60075e50f3974a56c1ec",
+    "6e352af5ea8d6b014f60a79cf8f3739306d6eca65cae1231d70d2a9bce3d90c0",
+    "0fa98a420d75590ed84f4ca66fd7df9fba3a6f68a97fdef5e4f897d0185f5ff8",
+    "49c0fe8b42c689ea054beff1fa9169ad211815e34b4eb4e65731a7c78343340e",
+    "3be065deb519d53aaaafeaf6c1a70b70e1279e6074b233125dfcbc37bf47f158",
+    "f55db1af63fe171af90171ad9adb153ccfd18d234114a9e0621af57d36d6e946"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png",
+    "08.png",
+    "09.png",
+    "10.png"
+  ],
+  "start": 0,
+  "endExclusive": 11,
+  "sourceIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "durations_ms": [
+    83,
+    84,
+    83,
+    83,
+    84,
+    83,
+    84,
+    83,
+    83,
+    84,
+    83
+  ],
+  "fps": "12/1",
+  "loopPolicy": "pingpong",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself. No window closes as a cycle: pingpong plays frames 0-10 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+  "method": "gait_loop select (hover): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+  "kind": "hover",
+  "cycles": 1,
+  "confidence": {
+    "label": "low",
+    "overall": 0.149028
+  },
+  "seam": {
+    "frames": 20,
+    "seam": 18.952505,
+    "adjacent_median": 34.773617,
+    "adjacent_p95": 42.936521,
+    "adjacent_max": 42.936521,
+    "seam_over_median": 0.545025,
+    "seam_over_p95": 0.441408,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

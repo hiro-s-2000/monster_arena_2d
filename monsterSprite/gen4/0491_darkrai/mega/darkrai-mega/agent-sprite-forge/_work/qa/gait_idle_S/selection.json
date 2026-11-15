@@ -1,0 +1,79 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/idle/S",
+  "sourceHashes": [
+    "3f140960b0e050e2cbb0b0ce3d0fd5cbe4ecc4a8ef892b44ce935d63ac9d47db",
+    "9e9b32b774a5452c93125bebb808b0b8c6183a0165d1b234dc7cb7f6c2776157",
+    "3f876d71351262584dce554de1732e6667930d748a340f58bdc4a412927f663a",
+    "8994de601e36ac9100b01b0d3adaec8e2cee0412b0d5335294d3f845d6adc8b0",
+    "1bb156f6c5f67ca5aef2803d244b3c96ec4ab3ad6fa780bb889f38d141790c5e",
+    "c334ebe8c71518299ba5a7f8e52a00301ff21290d053f0e30f7ec4cde2437118",
+    "42fa5c054a265c29f496f3e8b1c54ec2774ced824f465902f20a24433b9dab96",
+    "8dca91b17df912fd6f3c3d13182a0b4de70e7ee99ce9db0188d344d97fdf1fd7",
+    "54dac99aa89f63c9f8238b4c6a2296d9107336ead495e3f4d0d24933efb6b0ed",
+    "81247108a327fa0bf0c5c8c1f6d1ac2ea37ca35b2c0b0f8dcde79efb5c10862f",
+    "3d44b95ce0d780a73fd8578deff8377eaa33e34193ba63a0f61b0e1fa385f882",
+    "615613b06d44fcb98daeb0eea89fd2b584657a369b23b479a1b915f3c5077c25",
+    "15d8ff7b38e6b3ade808b5b0307544cb1a83e17e0820e0addbbfa6d105364070"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png",
+    "08.png",
+    "09.png",
+    "10.png",
+    "11.png",
+    "12.png"
+  ],
+  "start": 0,
+  "endExclusive": 13,
+  "sourceIndices": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    8,
+    9,
+    12
+  ],
+  "durations_ms": [
+    83,
+    84,
+    166,
+    84,
+    249,
+    84,
+    250,
+    83
+  ],
+  "fps": "12/1",
+  "loopPolicy": "pingpong",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself. No window closes as a cycle: pingpong plays frames 0-12 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+  "method": "gait_loop select (hover): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+  "kind": "hover",
+  "cycles": 1,
+  "confidence": {
+    "label": "low",
+    "overall": 0.223345
+  },
+  "seam": {
+    "frames": 14,
+    "seam": 24.791103,
+    "adjacent_median": 24.791103,
+    "adjacent_p95": 33.007562,
+    "adjacent_max": 33.007562,
+    "seam_over_median": 1.0,
+    "seam_over_p95": 0.751073,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

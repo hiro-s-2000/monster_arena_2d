@@ -1,0 +1,176 @@
+{
+ "version": "bastiodon_v2",
+ "hash": "4902da00e55b",
+ "parts": {
+  "body": 2451,
+  "jaw": 38,
+  "hip": 100,
+  "fl": 58,
+  "mid": 46,
+  "hr": 74,
+  "far": 26,
+  "missing": 0,
+  "extra": 0,
+  "feet": 4
+ },
+ "sprite_h": 57,
+ "off_palette_colors": 0,
+ "bad_alpha": [],
+ "edge_touching": {},
+ "attack_ratios": [
+  1.0,
+  1.0016,
+  1.0067,
+  1.007,
+  1.007,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0129,
+  1.0078,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 6,
+   "lastInclusive": 5,
+   "frames": 6,
+   "seconds": 0.5,
+   "files": [
+    "00.png",
+    "05.png"
+   ],
+   "amplitude_steps": 1.0,
+   "turnaround_steps": 0.0,
+   "playback_frames": 10,
+   "holds_inside": [],
+   "root_dx_px_per_loop": -0.034353,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.060269
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 1.0,
+    "amplitude": 0.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.0,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-5 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 10,
+   "seam": 0.0,
+   "adjacent_median": 0.0,
+   "adjacent_p95": 20.669731,
+   "adjacent_max": 20.669731,
+   "seam_over_median": 0.0,
+   "seam_over_p95": 0.0,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 8,
+   "lastInclusive": 7,
+   "frames": 8,
+   "seconds": 0.666667,
+   "files": [
+    "00.png",
+    "07.png"
+   ],
+   "closure_pose_steps": 0.0,
+   "closure_velocity_steps": 0.0,
+   "closure_steps": 0.0,
+   "amplitude_steps": 8.703698,
+   "wrap_steps": 0.414184,
+   "holds_inside": [
+    5
+   ],
+   "root_dx_px_per_loop": 0.0,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.0,
+   "score": 0.0,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": [
+     "held duplicate frames 5 are dropped; their time goes to the frame they repeat"
+    ]
+   }
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   6,
+   7
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   84,
+   166,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "closure": 1.0,
+    "amplitude": 1.0
+   },
+   "overall": 1.0,
+   "label": "high",
+   "review_priority": "spot-check",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 7,
+   "seam": 1.437828,
+   "adjacent_median": 3.427701,
+   "adjacent_p95": 25.456677,
+   "adjacent_max": 25.456677,
+   "seam_over_median": 0.419473,
+   "seam_over_p95": 0.056481,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ }
+}

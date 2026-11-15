@@ -1,0 +1,73 @@
+{
+  "generator": "forge_mantyke_actions",
+  "version": "mantyke_v2",
+  "key": "0458_mantyke",
+  "dex": 458,
+  "variant": "mantyke",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 47,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 11,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.003,
+    1.001,
+    1.001,
+    1.016,
+    0.993,
+    0.985,
+    0.985,
+    0.985,
+    0.993,
+    0.993,
+    0.999,
+    1.005,
+    0.999,
+    1.0,
+    1.0
+  ],
+  "parts": {
+    "left_ant": 110,
+    "right_ant": 145,
+    "mouth": 8,
+    "left_wing": 112,
+    "right_wing": 140,
+    "tail": 59,
+    "torso": 777
+  },
+  "facing": "front",
+  "feet": 0,
+  "mouth": 8,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

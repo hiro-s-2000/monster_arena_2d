@@ -1,0 +1,88 @@
+{
+  "generator": "forge_spiritomb_actions",
+  "version": "spiritomb_v2",
+  "key": "0442_spiritomb",
+  "dex": 442,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 155,
+  "sprite_h": 52,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "archetype": "keystone_spirit_hover",
+  "face": {
+    "spirit_eyes": 20,
+    "green_faces": 367,
+    "mouth": 0,
+    "feet": 0,
+    "centroid_x": 45.89,
+    "centroid_y": 47.46,
+    "bbox": [
+      20,
+      22,
+      74,
+      73
+    ],
+    "parts": {
+      "seat": 236,
+      "cloud": 1672
+    }
+  },
+  "parts": {
+    "seat": 236,
+    "cloud": 1672
+  },
+  "feet": 0,
+  "mouth": 0,
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "attack_s_min": 0.984,
+  "attack_s_max": 1.058,
+  "attack_s_ratios": [
+    1.0,
+    1.023,
+    1.05,
+    1.058,
+    1.029,
+    0.985,
+    0.984,
+    0.984,
+    0.984,
+    0.984,
+    0.985,
+    0.996,
+    0.992,
+    0.993,
+    0.994,
+    0.994
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

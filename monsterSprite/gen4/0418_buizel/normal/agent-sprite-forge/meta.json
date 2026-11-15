@@ -1,0 +1,57 @@
+{
+  "generator": "forge_buizel_actions",
+  "version": "buizel_v2",
+  "key": "0418_buizel",
+  "dex": 418,
+  "archetype": "biped_flotation_tails",
+  "feet": 2,
+  "flotation_tails": 2,
+  "mouth": true,
+  "facing": "left",
+  "face_x": 42.07,
+  "tail_x": 63.7,
+  "unflipped": [
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "flipped": [
+    "S",
+    "SE",
+    "E",
+    "NE"
+  ],
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 156,
+  "sprite_h": 49,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "attack_ratio_min": 0.984180790960452,
+  "attack_ratio_max": 1.0112994350282485,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

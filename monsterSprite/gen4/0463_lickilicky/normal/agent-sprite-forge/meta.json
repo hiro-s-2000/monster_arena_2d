@@ -1,0 +1,57 @@
+{
+  "generator": "forge_lickilicky_actions",
+  "version": "lickilicky_v3",
+  "key": "0463_lickilicky",
+  "dex": 463,
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 168,
+  "sprite_h": 66,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "left",
+  "feet": 2,
+  "tongue_pixels": 445,
+  "tongue_is_leg": false,
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.0156,
+    1.0187,
+    1.0268,
+    1.0268,
+    1.029,
+    1.0393,
+    1.0223,
+    1.0178,
+    1.012,
+    1.008,
+    1.0085,
+    1.0058,
+    1.0009,
+    0.996,
+    0.996
+  ],
+  "gifs_untouched": true
+}

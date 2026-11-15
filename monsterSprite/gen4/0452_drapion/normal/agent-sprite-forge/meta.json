@@ -1,0 +1,75 @@
+{
+  "generator": "forge_drapion_actions",
+  "version": "drapion_v2",
+  "key": "0452_drapion",
+  "dex": 452,
+  "variant": "drapion",
+  "cell_w": 192,
+  "cell_h": 184,
+  "foot_y": 124,
+  "sprite_h": 62,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    0.987,
+    0.967,
+    0.962,
+    0.988,
+    0.972,
+    0.963,
+    0.963,
+    0.963,
+    0.965,
+    0.972,
+    0.981,
+    0.99,
+    1.001,
+    1.0,
+    1.0
+  ],
+  "parts": {
+    "stinger": 335,
+    "left_claw": 444,
+    "right_claw": 335,
+    "leg_l": 27,
+    "leg_ml": 10,
+    "leg_r": 40,
+    "leg_fr": 24,
+    "jaw": 52,
+    "torso": 1746
+  },
+  "facing": "front",
+  "feet": 4,
+  "claws": 2,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

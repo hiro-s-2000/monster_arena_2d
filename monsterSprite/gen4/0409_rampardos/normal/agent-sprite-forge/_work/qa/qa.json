@@ -1,0 +1,247 @@
+{
+ "version": "rampardos_v2",
+ "hash": "fc49b0b29eaa",
+ "parts": {
+  "jaw": 132,
+  "tail": 119,
+  "leg_front": 271,
+  "leg_rear": 295,
+  "arm": 65,
+  "head": 511,
+  "torso": 914
+ },
+ "sprite_h": 78,
+ "cell": [
+  200,
+  200,
+  168
+ ],
+ "rest_diff_w": 0,
+ "rest_diff_e": 0,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "edge_frames": {},
+ "south_attack_ratios": [
+  1.0,
+  1.0186,
+  1.0173,
+  1.0117,
+  1.0139,
+  1.016,
+  1.0139,
+  1.0139,
+  1.0143,
+  1.016,
+  1.0156,
+  1.0303,
+  1.0251,
+  1.016,
+  1.0087,
+  1.0
+ ],
+ "bad_ratio_frames": [],
+ "spin_cc_w": {
+  "5": [
+   2326,
+   5,
+   5,
+   4
+  ],
+  "6": [
+   2326,
+   4,
+   4,
+   4
+  ],
+  "7": [
+   2330,
+   6,
+   5
+  ],
+  "8": [
+   2326,
+   5,
+   4,
+   4
+  ],
+  "9": [
+   2327,
+   6,
+   6,
+   6
+  ],
+  "10": [
+   2326,
+   6,
+   6,
+   4
+  ]
+ },
+ "hurt_cc_w": {
+  "0": [
+   2307
+  ],
+  "4": [
+   2340
+  ],
+  "5": [
+   2333
+  ],
+  "11": [
+   2307
+  ]
+ },
+ "eye_mean_x": 40.833,
+ "snout_x": 22,
+ "jaw_tip_x": 27,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 9,
+   "lastInclusive": 8,
+   "frames": 9,
+   "seconds": 0.75,
+   "files": [
+    "00.png",
+    "08.png"
+   ],
+   "amplitude_steps": 4.134388,
+   "turnaround_steps": 2.092879,
+   "playback_frames": 16,
+   "holds_inside": [
+    6
+   ],
+   "root_dx_px_per_loop": -0.019263,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.024696
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   7,
+   8
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   83,
+   84,
+   166,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.0,
+    "amplitude": 1.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.0,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-8 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 14,
+   "seam": 0.487495,
+   "adjacent_median": 0.632322,
+   "adjacent_p95": 1.242198,
+   "adjacent_max": 1.242198,
+   "seam_over_median": 0.77096,
+   "seam_over_p95": 0.392445,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 13,
+   "lastInclusive": 12,
+   "frames": 13,
+   "seconds": 1.083333,
+   "files": [
+    "00.png",
+    "12.png"
+   ],
+   "amplitude_steps": 6.151476,
+   "turnaround_steps": 0.481181,
+   "playback_frames": 24,
+   "holds_inside": [],
+   "root_dx_px_per_loop": -0.730426,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.936444
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   83,
+   84,
+   83,
+   83,
+   83,
+   84,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 1.0,
+    "amplitude": 1.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.5,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-12 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 24,
+   "seam": 6.655192,
+   "adjacent_median": 5.932546,
+   "adjacent_p95": 28.578433,
+   "adjacent_max": 28.713342,
+   "seam_over_median": 1.12181,
+   "seam_over_p95": 0.232875,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ }
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/idle/S",
+  "sourceHashes": [
+    "768ad6ac234349f3232fb08e6fde995358fa5ecee22e5595620721b6ef6fbb9d",
+    "768ad6ac234349f3232fb08e6fde995358fa5ecee22e5595620721b6ef6fbb9d",
+    "b346cfd8b6e6e4e73fc8c30f88b28c44a8a752bcf0e10a6e66b70cab546e8508",
+    "729d5a425da6ccab4ee1dfa380710bade645a4706627d96657c5eec1f83e5af5",
+    "6e45769e8305a29c568bdd3e789a532a0d9dc1c4d961b0966412e82b704b006d",
+    "935c97a110040b551b0d43fb2813863c9276a60bcc9cec77cc85dc860073043a",
+    "75532243892aae414bbf3a6790193aa1d27e940957c6550054f28977b0da98d9",
+    "a12c1651e66a43e7ca1a9d58b6fdc7b6bc28d66093f252ad84599759d96b5c3d",
+    "cf558a8f653f4d77b030373d5a1f2a92e7aaa369401de8267b81dff7a745a599"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png",
+    "08.png"
+  ],
+  "start": 0,
+  "endExclusive": 9,
+  "sourceIndices": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "durations_ms": [
+    167,
+    83,
+    83,
+    84,
+    83,
+    83,
+    84,
+    83
+  ],
+  "fps": "12/1",
+  "loopPolicy": "pingpong",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself. No window closes as a cycle: pingpong plays frames 0-8 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+  "method": "gait_loop select (idle): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+  "kind": "idle",
+  "cycles": 1,
+  "confidence": {
+    "label": "medium",
+    "overall": 0.448008
+  },
+  "seam": {
+    "frames": 14,
+    "seam": 2.236364,
+    "adjacent_median": 2.326989,
+    "adjacent_p95": 2.933807,
+    "adjacent_max": 2.933807,
+    "seam_over_median": 0.961055,
+    "seam_over_p95": 0.762274,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

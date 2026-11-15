@@ -1,0 +1,54 @@
+{
+  "generator": "forge_froslass_mega_actions",
+  "version": "froslass_mega_v2",
+  "key": "0478_froslass-mega",
+  "dex": 478,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 156,
+  "sprite_h": 94,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 26,
+  "off_palette_colors": 0,
+  "facing": "front-right-bias",
+  "eye_x": 52.5,
+  "eye_y": 19.75,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "layout": "actions_8dir",
+  "sheetDir": "agent-sprite-forge",
+  "raw": 1,
+  "an": [
+    16,
+    16,
+    16,
+    12
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/walk/S",
+  "sourceHashes": [
+    "49fef48e0dc1905ab62c02554ddb7cced5996181a161b9727c485abccb56fb3a",
+    "9eed87f504948d3e834409dd2c8f88f910293ccafe3e0c55f9d31bd28e25fea9",
+    "886171fc350d9fe30bde02509e6cf071c66f08567c84ccbb89881f531b085211",
+    "14638fb1e629ef5e9205c01d72b09e18005371396c79c6a70669fe58267fe656",
+    "44cb1532f764dfb9e11bd88a0e8f033bc67ccabaa260bab995ea1307a09cbb53",
+    "35839322bd67d6a983956cd457ff0e7c060f5b05cd3c234c96f0657b1e38e8aa",
+    "252a222746e9ddce7819c2c3d9217389ca24f0fc14322bafb1565c77e82a413c"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png"
+  ],
+  "start": 0,
+  "endExclusive": 7,
+  "sourceIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "durations_ms": [
+    83,
+    84,
+    83,
+    83,
+    83,
+    84,
+    83
+  ],
+  "fps": "12/1",
+  "loopPolicy": "pingpong",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself. No window closes as a cycle: pingpong plays frames 0-6 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+  "method": "gait_loop select (hover): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+  "kind": "hover",
+  "cycles": 1,
+  "confidence": {
+    "label": "low",
+    "overall": 0.106823
+  },
+  "seam": {
+    "frames": 12,
+    "seam": 20.498087,
+    "adjacent_median": 35.751854,
+    "adjacent_p95": 41.466934,
+    "adjacent_max": 41.466934,
+    "seam_over_median": 0.573343,
+    "seam_over_p95": 0.494324,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

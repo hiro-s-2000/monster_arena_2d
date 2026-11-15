@@ -1,0 +1,224 @@
+{
+ "version": "bronzor_v2",
+ "hash": "ae90317cfd10",
+ "parts": {
+  "eye_l": 15,
+  "glint": 4,
+  "eye_r": 18,
+  "tips": 47,
+  "disc": 802
+ },
+ "sprite_h": 37,
+ "cell": [
+  176,
+  168,
+  147
+ ],
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "attack_s_ratios": [
+  1.0,
+  1.061,
+  1.071,
+  1.071,
+  1.061,
+  1.051,
+  1.051,
+  1.051,
+  1.051,
+  1.051,
+  1.051,
+  1.069,
+  1.057,
+  1.01,
+  1.0,
+  1.0
+ ],
+ "attack_s_min": 1.0,
+ "attack_s_max": 1.071,
+ "spin_body": [
+  {
+   "f": 5,
+   "opaque": 843,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 6,
+   "opaque": 843,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 7,
+   "opaque": 843,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 8,
+   "opaque": 843,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 9,
+   "opaque": 843,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 10,
+   "opaque": 843,
+   "main": 1.0,
+   "parts": 1
+  }
+ ],
+ "hurt_peak": [
+  {
+   "opaque": 808,
+   "main": 0.998,
+   "parts": 2
+  }
+ ],
+ "rest_diff": 0,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 6,
+   "lastInclusive": 5,
+   "frames": 6,
+   "seconds": 0.5,
+   "files": [
+    "00.png",
+    "05.png"
+   ],
+   "amplitude_steps": 1.0,
+   "turnaround_steps": 0.0,
+   "playback_frames": 10,
+   "holds_inside": [],
+   "root_dx_px_per_loop": -0.020917,
+   "ground_dy_px_per_loop": -0.42,
+   "root_drift_pct_body": 1.136542
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 1.0,
+    "amplitude": 0.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.0,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-5 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 10,
+   "seam": 0.0,
+   "adjacent_median": 0.0,
+   "adjacent_p95": 24.413882,
+   "adjacent_max": 24.413882,
+   "seam_over_median": 0.0,
+   "seam_over_p95": 0.0,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 11,
+   "lastInclusive": 10,
+   "frames": 11,
+   "seconds": 0.916667,
+   "files": [
+    "00.png",
+    "10.png"
+   ],
+   "amplitude_steps": 1.500198,
+   "turnaround_steps": 0.78662,
+   "playback_frames": 20,
+   "holds_inside": [
+    5,
+    8
+   ],
+   "root_dx_px_per_loop": -0.020917,
+   "ground_dy_px_per_loop": -1.42,
+   "root_drift_pct_body": 3.838254
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   6,
+   7,
+   9,
+   10
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   83,
+   167,
+   84,
+   166,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.71338,
+    "amplitude": 0.166733,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.166733,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-10 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 16,
+   "seam": 36.047225,
+   "adjacent_median": 21.869264,
+   "adjacent_p95": 36.047225,
+   "adjacent_max": 36.047225,
+   "seam_over_median": 1.648305,
+   "seam_over_p95": 1.0,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ }
+}

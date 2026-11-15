@@ -1,0 +1,49 @@
+{
+  "generator": "forge_glameow_actions",
+  "version": "glameow_v2",
+  "key": "0431_glameow",
+  "dex": 431,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 58,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "paws": 2,
+  "mouth": false,
+  "tails": 1,
+  "archetype": "quadruped_two_visible_paws_coil_tail",
+  "south_attack_ratio_min": 0.992,
+  "south_attack_ratio_max": 1.0059
+}

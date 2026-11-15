@@ -1,0 +1,65 @@
+{
+  "generator": "forge_abomasnow_actions",
+  "version": "abomasnow_v2",
+  "key": "0460_abomasnow",
+  "dex": 460,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 69,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "front",
+  "feet": 2,
+  "mouth": "none",
+  "cloak": "torso",
+  "parts": {
+    "arm_l": 257,
+    "arm_r": 296,
+    "foot_l": 188,
+    "foot_r": 229,
+    "torso": 2036
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.0052,
+    1.0082,
+    1.0033,
+    0.9977,
+    1.0085,
+    1.0072,
+    1.0072,
+    1.0072,
+    1.0062,
+    1.0085,
+    1.0072,
+    1.003,
+    0.9938,
+    0.9862,
+    0.9859
+  ],
+  "mega_key_edited": false,
+  "gifs_untouched": true
+}

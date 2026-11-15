@@ -1,0 +1,60 @@
+{
+  "generator": "forge_budew_actions",
+  "version": "budew_v2",
+  "key": "0406_budew",
+  "dex": 406,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 40,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "face": {
+    "eyes": 4,
+    "centroid_x": 47.124605678233436,
+    "bbox": [
+      35,
+      30,
+      58,
+      69
+    ]
+  },
+  "parts": {
+    "stem_l": 130,
+    "stem_r": 55,
+    "bud": 449
+  },
+  "palette_colors": 11,
+  "off_palette_colors": 0,
+  "attack_s_min": 0.976,
+  "attack_s_max": 1.038,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

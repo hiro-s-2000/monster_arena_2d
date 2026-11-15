@@ -1,0 +1,55 @@
+{
+  "generator": "forge_chatot_actions",
+  "version": "chatot_v2",
+  "key": "0441_chatot",
+  "dex": 441,
+  "form": "normal",
+  "variant": "chatot",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 41,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "beak_tip_x": 36,
+  "eye_x": 38,
+  "beak": 1,
+  "eyes": 1,
+  "feet": 2,
+  "wings": "none-separate",
+  "note_head": "on-body",
+  "note_tail": "on-body",
+  "south_attack_ratio_min": 0.9987,
+  "south_attack_ratio_max": 1.0319
+}

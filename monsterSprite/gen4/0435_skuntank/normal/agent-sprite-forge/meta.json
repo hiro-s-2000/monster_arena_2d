@@ -1,0 +1,52 @@
+{
+  "generator": "forge_skuntank_actions",
+  "version": "skuntank_v2",
+  "key": "0435_skuntank",
+  "dex": 435,
+  "form": "normal",
+  "variant": "skuntank",
+  "cell_w": 176,
+  "cell_h": 184,
+  "foot_y": 156,
+  "sprite_h": 54,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "nose_x": 11,
+  "eye_x": 31,
+  "paws": 3,
+  "mouth": "none",
+  "tail": "raised_plume_and_right_bush",
+  "south_attack_ratio_min": 0.959,
+  "south_attack_ratio_max": 1.0164
+}

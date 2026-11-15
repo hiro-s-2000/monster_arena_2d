@@ -1,0 +1,56 @@
+{
+  "generator": "forge_turtwig_actions",
+  "version": "turtwig_v2",
+  "key": "0387_turtwig",
+  "dex": 387,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 42,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "S",
+    "SE",
+    "E",
+    "NE"
+  ],
+  "still_faces": "left",
+  "eye": [
+    45,
+    48
+  ],
+  "parts": {
+    "leaf_l": 47,
+    "leaf_r": 46,
+    "jaw": 31,
+    "foot_a": 14,
+    "foot_b": 22,
+    "foot_c": 14,
+    "torso": 574
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

@@ -1,0 +1,53 @@
+{
+ "alphas": [
+  0,
+  255
+ ],
+ "partial_alpha": 0,
+ "off_palette": 0,
+ "clip_frames": 0,
+ "sprite_h": 42,
+ "hurt_squash": false,
+ "hurt_w": 38,
+ "rest_w": 29,
+ "bad_ratio": [],
+ "spin_body": [
+  {
+   "f": 5,
+   "main": 1.0,
+   "egg": 1.0,
+   "ratio": 0.9942
+  },
+  {
+   "f": 6,
+   "main": 1.0,
+   "egg": 1.0,
+   "ratio": 0.9957
+  },
+  {
+   "f": 7,
+   "main": 1.0,
+   "egg": 1.0,
+   "ratio": 0.9957
+  },
+  {
+   "f": 8,
+   "main": 1.0,
+   "egg": 1.0,
+   "ratio": 0.9957
+  },
+  {
+   "f": 9,
+   "main": 1.0,
+   "egg": 1.0,
+   "ratio": 0.9957
+  },
+  {
+   "f": 10,
+   "main": 1.0,
+   "egg": 1.0,
+   "ratio": 0.9942
+  }
+ ],
+ "h_matches": true
+}

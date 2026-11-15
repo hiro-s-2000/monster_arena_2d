@@ -1,0 +1,96 @@
+{
+  "generator": "forge_bonsly_actions",
+  "version": "bonsly_v2",
+  "key": "0438_bonsly",
+  "dex": 438,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 50,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "archetype": "planted_bonsai_biped_stubs",
+  "feet": {
+    "left_sole_y": 68,
+    "right_sole_y": 72,
+    "count": 2
+  },
+  "branches": 3,
+  "mouth_pixels": 3,
+  "face": {
+    "eyes": 22,
+    "mouth": 3,
+    "centroid_x": 46.53262158956109,
+    "bbox": [
+      34,
+      23,
+      62,
+      72
+    ],
+    "eye_span": [
+      39,
+      48,
+      48,
+      55
+    ]
+  },
+  "parts": {
+    "foliage_l": 105,
+    "foliage_top": 137,
+    "foliage_r": 112,
+    "pot": 425,
+    "foot_l": 22,
+    "foot_r": 42
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.018,
+    1.04,
+    1.038,
+    1.021,
+    0.981,
+    0.984,
+    0.984,
+    0.984,
+    0.981,
+    0.981,
+    1.006,
+    0.989,
+    0.986,
+    0.993,
+    1.0
+  ],
+  "attack_s_min": 0.981,
+  "attack_s_max": 1.04,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

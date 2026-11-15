@@ -1,0 +1,52 @@
+{
+  "generator": "forge_yanmega_actions",
+  "version": "yanmega_v2",
+  "key": "0469_yanmega",
+  "dex": 469,
+  "form": "normal",
+  "variant": "yanmega",
+  "name_ja": "メガヤンマ",
+  "cell_w": 200,
+  "cell_h": 192,
+  "foot_y": 160,
+  "sprite_h": 60,
+  "feet": 0,
+  "mouth": 0,
+  "wings": 3,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "mirror": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_on": "W",
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "face_x": 17.62,
+  "body_x": 47.04,
+  "archetype": "dragonfly_hover"
+}

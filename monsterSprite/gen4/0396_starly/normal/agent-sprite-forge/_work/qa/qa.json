@@ -1,0 +1,177 @@
+{
+ "version": "starly_v2",
+ "hash": "76de5e11ee14",
+ "parts": {
+  "body": 676,
+  "wing": 70,
+  "crest": 21
+ },
+ "sprite_h": 39,
+ "off_palette": 0,
+ "bad_alpha": [],
+ "clip": [],
+ "rest_diff": 0,
+ "attack_S_ratios": [
+  1.0,
+  1.013,
+  1.029,
+  1.029,
+  1.03,
+  1.012,
+  1.008,
+  1.008,
+  1.008,
+  1.008,
+  1.012,
+  1.021,
+  1.02,
+  1.004,
+  1.0,
+  1.0
+ ],
+ "spin_main_frac": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "gait": {
+  "idle": {
+   "policy": "pingpong",
+   "cycles": 1,
+   "window": {
+    "start": 0,
+    "endExclusive": 13,
+    "lastInclusive": 12,
+    "frames": 13,
+    "seconds": 1.083333,
+    "files": [
+     "00.png",
+     "12.png"
+    ],
+    "amplitude_steps": 1.49323,
+    "turnaround_steps": 1.002537,
+    "playback_frames": 24,
+    "holds_inside": [
+     2,
+     3,
+     6,
+     7,
+     10,
+     11
+    ],
+    "root_dx_px_per_loop": -0.058405,
+    "ground_dy_px_per_loop": -1.0,
+    "root_drift_pct_body": 2.568472
+   },
+   "sourceIndices": [
+    0,
+    1,
+    4,
+    5,
+    8,
+    9,
+    12
+   ],
+   "durations_ms": [
+    83,
+    250,
+    84,
+    249,
+    84,
+    250,
+    83
+   ],
+   "confidence": {
+    "components": {
+     "turnaround": 0.497463,
+     "amplitude": 0.16441,
+     "no_closing_cycle": 0.5
+    },
+    "overall": 0.16441,
+    "label": "low",
+    "review_priority": "manual-selection",
+    "review": [
+     "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+     "No window closes as a cycle: pingpong plays frames 0-12 forward then back. Use it only for breathing or sway, never for walks or strikes."
+    ]
+   },
+   "seam": {
+    "frames": 12,
+    "seam": 33.854144,
+    "adjacent_median": 34.331001,
+    "adjacent_p95": 34.990581,
+    "adjacent_max": 34.990581,
+    "seam_over_median": 0.98611,
+    "seam_over_p95": 0.967522,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+   }
+  },
+  "walk": {
+   "policy": "pingpong",
+   "cycles": 1,
+   "window": {
+    "start": 0,
+    "endExclusive": 6,
+    "lastInclusive": 5,
+    "frames": 6,
+    "seconds": 0.5,
+    "files": [
+     "00.png",
+     "05.png"
+    ],
+    "amplitude_steps": 1.324401,
+    "turnaround_steps": 1.07575,
+    "playback_frames": 10,
+    "holds_inside": [],
+    "root_dx_px_per_loop": 0.841737,
+    "ground_dy_px_per_loop": -1.0,
+    "root_drift_pct_body": 3.351548
+   },
+   "sourceIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "durations_ms": [
+    83,
+    84,
+    83,
+    83,
+    84,
+    83
+   ],
+   "confidence": {
+    "components": {
+     "turnaround": 0.42425,
+     "amplitude": 0.108134,
+     "no_closing_cycle": 0.5
+    },
+    "overall": 0.108134,
+    "label": "low",
+    "review_priority": "manual-selection",
+    "review": [
+     "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+     "No window closes as a cycle: pingpong plays frames 0-5 forward then back. Use it only for breathing or sway, never for walks or strikes."
+    ]
+   },
+   "seam": {
+    "frames": 10,
+    "seam": 35.239083,
+    "adjacent_median": 33.591157,
+    "adjacent_p95": 35.996179,
+    "adjacent_max": 35.996179,
+    "seam_over_median": 1.049058,
+    "seam_over_p95": 0.978967,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+   }
+  }
+ }
+}

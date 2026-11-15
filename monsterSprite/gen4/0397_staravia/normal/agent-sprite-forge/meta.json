@@ -1,0 +1,48 @@
+{
+  "generator": "forge_staravia_actions",
+  "version": "staravia_v2",
+  "key": "0397_staravia",
+  "dex": 397,
+  "form": "normal",
+  "variant": "staravia",
+  "archetype": "biped_bird",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 52,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "wings_invented": 0,
+  "feet": 2,
+  "rear_fan": 1
+}

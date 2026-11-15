@@ -1,0 +1,142 @@
+{
+ "version": "bonsly_v2",
+ "hash": "5c86e7d4bc72",
+ "parts": {
+  "foliage_l": 105,
+  "foliage_top": 137,
+  "foliage_r": 112,
+  "pot": 425,
+  "foot_l": 22,
+  "foot_r": 42
+ },
+ "sprite_h": 50,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "attack_s_ratios": [
+  1.0,
+  1.018,
+  1.04,
+  1.038,
+  1.021,
+  0.981,
+  0.984,
+  0.984,
+  0.984,
+  0.981,
+  0.981,
+  1.006,
+  0.989,
+  0.986,
+  0.993,
+  1.0
+ ],
+ "attack_s_min": 0.981,
+ "attack_s_max": 1.04,
+ "spin_body": [
+  {
+   "f": 5,
+   "opaque": 834,
+   "main": 1.0
+  },
+  {
+   "f": 6,
+   "opaque": 836,
+   "main": 1.0
+  },
+  {
+   "f": 7,
+   "opaque": 836,
+   "main": 1.0
+  },
+  {
+   "f": 8,
+   "opaque": 836,
+   "main": 1.0
+  },
+  {
+   "f": 9,
+   "opaque": 834,
+   "main": 1.0
+  },
+  {
+   "f": 10,
+   "opaque": 834,
+   "main": 1.0
+  }
+ ],
+ "rest_diff": 0,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 9,
+   "lastInclusive": 8,
+   "frames": 9,
+   "seconds": 0.75,
+   "files": [
+    "00.png",
+    "08.png"
+   ],
+   "amplitude_steps": 4.18775,
+   "turnaround_steps": 1.051992,
+   "playback_frames": 16,
+   "holds_inside": [
+    1
+   ],
+   "root_dx_px_per_loop": -0.151105,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.30221
+  },
+  "sourceIndices": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "durations_ms": [
+   167,
+   83,
+   83,
+   84,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.448008,
+    "amplitude": 1.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.448008,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-8 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 14,
+   "seam": 2.236364,
+   "adjacent_median": 2.326989,
+   "adjacent_p95": 2.933807,
+   "adjacent_max": 2.933807,
+   "seam_over_median": 0.961055,
+   "seam_over_p95": 0.762274,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": "no-report exit 1"
+}

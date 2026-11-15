@@ -1,0 +1,71 @@
+{
+  "generator": "forge_carnivine_actions",
+  "version": "carnivine_v2",
+  "key": "0455_carnivine",
+  "dex": 455,
+  "variant": "carnivine",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 60,
+  "hover": true,
+  "feet": 0,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.015,
+    1.025,
+    1.035,
+    1.026,
+    1.026,
+    1.024,
+    1.024,
+    1.024,
+    1.026,
+    1.026,
+    1.021,
+    1.012,
+    1.007,
+    1.0,
+    1.0
+  ],
+  "parts": {
+    "stem": 39,
+    "left": 263,
+    "right": 245,
+    "jaw": 342,
+    "torso": 1123
+  },
+  "facing": "front",
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

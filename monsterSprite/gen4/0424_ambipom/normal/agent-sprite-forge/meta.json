@@ -1,0 +1,66 @@
+{
+  "generator": "forge_ambipom_actions",
+  "version": "ambipom_v2",
+  "key": "0424_ambipom",
+  "dex": 424,
+  "variant": "ambipom",
+  "form": "normal",
+  "archetype": "biped",
+  "facing_still": "camera",
+  "hands": 2,
+  "feet": 2,
+  "tails": 2,
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 172,
+  "sprite_h": 70,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "south_attack_ratios": [
+    1.0,
+    0.9981,
+    0.9981,
+    1.0,
+    1.0,
+    0.9834,
+    0.9762,
+    0.9886,
+    0.9886,
+    0.9933,
+    0.9962,
+    0.9886,
+    0.9924,
+    0.9772,
+    0.9743,
+    0.9715
+  ],
+  "gifs_untouched": true
+}

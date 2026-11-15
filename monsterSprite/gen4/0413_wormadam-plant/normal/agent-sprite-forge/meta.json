@@ -1,0 +1,84 @@
+{
+  "generator": "forge_wormadam_plant_actions",
+  "version": "wormadam_plant_v2",
+  "key": "0413_wormadam-plant",
+  "dex": 413,
+  "variant": "wormadam-plant",
+  "form": "normal",
+  "archetype": "biped_cloak",
+  "facing_still": "left",
+  "eye_mean_x": 45.5,
+  "body_mean_x": 46.78031212484994,
+  "unflipped": [
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "flipped": [
+    "S",
+    "SE",
+    "E",
+    "NE"
+  ],
+  "cell_w": 184,
+  "cell_h": 176,
+  "foot_y": 156,
+  "sprite_h": 49,
+  "opaque_bottom": 155,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "parts": {
+    "antenna": 54,
+    "arm_l": 16,
+    "arm_r": 23,
+    "foot_l": 19,
+    "foot_r": 18,
+    "torso": 703
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_ratios": [
+    1.0,
+    1.0312,
+    1.048,
+    1.0456,
+    1.0336,
+    1.0348,
+    1.0372,
+    1.0372,
+    1.0372,
+    1.0348,
+    1.0348,
+    1.0192,
+    1.0132,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "attack_ratio_min": 1.0,
+  "attack_ratio_max": 1.0480192076830732,
+  "source": "front.png 96x96",
+  "cloak": "plant",
+  "gifs_untouched": true
+}

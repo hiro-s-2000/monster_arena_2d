@@ -1,0 +1,77 @@
+{
+  "generator": "forge_shaymin_land_actions",
+  "version": "shaymin-land_v1",
+  "key": "0492_shaymin-land",
+  "dex": 492,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 31,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": {
+      "still": "front",
+      "mirrored": true
+    },
+    "SE": {
+      "still": "front",
+      "mirrored": true
+    },
+    "E": {
+      "still": "front",
+      "mirrored": true
+    },
+    "NE": {
+      "still": "back",
+      "mirrored": false
+    },
+    "N": {
+      "still": "back",
+      "mirrored": false
+    },
+    "NW": {
+      "still": "back",
+      "mirrored": true
+    },
+    "W": {
+      "still": "front",
+      "mirrored": false
+    },
+    "SW": {
+      "still": "front",
+      "mirrored": false
+    }
+  },
+  "still_faces": "front.png faces screen-left (face x27-36); back.png faces up-right",
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "source": "front.png + back.png 96x96",
+  "gifs_untouched": true,
+  "archetype": "quadruped_beast (small hedgehog, 3 drawn paws)",
+  "roar": "no mouth: grass crest bristles, flower starts spinning, rings from the face",
+  "attack": "Seed Flare: integer pounce + forepaw stomp + crest whip + spinning flower beam, burst (no whole-body spin)",
+  "layout": "actions_8dir",
+  "sheetDir": "agent-sprite-forge",
+  "raw": 1
+}

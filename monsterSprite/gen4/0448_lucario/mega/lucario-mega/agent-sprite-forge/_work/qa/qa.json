@@ -1,0 +1,52 @@
+{
+ "version": "lucario_mega_v2m",
+ "hash": "1ff0484c96c9",
+ "parts": {
+  "snout": 63,
+  "crest": 39,
+  "arm_l": 90,
+  "arm_r": 71,
+  "leg_l": 95,
+  "leg_r": 64,
+  "torso": 1160
+ },
+ "sprite_h": 66,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "spin_main_frac_W": {
+  "5": 0.997,
+  "6": 0.988,
+  "7": 0.997,
+  "8": 0.996,
+  "9": 0.994,
+  "10": 0.995
+ },
+ "hurt_main_frac_W": {
+  "0": 1.0,
+  "1": 1.0,
+  "2": 0.997,
+  "3": 0.996,
+  "4": 0.998,
+  "5": 0.998,
+  "6": 0.999,
+  "7": 1.0,
+  "8": 1.0,
+  "9": 1.0,
+  "10": 1.0,
+  "11": 1.0
+ },
+ "sole_gap_min": 12,
+ "facing": "left",
+ "eye_x": 43.8,
+ "snout_tip_x": 35,
+ "cell": [
+  176,
+  168,
+  148
+ ],
+ "gait_idle": "skipped_existing"
+}

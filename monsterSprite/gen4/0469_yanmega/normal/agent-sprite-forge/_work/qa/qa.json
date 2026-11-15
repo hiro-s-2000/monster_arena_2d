@@ -1,0 +1,252 @@
+{
+ "version": "yanmega_v2",
+ "hash": "4421c9f29655",
+ "parts": {
+  "body": 1342,
+  "wing_up": 164,
+  "wing_far": 219,
+  "wing_near": 119
+ },
+ "sprite_h": 60,
+ "feet": 0,
+ "mouth": 0,
+ "off_palette": 0,
+ "bad_alpha": [],
+ "clip": [],
+ "rest_diff": 0,
+ "south_ratios": {
+  "idle": [
+   1.0,
+   1.001,
+   1.003,
+   1.002,
+   1.001,
+   1.002,
+   1.003,
+   1.001,
+   1.0,
+   0.996,
+   0.999,
+   0.997,
+   0.998,
+   0.997,
+   0.999,
+   0.996
+  ],
+  "walk": [
+   1.0,
+   1.002,
+   1.002,
+   1.002,
+   1.0,
+   0.997,
+   0.99,
+   0.997,
+   1.0,
+   1.002,
+   1.002,
+   1.002,
+   1.0,
+   0.997,
+   0.99,
+   0.997
+  ],
+  "attack": [
+   1.004,
+   1.005,
+   1.007,
+   1.009,
+   1.004,
+   1.006,
+   1.005,
+   1.005,
+   1.005,
+   1.003,
+   1.006,
+   1.009,
+   1.007,
+   1.002,
+   1.0,
+   1.0
+  ],
+  "hurt": [
+   1.0,
+   1.01,
+   1.008,
+   1.018,
+   1.012,
+   1.012,
+   1.017,
+   1.015,
+   1.012,
+   1.002,
+   1.002,
+   1.0
+  ]
+ },
+ "spin_main_frac": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "spin_comp": [
+  1,
+  1,
+  1,
+  1,
+  1,
+  1
+ ],
+ "gait": {
+  "idle": {
+   "policy": "cycle",
+   "cycles": 1,
+   "window": {
+    "start": 0,
+    "endExclusive": 8,
+    "lastInclusive": 7,
+    "frames": 8,
+    "seconds": 0.666667,
+    "files": [
+     "00.png",
+     "07.png"
+    ],
+    "closure_pose_steps": 0.0,
+    "closure_velocity_steps": 1.172233,
+    "closure_steps": 0.586117,
+    "amplitude_steps": 6.886044,
+    "wrap_steps": 0.669002,
+    "holds_inside": [
+     4,
+     5
+    ],
+    "root_dx_px_per_loop": 0.0,
+    "ground_dy_px_per_loop": 0.0,
+    "root_drift_pct_body": 0.0,
+    "score": 0.586117,
+    "classification": {
+     "class": "valid-cycle",
+     "reasons": [],
+     "notes": [
+      "held duplicate frames 4-5 are dropped; their time goes to the frame they repeat"
+     ]
+    }
+   },
+   "sourceIndices": [
+    0,
+    1,
+    2,
+    3,
+    6,
+    7
+   ],
+   "durations_ms": [
+    83,
+    84,
+    83,
+    250,
+    84,
+    83
+   ],
+   "confidence": {
+    "components": {
+     "closure": 0.913883,
+     "amplitude": 1.0
+    },
+    "overall": 0.913883,
+    "label": "high",
+    "review_priority": "spot-check",
+    "review": [
+     "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+    ]
+   },
+   "seam": {
+    "frames": 6,
+    "seam": 4.723084,
+    "adjacent_median": 6.519762,
+    "adjacent_p95": 41.137488,
+    "adjacent_max": 41.137488,
+    "seam_over_median": 0.724426,
+    "seam_over_p95": 0.114812,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+   }
+  },
+  "walk": {
+   "policy": "cycle",
+   "cycles": 1,
+   "window": {
+    "start": 0,
+    "endExclusive": 8,
+    "lastInclusive": 7,
+    "frames": 8,
+    "seconds": 0.666667,
+    "files": [
+     "00.png",
+     "07.png"
+    ],
+    "closure_pose_steps": 0.0,
+    "closure_velocity_steps": 0.0,
+    "closure_steps": 0.0,
+    "amplitude_steps": 5.116109,
+    "wrap_steps": 4.559304,
+    "holds_inside": [],
+    "root_dx_px_per_loop": 0.0,
+    "ground_dy_px_per_loop": 0.0,
+    "root_drift_pct_body": 0.0,
+    "score": 0.0,
+    "classification": {
+     "class": "valid-cycle",
+     "reasons": [],
+     "notes": []
+    }
+   },
+   "sourceIndices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "durations_ms": [
+    83,
+    84,
+    83,
+    84,
+    83,
+    83,
+    84,
+    83
+   ],
+   "confidence": {
+    "components": {
+     "closure": 1.0,
+     "amplitude": 1.0
+    },
+    "overall": 1.0,
+    "label": "high",
+    "review_priority": "spot-check",
+    "review": [
+     "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+    ]
+   },
+   "seam": {
+    "frames": 8,
+    "seam": 49.189108,
+    "adjacent_median": 9.126763,
+    "adjacent_p95": 50.227386,
+    "adjacent_max": 50.227386,
+    "seam_over_median": 5.389546,
+    "seam_over_p95": 0.979328,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+   }
+  }
+ }
+}

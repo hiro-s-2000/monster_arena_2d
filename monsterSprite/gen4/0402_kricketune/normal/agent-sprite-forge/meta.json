@@ -1,0 +1,58 @@
+{
+  "generator": "forge_kricketune_actions",
+  "version": "kricketune_v2",
+  "key": "0402_kricketune",
+  "dex": 402,
+  "form": "normal",
+  "variant": "kricketune",
+  "archetype": "biped_cricket_scythe",
+  "facing": "left",
+  "unflipped": [
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "flipped": [
+    "S",
+    "SE",
+    "E",
+    "NE"
+  ],
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 58,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "arms": 2,
+  "antennae": 2,
+  "feet": 2,
+  "mustache": "on torso",
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "attack_ratio_min": 0.9588,
+  "attack_ratio_max": 1.0063
+}

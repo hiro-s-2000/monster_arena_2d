@@ -1,0 +1,44 @@
+{
+  "generator": "forge_heatran_mega_actions",
+  "version": "heatran_mega_v3",
+  "key": "0485_heatran-mega",
+  "dex": 485,
+  "cell_w": 200,
+  "cell_h": 200,
+  "foot_y": 156,
+  "sprite_h": 62,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 23,
+  "off_palette_colors": 0,
+  "facing": "right",
+  "top_centroid_x": 54.57,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

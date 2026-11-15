@@ -1,0 +1,61 @@
+{
+  "generator": "forge_shieldon_actions",
+  "version": "shieldon_v2",
+  "key": "0410_shieldon",
+  "dex": 410,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 39,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "S",
+    "SE",
+    "E",
+    "NE"
+  ],
+  "still_faces": "left",
+  "eye": [
+    42.4,
+    54.2
+  ],
+  "plate": [
+    29,
+    53
+  ],
+  "feet_touching": 3,
+  "jaw": false,
+  "parts": {
+    "crest": 47,
+    "foot_a": 27,
+    "foot_b": 23,
+    "foot_c": 23,
+    "tail": 13,
+    "torso": 791
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

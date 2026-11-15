@@ -1,0 +1,43 @@
+{
+  "generator": "forge_monferno_actions",
+  "version": "monferno_v2",
+  "key": "0391_monferno",
+  "dex": 391,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 148,
+  "sprite_h": 52,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "archetype": "biped_primate_tail_flame"
+}

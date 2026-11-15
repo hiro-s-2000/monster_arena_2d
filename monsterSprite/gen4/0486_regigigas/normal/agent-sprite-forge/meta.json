@@ -1,0 +1,72 @@
+{
+  "generator": "forge_regigigas_actions",
+  "version": "regigigas_v1",
+  "key": "0486_regigigas",
+  "dex": 486,
+  "form": "normal",
+  "variant": "regigigas",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 68,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": {
+      "still": "front",
+      "mirrored": false
+    },
+    "SE": {
+      "still": "front",
+      "mirrored": true
+    },
+    "E": {
+      "still": "front",
+      "mirrored": true
+    },
+    "NE": {
+      "still": "back",
+      "mirrored": false
+    },
+    "N": {
+      "still": "back",
+      "mirrored": false
+    },
+    "NW": {
+      "still": "back",
+      "mirrored": true
+    },
+    "W": {
+      "still": "front",
+      "mirrored": false
+    },
+    "SW": {
+      "still": "front",
+      "mirrored": false
+    }
+  },
+  "archetype": "biped_kaiju_stomper (heavy golem, no tail, no mouth: face dots)",
+  "off_palette_colors": 0,
+  "source": "front.png + back.png 96x96",
+  "gifs_untouched": true
+}

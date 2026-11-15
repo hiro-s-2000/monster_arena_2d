@@ -1,0 +1,46 @@
+{
+  "generator": "forge_pachirisu_actions",
+  "version": "pachirisu_v2",
+  "key": "0417_pachirisu",
+  "dex": 417,
+  "cell_w": 184,
+  "cell_h": 176,
+  "foot_y": 148,
+  "sprite_h": 49,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "feet": 2,
+  "tails": 1,
+  "archetype": "biped_squirrel_two_ground_paws_one_tail"
+}

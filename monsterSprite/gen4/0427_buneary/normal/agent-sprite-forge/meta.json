@@ -1,0 +1,65 @@
+{
+  "generator": "forge_buneary_actions",
+  "version": "buneary_v2",
+  "key": "0427_buneary",
+  "dex": 427,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 156,
+  "sprite_h": 57,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "left",
+  "feet": 2,
+  "rolled_ears": 1,
+  "mouth_pixels": 6,
+  "parts": {
+    "ear_up": 232,
+    "ear_roll": 97,
+    "mouth": 6,
+    "foot_l": 25,
+    "foot_r": 20,
+    "torso": 505
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.0011,
+    1.0055,
+    1.0011,
+    1.0,
+    0.9933,
+    0.9922,
+    0.9922,
+    0.9922,
+    0.9911,
+    0.9933,
+    1.0011,
+    0.9989,
+    0.9812,
+    0.9812,
+    0.9812
+  ],
+  "gifs_untouched": true
+}

@@ -1,0 +1,59 @@
+{
+  "generator": "forge_empoleon_actions",
+  "version": "empoleon_v2",
+  "key": "0395_empoleon",
+  "dex": 395,
+  "form": "normal",
+  "variant": "empoleon",
+  "cell_w": 192,
+  "cell_h": 184,
+  "foot_y": 164,
+  "sprite_h": 77,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "beak": "downward centre crest tip",
+  "eyes": [
+    [
+      44,
+      26
+    ],
+    [
+      51,
+      26
+    ]
+  ],
+  "crown_prongs": 3,
+  "flippers": 2,
+  "feet": 2
+}

@@ -1,0 +1,19 @@
+{
+ "alphas": [
+  0,
+  255
+ ],
+ "partial_alpha": 0,
+ "off_palette": 0,
+ "clip_frames": 0,
+ "still_diff_dirs": 0,
+ "body_main_min": {
+  "idle": 1.0,
+  "walk": 1.0,
+  "attack": 1.0,
+  "hurt": 1.0
+ },
+ "hurt_deg_max": 34,
+ "sprite_h": 58,
+ "foot_y": 148
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/idle/S",
+  "sourceHashes": [
+    "f727527287e46948d0a1c15609ad5d91bf341caa32e8ff1055dd3b6242f7ced2",
+    "981082126b31766fa616097d6366e30b698b22eadf9279a46b15994f451862ae",
+    "f2a00296617ea8aad434b4470ceedb79088a2918ed671af252e79c95fe8107da",
+    "2e6d53be5ed1c33d4c7d6e4140d38af74310ad6ff0e2bed4038d31fdea162840",
+    "f2a00296617ea8aad434b4470ceedb79088a2918ed671af252e79c95fe8107da",
+    "d266bdbbc8fe163faa67a5631a6a813d2695a56769fe00555a5584ac091e59ab",
+    "1382c60e42ebf7a167a7316d29312a52b3cb19fc4ac1249dad8fbe8b91008e8d",
+    "6e5c3019330cc6a7b4bed67c15d695d512f2932eabb5a868730bba3adfbaf12e"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png"
+  ],
+  "start": 0,
+  "endExclusive": 8,
+  "sourceIndices": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    7
+  ],
+  "durations_ms": [
+    83,
+    84,
+    250,
+    83,
+    84,
+    83
+  ],
+  "fps": "12/1",
+  "loopPolicy": "pingpong",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself. No window closes as a cycle: pingpong plays frames 0-7 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+  "method": "gait_loop select (hover): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+  "kind": "hover",
+  "cycles": 1,
+  "confidence": {
+    "label": "low",
+    "overall": 0.352063
+  },
+  "seam": {
+    "frames": 10,
+    "seam": 42.308273,
+    "adjacent_median": 2.840882,
+    "adjacent_p95": 27.388768,
+    "adjacent_max": 42.308273,
+    "seam_over_median": 14.892656,
+    "seam_over_p95": 1.544731,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

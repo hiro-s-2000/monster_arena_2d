@@ -1,0 +1,53 @@
+{
+  "generator": "forge_honchkrow_actions",
+  "version": "honchkrow_v2",
+  "key": "0430_honchkrow",
+  "dex": 430,
+  "form": "normal",
+  "variant": "honchkrow",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 56,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "beak_tip_x": 24,
+  "eye_x": 37,
+  "beak": 1,
+  "eyes": 1,
+  "talons": 2,
+  "wings": "coat",
+  "south_attack_ratio_min": 0.9873,
+  "south_attack_ratio_max": 1.0356
+}

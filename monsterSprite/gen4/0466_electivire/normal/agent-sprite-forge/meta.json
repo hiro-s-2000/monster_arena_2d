@@ -1,0 +1,57 @@
+{
+  "generator": "forge_electivire_actions",
+  "version": "electivire_v2",
+  "key": "0466_electivire",
+  "dex": 466,
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 168,
+  "sprite_h": 71,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "front",
+  "feet": 2,
+  "mouth_pixels": 12,
+  "plugs_are_legs": false,
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.0,
+    1.0003,
+    1.0,
+    1.0,
+    0.9973,
+    0.9973,
+    0.9973,
+    0.9973,
+    0.9973,
+    0.9973,
+    1.0003,
+    1.0003,
+    0.9973,
+    0.9973,
+    0.9973
+  ],
+  "gifs_untouched": true
+}

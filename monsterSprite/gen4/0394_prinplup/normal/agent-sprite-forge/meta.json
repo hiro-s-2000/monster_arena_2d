@@ -1,0 +1,50 @@
+{
+  "generator": "forge_prinplup_actions",
+  "version": "prinplup_v2",
+  "key": "0394_prinplup",
+  "dex": 394,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 57,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "front",
+  "beak_tip_x": 41.0,
+  "eye_x": [
+    38.4,
+    45.666666666666664
+  ],
+  "south_attack_ratio_min": 0.9357560025957171,
+  "south_attack_ratio_max": 1.0317975340687866
+}

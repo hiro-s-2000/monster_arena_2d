@@ -1,0 +1,91 @@
+{
+  "generator": "forge_chingling_actions",
+  "version": "chingling_v2",
+  "key": "0433_chingling",
+  "dex": 433,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 37,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "archetype": "bell_hover",
+  "face": {
+    "shine": [
+      41,
+      42,
+      41,
+      42
+    ],
+    "shine_y": [
+      48,
+      48,
+      49,
+      49
+    ],
+    "bbox": [
+      32,
+      30,
+      63,
+      66
+    ],
+    "opaque": 563,
+    "faces": "viewer"
+  },
+  "parts": {
+    "curl_l": 91,
+    "curl_r": 111,
+    "bell": 361
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_s_min": 0.993,
+  "attack_s_max": 1.057,
+  "attack_s_ratios": [
+    1.0,
+    1.012,
+    1.057,
+    1.053,
+    1.039,
+    0.998,
+    0.993,
+    0.993,
+    0.993,
+    0.998,
+    0.998,
+    1.016,
+    1.014,
+    1.016,
+    1.0,
+    1.0
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

@@ -1,0 +1,49 @@
+{
+  "generator": "forge_mothim_actions",
+  "version": "mothim_v2",
+  "key": "0414_mothim",
+  "dex": 414,
+  "form": "normal",
+  "variant": "mothim",
+  "cell_w": 200,
+  "cell_h": 192,
+  "foot_y": 168,
+  "sprite_h": 44,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "mirror": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "wings": 2,
+  "antennae": 2,
+  "mouth": 0,
+  "face_x": 40.64,
+  "body_x": 46.88
+}

@@ -1,0 +1,64 @@
+{
+  "generator": "forge_gastrodon_actions",
+  "version": "gastrodon_v2",
+  "key": "0423_gastrodon",
+  "dex": 423,
+  "form": "normal",
+  "variant": "gastrodon",
+  "cell_w": 184,
+  "cell_h": 176,
+  "foot_y": 155,
+  "sprite_h": 54,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.0123,
+    1.0166,
+    1.0195,
+    1.0108,
+    1.0116,
+    1.0116,
+    1.0116,
+    1.0116,
+    1.0116,
+    1.0116,
+    1.0036,
+    1.0058,
+    1.0051,
+    1.0,
+    1.0
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "anatomy": "slug, shell attached, eyestalk crest, no legs, no mouth",
+  "passed": true
+}

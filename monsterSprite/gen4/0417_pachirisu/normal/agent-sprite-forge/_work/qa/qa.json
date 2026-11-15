@@ -1,0 +1,156 @@
+{
+ "version": "pachirisu_v2",
+ "hash": "9d00bc4bee8a",
+ "parts": {
+  "upper": 558,
+  "lower": 122,
+  "tail": 453,
+  "fore": 14,
+  "hind": 21,
+  "socket": 32,
+  "cheeks": 2,
+  "feet": 2,
+  "tails": 1,
+  "missing": 0,
+  "overlap": 0
+ },
+ "sprite_h": 49,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "attack_S_opaque": [
+  {
+   "f": 0,
+   "opaque": 1168,
+   "ratio": 1.0,
+   "w": 44,
+   "h": 49,
+   "main": 1.0
+  },
+  {
+   "f": 1,
+   "opaque": 1174,
+   "ratio": 1.0051,
+   "w": 51,
+   "h": 49,
+   "main": 0.994
+  },
+  {
+   "f": 2,
+   "opaque": 1178,
+   "ratio": 1.0086,
+   "w": 55,
+   "h": 49,
+   "main": 0.9873
+  },
+  {
+   "f": 3,
+   "opaque": 1178,
+   "ratio": 1.0086,
+   "w": 55,
+   "h": 49,
+   "main": 0.9873
+  },
+  {
+   "f": 4,
+   "opaque": 1174,
+   "ratio": 1.0051,
+   "w": 51,
+   "h": 49,
+   "main": 0.994
+  },
+  {
+   "f": 5,
+   "opaque": 1145,
+   "ratio": 0.9803,
+   "w": 43,
+   "h": 49,
+   "main": 1.0
+  },
+  {
+   "f": 6,
+   "opaque": 1153,
+   "ratio": 0.9872,
+   "w": 42,
+   "h": 49,
+   "main": 0.9991
+  },
+  {
+   "f": 7,
+   "opaque": 1153,
+   "ratio": 0.9872,
+   "w": 42,
+   "h": 49,
+   "main": 0.9991
+  },
+  {
+   "f": 8,
+   "opaque": 1153,
+   "ratio": 0.9872,
+   "w": 42,
+   "h": 49,
+   "main": 0.9991
+  },
+  {
+   "f": 9,
+   "opaque": 1150,
+   "ratio": 0.9846,
+   "w": 43,
+   "h": 49,
+   "main": 1.0
+  },
+  {
+   "f": 10,
+   "opaque": 1145,
+   "ratio": 0.9803,
+   "w": 43,
+   "h": 49,
+   "main": 1.0
+  },
+  {
+   "f": 11,
+   "opaque": 1165,
+   "ratio": 0.9974,
+   "w": 56,
+   "h": 49,
+   "main": 0.994
+  },
+  {
+   "f": 12,
+   "opaque": 1171,
+   "ratio": 1.0026,
+   "w": 57,
+   "h": 50,
+   "main": 0.994
+  },
+  {
+   "f": 13,
+   "opaque": 1167,
+   "ratio": 0.9991,
+   "w": 44,
+   "h": 49,
+   "main": 1.0
+  },
+  {
+   "f": 14,
+   "opaque": 1168,
+   "ratio": 1.0,
+   "w": 44,
+   "h": 49,
+   "main": 1.0
+  },
+  {
+   "f": 15,
+   "opaque": 1168,
+   "ratio": 1.0,
+   "w": 44,
+   "h": 49,
+   "main": 1.0
+  }
+ ],
+ "ratio_min": 0.9803,
+ "ratio_max": 1.0086
+}

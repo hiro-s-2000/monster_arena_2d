@@ -1,0 +1,65 @@
+{
+  "generator": "forge_drifloon_actions",
+  "version": "drifloon_v2",
+  "key": "0425_drifloon",
+  "dex": 425,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 56,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "archetype": "balloon_strings",
+  "face": {
+    "faces": "viewer",
+    "mark": 48,
+    "centroid_x": 45.13,
+    "bbox": [
+      31,
+      21,
+      63,
+      76
+    ]
+  },
+  "parts": {
+    "cloud": 118,
+    "balloon": 528,
+    "shaft_l": 14,
+    "shaft_r": 17,
+    "tip_l": 28,
+    "tip_r": 31
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_s_min": 1.0,
+  "attack_s_max": 1.067,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

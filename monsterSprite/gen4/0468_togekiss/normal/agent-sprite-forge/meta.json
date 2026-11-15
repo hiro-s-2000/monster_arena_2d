@@ -1,0 +1,74 @@
+{
+  "generator": "forge_togekiss_actions",
+  "version": "togekiss_v2",
+  "key": "0468_togekiss",
+  "dex": 468,
+  "variant": "togekiss",
+  "cell_w": 192,
+  "cell_h": 184,
+  "foot_y": 160,
+  "sprite_h": 43,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 11,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.004,
+    1.004,
+    1.004,
+    1.0,
+    0.998,
+    0.998,
+    0.993,
+    0.993,
+    0.998,
+    0.998,
+    1.002,
+    1.002,
+    0.996,
+    0.996,
+    0.996
+  ],
+  "parts": {
+    "torso": 1486,
+    "wing_lo": 29,
+    "wing_up": 92,
+    "beak": 10,
+    "jaw": 19
+  },
+  "facing": "left",
+  "beak_x": 10,
+  "eye_x": 29.38,
+  "feet": 0,
+  "wings": 2,
+  "archetype": "avian_hover",
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

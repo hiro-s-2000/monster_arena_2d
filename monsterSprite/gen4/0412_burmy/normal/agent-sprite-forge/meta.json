@@ -1,0 +1,63 @@
+{
+  "generator": "forge_burmy_actions",
+  "version": "burmy_v2",
+  "key": "0412_burmy",
+  "dex": 412,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 44,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "face": {
+    "eyes": 5,
+    "face_x": 45.4,
+    "body_x": 46.937722419928825,
+    "bbox": [
+      35,
+      26,
+      58,
+      69
+    ],
+    "mouth": 0
+  },
+  "parts": {
+    "twig": 79,
+    "cloak": 470,
+    "foot_l": 6,
+    "foot_r": 7
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_s_min": 1.0,
+  "attack_s_max": 1.044,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

@@ -1,0 +1,63 @@
+{
+  "generator": "forge_lopunny_actions",
+  "version": "lopunny_v2",
+  "key": "0428_lopunny",
+  "dex": 428,
+  "cell_w": 192,
+  "cell_h": 192,
+  "foot_y": 168,
+  "sprite_h": 62,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "facing": "right",
+  "eye_x": 40.0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "mouth": "none_ears_and_rings",
+  "attack_s_ratios": [
+    1.0,
+    1.011,
+    1.0147,
+    1.011,
+    0.9895,
+    1.0309,
+    1.034,
+    1.0314,
+    1.0325,
+    1.0346,
+    1.0277,
+    1.0215,
+    1.0079,
+    0.9712,
+    0.9461,
+    0.9325
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "generator": "forge_darkrai_actions",
+  "version": "darkrai_v2",
+  "key": "0491_darkrai",
+  "dex": 491,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 66,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": {
+      "still": "front",
+      "mirrored": false
+    },
+    "SE": {
+      "still": "front",
+      "mirrored": true
+    },
+    "E": {
+      "still": "front",
+      "mirrored": true
+    },
+    "NE": {
+      "still": "back",
+      "mirrored": false
+    },
+    "N": {
+      "still": "back",
+      "mirrored": false
+    },
+    "NW": {
+      "still": "back",
+      "mirrored": true
+    },
+    "W": {
+      "still": "front",
+      "mirrored": false
+    },
+    "SW": {
+      "still": "front",
+      "mirrored": false
+    }
+  },
+  "still_faces": "front.png faces screen-left (plume streams right); back.png faces up-right",
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "source": "front.png + back.png 96x96",
+  "gifs_untouched": true,
+  "roar": "no mouth: the smoke plume flares back, shoulder horns and both claw arms rear up, dark-red rings from the head",
+  "attack": "turn-around via the real back view (no in-plane spin) + near claw arm slash (claw streaks), Dark Pulse ring, shadow burst",
+  "legs": 0,
+  "layout": "actions_8dir",
+  "sheetDir": "agent-sprite-forge",
+  "raw": 1
+}

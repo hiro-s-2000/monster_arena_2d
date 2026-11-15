@@ -1,0 +1,34 @@
+{
+ "version": "staraptor_mega_v2m",
+ "hash": "eed1dabbab4e",
+ "parts": {
+  "crest": 265,
+  "head": 574,
+  "wing_l": 1178,
+  "wing_r": 782,
+  "talon_lo": 62,
+  "talon_hi": 81,
+  "tail": 83,
+  "torso": 1300
+ },
+ "sprite_h": 94,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "spin_main_frac_E": {
+  "5": 1.0,
+  "6": 1.0,
+  "7": 0.999,
+  "8": 1.0,
+  "9": 0.999,
+  "10": 1.0
+ },
+ "facing": "right",
+ "beak_x": 82,
+ "eye_x": 61.0,
+ "gait_idle": "skipped_existing",
+ "gait_walk": "skipped_existing"
+}

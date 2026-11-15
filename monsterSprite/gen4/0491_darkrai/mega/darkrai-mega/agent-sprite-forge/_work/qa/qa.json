@@ -1,0 +1,45 @@
+{
+ "version": "darkrai_mega_v2",
+ "hash": "65d1c23f1c97",
+ "parts": {
+  "flame": 33,
+  "cloth_l": 166,
+  "cloth_r": 162,
+  "cloth_tail": 66,
+  "hem": 47,
+  "torso": 1504
+ },
+ "sprite_h": 82,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "spin_main_frac_E": {
+  "5": 0.986,
+  "6": 0.985,
+  "7": 0.981,
+  "8": 0.986,
+  "9": 0.983,
+  "10": 0.987
+ },
+ "hurt_recoil_deg": {
+  "0": 0.0,
+  "1": 15.2,
+  "2": 28.5,
+  "3": 38.0,
+  "4": 33.44,
+  "5": 24.32,
+  "6": 15.2,
+  "7": 8.36,
+  "8": 3.8,
+  "9": 1.52,
+  "10": 0.0,
+  "11": 0.0
+ },
+ "facing": "front",
+ "flame_on": "right",
+ "gait_idle": "skipped_existing",
+ "gait_walk": "skipped_existing"
+}

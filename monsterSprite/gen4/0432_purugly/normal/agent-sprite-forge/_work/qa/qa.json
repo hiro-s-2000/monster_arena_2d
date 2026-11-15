@@ -1,0 +1,73 @@
+{
+ "version": "purugly_v2",
+ "hash": "8b356ec1697e",
+ "parts": {
+  "torso": 1301,
+  "tail": 274,
+  "lpaw": 53,
+  "rpaw": 69,
+  "lear": 148,
+  "rear": 184
+ },
+ "sprite_h": 58,
+ "paws": 2,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "bad_alpha": [],
+ "edge_touching": {},
+ "south_attack_opaque": [
+  2029,
+  2031,
+  2039,
+  2046,
+  2030,
+  1990,
+  1977,
+  1977,
+  1977,
+  1982,
+  1990,
+  2017,
+  2022,
+  2027,
+  2025,
+  2029
+ ],
+ "south_attack_ratios": [
+  1.0,
+  1.001,
+  1.0049,
+  1.0084,
+  1.0005,
+  0.9808,
+  0.9744,
+  0.9744,
+  0.9744,
+  0.9768,
+  0.9808,
+  0.9941,
+  0.9966,
+  0.999,
+  0.998,
+  1.0
+ ],
+ "ratio_min": 0.9744,
+ "ratio_max": 1.0084,
+ "ratio_fail_frames": [],
+ "facing": {
+  "opaque": 2029,
+  "bbox": [
+   18,
+   19,
+   76,
+   76
+  ],
+  "centroid_x": 49.84,
+  "eye_x": 40.77,
+  "whisker_max_x": 33,
+  "tail_min_x": 64
+ }
+}

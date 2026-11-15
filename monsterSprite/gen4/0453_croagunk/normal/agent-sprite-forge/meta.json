@@ -1,0 +1,66 @@
+{
+  "generator": "forge_croagunk_actions",
+  "version": "croagunk_v2",
+  "key": "0453_croagunk",
+  "dex": 453,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 42,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "left",
+  "feet": 2,
+  "mouth": "closed",
+  "cheek_pixels": 16,
+  "parts": {
+    "foot_l": 49,
+    "foot_r": 59,
+    "arm_l": 91,
+    "arm_r": 106,
+    "cheek_l": 5,
+    "cheek_r": 11,
+    "torso": 636
+  },
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.001,
+    1.0,
+    1.0,
+    0.999,
+    0.9785,
+    0.9744,
+    0.9744,
+    0.9744,
+    0.9754,
+    0.9785,
+    0.9928,
+    0.9928,
+    0.9815,
+    0.9815,
+    0.9815
+  ],
+  "gifs_untouched": true
+}

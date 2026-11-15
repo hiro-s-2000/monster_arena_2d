@@ -1,0 +1,94 @@
+{
+  "generator": "forge_mismagius_actions",
+  "version": "mismagius_v2",
+  "key": "0429_mismagius",
+  "dex": 429,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 155,
+  "sprite_h": 65,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "face": {
+    "eyes": 7,
+    "chest": 9,
+    "gold": 3,
+    "white": 2,
+    "feet": 0,
+    "mouth": 0,
+    "centroid_x": 47.77,
+    "bbox": [
+      21,
+      15,
+      73,
+      79
+    ],
+    "parts": {
+      "brim_l": 220,
+      "brim_r": 111,
+      "hair_l": 22,
+      "hair_r": 50,
+      "body": 1200
+    }
+  },
+  "parts": {
+    "brim_l": 220,
+    "brim_r": 111,
+    "hair_l": 22,
+    "hair_r": 50,
+    "body": 1200
+  },
+  "feet": 0,
+  "mouth": 0,
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_s_min": 0.985,
+  "attack_s_max": 1.026,
+  "attack_s_ratios": [
+    1.0,
+    0.988,
+    0.985,
+    0.988,
+    0.996,
+    0.999,
+    0.998,
+    0.998,
+    0.998,
+    0.997,
+    0.999,
+    1.012,
+    1.017,
+    0.99,
+    1.007,
+    1.026
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

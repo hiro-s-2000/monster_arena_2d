@@ -1,0 +1,246 @@
+{
+ "version": "garchomp_v2",
+ "hash": "13496a213fcb",
+ "parts": {
+  "fin_crest": 87,
+  "fin_dorsal": 56,
+  "jaw": 77,
+  "scythe_near": 387,
+  "scythe_far": 347,
+  "tail": 121,
+  "leg_front": 161,
+  "leg_rear": 115,
+  "head": 314,
+  "torso": 1183
+ },
+ "sprite_h": 76,
+ "cell": [
+  200,
+  200,
+  168
+ ],
+ "rest_diff_w": 0,
+ "rest_diff_e": 0,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "edge_frames": {},
+ "south_attack_ratios": [
+  1.0,
+  1.0011,
+  1.0014,
+  1.0063,
+  1.0088,
+  0.9902,
+  0.9846,
+  0.9849,
+  0.9849,
+  0.9888,
+  0.9898,
+  1.0067,
+  1.006,
+  1.0056,
+  1.0053,
+  1.0
+ ],
+ "bad_ratio_frames": [],
+ "spin_cc_w": {
+  "5": [
+   2810,
+   5,
+   4
+  ],
+  "6": [
+   2803,
+   4,
+   4
+  ],
+  "7": [
+   2803,
+   5,
+   5
+  ],
+  "8": [
+   2803,
+   4,
+   4
+  ],
+  "9": [
+   2810,
+   5,
+   5
+  ],
+  "10": [
+   2810,
+   5,
+   4
+  ]
+ },
+ "hurt_cc_w": {
+  "0": [
+   2848
+  ],
+  "4": [
+   2896
+  ],
+  "5": [
+   2894
+  ],
+  "11": [
+   2848
+  ]
+ },
+ "jaw_tip_x": 33,
+ "eye_mean_x": 39.75,
+ "eye_mean_y": 24.0,
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 10,
+   "lastInclusive": 9,
+   "frames": 10,
+   "seconds": 0.833333,
+   "files": [
+    "00.png",
+    "09.png"
+   ],
+   "amplitude_steps": 4.003276,
+   "turnaround_steps": 1.480403,
+   "playback_frames": 18,
+   "holds_inside": [],
+   "root_dx_px_per_loop": -0.193824,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.255031
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   83,
+   84,
+   83,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.019597,
+    "amplitude": 1.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.019597,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-9 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 18,
+   "seam": 2.141672,
+   "adjacent_median": 2.253152,
+   "adjacent_p95": 3.559721,
+   "adjacent_max": 3.559721,
+   "seam_over_median": 0.950523,
+   "seam_over_p95": 0.60164,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 13,
+   "lastInclusive": 12,
+   "frames": 13,
+   "seconds": 1.083333,
+   "files": [
+    "00.png",
+    "12.png"
+   ],
+   "amplitude_steps": 3.718819,
+   "turnaround_steps": 0.179722,
+   "playback_frames": 24,
+   "holds_inside": [
+    4,
+    12
+   ],
+   "root_dx_px_per_loop": 0.056997,
+   "ground_dy_px_per_loop": 0.48,
+   "root_drift_pct_body": 0.636016
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   167,
+   83,
+   83,
+   83,
+   84,
+   83,
+   83,
+   167
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 1.0,
+    "amplitude": 0.906273,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.5,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-12 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 20,
+   "seam": 10.253252,
+   "adjacent_median": 10.050014,
+   "adjacent_p95": 25.534909,
+   "adjacent_max": 25.534909,
+   "seam_over_median": 1.020223,
+   "seam_over_p95": 0.401539,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ }
+}

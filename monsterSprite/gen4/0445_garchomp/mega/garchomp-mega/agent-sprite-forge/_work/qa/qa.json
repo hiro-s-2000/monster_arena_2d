@@ -1,0 +1,32 @@
+{
+ "version": "garchomp_mega_v2",
+ "hash": "40e847f7f648",
+ "parts": {
+  "arm_l": 442,
+  "snout": 229,
+  "fin": 166,
+  "leg_l": 138,
+  "leg_r": 111,
+  "head": 743,
+  "torso": 1158
+ },
+ "sprite_h": 79,
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "spin_main_frac_E": {
+  "5": 1.0,
+  "6": 1.0,
+  "7": 1.0,
+  "8": 1.0,
+  "9": 1.0,
+  "10": 1.0
+ },
+ "facing": "right",
+ "eye_x": 40.39393939393939,
+ "snout_tip_x": 83,
+ "gait_idle": "skipped_existing"
+}

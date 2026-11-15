@@ -1,0 +1,70 @@
+{
+  "generator": "forge_bronzong_actions",
+  "version": "bronzong_v2",
+  "key": "0437_bronzong",
+  "dex": 437,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 58,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "archetype": "bell_hover",
+  "parts": {
+    "bell": 1712,
+    "arm_l": 281,
+    "arm_r": 282,
+    "eyes": 64
+  },
+  "palette_colors": 11,
+  "off_palette_colors": 0,
+  "attack_s_min": 1.0,
+  "attack_s_max": 1.014,
+  "attack_s_ratios": [
+    1.0,
+    1.006,
+    1.014,
+    1.013,
+    1.007,
+    1.0,
+    1.001,
+    1.001,
+    1.001,
+    1.001,
+    1.0,
+    1.004,
+    1.009,
+    1.001,
+    1.0,
+    1.0
+  ],
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

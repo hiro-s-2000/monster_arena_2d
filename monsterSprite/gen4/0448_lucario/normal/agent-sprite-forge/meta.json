@@ -1,0 +1,50 @@
+{
+  "generator": "forge_lucario_actions",
+  "version": "lucario_v1",
+  "key": "0448_lucario",
+  "dex": 448,
+  "variant": "lucario",
+  "form": "normal",
+  "archetype": "biped_aura_fighter",
+  "facing_still": "left",
+  "snout_tip_x": 36,
+  "eye_x": [
+    45,
+    48
+  ],
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 63,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "gifs_untouched": true
+}

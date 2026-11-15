@@ -1,0 +1,64 @@
+{
+  "generator": "forge_snover_actions",
+  "version": "snover_v2",
+  "key": "0459_snover",
+  "dex": 459,
+  "cell_w": 176,
+  "cell_h": 184,
+  "foot_y": 148,
+  "sprite_h": 51,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "feet": 2,
+  "branches": 2,
+  "hat": "torso",
+  "parts": {
+    "branch_l": 133,
+    "branch_r": 217,
+    "foot_l": 55,
+    "foot_r": 49,
+    "torso": 1231
+  },
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    0.9994,
+    0.9982,
+    0.9994,
+    1.003,
+    0.9822,
+    0.9805,
+    0.9805,
+    0.9805,
+    0.9799,
+    0.9822,
+    0.9846,
+    0.9893,
+    0.9935,
+    0.9982,
+    0.9982
+  ],
+  "gifs_untouched": true
+}

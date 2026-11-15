@@ -1,0 +1,70 @@
+{
+  "generator": "forge_finneon_actions",
+  "version": "finneon_v2",
+  "key": "0456_finneon",
+  "dex": 456,
+  "variant": "finneon",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 33,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 12,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.004,
+    1.003,
+    1.004,
+    1.02,
+    0.984,
+    0.978,
+    0.978,
+    0.978,
+    0.978,
+    0.984,
+    0.999,
+    1.006,
+    0.996,
+    0.996,
+    1.0
+  ],
+  "parts": {
+    "crest": 42,
+    "side": 44,
+    "caudal": 100,
+    "torso": 501
+  },
+  "facing": "right",
+  "feet": 0,
+  "mouth": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

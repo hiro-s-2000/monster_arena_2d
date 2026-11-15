@@ -1,0 +1,105 @@
+{
+ "version": "giratina-altered_v1",
+ "hash": "57fecb716ac7",
+ "parts": {
+  "front": {
+   "torso": 1948,
+   "wing_l": 450,
+   "wing_r": 586,
+   "tail": 138,
+   "leg_a": 214,
+   "leg_b": 269,
+   "leg_c": 202,
+   "leg_d": 78,
+   "jaw": 32
+  },
+  "back": {
+   "torso": 1742,
+   "wing_l": 509,
+   "wing_r": 642,
+   "tail": 338,
+   "leg_a": 180,
+   "leg_b": 159,
+   "leg_c": 259,
+   "leg_d": 0,
+   "jaw": 0
+  }
+ },
+ "sprite_h": 81,
+ "off_palette_colors": 0,
+ "off_view_palette": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": 0,
+ "still_diff": 0,
+ "bounds_s": [
+  46,
+  67,
+  84,
+  81,
+  46,
+  67,
+  84,
+  81,
+  46,
+  67,
+  84,
+  81,
+  42,
+  69,
+  91,
+  79,
+  42,
+  69,
+  91,
+  79,
+  43,
+  69,
+  91,
+  79,
+  46,
+  67,
+  84,
+  81,
+  46,
+  67,
+  84,
+  81
+ ],
+ "views": {
+  "S": [
+   "front",
+   false
+  ],
+  "SE": [
+   "front",
+   true
+  ],
+  "E": [
+   "front",
+   true
+  ],
+  "NE": [
+   "back",
+   false
+  ],
+  "N": [
+   "back",
+   false
+  ],
+  "NW": [
+   "back",
+   true
+  ],
+  "W": [
+   "front",
+   false
+  ],
+  "SW": [
+   "front",
+   false
+  ]
+ }
+}

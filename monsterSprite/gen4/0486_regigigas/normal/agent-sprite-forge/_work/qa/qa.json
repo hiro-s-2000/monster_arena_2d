@@ -1,0 +1,232 @@
+{
+ "version": "regigigas_v1",
+ "hash": "b0ae37588140",
+ "parts": {
+  "front": {
+   "torso": 1697,
+   "arm_l": 558,
+   "arm_r": 573,
+   "leg_l": 334,
+   "leg_r": 346
+  },
+  "back": {
+   "torso": 1897,
+   "arm_l": 465,
+   "arm_r": 542,
+   "leg_l": 307,
+   "leg_r": 334
+  }
+ },
+ "sprite_h": 68,
+ "off_palette_colors": 0,
+ "off_view_palette": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": 0,
+ "still_diff": 0,
+ "bounds_s": [
+  49,
+  80,
+  78,
+  68,
+  49,
+  80,
+  78,
+  68,
+  49,
+  80,
+  78,
+  68,
+  47,
+  78,
+  82,
+  70,
+  47,
+  78,
+  82,
+  70,
+  47,
+  78,
+  82,
+  70,
+  49,
+  80,
+  78,
+  68,
+  49,
+  80,
+  78,
+  68
+ ],
+ "views": {
+  "S": [
+   "front",
+   false
+  ],
+  "SE": [
+   "front",
+   true
+  ],
+  "E": [
+   "front",
+   true
+  ],
+  "NE": [
+   "back",
+   false
+  ],
+  "N": [
+   "back",
+   false
+  ],
+  "NW": [
+   "back",
+   true
+  ],
+  "W": [
+   "front",
+   false
+  ],
+  "SW": [
+   "front",
+   false
+  ]
+ },
+ "gait_idle": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 6,
+   "lastInclusive": 5,
+   "frames": 6,
+   "seconds": 0.5,
+   "files": [
+    "00.png",
+    "05.png"
+   ],
+   "amplitude_steps": 5.167632,
+   "turnaround_steps": 1.044184,
+   "playback_frames": 10,
+   "holds_inside": [
+    1,
+    3
+   ],
+   "root_dx_px_per_loop": -0.068283,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.100416
+  },
+  "sourceIndices": [
+   0,
+   2,
+   4,
+   5
+  ],
+  "durations_ms": [
+   167,
+   166,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.455816,
+    "amplitude": 1.0,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.455816,
+   "label": "medium",
+   "review_priority": "review",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-5 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 6,
+   "seam": 26.443138,
+   "adjacent_median": 4.919826,
+   "adjacent_p95": 22.138475,
+   "adjacent_max": 26.443138,
+   "seam_over_median": 5.374812,
+   "seam_over_p95": 1.194443,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": {
+  "policy": "pingpong",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 11,
+   "lastInclusive": 10,
+   "frames": 11,
+   "seconds": 0.916667,
+   "files": [
+    "00.png",
+    "10.png"
+   ],
+   "amplitude_steps": 1.3121,
+   "turnaround_steps": 1.039162,
+   "playback_frames": 20,
+   "holds_inside": [],
+   "root_dx_px_per_loop": 0.434275,
+   "ground_dy_px_per_loop": -1.0,
+   "root_drift_pct_body": 1.580039
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   83,
+   84,
+   83,
+   84,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "turnaround": 0.460838,
+    "amplitude": 0.104033,
+    "no_closing_cycle": 0.5
+   },
+   "overall": 0.104033,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself.",
+    "No window closes as a cycle: pingpong plays frames 0-10 forward then back. Use it only for breathing or sway, never for walks or strikes."
+   ]
+  },
+  "seam": {
+   "frames": 20,
+   "seam": 22.706929,
+   "adjacent_median": 31.244781,
+   "adjacent_p95": 32.56665,
+   "adjacent_max": 32.56665,
+   "seam_over_median": 0.726743,
+   "seam_over_p95": 0.697245,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ }
+}

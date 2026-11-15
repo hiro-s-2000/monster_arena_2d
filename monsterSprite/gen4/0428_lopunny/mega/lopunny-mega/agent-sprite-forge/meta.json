@@ -1,0 +1,46 @@
+{
+  "generator": "forge_lopunny_mega_actions",
+  "version": "lopunny_mega_v2",
+  "key": "0428_lopunny-mega",
+  "dex": 428,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 152,
+  "sprite_h": 68,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_left": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "facing": "left",
+  "eye_x": 51.0,
+  "arm_tip_x": 16,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "mouth": "none_ears_and_rings"
+}

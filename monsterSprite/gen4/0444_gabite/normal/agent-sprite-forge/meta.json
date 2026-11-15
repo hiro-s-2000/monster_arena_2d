@@ -1,0 +1,73 @@
+{
+  "generator": "forge_gabite_actions",
+  "version": "gabite_v2",
+  "key": "0444_gabite",
+  "dex": 444,
+  "variant": "gabite",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 61,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    0.999,
+    1.003,
+    1.006,
+    1.01,
+    0.995,
+    0.993,
+    0.993,
+    0.993,
+    0.995,
+    0.995,
+    0.998,
+    0.997,
+    0.999,
+    1.0,
+    1.0
+  ],
+  "parts": {
+    "dorsal": 120,
+    "jaw": 100,
+    "front_arm": 103,
+    "near_arm": 77,
+    "front_foot": 63,
+    "back_foot": 115,
+    "tail": 73,
+    "torso": 1112
+  },
+  "facing": "left",
+  "feet": 2,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

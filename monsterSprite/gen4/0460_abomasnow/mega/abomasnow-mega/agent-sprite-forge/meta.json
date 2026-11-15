@@ -1,0 +1,54 @@
+{
+  "generator": "forge_abomasnow_mega_actions",
+  "version": "abomasnow_mega_v2m",
+  "key": "0460_abomasnow-mega",
+  "dex": 460,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 74,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "facing": "front",
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "archetype": "biped_kaiju_stomper",
+  "limbs": "right-shoulder tree, two ice branches, two root feet, skirt is torso",
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "layout": "actions_8dir",
+  "sheetDir": "agent-sprite-forge",
+  "an": [
+    16,
+    16,
+    16,
+    12
+  ],
+  "raw": 1
+}

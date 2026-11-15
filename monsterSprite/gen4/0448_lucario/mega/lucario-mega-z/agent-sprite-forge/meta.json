@@ -1,0 +1,43 @@
+{
+  "generator": "forge_lucario_mega_z_actions",
+  "version": "lucario_mega_z_v2m",
+  "key": "0448_lucario-mega-z",
+  "dex": 448,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 69,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "partial_alpha": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

@@ -1,0 +1,71 @@
+{
+  "generator": "forge_gible_actions",
+  "version": "gible_v2",
+  "key": "0443_gible",
+  "dex": 443,
+  "variant": "gible",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 147,
+  "sprite_h": 51,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "flip_dirs": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.007,
+    1.018,
+    1.03,
+    1.03,
+    1.02,
+    1.02,
+    1.02,
+    1.02,
+    1.022,
+    1.02,
+    1.021,
+    1.012,
+    1.007,
+    1.0,
+    1.0
+  ],
+  "parts": {
+    "dorsal": 176,
+    "jaw": 183,
+    "front_foot": 26,
+    "back_foot": 38,
+    "arm": 30,
+    "tail": 14,
+    "torso": 837
+  },
+  "facing": "left",
+  "source": "front.png 96x96",
+  "gifs_untouched": true
+}

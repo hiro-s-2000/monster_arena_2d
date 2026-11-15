@@ -1,0 +1,60 @@
+{
+  "generator": "forge_cherrim_actions",
+  "version": "cherrim_v2",
+  "key": "0421_cherrim",
+  "dex": 421,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 47,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "still_faces": "viewer",
+  "face": {
+    "still_faces": "viewer",
+    "blossom": 132,
+    "leaves": 308,
+    "petal_l": 259,
+    "petal_r": 218,
+    "base": 68
+  },
+  "parts": {
+    "blossom": 132,
+    "leaves": 308,
+    "petal_l": 259,
+    "petal_r": 218,
+    "base": 68
+  },
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "attack_s_min": 1.0,
+  "attack_s_max": 1.049,
+  "source": "front.png 96x96 overcast",
+  "gifs_untouched": true
+}

@@ -1,0 +1,77 @@
+{
+  "generator": "forge_uxie_actions",
+  "version": "uxie_v2",
+  "key": "0480_uxie",
+  "dex": 480,
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 38,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "views": {
+    "S": {
+      "still": "front",
+      "mirrored": false
+    },
+    "SE": {
+      "still": "front",
+      "mirrored": false
+    },
+    "E": {
+      "still": "front",
+      "mirrored": false
+    },
+    "NE": {
+      "still": "back",
+      "mirrored": false
+    },
+    "N": {
+      "still": "back",
+      "mirrored": false
+    },
+    "NW": {
+      "still": "back",
+      "mirrored": true
+    },
+    "W": {
+      "still": "front",
+      "mirrored": true
+    },
+    "SW": {
+      "still": "front",
+      "mirrored": true
+    }
+  },
+  "still_faces": "front.png faces screen-right; back.png faces up-right",
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "source": "front.png + back.png 96x96",
+  "gifs_untouched": true,
+  "roar": "no mouth: the forehead gem flares white, tails and arm rise, psychic rings",
+  "attack": "turn-around via the real back view (no in-plane spin) + tail lash and psychic wave from the gem",
+  "legs": 0,
+  "layout": "actions_8dir",
+  "sheetDir": "agent-sprite-forge",
+  "raw": 1
+}

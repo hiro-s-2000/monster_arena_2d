@@ -1,0 +1,81 @@
+{
+  "schema": "forge-frame-selection/v2",
+  "sourceDirectory": "../../frames/idle/S",
+  "sourceHashes": [
+    "3c929ee1c21a0d63aa6543ba6aed21f4df9f9d0a27be0e8ade13c3b242d0eb54",
+    "d424676017d31e2c3e7a185eaaf6f245c2bb846a611d7649df7276793be0ccc2",
+    "5f515d574c02f4f19c2f3e7b39e19fc4d60f9abc9b4489ed6c6d3bac16926a37",
+    "3a74c29f272d039cb58b33b7e66e9858862980324ca20e5ec843573ee0d433cf",
+    "eb17690eaf6c1b59f611a745f02bce1f2122bb02884bcd4e836d8ec597a8f47b",
+    "3a74c29f272d039cb58b33b7e66e9858862980324ca20e5ec843573ee0d433cf",
+    "5f515d574c02f4f19c2f3e7b39e19fc4d60f9abc9b4489ed6c6d3bac16926a37",
+    "42ff325040f68f6dfd222c01ba0c69917a372b8a9bcef27404621fc303a7cee9",
+    "3501f79000dc131ce6a23d2f77c405303de9528f8c3558ac58e74c5bdffedb6b",
+    "d19ad1d19fd967e3690b3a1afed185fdfbeb2317f7815b9ceace52f8f6122863",
+    "54329cff47667624bdf160935205d91aaf62acae8e3301ca9b3aed2302b3ec48",
+    "7e8ca6df3377fd1c0dc365ef55d927ac63dbb58b50b7dac60412fa258fe45826"
+  ],
+  "sourceFiles": [
+    "00.png",
+    "01.png",
+    "02.png",
+    "03.png",
+    "04.png",
+    "05.png",
+    "06.png",
+    "07.png",
+    "08.png",
+    "09.png",
+    "10.png",
+    "11.png"
+  ],
+  "start": 0,
+  "endExclusive": 12,
+  "sourceIndices": [
+    0,
+    1,
+    2,
+    3,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "durations_ms": [
+    83,
+    84,
+    83,
+    250,
+    83,
+    84,
+    83,
+    83,
+    84,
+    83
+  ],
+  "fps": "12/1",
+  "loopPolicy": "pingpong",
+  "events": [],
+  "status": "selected-needs-visual-review",
+  "reviewReason": "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself. No window closes as a cycle: pingpong plays frames 0-11 forward then back. Use it only for breathing or sway, never for walks or strikes.",
+  "method": "gait_loop select (hover): pose + 0.5 x velocity closure with non-maximum suppression, pingpong fallback over the early calm span",
+  "kind": "hover",
+  "cycles": 1,
+  "confidence": {
+    "label": "medium",
+    "overall": 0.5
+  },
+  "seam": {
+    "frames": 18,
+    "seam": 3.277135,
+    "adjacent_median": 3.277135,
+    "adjacent_p95": 34.693016,
+    "adjacent_max": 34.693016,
+    "seam_over_median": 1.0,
+    "seam_over_p95": 0.094461,
+    "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+    "mask": "union of visible pixels"
+  }
+}

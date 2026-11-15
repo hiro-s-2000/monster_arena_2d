@@ -1,0 +1,35 @@
+{
+ "version": "shaymin-land_v1",
+ "hash": "8f6077c1b5e5",
+ "front_parts": {
+  "crest": 203,
+  "flower": 110,
+  "fore_far": 30,
+  "fore_near": 31,
+  "hind": 40,
+  "body": 296
+ },
+ "back_parts": {
+  "crest": 146,
+  "flower": 71,
+  "paw_l": 22,
+  "paw_r": 14,
+  "body": 483
+ },
+ "sprite_h": 31,
+ "off_palette": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": 0,
+ "edge_list": [],
+ "still_diff": 0,
+ "split": [],
+ "split_n": 0,
+ "cell": [
+  176,
+  168,
+  148
+ ]
+}

@@ -1,0 +1,55 @@
+{
+  "generator": "forge_gliscor_actions",
+  "version": "gliscor_v2",
+  "key": "0472_gliscor",
+  "dex": 472,
+  "variant": "gliscor",
+  "cell_w": 176,
+  "cell_h": 168,
+  "foot_y": 148,
+  "sprite_h": 57,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "facing": "left",
+  "parts": {
+    "wing_l": 111,
+    "wing_r": 357,
+    "tail": 361,
+    "core": 886,
+    "jaw": 9,
+    "claw_l": 315,
+    "claw_r": 301
+  },
+  "archetype": "avian_hover_pincer",
+  "feet": "hanging (glider)",
+  "source": "front.png 96x96 (+ back.png kept for the rig, unused on attack)",
+  "gifs_untouched": true
+}

@@ -1,0 +1,52 @@
+{
+  "generator": "forge_darkrai_mega_actions",
+  "version": "darkrai_mega_v2",
+  "key": "0491_darkrai-mega",
+  "dex": 491,
+  "cell_w": 200,
+  "cell_h": 200,
+  "foot_y": 164,
+  "sprite_h": 82,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "face_right": [
+    "E",
+    "NE",
+    "S",
+    "SE"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0,
+  "facing": "front",
+  "flame_peak_x": 59,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "layout": "actions_8dir",
+  "an": [
+    16,
+    16,
+    16,
+    12
+  ],
+  "raw": 1
+}

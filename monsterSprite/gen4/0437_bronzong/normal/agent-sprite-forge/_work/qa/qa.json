@@ -1,0 +1,235 @@
+{
+ "version": "bronzong_v2",
+ "hash": "a3c3e7550876",
+ "parts": {
+  "bell": 1712,
+  "arm_l": 281,
+  "arm_r": 282,
+  "eyes": 64
+ },
+ "sprite_h": 58,
+ "cell": [
+  176,
+  168,
+  147
+ ],
+ "off_palette_colors": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": {},
+ "attack_s_ratios": [
+  1.0,
+  1.006,
+  1.014,
+  1.013,
+  1.007,
+  1.0,
+  1.001,
+  1.001,
+  1.001,
+  1.001,
+  1.0,
+  1.004,
+  1.009,
+  1.001,
+  1.0,
+  1.0
+ ],
+ "attack_s_min": 1.0,
+ "attack_s_max": 1.014,
+ "spin_body": [
+  {
+   "f": 5,
+   "opaque": 2338,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 6,
+   "opaque": 2342,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 7,
+   "opaque": 2342,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 8,
+   "opaque": 2342,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 9,
+   "opaque": 2342,
+   "main": 1.0,
+   "parts": 1
+  },
+  {
+   "f": 10,
+   "opaque": 2338,
+   "main": 1.0,
+   "parts": 1
+  }
+ ],
+ "hurt_peak": [
+  {
+   "opaque": 2355,
+   "main": 0.997,
+   "parts": 4
+  }
+ ],
+ "rest_diff": 0,
+ "gait_idle": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 8,
+   "lastInclusive": 7,
+   "frames": 8,
+   "seconds": 0.666667,
+   "files": [
+    "00.png",
+    "07.png"
+   ],
+   "closure_pose_steps": 0.0,
+   "closure_velocity_steps": 1.315617,
+   "closure_steps": 0.657809,
+   "amplitude_steps": 12.682173,
+   "wrap_steps": 1.166284,
+   "holds_inside": [
+    4,
+    5
+   ],
+   "root_dx_px_per_loop": 0.0,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.0,
+   "score": 0.657809,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": [
+     "held duplicate frames 4-5 are dropped; their time goes to the frame they repeat"
+    ]
+   }
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   6,
+   7
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   250,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "closure": 0.842191,
+    "amplitude": 1.0
+   },
+   "overall": 0.842191,
+   "label": "high",
+   "review_priority": "spot-check",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 6,
+   "seam": 3.035072,
+   "adjacent_median": 3.035072,
+   "adjacent_p95": 27.181355,
+   "adjacent_max": 27.181355,
+   "seam_over_median": 1.0,
+   "seam_over_p95": 0.11166,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ },
+ "gait_walk": {
+  "policy": "cycle",
+  "cycles": 1,
+  "window": {
+   "start": 0,
+   "endExclusive": 8,
+   "lastInclusive": 7,
+   "frames": 8,
+   "seconds": 0.666667,
+   "files": [
+    "00.png",
+    "07.png"
+   ],
+   "closure_pose_steps": 0.0,
+   "closure_velocity_steps": 0.0,
+   "closure_steps": 0.0,
+   "amplitude_steps": 2.030545,
+   "wrap_steps": 0.23434,
+   "holds_inside": [],
+   "root_dx_px_per_loop": 0.0,
+   "ground_dy_px_per_loop": 0.0,
+   "root_drift_pct_body": 0.0,
+   "score": 0.0,
+   "classification": {
+    "class": "valid-cycle",
+    "reasons": [],
+    "notes": []
+   }
+  },
+  "sourceIndices": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "durations_ms": [
+   83,
+   84,
+   83,
+   84,
+   83,
+   83,
+   84,
+   83
+  ],
+  "confidence": {
+   "components": {
+    "closure": 1.0,
+    "amplitude": 0.343515
+   },
+   "overall": 0.343515,
+   "label": "low",
+   "review_priority": "manual-selection",
+   "review": [
+    "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+   ]
+  },
+  "seam": {
+   "frames": 8,
+   "seam": 6.264359,
+   "adjacent_median": 25.358087,
+   "adjacent_p95": 44.261804,
+   "adjacent_max": 44.261804,
+   "seam_over_median": 0.247036,
+   "seam_over_p95": 0.14153,
+   "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+   "mask": "union of visible pixels"
+  }
+ }
+}

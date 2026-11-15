@@ -1,0 +1,97 @@
+{
+ "version": "heatran_v1",
+ "hash": "0428bdb2387a",
+ "parts": {
+  "front": {
+   "torso": 1330,
+   "leg_l": 363,
+   "leg_c": 298,
+   "leg_r": 252,
+   "jaw": 150
+  },
+  "back": {
+   "torso": 1434,
+   "leg_l": 351,
+   "leg_c": 332,
+   "leg_r": 224,
+   "jaw": 0
+  }
+ },
+ "sprite_h": 55,
+ "off_palette_colors": 0,
+ "off_view_palette": 0,
+ "alphas": [
+  0,
+  255
+ ],
+ "edge_touching": 0,
+ "still_diff": 0,
+ "bounds_s": [
+  48,
+  93,
+  80,
+  55,
+  48,
+  93,
+  80,
+  55,
+  48,
+  93,
+  80,
+  55,
+  46,
+  99,
+  83,
+  49,
+  46,
+  99,
+  83,
+  49,
+  47,
+  99,
+  83,
+  49,
+  48,
+  93,
+  80,
+  55,
+  48,
+  93,
+  80,
+  55
+ ],
+ "views": {
+  "S": [
+   "front",
+   false
+  ],
+  "SE": [
+   "front",
+   true
+  ],
+  "E": [
+   "front",
+   true
+  ],
+  "NE": [
+   "back",
+   false
+  ],
+  "N": [
+   "back",
+   false
+  ],
+  "NW": [
+   "back",
+   true
+  ],
+  "W": [
+   "front",
+   false
+  ],
+  "SW": [
+   "front",
+   false
+  ]
+ }
+}

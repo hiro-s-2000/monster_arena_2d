@@ -1,0 +1,73 @@
+{
+  "generator": "forge_riolu_actions",
+  "version": "riolu_v2",
+  "key": "0447_riolu",
+  "dex": 447,
+  "cell_w": 176,
+  "cell_h": 176,
+  "foot_y": 156,
+  "sprite_h": 45,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "still_faces": "left",
+  "feet": 2,
+  "muzzle_pixels": 16,
+  "parts": {
+    "ear_l": 39,
+    "ear_r": 29,
+    "flap": 84,
+    "muzzle": 16,
+    "tail": 89,
+    "arm_l": 53,
+    "arm_r": 50,
+    "foot_l": 49,
+    "foot_r": 44,
+    "torso": 401
+  },
+  "palette_colors": 13,
+  "off_palette_colors": 0,
+  "attack_s_ratios": [
+    1.0,
+    1.0126,
+    1.0103,
+    1.0103,
+    1.0011,
+    1.0023,
+    1.0046,
+    1.0046,
+    1.0046,
+    1.0069,
+    1.0023,
+    1.0034,
+    1.0069,
+    0.9828,
+    0.9794,
+    0.9794
+  ],
+  "gifs_untouched": true,
+  "lucario_keys_untouched": [
+    "0448_lucario",
+    "0448_lucario-mega",
+    "0448_lucario-mega-z"
+  ]
+}

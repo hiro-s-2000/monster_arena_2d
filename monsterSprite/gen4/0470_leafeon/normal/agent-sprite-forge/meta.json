@@ -1,0 +1,48 @@
+{
+  "generator": "forge_leafeon_actions",
+  "version": "leafeon_v2",
+  "key": "0470_leafeon",
+  "dex": 470,
+  "cell_w": 192,
+  "cell_h": 200,
+  "foot_y": 172,
+  "sprite_h": 50,
+  "frames": {
+    "idle": 16,
+    "walk": 16,
+    "attack": 16,
+    "hurt": 12
+  },
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "unflipped": [
+    "N",
+    "NW",
+    "SW",
+    "W"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0,
+  "source": "front.png 96x96",
+  "gifs_untouched": true,
+  "facing": "left",
+  "feet": 4,
+  "feet_drawn": 3,
+  "occluded_far_fore": 1,
+  "archetype": "quadruped_beast",
+  "mouth": "none_leaf_flare"
+}

@@ -1,0 +1,358 @@
+{
+  "schema": "video2dsprite.loop_report.v1",
+  "tool": {
+    "name": "gait_loop",
+    "version": "0.4.0"
+  },
+  "frames": {
+    "directory": "../../frames/walk/S",
+    "count": 16,
+    "first": "00.png",
+    "last": "15.png",
+    "fps": "12/1",
+    "canvas": [
+      192,
+      184
+    ]
+  },
+  "indexing": "0-based positions in the sorted *.png list; intervals are [start, endExclusive)",
+  "kind": "hover",
+  "state": null,
+  "analysis": {
+    "union": [
+      61,
+      105,
+      132,
+      161
+    ],
+    "global_size": [
+      160,
+      126
+    ],
+    "legs_size": null,
+    "legs_top_px": null,
+    "registration": false,
+    "reduction": 1,
+    "drift": {
+      "cx_slope_px_per_frame": 0.0,
+      "ground_slope_px_per_frame": 0.0
+    },
+    "lengths": {
+      "minFrames": 6,
+      "maxFrames": 48
+    },
+    "stepMedian": 0.021449,
+    "bodyHeightMedianPx": 54.0
+  },
+  "usableRange": {
+    "start": 0,
+    "endExclusive": 16,
+    "reference": [
+      0,
+      6
+    ],
+    "smoothFrames": 25,
+    "tolerance": 0.03,
+    "signals": [
+      "scale",
+      "x"
+    ],
+    "reason": null,
+    "maxDeviation": 0.001397
+  },
+  "holds": [],
+  "unusableFrames": [],
+  "period": null,
+  "recommendation": {
+    "policy": "cycle",
+    "cycles": 1,
+    "window": {
+      "start": 0,
+      "endExclusive": 8,
+      "lastInclusive": 7,
+      "frames": 8,
+      "seconds": 0.666667,
+      "files": [
+        "00.png",
+        "07.png"
+      ],
+      "closure_pose_steps": 0.0,
+      "closure_velocity_steps": 0.0,
+      "closure_steps": 0.0,
+      "amplitude_steps": 2.713576,
+      "wrap_steps": 2.098276,
+      "holds_inside": [],
+      "root_dx_px_per_loop": 0.0,
+      "ground_dy_px_per_loop": 0.0,
+      "root_drift_pct_body": 0.0,
+      "score": 0.0,
+      "classification": {
+        "class": "valid-cycle",
+        "reasons": [],
+        "notes": []
+      }
+    },
+    "sourceIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "durations_ms": [
+      83,
+      84,
+      83,
+      84,
+      83,
+      83,
+      84,
+      83
+    ],
+    "confidence": {
+      "components": {
+        "closure": 1.0,
+        "amplitude": 0.571192
+      },
+      "overall": 0.571192,
+      "label": "medium",
+      "review_priority": "review",
+      "review": [
+        "Play the 3x loop GIF at source fps and inspect the seam pair; pixel metrics cannot certify foot contact, hand or prop identity drift or the art itself."
+      ]
+    },
+    "seam": {
+      "frames": 8,
+      "seam": 34.340261,
+      "adjacent_median": 16.785194,
+      "adjacent_p95": 38.491626,
+      "adjacent_max": 38.642445,
+      "seam_over_median": 2.045866,
+      "seam_over_p95": 0.892149,
+      "method": "premultiplied RGBA mean absolute difference (0-255); seam = last -> first",
+      "mask": "union of visible pixels"
+    }
+  },
+  "candidates": {
+    "closing": [
+      {
+        "start": 0,
+        "endExclusive": 8,
+        "lastInclusive": 7,
+        "frames": 8,
+        "seconds": 0.666667,
+        "files": [
+          "00.png",
+          "07.png"
+        ],
+        "closure_pose_steps": 0.0,
+        "closure_velocity_steps": 0.0,
+        "closure_steps": 0.0,
+        "amplitude_steps": 2.713576,
+        "wrap_steps": 2.098276,
+        "holds_inside": [],
+        "root_dx_px_per_loop": 0.0,
+        "ground_dy_px_per_loop": 0.0,
+        "root_drift_pct_body": 0.0,
+        "score": 0.0,
+        "classification": {
+          "class": "valid-cycle",
+          "reasons": [],
+          "notes": []
+        }
+      },
+      {
+        "start": 3,
+        "endExclusive": 11,
+        "lastInclusive": 10,
+        "frames": 8,
+        "seconds": 0.666667,
+        "files": [
+          "03.png",
+          "10.png"
+        ],
+        "closure_pose_steps": 0.0,
+        "closure_velocity_steps": 0.0,
+        "closure_steps": 0.0,
+        "amplitude_steps": 2.598749,
+        "wrap_steps": 0.940287,
+        "holds_inside": [],
+        "root_dx_px_per_loop": 0.0,
+        "ground_dy_px_per_loop": 0.0,
+        "root_drift_pct_body": 0.0,
+        "score": 0.0,
+        "classification": {
+          "class": "valid-cycle",
+          "reasons": [],
+          "notes": []
+        }
+      },
+      {
+        "start": 6,
+        "endExclusive": 14,
+        "lastInclusive": 13,
+        "frames": 8,
+        "seconds": 0.666667,
+        "files": [
+          "06.png",
+          "13.png"
+        ],
+        "closure_pose_steps": 0.0,
+        "closure_velocity_steps": 0.0,
+        "closure_steps": 0.0,
+        "amplitude_steps": 2.635867,
+        "wrap_steps": 0.713257,
+        "holds_inside": [],
+        "root_dx_px_per_loop": 0.0,
+        "ground_dy_px_per_loop": 0.0,
+        "root_drift_pct_body": 0.0,
+        "score": 0.0,
+        "classification": {
+          "class": "valid-cycle",
+          "reasons": [],
+          "notes": []
+        }
+      }
+    ]
+  },
+  "evaluated": [],
+  "aids": null,
+  "qa": {
+    "status": "needs-visual-review",
+    "method": "gait_loop select (hover): pose + 0.5 x velocity closure with non-maximum suppression",
+    "notProven": [
+      "foot contact, sliding and ground penetration",
+      "hand, hair, scarf or prop identity drift between frames",
+      "art quality, anatomy and facing",
+      "left/right alternation beyond the pixel evidence reported here"
+    ],
+    "checks": [
+      {
+        "id": "loop-found",
+        "status": "pass",
+        "value": [
+          0,
+          8
+        ]
+      },
+      {
+        "id": "seam_over_p95",
+        "status": "pass",
+        "value": 0.892149,
+        "threshold": 1.0
+      },
+      {
+        "id": "confidence",
+        "status": "pass",
+        "value": 0.571192,
+        "threshold": 0.4
+      },
+      {
+        "id": "drift-free-range",
+        "status": "pass",
+        "value": 16
+      },
+      {
+        "id": "visual-review",
+        "status": "needs-visual-review",
+        "value": null
+      }
+    ],
+    "inputs": [
+      {
+        "path": "../../frames/walk/S/00.png",
+        "sha256": "957f1eb3df54dfc22f0d2b1292a1da10f31182b860bea9ddad158219ab1a8006",
+        "bytes": 1823
+      },
+      {
+        "path": "../../frames/walk/S/01.png",
+        "sha256": "b718579395dd3ecb96d5ab74646347c70233eac4de87a38d378d6fd72b649c06",
+        "bytes": 1910
+      },
+      {
+        "path": "../../frames/walk/S/02.png",
+        "sha256": "be39e4a36adb231c260817fefe84d31ea2572311b14364664946a2c361153166",
+        "bytes": 1913
+      },
+      {
+        "path": "../../frames/walk/S/03.png",
+        "sha256": "c17b7eedee927f4a710bc5a233ce663694e339c6ad14d4d3c5ac568c0ef73eca",
+        "bytes": 1930
+      },
+      {
+        "path": "../../frames/walk/S/04.png",
+        "sha256": "9bc3f654bdc2bdd143afb2152f2844081a35c0f13767e33c1073e86e3b52a461",
+        "bytes": 1907
+      },
+      {
+        "path": "../../frames/walk/S/05.png",
+        "sha256": "9dd818ff26b0dded14b48bcb49c65f5fe633277d1c332de13d85d3d2ecefb864",
+        "bytes": 1869
+      },
+      {
+        "path": "../../frames/walk/S/06.png",
+        "sha256": "4214df9584d7c604b9a412649b105275245fd490efebbd80fffafa37366ddfde",
+        "bytes": 1930
+      },
+      {
+        "path": "../../frames/walk/S/07.png",
+        "sha256": "57e9bb0f41e82a770b57e7ed23197e928ba86e9ec84d084450540813141fdb6b",
+        "bytes": 1886
+      },
+      {
+        "path": "../../frames/walk/S/08.png",
+        "sha256": "957f1eb3df54dfc22f0d2b1292a1da10f31182b860bea9ddad158219ab1a8006",
+        "bytes": 1823
+      },
+      {
+        "path": "../../frames/walk/S/09.png",
+        "sha256": "b718579395dd3ecb96d5ab74646347c70233eac4de87a38d378d6fd72b649c06",
+        "bytes": 1910
+      },
+      {
+        "path": "../../frames/walk/S/10.png",
+        "sha256": "be39e4a36adb231c260817fefe84d31ea2572311b14364664946a2c361153166",
+        "bytes": 1913
+      },
+      {
+        "path": "../../frames/walk/S/11.png",
+        "sha256": "c17b7eedee927f4a710bc5a233ce663694e339c6ad14d4d3c5ac568c0ef73eca",
+        "bytes": 1930
+      },
+      {
+        "path": "../../frames/walk/S/12.png",
+        "sha256": "9bc3f654bdc2bdd143afb2152f2844081a35c0f13767e33c1073e86e3b52a461",
+        "bytes": 1907
+      },
+      {
+        "path": "../../frames/walk/S/13.png",
+        "sha256": "9dd818ff26b0dded14b48bcb49c65f5fe633277d1c332de13d85d3d2ecefb864",
+        "bytes": 1869
+      },
+      {
+        "path": "../../frames/walk/S/14.png",
+        "sha256": "4214df9584d7c604b9a412649b105275245fd490efebbd80fffafa37366ddfde",
+        "bytes": 1930
+      },
+      {
+        "path": "../../frames/walk/S/15.png",
+        "sha256": "57e9bb0f41e82a770b57e7ed23197e928ba86e9ec84d084450540813141fdb6b",
+        "bytes": 1886
+      }
+    ],
+    "outputs": [
+      {
+        "path": "selection.json",
+        "sha256": "ad40bea9475e511f316cce48f474f0fe8668d2f7d9c7b5516d0593010f8f252e",
+        "bytes": 1852
+      }
+    ],
+    "tool": {
+      "name": "gait_loop",
+      "version": "0.4.0"
+    }
+  }
+}
