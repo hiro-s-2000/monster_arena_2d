@@ -1,0 +1,28 @@
+{
+  "generator": "forge_mawile_mega_actions",
+  "key": "0303_mawile-mega",
+  "dex": 303,
+  "cell_w": 104,
+  "cell_h": 92,
+  "foot_y": 84,
+  "sprite_h": 71,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 20,
+  "off_palette_colors": 0
+}

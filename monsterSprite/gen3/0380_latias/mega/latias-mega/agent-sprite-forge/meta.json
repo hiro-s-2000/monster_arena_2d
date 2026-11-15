@@ -1,0 +1,111 @@
+{
+  "generator": "forge_latias_mega_agy_actions",
+  "version": "latias_mega_agy_v3",
+  "key": "0380_latias-mega",
+  "dex": 380,
+  "source_art": [
+    "art/out/keys_2x2.png",
+    "art/out/sw_single.png"
+  ],
+  "made_from": [
+    "art/mega-latias.webp",
+    "art/ref_gemini.jpeg"
+  ],
+  "cell_w": 232,
+  "cell_h": 172,
+  "foot_y": 150,
+  "sprite_h": 95,
+  "frames": 16,
+  "frame_time": [
+    0.08,
+    0.062,
+    0.05,
+    0.055
+  ],
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "direction_sources": {
+    "S": [
+      "S",
+      false
+    ],
+    "SE": [
+      "SW",
+      true
+    ],
+    "E": [
+      "W",
+      true
+    ],
+    "NE": [
+      "NE",
+      false
+    ],
+    "N": [
+      "N",
+      false
+    ],
+    "NW": [
+      "NE",
+      true
+    ],
+    "W": [
+      "W",
+      false
+    ],
+    "SW": [
+      "SW",
+      false
+    ]
+  },
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 30,
+  "off_palette_colors": 0,
+  "idle_bounds_S_to_SW": [
+    29,
+    56,
+    175,
+    95,
+    56,
+    56,
+    130,
+    95,
+    44,
+    63,
+    122,
+    88,
+    34,
+    56,
+    163,
+    95,
+    28,
+    56,
+    176,
+    95,
+    35,
+    56,
+    163,
+    95,
+    66,
+    63,
+    122,
+    88,
+    46,
+    56,
+    130,
+    95
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "generator": "forge_swampert_mega_actions",
+  "key": "0260_swampert-mega",
+  "dex": 260,
+  "cell_w": 114,
+  "cell_h": 92,
+  "foot_y": 84,
+  "sprite_h": 67,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0
+}

@@ -1,0 +1,28 @@
+{
+  "generator": "forge_altaria_mega_actions",
+  "key": "0334_altaria-mega",
+  "dex": 334,
+  "cell_w": 128,
+  "cell_h": 120,
+  "foot_y": 110,
+  "sprite_h": 92,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 13,
+  "off_palette_colors": 0
+}

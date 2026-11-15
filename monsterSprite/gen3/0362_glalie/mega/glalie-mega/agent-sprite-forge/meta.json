@@ -1,0 +1,28 @@
+{
+  "generator": "forge_glalie_mega_actions",
+  "key": "0362_glalie-mega",
+  "dex": 362,
+  "cell_w": 96,
+  "cell_h": 92,
+  "foot_y": 82,
+  "sprite_h": 66,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0
+}

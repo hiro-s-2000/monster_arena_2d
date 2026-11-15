@@ -1,0 +1,28 @@
+{
+  "generator": "forge_absol_mega_actions",
+  "key": "0359_absol-mega",
+  "dex": 359,
+  "cell_w": 104,
+  "cell_h": 96,
+  "foot_y": 88,
+  "sprite_h": 70,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 14,
+  "off_palette_colors": 0
+}

@@ -1,0 +1,28 @@
+{
+  "generator": "forge_groudon_primal_actions",
+  "key": "0383_groudon-primal",
+  "dex": 383,
+  "cell_w": 114,
+  "cell_h": 98,
+  "foot_y": 90,
+  "sprite_h": 78,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 29,
+  "off_palette_colors": 0
+}

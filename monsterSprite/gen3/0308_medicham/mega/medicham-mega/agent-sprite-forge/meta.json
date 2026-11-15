@@ -1,0 +1,29 @@
+{
+  "generator": "forge_medicham_mega_actions",
+  "key": "0308_medicham-mega",
+  "dex": 308,
+  "cell_w": 114,
+  "cell_h": 104,
+  "foot_y": 94,
+  "sprite_h": 71,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 20,
+  "off_palette_colors": 0,
+  "v": "medicham_mega_v1m"
+}

@@ -1,0 +1,28 @@
+{
+  "generator": "forge_aggron_mega_actions",
+  "key": "0306_aggron-mega",
+  "dex": 306,
+  "cell_w": 120,
+  "cell_h": 106,
+  "foot_y": 98,
+  "sprite_h": 89,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0
+}

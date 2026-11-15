@@ -1,0 +1,29 @@
+{
+  "generator": "forge_camerupt_mega_actions",
+  "key": "0323_camerupt-mega",
+  "dex": 323,
+  "cell_w": 114,
+  "cell_h": 98,
+  "foot_y": 90,
+  "sprite_h": 69,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 19,
+  "off_palette_colors": 0,
+  "v": "camerupt_mega_v1m"
+}

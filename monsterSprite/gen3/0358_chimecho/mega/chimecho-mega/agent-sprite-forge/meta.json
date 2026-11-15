@@ -1,0 +1,28 @@
+{
+  "generator": "forge_chimecho_mega_actions",
+  "key": "0358_chimecho-mega",
+  "dex": 358,
+  "cell_w": 116,
+  "cell_h": 104,
+  "foot_y": 94,
+  "sprite_h": 80,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 20,
+  "off_palette_colors": 0
+}

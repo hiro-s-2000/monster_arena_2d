@@ -1,0 +1,28 @@
+{
+  "generator": "forge_rayquaza_mega_actions",
+  "key": "0384_rayquaza-mega",
+  "dex": 384,
+  "cell_w": 132,
+  "cell_h": 124,
+  "foot_y": 112,
+  "sprite_h": 96,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0
+}

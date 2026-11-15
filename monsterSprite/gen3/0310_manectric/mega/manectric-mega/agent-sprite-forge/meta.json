@@ -1,0 +1,74 @@
+{
+  "generator": "forge_manectric_mega_actions",
+  "schema": "agent-sprite-forge.meta.v2",
+  "key": "0310_manectric-mega",
+  "dex": 310,
+  "archetype": "quadruped_beast",
+  "rig_parts": [
+    "lightning_tail_rear",
+    "mane_dorsal_back",
+    "hind_leg_L",
+    "front_leg_L",
+    "torso",
+    "hind_leg_R",
+    "front_leg_R",
+    "lightning_mane_upper",
+    "lower_jaw",
+    "head_upper"
+  ],
+  "Idle": "../../pokeSprite/gen3/0310_manectric/mega/manectric-mega/agent-sprite-forge/idle.png",
+  "Walk": "../../pokeSprite/gen3/0310_manectric/mega/manectric-mega/agent-sprite-forge/walk.png",
+  "Attack": "../../pokeSprite/gen3/0310_manectric/mega/manectric-mega/agent-sprite-forge/attack.png",
+  "Hurt": "../../pokeSprite/gen3/0310_manectric/mega/manectric-mega/agent-sprite-forge/hurt.png",
+  "Sheet": "../../pokeSprite/gen3/0310_manectric/mega/manectric-mega/agent-sprite-forge/sheet.png",
+  "Preview": "../../pokeSprite/gen3/0310_manectric/mega/manectric-mega/agent-sprite-forge/preview.png",
+  "cols": 16,
+  "rows": 8,
+  "cellW": 112,
+  "cellH": 104,
+  "footY": 98,
+  "cell_w": 112,
+  "cell_h": 104,
+  "foot_y": 98,
+  "sprite_h": 83,
+  "frames": 16,
+  "paletteCount": 25,
+  "palette_colors": 25,
+  "off_palette_colors": 0,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": {
+    "idle": {
+      "rowStart": 0,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    },
+    "walk": {
+      "rowStart": 8,
+      "rows": 8,
+      "frames": 16,
+      "fps": 14
+    },
+    "attack": {
+      "rowStart": 16,
+      "rows": 8,
+      "frames": 16,
+      "fps": 16
+    },
+    "hurt": {
+      "rowStart": 24,
+      "rows": 8,
+      "frames": 16,
+      "fps": 12
+    }
+  }
+}

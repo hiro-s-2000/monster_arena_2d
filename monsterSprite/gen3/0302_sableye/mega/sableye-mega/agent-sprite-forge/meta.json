@@ -1,0 +1,29 @@
+{
+  "generator": "forge_sableye_mega_actions",
+  "key": "0302_sableye-mega",
+  "version": "sableye_mega_v1m",
+  "dex": 302,
+  "cell_w": 96,
+  "cell_h": 96,
+  "foot_y": 86,
+  "sprite_h": 69,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 15,
+  "off_palette_colors": 0
+}

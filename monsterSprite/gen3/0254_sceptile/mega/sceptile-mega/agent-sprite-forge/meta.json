@@ -1,0 +1,29 @@
+{
+  "generator": "forge_sceptile_mega_actions",
+  "version": "sceptile_mega_v1m",
+  "key": "0254_sceptile-mega",
+  "dex": 254,
+  "cell_w": 120,
+  "cell_h": 106,
+  "foot_y": 98,
+  "sprite_h": 89,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 24,
+  "off_palette_colors": 0
+}

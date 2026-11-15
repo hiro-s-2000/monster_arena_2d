@@ -1,0 +1,29 @@
+{
+  "generator": "forge_kyogre_primal_actions",
+  "version": "kyogre_primal_v1m",
+  "key": "0382_kyogre-primal",
+  "dex": 382,
+  "cell_w": 120,
+  "cell_h": 104,
+  "foot_y": 92,
+  "sprite_h": 67,
+  "frames": 16,
+  "directions": [
+    "S",
+    "SE",
+    "E",
+    "NE",
+    "N",
+    "NW",
+    "W",
+    "SW"
+  ],
+  "actions": [
+    "idle",
+    "walk",
+    "attack",
+    "hurt"
+  ],
+  "palette_colors": 29,
+  "off_palette_colors": 0
+}
