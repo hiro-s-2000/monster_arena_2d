@@ -293,6 +293,7 @@ const Renderer = (() => {
     if (p3 !== P3 || (p3 && (curArena !== A || LW !== A.aw || LH !== A.ah))) { P3 = p3; curArena = A; alloc(); }
     curArena = A;
     computeView(A);
+    FXV.p3 = P3; // 地面に描く円のたてつぶしを 3D では戻す（FXV.gsq）
     // ---- world (art px, integer) ----
     wctx.setTransform(1, 0, 0, 1, 0, 0);
     wctx.fillStyle = "#080b18"; wctx.fillRect(0, 0, LW, LH);
@@ -342,7 +343,6 @@ const Renderer = (() => {
     fctx.setTransform(1, 0, 0, 1, 0, 0); fctx.clearRect(0, 0, LW, LH);
     fctx.setTransform(1 / K, 0, 0, 1 / K, -ix, -iy);
     fctx.imageSmoothingEnabled = true;
-    FXV.p3 = P3;
     if (Moves.drawWindups) Moves.drawWindups(fctx, B, t);
     Moves.draw(fctx, B, "ground", t);
     fx.drawRings(fctx, true);

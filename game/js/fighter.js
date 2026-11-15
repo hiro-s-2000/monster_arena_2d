@@ -264,7 +264,7 @@ class Fighter {
           this.recoverT = Math.max(this.recoverT || 0, U.clamp(0.15 + (s.power || 40) * 0.0022, 0.16, 0.46));
         }
       }
-      if (!c.fired && c.t < s.windup && Math.random() < 0.42) B.fx.charge(s.type, this.x, this.y - this.height * 0.52, s.power >= 85 ? 3 : 1, 46, this);
+      if (!c.fired && c.t < s.windup && Math.random() < 0.42) B.fx.charge(s.type, this.x, this.y - this.height * 0.52, s.power >= 85 ? 3 : 1, 46, this, this.height * 0.52);
       // slight drift allowed while casting unlocked moves
       if (!s.lock && act) this.move(dt, act.mx * 0.35, act.my * 0.35, B);
       else this.vx = this.vy = 0;
@@ -337,7 +337,7 @@ class Fighter {
       if (this.statusTick >= 2 && (this.status === "burn" || this.status === "psn")) {
         this.statusTick = 0;
         B.selfDamage(this, Math.max(2, Math.round(this.maxHp * (this.status === "psn" ? 0.07 : 0.05))), STATUS_COLORS[this.status]);
-        B.fx.burst(this.status === "burn" ? "fire" : "poison", this.x, this.y - this.height * 0.4, 6, { size: 0.8, light: this.status === "burn" });
+        B.fx.burst(this.status === "burn" ? "fire" : "poison", this.x, this.y - this.height * 0.4, 6, { h: this.height * 0.4, size: 0.8, light: this.status === "burn" });
       }
       if (this.status === "frz" && Math.random() < dt * 1.5) B.fx.add({ x: this.x + U.rand(-this.r, this.r), y: this.y - U.rand(0, this.height), z: 0, vz: 20, life: 0.6, size: 4, color: "#dff6ff", shape: "shard", add: true });
       if (this.status === "slp" && Math.random() < dt * 2) B.fx.label(this.x + 14, this.y - this.height - 6, "Z", "#dfe6ff", { size: 10, life: 1 });

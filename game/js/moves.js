@@ -369,7 +369,7 @@ const Moves = (() => {
       case "shield": {
         Audio.sfx("shield", pan);
         f.protect = s.dur || 1.6;
-        fx.ring(f.x, f.y - f.height * 0.4, 10, f.r + 30, 0.4, "#9ad8ff", 4, { ground: false, squash: 1 });
+        fx.ring(f.x, f.y - f.height * 0.4, 10, f.r + 30, 0.4, "#9ad8ff", 4, { ground: false, h: f.height * 0.4, squash: 1 });
         break;
       }
       case "weather": {
@@ -853,7 +853,7 @@ const Moves = (() => {
         const an = U.rand(U.TAU), r = U.rand(90, 180);
         fx.add({ x: f.x + Math.cos(an) * r, y: f.y + Math.sin(an) * r * 0.6, z: f.height * 0.5 + U.rand(-20, 20), vx: -Math.cos(an) * r * 4, vy: -Math.sin(an) * r * 2.4, life: 0.22, size: 3, color: k ? "#ffffff" : "#ff8ae0", shape: "streak", add: true, drag: 0 });
       }
-      if (Math.random() < 0.5) fx.charge("psychic", f.x, f.y - f.height * 0.55, 1, 60);
+      if (Math.random() < 0.5) fx.charge("psychic", f.x, f.y - f.height * 0.55, 1, 60, undefined, f.height * 0.55);
       fx.light(f.x, f.y, 110 + a.t * 180, "#ff5fd0", 0.6, 0.06);
       if (a.t < s.tele) return false;
       a.fired = true; a.ft = a.t;

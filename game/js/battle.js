@@ -323,7 +323,7 @@ class Battle {
     if (target.invuln > 0) return;
     if (target.protect > 0) {
       fx.label(target.x, target.y - target.height - 8, "まもった！", "#9ad8ff", { size: 11 });
-      fx.ring(target.x, target.y - target.height * 0.4, target.r + 10, target.r + 36, 0.3, "#9ad8ff", 5, { ground: false, squash: 1 });
+      fx.ring(target.x, target.y - target.height * 0.4, target.r + 10, target.r + 36, 0.3, "#9ad8ff", 5, { ground: false, h: target.height * 0.4, squash: 1 });
       Audio.sfx("shield", pan);
       return;
     }
@@ -333,7 +333,7 @@ class Battle {
     if (this.visualOnly) { // turn-based mode: the executor applies damage; this only plays the impact
       target.flash = 1; target.squash = 1.25; fx.stop(0.05); fx.shakeCam(6, 0.2); Audio.sfx("hit", pan);
       if (o.angle !== undefined) { target.kx += Math.cos(o.angle) * 120; target.ky += Math.sin(o.angle) * 80; }
-      fx.burst(spec.type, target.x, target.y - target.height * 0.45, 14, { size: 1.1, dir: o.angle, spread: 1.1, owner: attacker });
+      fx.burst(spec.type, target.x, target.y - target.height * 0.45, 14, { h: target.height * 0.45, size: 1.1, dir: o.angle, spread: 1.1, owner: attacker });
       this.turnHits = (this.turnHits || 0) + 1;
       return;
     }
@@ -349,7 +349,7 @@ class Battle {
       target.sub -= dmg;
       fx.number(target.x, target.y - target.height - 10, dmg, { color: "#cccccc", size: 16 });
       if (target.sub <= 0) { target.sub = 0; fx.label(target.x, target.y - target.height, "みがわりが消えた", "#ffffff"); }
-      fx.burst(spec.type, target.x, target.y - target.height * 0.4, 6, { size: 0.7, owner: attacker });
+      fx.burst(spec.type, target.x, target.y - target.height * 0.4, 6, { h: target.height * 0.4, size: 0.7, owner: attacker });
       return;
     }
     const hpBefore = target.hp;
@@ -404,7 +404,7 @@ class Battle {
     const th = fx.theme(spec.type, attacker);
     const big = heavy || res.eff > 1;
     if (!o.tickOf || o.tickOf === 1 || o.tickOf === 3) fx.impact(spec.type, target.x, target.y, target.height * 0.45, big, hitAng, attacker);
-    fx.burst(spec.type, target.x, target.y - target.height * 0.45, big ? 26 : 12, { size: big ? 1.4 : 1, dir: hitAng, spread: 1.1, owner: attacker });
+    fx.burst(spec.type, target.x, target.y - target.height * 0.45, big ? 26 : 12, { h: target.height * 0.45, size: big ? 1.4 : 1, dir: hitAng, spread: 1.1, owner: attacker });
     if (big && !o.tickOf) { fx.radialBlur(target.x, target.y - target.height * 0.45, res.crit ? 0.9 : 0.55); fx.flashScreen(0.22, th.c[1]); }
     if (res.crit || (res.eff > 1 && heavy)) fx.strobe(2);
     if (th.decal && Math.random() < 0.78) Arenas.decal(this.arena, th.decal, target.x + U.rand(-10, 10), target.y + U.rand(-6, 6), 18 + frac * 64);
@@ -445,7 +445,7 @@ class Battle {
     if (st === "seed") { if (target.species.types.includes("grass")) { fx.label(target.x, target.y - target.height - 8, "こうかがない", "#bbbbbb", { size: 11 }); return; } target.seedBy = attacker; target.setStatus("seed"); fx.label(target.x, target.y - target.height - 8, "やどりぎを植えつけた！", "#8ee07a"); return; }
     if (target.setStatus(st)) { this.stretchStatus(target, attacker); fx.label(target.x, target.y - target.height - 8, STATUS_NAMES[st] + "状態になった！", STATUS_COLORS[st]); Audio.sfx("status", this.pan(target.x)); }
     else fx.label(target.x, target.y - target.height - 8, "こうかがない", "#bbbbbb", { size: 11 });
-    fx.burst(spec.type, target.x, target.y - target.height * 0.4, 10, { size: 0.8, owner: attacker });
+    fx.burst(spec.type, target.x, target.y - target.height * 0.4, 10, { h: target.height * 0.4, size: 0.8, owner: attacker });
   }
 
   onCastStart(f, s) {
@@ -453,7 +453,7 @@ class Battle {
     // wind-up: a spell circle for anything that isn't a quick physical swipe; bigger for strong moves
     const th = this.fx.theme(s.type, f);
     if (s.kind !== "melee" && s.kind !== "dash") this.fx.magicCircle(f.x, f.y, f.r + 26 + Math.min(40, s.power * 0.3), th.c[1], s.windup + 0.35, f);
-    if (s.power >= 90) this.fx.charge(s.type, f.x, f.y - f.height * 0.5, 22, 110, f);
+    if (s.power >= 90) this.fx.charge(s.type, f.x, f.y - f.height * 0.5, 22, 110, f, f.height * 0.5);
   }
   // Turn-mode helper: damage computed once per move by the executor (TurnBattle).
   applyTurnDamage(target, attacker, spec) {
@@ -504,7 +504,7 @@ class Battle {
     if (by) { by.kos++; Ability.onKO(this, by); }
     const fx = this.fx;
     fx.stop(0.14); fx.slowmo(0.9, 0.28); fx.shakeCam(16, 0.4); fx.zoomPunch = 1; fx.flashScreen(0.4);
-    fx.burst("normal", f.x, f.y - f.height * 0.4, 30, { size: 1.4 });
+    fx.burst("normal", f.x, f.y - f.height * 0.4, 30, { h: f.height * 0.4, size: 1.4 });
     fx.ring(f.x, f.y, 10, 160, 0.6, "#ffffff", 8);
     fx.blast(by && by.lastMove ? by.lastMove.type : "normal", f.x, f.y, 1.2, by);
     fx.strobe(3); fx.radialBlur(f.x, f.y - f.height * 0.4, 1);
@@ -563,7 +563,7 @@ class Battle {
     for (let i = 0; i < 6; i++) this.after(i * 0.12, () => { fx.aura(f.x, f.y, i % 2 ? "#ff9bf0" : "#9bd8ff", 16, f.r + 10 + i * 6); fx.ring(f.x, f.y, 10, 120 + i * 20, 0.5, "#ffffff", 4); });
     this.after(0.8, () => {
       f.setForm(form, false);
-      fx.burst("fairy", f.x, f.y - f.height * 0.5, 40, { size: 1.6 });
+      fx.burst("fairy", f.x, f.y - f.height * 0.5, 40, { h: f.height * 0.5, size: 1.6 });
       fx.light(f.x, f.y, 300, "#ffd8ff", 1, 0.8);
       fx.label(f.x, f.y - f.height - 20, form.kind === "gigantamax" ? "キョダイマックス！" : "メガシンカ！", "#ffd8ff", { size: 16 });
       if (form.kind === "gigantamax") { f.heal(f.maxHp * 0.4); }
@@ -589,7 +589,7 @@ class Battle {
       const src = (form.moves && form.moves.length ? form.moves : ring[0].moves).slice(0, 4);
       f.moves = src.map((s) => Moves.spec(s));
       while (f.moves.length < 4) f.moves.push(Moves.spec("tackle"));
-      fx.burst("fairy", f.x, f.y - f.height * 0.5, 28, { size: 1.3 });
+      fx.burst("fairy", f.x, f.y - f.height * 0.5, 28, { h: f.height * 0.5, size: 1.3 });
       fx.light(f.x, f.y, 240, "#ffd8ff", 1, 0.55);
       fx.label(f.x, f.y - f.height - 20, back ? "もどった！" : form.kind === "gigantamax" ? "キョダイマックス！" : "メガシンカ！", "#ffd8ff", { size: 16 });
     });

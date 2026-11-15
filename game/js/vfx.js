@@ -192,7 +192,7 @@ const VFX = (() => {
     if (!a.seed) a.seed = 1 + Math.random() * 97;
     if (g.tail < 1) {
       for (const u of [0.3, 0.65, 1]) { const ua = g.tail + (g.head - g.tail) * u; fx.light(g.ox + g.c * g.L * ua, g.oy + g.sn * g.L * ua + 24, 70 + 50 * ua, P.light, 0.26 * fl, 0.1); }
-      if (Math.random() < dt * 46) { const ua = g.tail + (g.head - g.tail) * U.rand(0.2, 1); fx.add({ x: g.ox + g.c * g.L * ua + U.rand(-12, 12), y: g.oy + g.sn * g.L * ua + 24 + U.rand(-6, 6), z: 24 + U.rand(0, 16), vx: g.c * U.rand(40, 160), vy: g.sn * U.rand(40, 160), vz: U.rand(60, 190), grav: -60, life: U.rand(0.3, 0.6), size: U.pick([2, 2, 4]), color: U.pick([P.core, P.hot, P.mid]), shape: "pixel", add: true }); }
+      if (Math.random() < dt * 46) { const ua = g.tail + (g.head - g.tail) * U.rand(0.2, 1); fx.add({ x: g.ox + g.c * g.L * ua + U.rand(-12, 12), y: g.oy + g.sn * g.L * ua + 24 + a.owner.height * 0.55 + U.rand(-6, 6), z: 24 + a.owner.height * 0.55 + U.rand(0, 16), vx: g.c * U.rand(40, 160), vy: g.sn * U.rand(40, 160), vz: U.rand(60, 190), grav: -60, life: U.rand(0.3, 0.6), size: U.pick([2, 2, 4]), color: U.pick([P.core, P.hot, P.mid]), shape: "pixel", add: true }); }
     }
     if (a.fired && !a.boomed) {
       a.boomed = true;

@@ -34,7 +34,7 @@ const Ability = (() => {
   function onEnter(B, f) {
     const foe = B.active[1 - f.side];
     const ab = f.species.ab && f.species.ab.s;
-    if (ab === "intimidate" && foe && !foe.ko && foe.active) { show(B, f); stage(B, foe, "atk", -1, f); B.fx.burst("dark", foe.x, foe.y - foe.height * 0.5, 10, { size: 0.8 }); }
+    if (ab === "intimidate" && foe && !foe.ko && foe.active) { show(B, f); stage(B, foe, "atk", -1, f); B.fx.burst("dark", foe.x, foe.y - foe.height * 0.5, 10, { h: foe.height * 0.5, size: 0.8 }); }
     else if (WEATHER[ab]) { show(B, f); B.setWeather(WEATHER[ab], 14, f); }
     else if (ab === "pressure" || ab === "levitate" || ab === "multiscale" || ab === "shadow-shield" || ab === "wonder-guard") show(B, f);
   }
@@ -113,7 +113,7 @@ const Ability = (() => {
     else if (a[1] === "fire") { target.flashFire = true; show(B, target, "ほのおの いりょくが あがった！"); }
     else if (a[1] === "none") { show(B, target, "うかんでいる！"); }
     else { show(B, target); stage(B, target, a[1], 1, target); }
-    B.fx.burst(spec.type, target.x, target.y - target.height * 0.5, 10, { size: 0.8, owner: attacker });
+    B.fx.burst(spec.type, target.x, target.y - target.height * 0.5, 10, { h: target.height * 0.5, size: 0.8, owner: attacker });
     return true;
   }
   // Contact moves can trigger the defender's body ability.

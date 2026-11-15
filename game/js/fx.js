@@ -35,7 +35,7 @@ const FXV = {
   p3: false, on: false, q: 1,
   gsq(v) { return this.p3 ? 1 : v; },
   pt(x, y, h = 0) {
-    const K = Arenas.K, p = Scene3D.project(x / K, y / K, 0), m = p.s / K / this.q;
+    const K = Arenas.K, p = Scene3D.project(x / K, y / K, 0), m = p.ok ? p.s / K / this.q : 0; // カメラの後ろの点は描かない（倍率 0）
     return { x: p.x / this.q, y: p.y / this.q - h * m, m };
   },
   at(ctx, x, y) {
@@ -185,18 +185,20 @@ class FX {
   }
 
   // Impact burst at (x, y): n particles of the type's theme flying outward (dir biased if given).
+  // opts.h = y に入っている高さ（体の胸の高さなど。y = 足もと − h で渡されたとき）。粒子は足もとの地面 + 高さ h に置く（平面表示の見た目は同じ、3D で正しい高さに立つ）。
   burst(type, x, y, n = 18, opts = {}) {
-    const th = this.theme(type, opts.owner), sz = opts.size || 1, spd = opts.speed || 1;
+    const th = this.theme(type, opts.owner), sz = opts.size || 1, spd = opts.speed || 1, h = opts.h || 0, ly = y;
+    y += h;
     for (let i = 0; i < n; i++) {
       const a = opts.dir !== undefined ? opts.dir + U.rand(-(opts.spread || 0.9), opts.spread || 0.9) : U.rand(U.TAU);
       const s = U.rand(60, 260) * spd;
-      this.add({ x, y, z: 20 + U.rand(30), vx: Math.cos(a) * s, vy: Math.sin(a) * s * 0.6, vz: U.rand(40, 200) * (th.grav < 0 ? 1 : 0.6),
+      this.add({ x, y, z: h + 20 + U.rand(30), vx: Math.cos(a) * s, vy: Math.sin(a) * s * 0.6, vz: U.rand(40, 200) * (th.grav < 0 ? 1 : 0.6),
         grav: th.grav, life: U.rand(0.35, 0.8), size: U.rand(4, 11) * sz, color: U.pick(th.c), shape: th.shape, add: th.add, spin: U.rand(-6, 6) });
     }
     if (th.shape === "flame" || th.shape === "smoke" || opts.smoke) for (let i = 0; i < n / 3; i++) {
-      this.add({ x: x + U.rand(-10, 10), y: y + U.rand(-6, 6), z: 20, vx: U.rand(-30, 30), vy: U.rand(-20, 20), vz: U.rand(30, 90), life: U.rand(0.6, 1.1), size: U.rand(8, 14) * sz, color: this.arena && this.arena.water ? "#dff2ff" : "#7a7076", shape: "smoke", add: false, grow: 1.5, alpha: 0.28 });
+      this.add({ x: x + U.rand(-10, 10), y: y + U.rand(-6, 6), z: h + 20, vx: U.rand(-30, 30), vy: U.rand(-20, 20), vz: U.rand(30, 90), life: U.rand(0.6, 1.1), size: U.rand(8, 14) * sz, color: this.arena && this.arena.water ? "#dff2ff" : "#7a7076", shape: "smoke", add: false, grow: 1.5, alpha: 0.28 });
     }
-    if (opts.light !== false) this.light(x, y, 90 * sz + 40, th.c[1], 0.9, 0.25);
+    if (opts.light !== false) this.light(x, ly, 90 * sz + 40, th.c[1], 0.9, 0.25);
   }
 
   // Short-lived trailing puff behind a projectile.
@@ -207,12 +209,13 @@ class FX {
   }
 
   // Charge-up: particles converge onto (x, y).
-  charge(type, x, y, n = 10, radius = 60, owner) {
+  charge(type, x, y, n = 10, radius = 60, owner, h = 0) { // h = y に入っている高さ（burst の opts.h と同じ）
     const th = this.theme(type, owner);
+    y += h;
     for (let i = 0; i < n; i++) {
       const a = U.rand(U.TAU), d = radius * U.rand(0.6, 1.2);
       const px = x + Math.cos(a) * d, py = y + Math.sin(a) * d * 0.6;
-      this.add({ x: px, y: py, z: U.rand(10, 50), vx: (x - px) * 3.2, vy: (y - py) * 3.2, vz: 0, life: 0.32, size: U.rand(3, 6), color: U.pick(th.c), shape: th.shape === "rock" ? "spark" : th.shape, add: true, drag: 0 });
+      this.add({ x: px, y: py, z: h + U.rand(10, 50), vx: (x - px) * 3.2, vy: (y - py) * 3.2, vz: 0, life: 0.32, size: U.rand(3, 6), color: U.pick(th.c), shape: th.shape === "rock" ? "spark" : th.shape, add: true, drag: 0 });
     }
   }
 
@@ -233,7 +236,7 @@ class FX {
   }
 
   ring(x, y, r0, r1, life, color, width = 4, opts = {}) {
-    this.rings.push({ x, y, r0, r1, life, max: life, color, width, add: opts.add !== false, ground: opts.ground !== false, z: opts.z || 0, squash: opts.squash === undefined ? 0.55 : opts.squash });
+    this.rings.push({ x, y: y + (opts.h || 0), r0, r1, life, max: life, color, width, add: opts.add !== false, ground: opts.ground !== false, z: (opts.z || 0) + (opts.h || 0), squash: opts.squash === undefined ? 0.55 : opts.squash });
   }
 
   light(x, y, r, color, i = 1, life = 0.3, opts = {}) {
@@ -535,7 +538,7 @@ class FX {
     for (const p of this.parts) {
       if ((p.shape !== "rock" && p.shape !== "drop" && p.shape !== "shard" && p.shape !== "chunk") || p.z < 4) continue;
       const s = Math.max(1, p.size * 0.5 * (1 - Math.min(1, p.z / 300)));
-      ctx.beginPath(); ctx.ellipse(p.x, p.y, s, s * 0.5, 0, 0, U.TAU); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(p.x, p.y, s, s * FXV.gsq(0.5), 0, 0, U.TAU); ctx.fill();
     }
     ctx.restore();
   }
