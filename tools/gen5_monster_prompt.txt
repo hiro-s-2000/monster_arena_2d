@@ -1,0 +1,38 @@
+あなたは第5世代のアクションを1体だけ作る、まっさらな作業プロセスです。このプロセスが終わったら終了してください。次のモンスターは始めないでください。
+
+対象は次のキュー項目だけです。すでに in_progress です。claim は呼ばないでください。
+
+__ITEM_JSON__
+
+必読:
+- /Users/honmahiroshi/Desktop/ai_workspace/pokemon_arena_revenge_claude/md/gen5-forge.md
+- /Users/honmahiroshi/.gemini/config/skills/monster-action-forge-architect/SKILL.md
+- パイプラインの構造だけ /Users/honmahiroshi/Desktop/ai_workspace/pokemon_arena_revenge_claude/tools/forge_mamoswine_actions.py を見る。この種の色・マスク・関節は使わない。import しない。
+
+やってよいこと:
+- この種の front.png と back.png を測る。向きは目と顔の先端の x で決める。
+- tools/forge_gen5_<この種のslug>_actions.py を新規に書く。部位は静止画に既にあるものだけ。
+- tools/gen5_attack_strike.py の finish() を攻撃ポーズに通し、save_peaks でこのスクリプトの茎だけを登録する。
+- 先に --samples。見本画像は read_file で開かない。ログの数値だけ見る。静止0コマの差分、パレット外、中間アルファ、枠接触がすべて 0 なら、フラグなしで480コマを作る。数値が崩れて直せるときは1回だけ直して同じ数値を再計測する。
+- preview.png は read_file で開かない。480コマ後も同じ4つの数値が 0 なら、tools/gen5_publish.py の publish_dir8 と publish_bounds を使う。見た目はユーザーが debug.html で確認する。
+- 合格なら python -I tools/gen5_queue.py mark <id> done "<一行の所見>"
+- 数値が 0 に戻らないときは publish せず、python -I tools/gen5_queue.py mark <id> needs_fix "<理由>" で終了する。
+
+動き:
+- 待機16、歩き16、攻撃16、ダメージ12。方向は S SE E NE N NW W SW。
+- 攻撃 0–4 は咆哮（口があるときだけ口のくさびとリング。口が無ければ発明しない）。
+- 攻撃 5–8 は背面を向く。N 行と同じ等倍の左右反転で、シルエットは潰さない。体を横倒し・逆さにしない。|cos| で横幅を潰さない。
+- 攻撃 9–12 は絵にある手・足・牙・羽・角・尾・ハサミで打つ。13–15 は復帰。
+- ダメージののけぞりは最大約38度。
+
+禁止:
+- pokeAnim を開く、実行する、参照手順にすること。
+- image_gen、image_edit、image_to_video、route_media、agy。
+- サブエージェント、別の grok プロセス、gen5_forge_loop.sh。
+- front/back の png と gif、色違い、box-icons の上書き。
+- dir8.js と sprite_bounds.js の手編集、build_sprite_bounds.js、git push、公開、0.0.0.0 での待受。
+- 他のキュー項目。gen4_attack_strike.py の編集。forge_latias_mega_actions.py、forge_anatomical_actions.py の実行と import。
+
+Python は /Users/honmahiroshi/Desktop/ai_workspace/agent-sprite-forge/.venv/bin/python -I
+作業ディレクトリは pokemon_arena_revenge_claude。
+週次上限や quota のエラーが出たら、done にせず、その場で終了してください。

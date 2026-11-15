@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#070814">
+<title>Monster Arena HD-2D</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="style.css?v=20261114a">
+</head>
+<body>
+<canvas id="screen"></canvas>
+<canvas id="overlay"></canvas>
+
+<!-- ===== HUD ===== -->
+<div id="hud" class="esports hidden">
+  <div class="panel left" id="p0">
+    <div class="portrait"><canvas></canvas></div>
+    <div class="info">
+      <div class="row1"><span class="name"></span><span class="types"></span><span class="status"></span></div>
+      <div class="hpbar"><i class="ghost"></i><i class="fill"></i></div>
+      <div class="row2"><span class="hp"></span><span class="entag">ENERGY</span><span class="low">LOW HEALTH</span></div>
+      <div class="enbar"><i class="fill"></i></div>
+    </div>
+    <div class="team"></div>
+    <div class="callout"></div><div class="combo"></div><div class="abil"></div>
+  </div>
+  <div class="center">
+    <div id="timer">5:00</div>
+    <div id="league"></div>
+    <div id="clash-tag" class="hidden">⚡ BEAM CLASH!</div>
+    <div id="weather-tag" class="hidden"></div>
+    <button type="button" id="hud-skin-btn" aria-pressed="true" title="HUD表示切替 (Hキー)">HUD: eSPORTS</button>
+    <div id="cam-zoom" role="group" aria-label="カメラのズーム">
+      <button type="button" data-z="-1" title="カメラを引く (−キー / ホイール)" aria-label="カメラを引く">−</button>
+      <button type="button" data-z="0" id="cam-zoom-val" title="GIFと同じ大きさ(100%)に戻す (0キー)">100%</button>
+      <button type="button" data-z="1" title="カメラを寄せる (＝キー / ホイール)" aria-label="カメラを寄せる">＋</button>
+    </div>
+  </div>
+  <div class="panel right" id="p1">
+    <div class="portrait"><canvas></canvas></div>
+    <div class="info">
+      <div class="row1"><span class="status"></span><span class="types"></span><span class="name"></span></div>
+      <div class="hpbar"><i class="ghost"></i><i class="fill"></i></div>
+      <div class="row2"><span class="low">LOW HEALTH</span><span class="entag">ENERGY</span><span class="hp"></span></div>
+      <div class="enbar"><i class="fill"></i></div>
+    </div>
+    <div class="team"></div>
+    <div class="callout"></div><div class="combo"></div><div class="abil"></div>
+  </div>
+  <div id="skills">
+    <div class="util" id="u-dodge"><b>SPACE</b><span>かいひ</span></div>
+    <div class="card" data-i="0"><i class="cd"></i><b class="key">Z</b><span class="jp"></span><span class="meta"></span></div>
+    <div class="card" data-i="1"><i class="cd"></i><b class="key">X</b><span class="jp"></span><span class="meta"></span></div>
+    <div class="card" data-i="2"><i class="cd"></i><b class="key">C</b><span class="jp"></span><span class="meta"></span></div>
+    <div class="card" data-i="3"><i class="cd"></i><b class="key">V</b><span class="jp"></span><span class="meta"></span></div>
+    <div class="util" id="u-swap"><b>Q</b><span>こうたい</span></div>
+    <div class="util" id="u-mega"><b>M</b><span>メガ</span></div>
+  </div>
+  <div id="skills-foe">
+    <div class="fhead"><span class="who"></span><b class="tap">タップで そうさ</b></div>
+    <div class="frow">
+      <div class="fcard"><i class="cd"></i><span class="jp"></span><span class="meta"></span></div>
+      <div class="fcard"><i class="cd"></i><span class="jp"></span><span class="meta"></span></div>
+      <div class="fcard"><i class="cd"></i><span class="jp"></span><span class="meta"></span></div>
+      <div class="fcard"><i class="cd"></i><span class="jp"></span><span class="meta"></span></div>
+    </div>
+  </div>
+  <div id="msg" class="dqwin hidden"><p></p><i class="caret"></i></div>
+  <div id="banner"></div>
+  <div id="ko-cutin" aria-hidden="true">
+    <div class="ko-backdrop"></div>
+    <div class="ko-slash">
+      <span class="ko-kicker">KNOCKOUT!!</span>
+      <div class="ko-main">K.O.!</div>
+      <div class="ko-sub"></div>
+    </div>
+  </div>
+  <div id="vs" class="hidden">
+    <div class="lg"></div>
+    <div class="row">
+      <div class="side a"><canvas width="48" height="48"></canvas><div class="nm"></div><div class="jp"></div><div class="ty"></div></div>
+      <div class="mid">VS</div>
+      <div class="side b"><canvas width="48" height="48"></canvas><div class="nm"></div><div class="jp"></div><div class="ty"></div></div>
+    </div>
+  </div>
+</div>
+<div id="turnmenu" class="dqwin hidden"></div>
+
+<!-- ===== title ===== -->
+<div id="title" class="hidden">
+  <canvas id="title-bg"></canvas>
+  <div class="logo"><span>Monster</span><b>ARENA</b><i>HD-2D</i></div>
+  <div id="press" class="blink">PRESS START</div>
+  <div id="title-menu" class="dqwin hidden"></div>
+  <div class="credit">Pokémon © Nintendo / Creatures / GAME FREAK — fan-made demo</div>
+</div>
+
+<!-- ===== select ===== -->
+<div id="select" class="hidden">
+  <header>
+    <button id="back" class="btn-ghost">◀ もどる</button>
+    <div class="ttl"><b id="select-title"></b><small id="select-sub"></small></div>
+    <div class="opts">
+      <label id="opt-mode-wrap">モード<select id="opt-mode"><option value="play">プレイ</option><option value="watch" selected>かんせん</option></select></label>
+      <label id="opt-pilot-wrap" class="hidden">そうさ<select id="opt-pilot"></select></label>
+      <label>CPU<select id="opt-skill"><option value="0.45">よわい</option><option value="0.75">ふつう</option><option value="1" selected>つよい</option></select></label>
+      <label id="opt-time-wrap">じかん<select id="opt-time"><option value="180">3:00</option><option value="300" selected>5:00</option><option value="600">10:00</option></select></label>
+      <label>HUD<select id="opt-hud"><option value="esports" selected>eスポーツ中継</option><option value="retro">レトロDQ</option></select></label>
+      <label>いろちがい<select id="opt-shiny"><option value="0">0</option><option value="0.0625" selected>1/16</option><option value="0.25">1/4</option><option value="1">ぜんぶ</option></select></label>
+      <label class="chk"><input type="checkbox" id="opt-music" checked>BGM</label>
+      <label class="chk"><input type="checkbox" id="opt-sfx" checked>SE</label>
+    </div>
+  </header>
+  <section id="arenas"></section>
+  <section class="teams">
+    <div class="team dqwin" data-side="0"><h3><span>あなたの チーム</span></h3><div class="trrow"><span class="trlbl">トレーナー</span><input type="search" class="trfind" data-side="0" placeholder="なまえ" aria-label="トレーナーのなまえ" autocomplete="off"><button type="button" class="trstep" data-side="0" data-dir="-1" aria-label="まえのトレーナー">◀</button><div class="trstrip" data-side="0"></div><button type="button" class="trstep" data-side="0" data-dir="1" aria-label="つぎのトレーナー">▶</button><b class="trname"></b></div><div class="slots"></div><div class="tbtn"><button data-random="0">おまかせ</button><button data-clear="0">クリア</button></div></div>
+    <div class="team dqwin" data-side="1"><h3><span>あいての チーム</span></h3><div class="trrow"><span class="trlbl">トレーナー</span><input type="search" class="trfind" data-side="1" placeholder="なまえ" aria-label="トレーナーのなまえ" autocomplete="off"><button type="button" class="trstep" data-side="1" data-dir="-1" aria-label="まえのトレーナー">◀</button><div class="trstrip" data-side="1"></div><button type="button" class="trstep" data-side="1" data-dir="1" aria-label="つぎのトレーナー">▶</button><b class="trname"></b></div><div class="slots"></div><div class="tbtn"><button data-random="1">おまかせ</button><button data-clear="1">クリア</button></div></div>
+  </section>
+  <section class="picker">
+    <div class="pbar">
+      <input id="search" type="search" placeholder="なまえ・ずかんNo.・タイプで けんさく（リザードン / 6 / ほのお）" autocomplete="off">
+      <select id="filter-kind"><option value="">すべて</option><option value="gen">つうじょう</option><option value="mega">メガ</option><option value="regional">リージョン</option><option value="gigantamax">キョダイ</option></select>
+      <div id="gens"></div>
+      <select id="presets"><option value="">おすすめ…</option></select>
+    </div>
+    <div class="pickrow"><div id="grid"></div><aside id="dex" class="dqwin"><p class="hint">モンスターに カーソルを あわせると<br>ずかんデータが でるよ</p></aside></div>
+  </section>
+  <footer>
+    <div class="help">いどう <kbd>WASD</kbd> / <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> ・ わざ <kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd> / クリック ・ かいひ <kbd>SPACE</kbd> ・ こうたい <kbd>Q</kbd> ・ メガ <kbd>M</kbd> ・ このがめんは 矢印で いどう、<kbd>Enter</kbd> で けってい</div>
+    <button id="start" class="btn-main">バトル かいし！</button>
+  </footer>
+</div>
+
+<div id="bracket" class="overlay hidden"></div>
+<div id="loading" class="overlay"><div class="logo"><span>Monster</span><b>ARENA</b><i>HD-2D</i></div><p id="loading-text">よみこみちゅう…</p></div>
+<div id="pause" class="overlay hidden"><div class="dqwin card"><h2>ポーズ</h2><button class="btn-main" data-act="resume">つづける</button><button class="btn-ghost" data-act="mute">サウンド ON/OFF</button><button class="btn-ghost" data-act="menu">タイトルへ</button></div></div>
+<div id="result" class="overlay hidden"><div class="dqwin card wide"><h2 id="result-title"></h2><p id="result-sub"></p><div id="result-stats"></div><button class="btn-main" data-act="again">もういちど</button><button class="btn-ghost" data-act="menu">タイトルへ</button></div></div>
+
+<div id="touch" hidden>
+  <div id="stick"><i id="stick-knob"></i></div>
+  <div class="tmoves"><button type="button" data-key="z">1</button><button type="button" data-key="x">2</button><button type="button" data-key="c">3</button><button type="button" data-key="v">4</button></div>
+  <div class="tutil"><button type="button" data-key=" ">かいひ</button><button type="button" data-key="q">こうたい</button><button type="button" data-key="m">メガ</button><button type="button" data-key="escape" aria-label="ポーズ">II</button></div>
+</div>
+<pre id="errlog" aria-hidden="true"></pre>
+<script>
+addEventListener("error", (e) => { const el = document.getElementById("errlog"); if (el) el.textContent += (e.message || e) + " @" + (e.filename || "").split("/").pop() + ":" + e.lineno + "\n"; });
+addEventListener("unhandledrejection", (e) => { const el = document.getElementById("errlog"); if (el) el.textContent += "rejection: " + (e.reason && (e.reason.stack || e.reason.message) || e.reason) + "\n"; });
+</script>
+<script src="../data/monsterdex.js?v=20261115-hoopa1"></script>
+<script src="../data/trainers.js?v=20261102q"></script>
+<script src="js/util.js?v=20261102c"></script>
+<script src="js/pixel.js?v=20261102c"></script>
+<script src="js/gif.js?v=20261102c"></script>
+<script src="js/assets.js?v=20261116b"></script>
+<script src="../data/dir8.js?v=20261116-fb2"></script>
+<script src="js/dir8.js?v=20261116a"></script>
+<script src="js/motion.js?v=20261102c"></script>
+<script src="js/data.js?v=20261115w2"></script>
+<script src="js/ability.js?v=20261116flame1"></script>
+<script src="js/audio.js?v=20261115zb"></script>
+<script src="js/input.js?v=20261102c"></script>
+<script src="js/arena.js?v=20261116s2"></script>
+<script src="../data/flame_hues.js?v=20261116flame2"></script>
+<script src="js/fx.js?v=20261116flame2"></script>
+<script src="js/slabs.js?v=20261102c"></script>
+<script src="js/ground.js?v=20261102c"></script>
+<script src="js/water.js?v=20261102c"></script>
+<script src="js/vfx.js?v=20261116flame1"></script>
+<script src="js/moves.js?v=20261116flame1"></script>
+<script src="js/fighter.js?v=20261116flame1"></script>
+<script src="js/ai.js?v=20261111a"></script>
+<script src="js/battle.js?v=20261116flame1"></script>
+<script src="js/scene3d.js?v=20261116s2"></script>
+<script src="js/scenes/stadium.js?v=20261116s2"></script>
+<script src="js/scenes/dirt.js?v=20261116s2"></script>
+<script src="js/scenes/stone.js?v=20261116s2"></script>
+<script src="js/scenes/colosseum.js?v=20261116s2"></script>
+<script src="js/scenes/pokeball.js?v=20261116s2"></script>
+<script src="js/scenes/ice.js?v=20261116s2"></script>
+<script src="js/scenes/volcano.js?v=20261116s2"></script>
+<script src="js/scenes/water.js?v=20261116s2"></script>
+<script src="js/scenes/cavern.js?v=20261116s2"></script>
+<script src="js/scenes/cosmic.js?v=20261116s2"></script>
+<script src="js/scenes/meadow.js?v=20261116s2"></script>
+<script src="js/post.js?v=20261116s4"></script>
+<script src="js/render.js?v=20261116s3"></script>
+<script src="js/hud.js?v=20261111b"></script>
+<script src="js/turn.js?v=20261115d"></script>
+<script src="js/title.js?v=20261102c"></script>
+<script src="js/tournament.js?v=20261102c"></script>
+<script src="js/menu.js?v=20261115ze"></script>
+<script src="js/main.js?v=20261115x"></script>
+</body>
+</html>

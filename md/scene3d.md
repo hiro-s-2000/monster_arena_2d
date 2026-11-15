@@ -1,0 +1,112 @@
+# scene3d.md — バトルフィールドの 3D 背景（HD-2D）の仕様
+
+2026-11-16 ユーザー指示：「HD-2Dらしさが全然足りない。各バトルフィールドの背景を、創れる最高品質の画風で、HD-2D 化するために 3D 化する」。
+
+## 仕組み
+
+- `game/js/scene3d.js`（エンジン）：遠近のあるカメラ、立体メッシュ、テクスチャ帳、描画。
+- `game/js/scenes/<ステージid>.js`：ステージ 1 つにつき 1 ファイル。`Scene3D.define(id, { paint, build })` で登録する。
+- 地面（フィールドの床・傷・影）は今までどおり 2D の canvas に描かれ、それが z = 0 の面として遠近で映る。モンスター・トレーナー・小物は画面に正対する板。
+- 定義ファイルが無いステージ、WebGL が無いとき、`?flat=1` のときは、作り直す前の平面表示になる。
+- ステージ id：`stadium` `dirt` `stone` `colosseum` `pokeball` `ice` `volcano` `water` `cavern` `cosmic` `meadow`（`game/js/arena.js` の `DEFS`）。
+
+## 座標
+
+- 単位は art px（フィールドの床の 1 ドット）。**x = 右、y = 手前（2D マップの下）、z = 上**。
+- アリーナの絵は `0..A.aw × 0..A.ah`。フィールド（戦う場所）は `A.af = { x, y, w, h, r }`（角丸の長方形。約 280×170、モンスターの大きさで 0.78〜1.75 倍に変わるので、**必ず `A.af` `A.aw` `A.ah` から計算する。数値を決め打ちしない**）。
+- カメラは手前（+y）の上空から奥（−y）を約 38°（旧 46° → ジオラマ感を強めた低角、タイトル・登場・K.O. ではさらに低く、`S.set({ pitch })` で個別調整可）で見下ろす。回転しない。
+- 見える範囲のめやす（通常のプレイ）：フィールドの奥の辺から奥へ 150〜250、左右の辺から外へ 120〜250、手前の辺から手前へ 60〜120。タイトルや引いたカメラではその 2 倍ほど。その外は霞（フォグ）で消える。**x は −600〜aw+600、y は −900〜ah+300 くらいまで `S.ground` などで埋める**（何も無い所は `clear` の色が見える）。`S.backdrop` は通常プレイの視野に入るよう `y = -320, z0 = -100, z1 = 220` 付近に配置する。
+- 垂直なもの（壁・柱）は画面上で高さが約 0.7 倍に縮んで映る。`S.sprite`（正対する板）は縮まない。
+- 大きさのめやす：トレーナーの身長 ≈ 21、リザードン ≈ 36、大きいモンスター ≈ 60〜80。
+
+## 定義ファイルの形
+
+```js
+"use strict";
+Scene3D.define("<id>", {
+  // 地面の絵。アリーナの canvas（A.aw × A.ah、真上から見た図）のうち、フィールドの外側に見える地面を描く。
+  // フィールドの中はあとで床が上書きする。立体の足もとになる地面（通路・土・草・石畳など）だけを描き、立体そのものは描かない。
+  paint(ctx, A, rng) { ... },
+  walls: true,          // false にすると、フィールドのふちの平らな壁の絵（灰色の帯＋黄黒の縞）を描かない
+  // 立体。S = 組み立て用の道具、A = アリーナ
+  build(S, A) { ... },
+});
+```
+
+## S の道具
+
+テクスチャ（ドット絵を Canvas 2D で描く。`Pixel.ellipse / dither / line / ring / text / textWidth / bayer`、`U.seeded / shade / mix / rr` が使える）：
+
+- `S.tex(w, h, (ctx, w, h) => {...}, { smooth: false })` → テクスチャ。`smooth: true` は、ぼかして拡大したい絵（空・遠景・雲）用。
+- `S.flat("#rrggbb")` → 単色（テクスチャの代わりに渡せる）。
+
+形（`o` は下の共通オプション）：
+
+- `S.wall(tex, x0, y0, x1, y1, z0, z1, o)` 垂直の壁。地面の線 (x0,y0)→(x1,y1)、高さ z0→z1。
+- `S.floor(tex, x0, y0, x1, y1, z, o)` 水平の面（テクスチャの上が奥）。
+- `S.box(x, y, w, d, z0, h, faces, o)` 直方体。x,y = 左奥の角、w = 幅、d = 奥行き、z0 = 底、h = 高さ。`faces = { all, top, side, front, left, right }`（`null` でその面を省く）。`o.shadow: true` で地面に影。
+- `S.prism(tex, x, y, r0, r1, z0, h, sides, o)` 角柱・円柱・円すい（r1 = 0 でとがる）。`o.ry` で奥行き方向をつぶす。
+- `S.quad(tex, p0, p1, p2, p3, o)` 任意の四角形（左下・右下・右上・左上。各点 `[x, y, z]`）。斜面や屋根に。
+- `S.sprite(tex, x, y, z, w, h, o)` 画面に正対する板（木・人・旗・看板）。足もとの中心が (x, y, z)。`o.flip` で左右反転。
+- `S.ground(tex, x0, y0, x1, y1, o)` アリーナの絵の外側の地面（アリーナと重ならないよう自動で分ける）。
+- `S.backdrop(tex, x0, x1, y, z0, z1, o)` 遠景の大きな絵（垂直の板、光と霞の影響なし）。
+- `S.glow(x, y, z, r, color, o)` 光のにじみ（加算）。`S.shaft(x0, y0, z0, x1, y1, z1, w0, w1, color, o)` 光の筋（上の点→下の点）。
+- `S.shadow(x, y, rx, ry, alpha, o)` 地面のやわらかい丸い影。`S.shadowPoly(pts, alpha, o)` 任意の多角形落ち影。`S.castShadow(x, y, w, d, h, alpha)` 直方体の落ち影（`cfg.light` の方向から投射）。`S.castConeShadow(cx, cy, rx, h, alpha, { round, z, layer })` 円錐・丸形シルエットの指向性落ち影。
+- 高精細ジオラマ複合ビルダー（キャッシュ済みドット絵テクスチャで高速生成）：
+  - `S.pine3D(cx, cy, z0, { h, r, tiers, pal, trunk, shadow, layer, anim })` 段階テーパー針葉樹＋方向付き円錐落ち影。
+  - `S.tree3D(cx, cy, z0, { kind, h, r, pal, trunk, blossom, lean, dir, rot, shadow, layer, anim })` 広葉樹（`"oak"`）・ヤシ（`"palm"`）・イトスギ（`"cypress"`）。
+  - `S.house3D(x, y, z0, { w, d, h, rh, ov, plinth, ridge, wall, trim, roof, roofHi, roofSh, win, door, doorSide, lit, masonry, chimney, shadow, layer })` 切妻屋根瓦・軒影・破風・煙突・夜間点灯窓つきの建物。
+  - `S.fence3D(x0, y0, x1, y1, z0, { h, col, postCol, cap, step, layer, shadow })` 木柵・石欄干。
+  - `S.rock3D(cx, cy, z0, { r, h, sides, pal, rot, layer, shadow })` 多面体岩塊＋落とし影。
+  - `S.lamp3D(x, y, z0, { h, post, color, r, i, glowR, emit, lamp, shadow, layer })` 柱＋ランタン発光＋`glow`＋`lamp` の一括設置。
+- `S.lamp(x, y, r, color, i, { flicker })` 地面・モンスター・立体を照らす灯り（ライトマップ）。
+- `S.set({ clear, fog: { color, near, far, max }, light, keyTint, shadowTint, castCol, pitch, clip, dof, grade })` ステージ全体の設定。
+  - `keyTint` / `shadowTint` / `castCol` = 太陽光・順光面の色味、逆光影面の色味、接地落とし影色（ウォーム×クールの色相分離用）。
+  - `pitch` = 既定カメラ仰角の上書き（度 `> 3` またはラジアン）。
+  - `fog.near / far` = 画面中央の点より何 art px 奥から霞みはじめ、どこで最大（`max`）になるか（屋外の建物・林をはっきり見せる標準目安 `near: 540..620, far: 1650..1750, max: 0.48`）。
+  - `clip: { x, y, w, h, r }` = 地面の絵をこの角丸の範囲だけ描く（宙に浮いた舞台など）。
+  - `grade` = 後処理の上書き（`bloom` `rays` `mote` `sun` `vig` `tint` `sat` `con` `fog: [r,g,b,a]` など。`arena.js` の `grade` と同じ名前）。
+  - `dof` = 手前と奥のぼかしの強さ（既定 1.25）。
+
+共通オプション `o`：
+
+- `color`（色を掛ける）、`alpha`、`shade`（`false` = 陰影なし、数値 = 明るさを直接指定。省くと面の向きから自動）。
+- `stretch: true`（テクスチャを 1 枚に引きのばす。省くと **1 texel = 1 art px で敷きつめる**）、`texel`（1 texel の大きさ）、`uv: [u0, v0, u1, v1]`。
+- `blend`：`"cut"`（既定。アルファ 0.5 未満を抜く、くっきりしたドット）、`"alpha"`（半透明）、`"add"`（加算の光）。
+- `emit: 0..1`（自分で光る。ブルームがかかる）、`lit: 0..1`（地面の明るさの影響。0 で常に同じ明るさ）、`fog: 0..1`（霞のかかり方）。
+- `layer`：`"back"` / `"front"`。省くと、フィールドの手前の辺より手前（y ≥ af.y + af.h）にあるものが `front`（モンスターより前に描く）、それ以外は `back`（モンスターの後ろ）。
+- `anim: { type, amp, phase }`：`sway`（風でゆれる。上の辺だけ）、`hop`（観客がはねる。試合が盛り上がると大きく）、`flicker`（炎のゆらぎ）、`pulse`（ゆっくり明滅）、`float`（上下にただよう）、`twinkle`（星のまたたき）。
+
+## 守ること
+
+1. **フィールドの中（`A.af` の内側）に立体を置かない。** 戦いの邪魔になる。フィールドのふちの壁は低く（高さ 12 以下）。
+2. **手前（`front`）の立体は低く・少なく。** 手前の辺のすぐ外に高いものを置くと、モンスターが隠れる。手前の辺から 40 以内は高さ 14 以下。それより手前は画面の下端にぼけて映る前景として使ってよい。
+3. トレーナーは左右の辺の外 11 の所（フィールドの縦の中央）に立つ。左右の辺から外へ 30 までは通路として空ける。
+4. 地面 z = 0 にアリーナ（0..aw × 0..ah）と重なる面を置かない（ちらつく）。アリーナの上に面を置くなら z ≥ 0.3。外の地面は `S.ground`。
+5. 四角形の数は 6 万以下、テクスチャの合計は 4096×4096 に収まる量。
+6. ステージの特徴（床の種類、昼夜、名前から受ける印象）を変えない。昼のステージは昼、夜のステージは夜。
+7. 文字や看板に実在の商標・既存ゲームの固有名詞を入れない。
+8. 通常のステージ追加・調整は `game/js/scenes/<id>.js` 側で行う（エンジン改善時は `scene3d.js` / `post.js` / `render.js` / `arena.js` と合わせて本ドキュメントを同期する）。
+
+## 品質の基準（HD-2D）
+
+- ドット絵のテクスチャ（1 texel = 1 art px、輪郭と陰影のはっきりした、色数をしぼった絵）を貼った立体が、奥行きを持って並ぶこと。のっぺりした単色の箱の集まりにしない。
+- 奥行きの層：フィールドのふち → 中景（観客席・建物・木立ち・岩）→ 遠景（山・塔・空・星）。カメラが動くと層ごとにずれて見えること。
+- 光：そのステージの光源（照明塔・ランプ・月・溶岩・水晶）を立体として置き、`glow` / `lamp` で光らせる（画面横断の光の筋・雲影は `post.js` の連続シェーダー `uRays` / `uSun` を使うとエッジが目立たず滑らか）。光が当たる面と影の面の色（`keyTint` / `shadowTint`）と長い指向性の落ち影（`castCol`）をはっきり分ける。
+- 動き：観客・旗・木・炎・星など、少しでも動くものを入れる。
+- 霞と色：遠くほど空気の色に溶ける。画面全体の色がそのステージらしい 1 つの調子にまとまること。
+- 画面のどこを切り取っても「何も無い平らな面」が広く映らないこと（特に奥と左右）。
+
+## 確認のしかた
+
+ゲームはローカルの http サーバー経由で開く（`ゲーム起動.command`）。スクリーンショットは Playwright で撮る。
+URL 例：`game/index.html?auto=charizard;blastoise&arena=<id>&mode=play&ff=4&seed=42`（`mode=watch` で観戦、`zoom=0.5` で引き、`flat=1` で平面表示、`pitch=38` でカメラを低く）。
+`window.CAM_OVERRIDE = { x, y }`（world 座標 = art px の 2 倍）でカメラの中心を固定できる。`Scene3D.stats()` で四角形の数とテクスチャ帳の大きさが出る。
+
+## 変更したファイル（エンジン側）
+
+- `game/js/scene3d.js` 新規。
+- `game/js/post.js`：`compose3d`（空の色 → 地面 `ground3`（`uSun` の木漏れ日・雲影を外周まで拡張）→ 奥の立体 → モンスター `spr3` → 技 `fx3` → 手前の立体）。続いて `FS.bokeh`（12サンプル Golden-Angle 円形ハイライト・ボケ）と `FS.final`（`sy < 0.24` 遠景 / `sy > 0.73` 近景、中央戦闘面と北側建築はシャープ）のチルトシフト被写界深度・ブルーム・色調を適用。
+- `game/js/render.js`：`P3`（3D で描いているか）、`anchor` / `sprT`（1 体ごとの板の位置と倍率）、`computeView`（カメラ）、`worldToScreen(x, y, z)` / `toWorld`（投影と逆投影）、`weather3`、`pitch3`（見下ろし角の演出）。
+- `game/js/arena.js`：`A.scene3d`。3D のステージは `paint` で地面を描き、平面の観客・電光掲示は描かない。
+- 3D にする直前の控えは取っていない（`?flat=1` で以前の平面表示の経路がそのまま動く）。それより前の `post.js` / `render.js` / `arena.js` は `../_backup_hd2d_field_20261116/`。

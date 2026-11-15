@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monster Arena HD-2D — Debug</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0d18; --panel: #141829; --panel2: #1b2036; --line: #2a3150; --text: #e7e9f5; --dim: #8a90ad;
+  --acc: #ffcb3d; --red: #ff4848; --blue: #3a8bff; --ok: #4fd18b;
+  --navy: #0a0f3a; --navy2: #121a5a; --white: #f4f4ff; --gold: #ffd54a; --muted: #9aa6d0;
+  --hp: #58d858; --hp2: #f8c830; --hp3: #f04848; --en: #58c8ff;
+  --jp: "DotGothic16", "Hiragino Maru Gothic ProN", "Hiragino Sans", monospace;
+  --px: "Press Start 2P", "DotGothic16", monospace;
+  --in-oklab: ; --es-font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+}
+@supports (background: linear-gradient(in oklab, white, black)) { :root { --in-oklab: in oklab; } }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; height: 100dvh; background: var(--bg); color: var(--text); font: 13px/1.4 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif; }
+img, canvas { image-rendering: pixelated; }
+.hidden { display: none !important; }
+button, select, input { font: inherit; color: inherit; }
+button { background: var(--panel2); border: 1px solid var(--line); border-radius: 6px; padding: 4px 9px; cursor: pointer; }
+button:hover { border-color: var(--dim); }
+button.on { background: var(--acc); color: #111; border-color: var(--acc); }
+select, input[type=search] { background: var(--panel2); border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; }
+label.ck { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap; }
+
+/* 初期状態はモンスター選択・技選択・スプライト確認を非表示にし、バトル画面をフル表示する */
+#app { display: grid; grid-template-columns: 0 minmax(0, 1fr) 0; grid-template-rows: minmax(0, 1fr) 0; height: 100vh; height: 100dvh; }
+#app.show-side { grid-template-columns: 270px minmax(0, 1fr) 0; }
+#app.show-moves { grid-template-columns: 0 minmax(0, 1fr) 320px; }
+#app.show-side.show-moves { grid-template-columns: 270px minmax(0, 1fr) 320px; }
+#app.show-dirs { grid-template-rows: minmax(0, 1fr) 30vh; }
+#app:not(.show-side) #side { display: none; }
+#app:not(.show-moves) #moves { display: none; }
+#app:not(.show-dirs) #dirs { display: none; }
+#side { grid-column: 1; grid-row: 1 / 3; display: flex; flex-direction: column; background: var(--panel); border-right: 1px solid var(--line); min-height: 0; }
+#side h1 { font-size: 13px; margin: 0; padding: 10px 12px 6px; letter-spacing: .08em; color: var(--acc); }
+#side .tools { display: grid; grid-template-columns: 1fr auto; gap: 6px; padding: 0 12px 6px; }
+#side .tools #q, #side .tools #form { grid-column: 1 / 3; width: 100%; }
+#count { padding: 0 12px 6px; color: var(--dim); font-size: 12px; }
+#list { list-style: none; margin: 0; padding: 0; overflow-y: auto; flex: 1; min-height: 0; }
+#list li { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 6px; padding: 2px 10px; cursor: pointer; border-bottom: 1px solid #ffffff08; }
+#list li:hover { background: #ffffff0c; }
+#list li.sel { background: #ffcb3d26; box-shadow: inset 3px 0 0 var(--acc); }
+#list img { width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; }
+#list .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#list .nm small { color: var(--dim); margin-left: 4px; }
+.tag { font-size: 10px; padding: 0 5px; border-radius: 8px; border: 1px solid var(--line); color: var(--dim); white-space: nowrap; }
+.tag.d8 { color: var(--ok); border-color: #4fd18b66; }
+
+#side.keys { box-shadow: inset 3px 0 0 var(--acc); }
+#view.keys { outline: 2px solid var(--acc); outline-offset: -2px; }
+#stage { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; background: #000; min-height: 0; min-width: 0; }
+#view { position: relative; flex: 1; min-height: 0; overflow: hidden; container-type: inline-size; container-name: view; }
+#view > canvas#screen, #view > canvas#overlay { position: absolute; left: 0; top: 0; display: block; image-rendering: pixelated; }
+#view > canvas#overlay { z-index: 2; }
+#info { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; padding: 4px 10px; background: var(--panel); border-top: 1px solid var(--line); font-size: 12px; }
+#info b { font-size: 15px; }
+#info .sub { color: var(--dim); font-size: 12px; }
+#bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 6px 8px; background: var(--panel); border-top: 1px solid var(--line); }
+#bar .grp { display: inline-flex; gap: 3px; align-items: center; }
+#bar #tr0, #bar #tr1 { max-width: 190px; }
+#bar .sep { width: 1px; align-self: stretch; background: var(--line); }
+#pad button { width: 30px; padding: 3px 0; }
+#notice { position: absolute; right: 12px; bottom: 12px; z-index: 22; max-width: 46%; padding: 6px 10px; font-size: 12px; background: #3a2a0acc; border: 1px solid #ffcb3d66; border-radius: 8px; color: #ffe39a; pointer-events: none; }
+#notice[hidden] { display: none; }
+
+#moves { grid-row: 1 / 3; grid-column: 3; background: var(--panel); border-left: 1px solid var(--line); overflow-y: auto; padding: 8px 10px 16px; min-height: 0; }
+#moves h2 { font-size: 12px; color: var(--dim); margin: 12px 0 6px; font-weight: 600; letter-spacing: .05em; }
+#moves h2:first-child { margin-top: 2px; }
+.mv { display: grid; grid-template-columns: 1fr auto; gap: 2px 6px; width: 100%; text-align: left; margin-bottom: 4px; padding: 5px 8px; }
+.mv .t { font-size: 10px; padding: 0 6px; border-radius: 8px; color: #fff; align-self: center; }
+.mv .meta { grid-column: 1 / 3; color: var(--dim); font-size: 11px; }
+.mv.playing { border-color: var(--acc); box-shadow: 0 0 0 1px var(--acc) inset; }
+#mvsearch { width: 100%; margin-bottom: 6px; }
+#moves .row { display: flex; gap: 6px; flex-wrap: wrap; }
+
+#dirs { grid-column: 2; height: 30vh; min-height: 0; display: flex; flex-direction: column; background: var(--panel); border-top: 1px solid var(--line); padding: 6px 10px 8px; overflow: hidden; }
+#dirs .head { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; flex-shrink: 0; margin-bottom: 4px; min-width: 0; }
+#dirs .head b { color: var(--acc); white-space: nowrap; flex-shrink: 0; }
+#dirs .head .src { color: var(--dim); font-size: 12px; white-space: nowrap; }
+#dirs .head #dsrc { min-width: 0; overflow: hidden; text-overflow: ellipsis; flex: 0 1 auto; }
+#dirs .head button, #dirs .head select, #dirs .head #dframe { flex-shrink: 0; }
+#dirs-body { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 6px; }
+/* 8方向・アクションスプライトは front.gif / front-reverse.gif / back.gif / back-reverse.gif の表示サイズ。向きで枠を変えない。×1/×2/×3 はシートのピクセル倍率。 */
+#strip { display: grid; grid-template-columns: repeat(8, max-content); justify-content: start; width: max-content; gap: 6px; flex-shrink: 0; }
+#official { display: flex; gap: 8px; flex-wrap: nowrap; width: max-content; margin-top: 0; flex-shrink: 0; }
+#official[hidden] { display: none; }
+#official figure { margin: 0; background: repeating-conic-gradient(#20253d 0 25%, #1a1e33 0 50%) 0 0 / 16px 16px; border: 1px solid var(--line); border-radius: 6px; padding: 6px 6px 4px; flex-shrink: 0; }
+#official img, #official .noimg { margin-left: auto; margin-right: auto; }
+#official img { image-rendering: pixelated; display: block; height: auto; }
+.noimg { display: flex; align-items: center; justify-content: center; width: 96px; height: 96px; box-sizing: border-box; border: 1px dashed var(--line); border-radius: 4px; color: var(--dim); font-size: 11px; letter-spacing: .04em; background: rgba(0,0,0,.18); }
+.cell .noimg { margin-bottom: 18px; }
+#official figcaption { font-size: 11px; color: var(--dim); text-align: center; margin-top: 4px; }
+/* [USER-LOCKED LAYOUT] 待機・歩き・攻撃・ダメージ（および 攻撃1・攻撃2 等の追加アクション）は縦並び・3段折り返しを禁止。常に1行横並びとし、下の #official 行と合わせて2段表示・枠高さ 30vh 固定にする。 */
+#strip.acts { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: max-content; justify-content: start; width: max-content; }
+#strip.acts .cell { height: auto; width: max-content; overflow: visible; flex-direction: column; align-items: center; justify-content: flex-start; background: transparent; border: none; }
+#strip.acts .cell canvas { margin-bottom: 2px; background: repeating-conic-gradient(#20253d 0 25%, #1a1e33 0 50%) 0 0 / 16px 16px; border: 1px solid var(--line); border-radius: 6px; }
+#strip.acts .cell .lb { position: static; width: max-content; gap: 8px; background: transparent; padding: 0; }
+#strip.acts .play { cursor: default; }
+.cell { background: repeating-conic-gradient(#20253d 0 25%, #1a1e33 0 50%) 0 0 / 16px 16px; border: 1px solid var(--line); border-radius: 6px; width: max-content; height: auto; position: relative; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; cursor: pointer; }
+#strip:not(.acts) .cell { min-width: 56px; }
+.cell.cur { border-color: var(--acc); }
+.cell canvas, .cell img { image-rendering: pixelated; display: block; margin-bottom: 18px; }
+.cell .lb { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; gap: 4px; white-space: nowrap; padding: 1px 5px; font-size: 11px; background: #0b0d18cc; }
+.cell .lb i { font-style: normal; color: var(--dim); }
+.cell .ap { position: absolute; right: 4px; top: 3px; font-size: 10px; color: #ffb36b; }
+
+@media (max-width: 1100px) {
+  #app { grid-template-columns: 0 minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) 0 0; height: 100vh; height: 100dvh; }
+  #app.show-side { grid-template-columns: 220px minmax(0, 1fr); }
+  #app.show-dirs:not(.show-moves) { grid-template-rows: minmax(0, 1fr) 30vh 0; }
+  #app.show-moves:not(.show-dirs) { grid-template-rows: minmax(52vh, 1fr) 0 auto; height: auto; min-height: 100vh; }
+  #app.show-dirs.show-moves { grid-template-rows: 52vh 30vh auto; height: auto; min-height: 100vh; }
+  #side { grid-row: 1 / 4; }
+  #dirs { grid-column: 2; grid-row: 2; }
+  #moves { grid-row: 3; grid-column: 2; border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 700px) {
+  #app { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr) auto auto; height: 100vh; height: 100dvh; }
+  #app.show-side, #app.show-moves, #app.show-dirs { grid-template-columns: 1fr; }
+  #app.show-side:not(.show-dirs):not(.show-moves) { grid-template-rows: 40vh minmax(0, 1fr) 0 0; }
+  #app.show-dirs:not(.show-side) { grid-template-rows: auto minmax(45vh, 1fr) 30vh auto; height: auto; min-height: 100vh; }
+  #app.show-side.show-dirs { grid-template-rows: 40vh 45vh 30vh auto; height: auto; min-height: 100vh; }
+  #app.show-side.show-moves:not(.show-dirs) { grid-template-rows: 40vh 45vh 0 auto; height: auto; min-height: 100vh; }
+  #app.show-moves:not(.show-side):not(.show-dirs) { grid-template-rows: 0 minmax(55vh, 1fr) 0 auto; height: auto; min-height: 100vh; }
+  #side { grid-column: 1; grid-row: 1; }
+  #stage { grid-column: 1; grid-row: 2; } #dirs { grid-column: 1; grid-row: 3; } #moves { grid-column: 1; grid-row: 4; }
+  #strip { grid-template-columns: repeat(8, max-content); }
+}
+
+/* ---- Battle HUD (scoped inside #view to mirror game/index.html) ---- */
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes shakeP { 25% { transform: translate(-4px, 2px); } 50% { transform: translate(4px, -2px); } 75% { transform: translate(-2px, 0); } }
+@keyframes pop { to { opacity: 1; transform: scale(1); } }
+@keyframes abilIn { 0% { opacity: 1; transform: translateX(-60%); } 4% { transform: translateX(-20%); } 8% { transform: none; } 85% { opacity: 1; transform: none; } 100% { opacity: 0; transform: none; } }
+@keyframes abilInR { 0% { opacity: 1; transform: translateX(60%); } 4% { transform: translateX(20%); } 8% { transform: none; } 85% { opacity: 1; transform: none; } 100% { opacity: 0; transform: none; } }
+@keyframes bannerIn { 0% { opacity: 0; transform: scale(2); } 20% { opacity: 1; transform: scale(1); } 80% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes bannerHold { 0% { opacity: 0; transform: scale(1.6); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes koIn { 0% { opacity: 0; transform: scale(3) rotate(-8deg); } 15% { opacity: 1; transform: scale(1) rotate(-3deg); } 85% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes vsIn { 0% { clip-path: inset(0 50%); } 12% { clip-path: inset(0); } 88% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes clashPulse { from { transform: scale(.96); } to { transform: scale(1.06); } }
+@keyframes esLowPulse { from { filter: brightness(.92); } to { filter: brightness(1.28); } }
+@keyframes esComboPop { to { opacity: 1; transform: skewX(-10deg) scale(1); } }
+@keyframes koCutFade { 0%, 76% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes koBackPop { 0% { opacity: 0; transform: scale(1.18); } 25% { opacity: 1; transform: scale(1); } 100% { opacity: 0; } }
+@keyframes koSlashIn { 0% { transform: rotate(-5deg) scaleY(0); } 65% { transform: rotate(-5deg) scaleY(1.06); } 100% { transform: rotate(-5deg) scaleY(1); } }
+@keyframes koMainSlam { 0% { opacity: 0; transform: scale(2.35) translateX(-24px); } 60% { opacity: 1; transform: scale(.95); } 100% { opacity: 1; transform: scale(1); } }
+
+#hud { position: absolute; inset: 0; z-index: 10; pointer-events: none; font-family: var(--jp); color: var(--white); -webkit-user-select: none; user-select: none; }
+#hud .dqwin { background: linear-gradient(180deg, rgba(14, 20, 78, .95), rgba(6, 9, 40, .95)); border: 3px solid var(--white); border-radius: 8px; box-shadow: 0 0 0 3px #000, inset 0 0 0 2px #000, inset 0 0 0 4px rgba(255,255,255,.22), 0 12px 30px rgba(0,0,0,.6); color: var(--white); text-shadow: 2px 2px 0 #000; }
+#hud .panel { position: absolute; top: 10px; width: min(440px, calc(50% - 112px)); display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 4px 10px; padding: 8px 10px; background: linear-gradient(180deg, rgba(14,20,78,.92), rgba(6,9,40,.92)); border: 3px solid #fff; border-radius: 8px; box-shadow: 0 0 0 3px #000, inset 0 0 0 2px #000; text-shadow: 2px 2px 0 #000; }
+#hud .panel.left { left: 10px; }
+#hud .panel.right { right: 10px; grid-template-columns: minmax(0, 1fr) 70px; }
+#hud .panel.right .portrait { grid-column: 2; grid-row: 1; }
+#hud .panel.right .info { grid-column: 1; grid-row: 1; text-align: right; }
+#hud .panel .info { min-width: 0; }
+#hud .panel.right .team { grid-column: 1 / 3; justify-content: flex-end; }
+#hud .panel.left .team { grid-column: 1 / 3; }
+#hud .panel.hit { animation: shakeP .25s; }
+#hud .portrait { width: 70px; height: 70px; border: 3px solid #fff; border-radius: 6px; background: linear-gradient(160deg, #2a3a9a, #0a0f3a); box-shadow: 0 0 0 2px #000; overflow: hidden; }
+#hud .portrait canvas { width: 64px; height: 64px; display: block; }
+#hud .left .portrait { border-color: #ff9aa8; }
+#hud .right .portrait { border-color: #8ab4ff; }
+#hud .info .row1 { display: flex; align-items: center; gap: 6px; min-height: 22px; }
+#hud .right .info .row1 { justify-content: flex-end; }
+#hud .info .name { font-size: 19px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#hud .types { display: inline-flex; gap: 3px; }
+#hud .badge { display: inline-block; padding: 2px 5px 1px; border: 2px solid #000; border-radius: 4px; font-size: 10px; color: #fff; text-shadow: 1px 1px 0 #000; line-height: 1.1; white-space: nowrap; }
+#hud .info .status { font-size: 11px; padding: 1px 4px; border-radius: 3px; color: #111; text-shadow: none; }
+#hud .hpbar { position: relative; height: 14px; margin-top: 4px; border: 2px solid #fff; background: #1a1a2a; box-shadow: 0 0 0 2px #000; }
+#hud .hpbar i { position: absolute; left: 0; top: 0; bottom: 0; }
+#hud .right .hpbar i { left: auto; right: 0; }
+#hud .hpbar .ghost { background: #ff7a7a; transition: width .7s steps(14) .25s; }
+#hud .hpbar .fill { background: linear-gradient(180deg, #a6ff8a 0 30%, var(--hp) 30% 75%, #2a9a2a 75%); transition: width .2s steps(6); }
+#hud .hpbar::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 calc(10% - 2px), #000 calc(10% - 2px) 10%); }
+#hud .hpbar.mid .fill { background: linear-gradient(180deg, #ffe680 0 30%, var(--hp2) 30% 75%, #b88400 75%); }
+#hud .hpbar.low .fill { background: linear-gradient(180deg, #ff9a9a 0 30%, var(--hp3) 30% 75%, #9a1a1a 75%); animation: blink .5s steps(1) infinite; }
+#hud .info .row2 { display: flex; gap: 8px; align-items: center; margin-top: 4px; font: 10px var(--px); }
+#hud .right .info .row2 { justify-content: flex-end; }
+#hud .info .low { display: none; color: #ff6a6a; font: 8px var(--px); animation: blink .5s steps(1) infinite; }
+#hud .panel.lowhp .low { display: inline; }
+#hud .enbar { position: relative; height: 6px; margin-top: 4px; border: 2px solid #fff; background: #0a1a2a; box-shadow: 0 0 0 1px #000; }
+#hud .enbar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--en); transition: width .1s linear; }
+#hud .right .enbar .fill { left: auto; right: 0; }
+#hud .team { display: flex; gap: 4px; }
+#hud .team .ball { position: relative; width: 26px; height: 26px; border-radius: 50%; border: 2px solid #000; background: linear-gradient(180deg, #e33 0 45%, #000 45% 55%, #fff 55%); overflow: hidden; }
+#hud .team .ball canvas { display: none; width: 22px; height: 22px; background: #1a2a6a; border-radius: 50%; }
+#hud .team .ball.seen canvas { display: block; }
+#hud .team .ball.active { box-shadow: 0 0 0 2px var(--gold); transform: scale(1.15); }
+#hud .team .ball.ko { filter: grayscale(1) brightness(.5); }
+#hud .team .ball.ko::after { content: "×"; position: absolute; inset: 0; color: #ff4a4a; font: 16px/22px var(--px); text-align: center; }
+#hud .callout { position: absolute; top: calc(100% + 8px); padding: 4px 10px; border: 2px solid #000; border-radius: 6px; background: #fff; color: #111; font-size: 14px; text-shadow: none; box-shadow: 3px 3px 0 #000; opacity: 0; transform: scale(.7); border-left: 6px solid var(--tc, #888); }
+#hud .left .callout { left: 10px; }
+#hud .right .callout { right: 10px; border-left: 2px solid #000; border-right: 6px solid var(--tc, #888); }
+#hud .callout.on { animation: pop .25s steps(3) forwards; }
+#hud .combo { position: absolute; top: calc(100% + 42px); font: 12px var(--px); color: var(--gold); text-shadow: 2px 2px 0 #000; opacity: 0; }
+#hud .combo b { font-size: 20px; }
+#hud .left .combo { left: 12px; }
+#hud .right .combo { right: 12px; }
+#hud .combo.on { animation: pop .2s steps(2) forwards; }
+#hud .abil { position: absolute; top: calc(100% + 72px); padding: 3px 14px 4px; background: linear-gradient(#26206a, #120e3c); border: 2px solid #fff; outline: 2px solid #000; color: #fff; font-size: 15px; white-space: nowrap; opacity: 0; pointer-events: none; box-shadow: inset 0 -3px 0 var(--tc, #888); }
+#hud .abil small { display: block; font-size: 10px; color: #c8c8ff; }
+#hud .left .abil { left: 0; transform: translateX(-110%); }
+#hud .right .abil { right: 0; transform: translateX(110%); }
+#hud .abil.on { animation: abilIn 1.9s steps(1, end) forwards; }
+#hud .right .abil.on { animation-name: abilInR; }
+#hud .info .entag { display: none; }
+#hud .combo .cmv, #hud .combo small { display: none; }
+
+#hud .center { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); text-align: center; z-index: 2; max-width: 196px; }
+#timer { display: inline-block; padding: 8px 16px 6px; font: 22px var(--px); background: linear-gradient(180deg, rgba(14,20,78,.95), rgba(6,9,40,.95)); border: 3px solid #fff; border-radius: 6px; box-shadow: 0 0 0 3px #000; text-shadow: 3px 3px 0 #000; }
+#timer.hurry { color: #ff6a6a; }
+#league { margin-top: 8px; font: 8px var(--px); color: #fff; text-shadow: 2px 2px 0 #000; letter-spacing: .1em; max-width: 190px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#weather-tag { display: inline-block; margin-top: 6px; font-size: 13px; padding: 3px 10px; border: 2px solid #fff; border-radius: 4px; background: rgba(90,60,10,.85); box-shadow: 0 0 0 2px #000; }
+#hud-skin-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 26px; min-width: 26px; margin: 5px auto 0; padding: 4px 10px; pointer-events: auto; cursor: pointer; font: 700 10px/1.2 var(--es-font); letter-spacing: .06em; color: #dbe6ff; background: rgba(10, 16, 38, .82); border: 1px solid rgba(255, 255, 255, .28); border-radius: 999px; text-shadow: 0 1px 2px #000; box-shadow: 0 2px 8px rgba(0, 0, 0, .45); }
+#hud-skin-btn:hover { border-color: var(--gold); color: #fff; }
+#cam-zoom { display: flex; justify-content: center; gap: 4px; margin: 5px auto 0; pointer-events: auto; }
+#cam-zoom button { position: relative; min-height: 26px; min-width: 30px; padding: 4px 8px; cursor: pointer; font: 700 10px/1.2 var(--es-font); letter-spacing: .04em; color: #dbe6ff; font-variant-numeric: tabular-nums; background: rgba(10, 16, 38, .82); border: 1px solid rgba(255, 255, 255, .28); border-radius: 999px; text-shadow: 0 1px 2px #000; box-shadow: 0 2px 8px rgba(0, 0, 0, .45); }
+#cam-zoom #cam-zoom-val { min-width: 48px; }
+#cam-zoom button:hover { border-color: var(--gold); color: #fff; }
+#clash-tag { margin-top: 6px; padding: 4px 14px; display: inline-block; font: 900 13px/1.1 var(--es-font); letter-spacing: .08em; color: #fff; background: linear-gradient(90deg var(--in-oklab), #ff3358, #ff9a1f 52%, #29b6ff); border: 2px solid #fff; border-radius: 999px; box-shadow: 0 0 18px rgba(255, 190, 60, .85), 0 3px 10px rgba(0, 0, 0, .65); text-shadow: 0 2px 4px rgba(0, 0, 0, .85); animation: clashPulse .42s ease-in-out infinite alternate; }
+
+#skills { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; gap: 8px; align-items: flex-end; pointer-events: none; }
+#skills .card, #skills .util { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(14,20,78,.95), rgba(6,9,40,.95)); border: 3px solid #fff; border-radius: 6px; box-shadow: 0 0 0 3px #000; text-shadow: 2px 2px 0 #000; }
+#skills .card { width: 148px; min-width: 0; height: 62px; padding: 6px 8px; text-align: left; border-top: 6px solid var(--tc, #888); pointer-events: auto; cursor: pointer; }
+#skills .card:hover { filter: brightness(1.12); }
+#skills .card .key, #skills .util b { position: absolute; right: 5px; top: 4px; font: 8px var(--px); color: var(--gold); }
+#skills .card .jp { display: block; font-size: 16px; white-space: nowrap; overflow: hidden; padding-right: 16px; }
+#skills .card .meta { display: flex; gap: 6px; align-items: center; margin-top: 4px; font: 8px var(--px); }
+#skills .card .meta b { color: var(--en); font-weight: normal; }
+#skills .card .meta em { color: #ffb27a; font-style: normal; }
+#skills .cd { position: absolute; inset: 0; z-index: 2; background: conic-gradient(rgba(0,0,0,.7) calc(var(--p, 0) * 1%), transparent 0); display: flex; align-items: center; justify-content: center; font: 16px var(--px); color: #fff; pointer-events: none; }
+#skills .card.noen { opacity: .55; }
+#skills .card.cast { transform: translateY(-6px); box-shadow: 0 0 0 3px #000, 0 0 16px var(--tc); }
+#skills .card.fail { animation: shakeP .3s; }
+#skills .util { width: 64px; height: 52px; padding-top: 22px; text-align: center; font-size: 13px; pointer-events: auto; cursor: pointer; }
+#skills .util.off { opacity: .35; pointer-events: none; }
+#skills .util.pulse { border-color: #ff9bf0; animation: blink .6s steps(1) infinite; }
+
+#skills-foe { display: none; position: absolute; bottom: 14px; pointer-events: none; }
+#hud.duo #skills { transform: none; }
+#hud.duo.pilot0 #skills { left: 14px; }
+#hud.duo.pilot1 #skills { left: auto; right: 14px; }
+#hud.duo #skills .card { width: 118px; }
+#hud.duo #skills-foe { display: block; }
+#hud.pilot0 #skills-foe { right: 14px; }
+#hud.pilot1 #skills-foe { left: 14px; }
+#skills-foe .fhead { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin: 0 2px 4px; font: 8px var(--px); color: #cfd6f0; text-shadow: 2px 2px 0 #000; }
+#skills-foe .fhead .who { color: var(--fc, #fff); }
+#skills-foe .frow { display: flex; gap: 6px; }
+#skills-foe .fcard { position: relative; overflow: hidden; width: 96px; height: 46px; padding: 4px 6px; background: linear-gradient(180deg, rgba(40,14,30,.9), rgba(16,6,20,.9)); border: 3px solid #d8d8e8; border-top: 5px solid var(--tc, #888); border-radius: 6px; box-shadow: 0 0 0 3px #000; text-shadow: 2px 2px 0 #000; opacity: .9; }
+#skills-foe .fcard .jp { display: block; font-size: 13px; white-space: nowrap; overflow: hidden; }
+#skills-foe .fcard .meta { display: flex; gap: 4px; align-items: center; margin-top: 3px; font: 7px var(--px); }
+#skills-foe .fcard .meta b { color: var(--en); font-weight: normal; }
+#skills-foe .cd { position: absolute; inset: 0; z-index: 2; background: conic-gradient(rgba(0,0,0,.7) calc(var(--p, 0) * 1%), transparent 0); display: flex; align-items: center; justify-content: center; font: 12px var(--px); color: #fff; }
+#skills-foe .fcard.noen { opacity: .5; }
+#skills-foe .fcard.cast { transform: translateY(-5px); opacity: 1; box-shadow: 0 0 0 3px #000, 0 0 14px var(--tc); }
+
+#msg { position: absolute; left: 50%; bottom: 92px; transform: translateX(-50%); width: min(720px, 92%); min-height: 64px; padding: 14px 22px; font-size: 22px; line-height: 1.5; }
+#msg p { margin: 0; }
+#msg .caret { position: absolute; right: 16px; bottom: 8px; border: 7px solid transparent; border-top: 9px solid #fff; animation: blink .6s steps(1) infinite; }
+#banner { position: absolute; left: 0; right: 0; top: 32%; text-align: center; font: 76px var(--px); color: #fff; text-shadow: 6px 6px 0 #000, -2px -2px 0 #000; opacity: 0; pointer-events: none; }
+#banner small { display: block; font-size: 22px; margin-top: 14px; color: var(--gold); }
+#banner.show { animation: bannerIn .9s steps(10) forwards; }
+#banner.num { font-size: 110px; }
+#banner.go { color: var(--gold); text-shadow: 6px 6px 0 #7a3a00, -2px -2px 0 #000; }
+#banner.ko { color: #ff3a4a; font-size: 96px; text-shadow: 6px 6px 0 #4a0010, -2px -2px 0 #000; animation: koIn 1.3s steps(12) forwards; }
+#banner.long { font-size: 40px; }
+#banner.win { font-size: 46px; animation: bannerHold .6s steps(6) forwards; }
+#banner.win small { order: -1; font-size: 26px; margin: 0 0 16px; }
+
+#vs { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); padding: 14px 0 18px; background: linear-gradient(90deg, transparent, rgba(4,6,30,.92) 15%, rgba(4,6,30,.92) 85%, transparent); border-top: 3px solid #fff; border-bottom: 3px solid #fff; box-shadow: 0 0 0 3px #000; animation: vsIn 2.5s steps(20) forwards; text-shadow: 3px 3px 0 #000; }
+#vs .lg { text-align: center; font: 10px var(--px); color: var(--gold); letter-spacing: .2em; }
+#vs .row { display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 10px; }
+#vs .side { display: flex; flex-direction: column; align-items: center; width: 260px; }
+#vs .side canvas { width: 120px; height: 120px; border: 3px solid #fff; border-radius: 8px; box-shadow: 0 0 0 3px #000; background: linear-gradient(160deg, #9a2a3a, #3a0a0f); }
+#vs .side.b canvas { background: linear-gradient(160deg, #2a3a9a, #0a0f3a); }
+#vs .nm { font: 16px var(--px); margin-top: 12px; }
+#vs .jp { font-size: 15px; margin-top: 4px; color: #cfe0ff; }
+#vs .ty { margin-top: 6px; }
+#vs .mid { font: 54px var(--px); color: var(--gold); text-shadow: 5px 5px 0 #7a3a00, -2px -2px 0 #000; }
+
+/* eSports Broadcast Skin (#hud.esports) */
+#hud.esports { font-family: var(--es-font); -webkit-font-smoothing: antialiased; }
+#hud.esports .panel { top: 12px; width: min(460px, calc(50% - 112px)); grid-template-columns: 74px minmax(0, 1fr); gap: 6px 12px; padding: 10px 16px 10px 12px; background: none; border: 0; border-radius: 0; box-shadow: none; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); isolation: isolate; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .62)); }
+#hud.esports .panel.right { grid-template-columns: minmax(0, 1fr) 74px; padding: 10px 12px 10px 16px; }
+#hud.esports .panel::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(135deg var(--in-oklab), rgba(10, 15, 32, .93), rgba(18, 26, 52, .86)); border-top: 2px solid rgba(255, 255, 255, .22); border-bottom: 2px solid rgba(255, 92, 112, .72); border-left: 5px solid #ff4b66; clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%); }
+#hud.esports .panel.right::before { border-left: 0; border-right: 5px solid #3da5ff; border-bottom-color: rgba(61, 165, 255, .75); clip-path: polygon(0 0, 100% 0, 100% 100%, 16px 100%); }
+#hud.esports .portrait { width: 72px; height: 72px; border: 2px solid rgba(255, 255, 255, .78); border-radius: 10px; background: radial-gradient(circle at 50% 35%, #3b1d36, #0d1226 78%); box-shadow: inset 0 0 12px rgba(255, 90, 120, .35), 0 3px 10px rgba(0, 0, 0, .55); }
+#hud.esports .right .portrait { background: radial-gradient(circle at 50% 35%, #19345e, #0d1226 78%); box-shadow: inset 0 0 12px rgba(70, 165, 255, .38), 0 3px 10px rgba(0, 0, 0, .55); }
+#hud.esports .portrait canvas { width: 68px; height: 68px; }
+#hud.esports .info .name { font: 900 20px/1.15 var(--es-font); letter-spacing: .02em; color: #fff; }
+#hud.esports .badge { border: 1px solid rgba(255, 255, 255, .35); border-radius: 4px; padding: 2px 6px; font: 800 10px/1.1 var(--es-font); letter-spacing: .04em; text-shadow: 0 1px 2px rgba(0, 0, 0, .75); }
+#hud.esports .hpbar { height: 16px; margin-top: 5px; border: 1px solid rgba(255, 255, 255, .55); box-shadow: inset 0 2px 5px rgba(0, 0, 0, .75); background: rgba(6, 10, 22, .9); transform: skewX(-16deg); overflow: hidden; border-radius: 3px; }
+#hud.esports .right .hpbar { transform: skewX(16deg); }
+#hud.esports .hpbar .ghost { background: linear-gradient(90deg var(--in-oklab), #ff5268, #ffb199); transition: width .55s cubic-bezier(.22, 1, .36, 1) .14s; }
+#hud.esports .hpbar .fill { background: linear-gradient(90deg var(--in-oklab), #19d96b, #7dff9b 65%, #caffd0); box-shadow: 0 0 10px rgba(60, 255, 130, .45); transition: width .16s cubic-bezier(.2, .9, .3, 1); }
+#hud.esports .hpbar.mid .fill { background: linear-gradient(90deg var(--in-oklab), #f59e0b, #ffd54a 70%, #fff0a6); }
+#hud.esports .hpbar.low .fill { background: linear-gradient(90deg var(--in-oklab), #dc2626, #ff5f6d 70%, #ffc2c7); animation: esLowPulse .45s ease-in-out infinite alternate; }
+#hud.esports .hpbar::after { background: repeating-linear-gradient(90deg, transparent 0 calc(20% - 1px), rgba(0, 0, 0, .42) calc(20% - 1px) 20%); }
+#hud.esports .info .row2 { margin-top: 4px; justify-content: space-between; font: 800 11px/1 var(--px); color: #e8f0ff; }
+#hud.esports .right .info .row2 { flex-direction: row-reverse; }
+#hud.esports .info .entag { display: inline-block; font: 800 9px/1 var(--es-font); letter-spacing: .14em; color: #67d4ff; }
+#hud.esports .enbar { height: 7px; margin-top: 3px; border: 1px solid rgba(120, 210, 255, .48); box-shadow: none; background: rgba(6, 14, 30, .9); transform: skewX(-16deg); overflow: hidden; border-radius: 2px; }
+#hud.esports .right .enbar { transform: skewX(16deg); }
+#hud.esports .enbar .fill { background: linear-gradient(90deg var(--in-oklab), #0ea5e9, #38bdf8 60%, #bae6fd); box-shadow: 0 0 8px rgba(56, 189, 248, .65); }
+#hud.esports .team { gap: 6px; margin-top: 2px; }
+#hud.esports .team .ball { width: 28px; height: 28px; border: 2px solid rgba(255, 255, 255, .42); background: radial-gradient(circle at 35% 30%, #3a466e, #12182e 75%); box-shadow: 0 2px 6px rgba(0, 0, 0, .55); transition: transform .15s ease, border-color .15s ease; }
+#hud.esports .team .ball canvas { width: 24px; height: 24px; background: radial-gradient(circle, #22356e, #0c1328); }
+#hud.esports .team .ball.active { border-color: #ffd84a; box-shadow: 0 0 0 2px rgba(255, 216, 74, .45), 0 0 12px rgba(255, 216, 74, .65); transform: scale(1.16); }
+#hud.esports .callout { top: calc(100% + 8px); padding: 5px 14px; border: 0; border-left: 5px solid var(--tc, #ffcb05); border-radius: 4px; background: rgba(10, 15, 32, .94); color: #fff; font: 800 14px/1.2 var(--es-font); letter-spacing: .03em; box-shadow: 0 6px 16px rgba(0, 0, 0, .55); }
+#hud.esports .right .callout { border-left: 0; border-right: 5px solid var(--tc, #ffcb05); }
+#hud.esports .combo { top: calc(100% + 44px); display: inline-flex; align-items: baseline; gap: 6px; padding: 4px 12px; white-space: nowrap; background: linear-gradient(120deg var(--in-oklab), rgba(255, 168, 0, .95), rgba(255, 62, 88, .92)); border: 2px solid #fff; border-radius: 6px; transform: skewX(-10deg) scale(.75); box-shadow: 0 6px 18px rgba(0, 0, 0, .6); color: #fff; text-shadow: 0 2px 0 rgba(0, 0, 0, .65); }
+#hud.esports .combo.on { animation: esComboPop .22s cubic-bezier(.2, 1.3, .4, 1) forwards; }
+#hud.esports .combo .cmv { display: inline; font: italic 900 16px/1 var(--es-font); letter-spacing: .02em; }
+#hud.esports .combo b { font: 900 22px/1 var(--px); color: #fff799; }
+#hud.esports .combo small { display: inline; font: 700 11px/1 var(--es-font); color: rgba(255, 255, 255, .92); margin-left: 2px; }
+#hud.esports #timer { padding: 7px 20px 6px; font: 900 22px/1 var(--px); letter-spacing: .05em; background: linear-gradient(180deg var(--in-oklab), rgba(12, 18, 40, .95), rgba(6, 10, 24, .95)); border: 2px solid rgba(255, 255, 255, .45); border-top: 3px solid #ffd84a; border-radius: 0 0 12px 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, .6); }
+#hud.esports #league { margin-top: 5px; font: 800 10px/1.2 var(--es-font); letter-spacing: .12em; color: #cbd8ff; text-transform: uppercase; text-shadow: 0 1px 3px #000; max-width: 190px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#hud.esports #skills .card, #hud.esports #skills .util, #hud.esports #skills-foe .fcard { background: linear-gradient(180deg var(--in-oklab), rgba(14, 21, 44, .94), rgba(7, 11, 26, .96)); border: 1px solid rgba(255, 255, 255, .28); border-top: 4px solid var(--tc, #64748b); border-radius: 8px; box-shadow: 0 6px 16px rgba(0, 0, 0, .55); font-family: var(--es-font); text-shadow: 0 1px 2px #000; }
+#hud.esports #skills .card .jp, #hud.esports #skills-foe .fcard .jp { font-weight: 800; }
+#hud.esports #skills .cd:not(:empty), #hud.esports #skills-foe .cd:not(:empty) { background: conic-gradient(rgba(4, 8, 22, .84) calc(var(--p, 0) * 1%), rgba(4, 8, 22, .56) 0); color: #ffe885; text-shadow: 0 2px 6px #000, 0 0 3px #000; }
+#hud.esports #skills .card.ready { border-color: rgba(255, 255, 255, .52); border-top-color: var(--tc, #ffd84a); }
+#hud.esports #msg { background: linear-gradient(180deg var(--in-oklab), rgba(10, 16, 36, .9), rgba(6, 10, 24, .94)); border: 1px solid rgba(255, 255, 255, .24); border-left: 4px solid #ffd84a; border-radius: 10px; box-shadow: 0 10px 28px rgba(0, 0, 0, .6); font: 700 18px/1.45 var(--es-font); text-shadow: 0 1px 2px #000; min-height: 52px; padding: 10px 20px; }
+
+#ko-cutin { position: absolute; inset: 0; z-index: 16; pointer-events: none; opacity: 0; display: grid; place-items: center; overflow: hidden; contain: layout style paint; }
+#ko-cutin .ko-backdrop { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(255, 36, 72, .34), rgba(6, 8, 20, .0) 68%); opacity: 0; }
+#ko-cutin .ko-slash { position: relative; width: 120%; padding: 18px 0 22px; text-align: center; background: linear-gradient(90deg var(--in-oklab), transparent 4%, rgba(12, 8, 22, .94) 22%, rgba(44, 8, 24, .96) 50%, rgba(12, 8, 22, .94) 78%, transparent 96%); border-top: 4px solid #ffd84a; border-bottom: 4px solid #ff2e54; transform: rotate(-5deg) scaleY(0); box-shadow: 0 0 50px rgba(255, 34, 76, .65); }
+#ko-cutin.finish .ko-slash { border-top-width: 6px; border-bottom-width: 6px; background: linear-gradient(90deg var(--in-oklab), transparent 2%, rgba(24, 8, 30, .97) 18%, rgba(92, 10, 32, .98) 50%, rgba(24, 8, 30, .97) 82%, transparent 98%); }
+#ko-cutin .ko-kicker { display: block; font: italic 900 20px/1 var(--es-font); letter-spacing: .32em; color: #ffd84a; text-shadow: 0 2px 8px rgba(0, 0, 0, .9); }
+#ko-cutin .ko-main { font: italic 900 clamp(60px, 12cqw, 148px)/0.92 "Hiragino Sans", "Impact", system-ui, sans-serif; letter-spacing: .04em; margin-top: 2px; background: linear-gradient(180deg var(--in-oklab), #ffffff 0%, #ffe46b 38%, #ff4b2b 78%, #b80028 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-stroke: 4px #140612; filter: drop-shadow(0 8px 0 #2a0412) drop-shadow(0 0 28px rgba(255, 64, 92, .85)); }
+#ko-cutin .ko-sub { margin-top: 8px; font: 900 18px/1.2 var(--es-font); letter-spacing: .12em; color: #fff; text-shadow: 0 2px 6px #000; }
+#ko-cutin.show { opacity: 1; animation: koCutFade 1.3s ease-out forwards; }
+#ko-cutin.show.finish { animation-duration: 1.65s; }
+#ko-cutin.show .ko-backdrop { animation: koBackPop .55s ease-out forwards; }
+#ko-cutin.show .ko-slash { animation: koSlashIn .34s cubic-bezier(.16, 1.25, .3, 1) forwards; }
+#ko-cutin.show .ko-main { animation: koMainSlam .38s cubic-bezier(.14, 1.35, .32, 1) forwards; }
+
+@container view (max-width: 1000px) {
+  #hud .center { max-width: 148px; }
+  #hud .panel, #hud.esports .panel { width: calc(50% - 88px); padding: 8px 10px; gap: 4px 8px; grid-template-columns: 52px minmax(0, 1fr); }
+  #hud .panel.right, #hud.esports .panel.right { grid-template-columns: minmax(0, 1fr) 52px; padding: 8px 10px; }
+  #hud .portrait, #hud.esports .portrait { width: 52px; height: 52px; }
+  #hud .portrait canvas, #hud.esports .portrait canvas { width: 48px; height: 48px; }
+  #hud .info .name, #hud.esports .info .name { font-size: 16px; }
+  #timer, #hud.esports #timer { padding: 5px 12px 4px; font-size: 16px; }
+  #league, #hud.esports #league { max-width: 144px; font-size: 8px; }
+  #skills .card, #hud.duo #skills .card { width: 106px; }
+}
+@container view (max-width: 920px) {
+  #hud #skills, #hud.duo #skills, #hud.duo.pilot0 #skills, #hud.duo.pilot1 #skills { left: 50%; right: auto; transform: translateX(-50%); bottom: 6px; gap: 4px; max-width: calc(100% - 12px); }
+  #hud #skills-foe, #hud.duo #skills-foe, #hud.pilot0 #skills-foe, #hud.pilot1 #skills-foe { display: none; }
+  #hud #skills .card, #hud.duo #skills .card { width: 102px; height: 48px; padding: 4px 5px; }
+  #hud #skills .card .jp, #hud.duo #skills .card .jp { font-size: 13px; padding-right: 12px; }
+  #hud #skills .card .meta, #hud.duo #skills .card .meta { margin-top: 2px; font-size: 7px; gap: 3px; }
+  #hud #skills .util, #hud.duo #skills .util { width: 46px; height: 42px; padding-top: 16px; font-size: 11px; }
+  #hud #msg, #hud.duo #msg, #hud.esports #msg, #hud.esports.duo #msg { bottom: 58px; min-height: 30px; padding: 5px 12px; font-size: 13px; width: min(560px, 88%); }
+}
+@container view (max-width: 640px) {
+  #hud .center { max-width: 96px; top: 6px; }
+  #hud .panel, #hud.esports .panel { top: 6px; width: calc(50% - 54px); padding: 5px 6px; gap: 3px 5px; grid-template-columns: 34px minmax(0, 1fr); }
+  #hud .panel.right, #hud.esports .panel.right { grid-template-columns: minmax(0, 1fr) 34px; padding: 5px 6px; }
+  #hud .portrait, #hud.esports .portrait { width: 34px; height: 34px; border-radius: 6px; }
+  #hud .portrait canvas, #hud.esports .portrait canvas { width: 30px; height: 30px; }
+  #hud .info .types, #hud .info .entag, #hud .info .low, #league { display: none !important; }
+  #hud .info .name, #hud.esports .info .name { font-size: 12px; }
+  #timer, #hud.esports #timer { padding: 4px 8px 3px; font-size: 12px; }
+  #skills .card, #hud.duo #skills .card { width: 76px; height: 46px; padding: 3px 4px; }
+  #skills .card .jp { font-size: 11px; }
+  #skills .util, #hud.duo #skills .util { width: 42px; height: 40px; padding-top: 15px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <h1>SPRITE &amp; MOVE DEBUG</h1>
+    <div class="tools">
+      <input id="q" type="search" placeholder="なまえ / 図鑑No. / 通常 / メガ進化 / キョダイマックス / リージョン">
+      <select id="form" title="フォルムで絞る">
+        <option value="">ぜんぶのフォルム</option>
+        <option value="gen">通常</option>
+        <option value="mega">メガ進化</option>
+        <option value="gigantamax">キョダイマックス</option>
+        <option value="regional">リージョン</option>
+      </select>
+      <select id="gen"><option value="">ぜんぶの世代</option></select>
+      <label class="ck"><input id="only8" type="checkbox">8方向シート</label>
+    </div>
+    <div id="count"></div>
+    <ul id="list"></ul>
+  </aside>
+
+  <section id="stage">
+    <div id="view">
+      <canvas id="screen"></canvas>
+      <canvas id="overlay"></canvas>
+      <div id="hud" class="esports hidden">
+        <div class="panel left" id="p0">
+          <div class="portrait"><canvas></canvas></div>
+          <div class="info">
+            <div class="row1"><span class="name"></span><span class="types"></span><span class="status"></span></div>
+            <div class="hpbar"><i class="ghost"></i><i class="fill"></i></div>
+            <div class="row2"><span class="hp"></span><span class="entag">ENERGY</span><span class="low">LOW HEALTH</span></div>
+            <div class="enbar"><i class="fill"></i></div>
+          </div>
+          <div class="team"></div>
+          <div class="callout"></div><div class="combo"></div><div class="abil"></div>
+        </div>
+        <div class="center">
+          <div id="timer">5:00</div>
+          <div id="league"></div>
+          <div id="clash-tag" class="hidden">⚡ BEAM CLASH!</div>
+          <div id="weather-tag" class="hidden"></div>
+          <button type="button" id="hud-skin-btn" aria-pressed="true" title="HUD表示切替 (Hキー)">HUD: eSPORTS</button>
+          <div id="cam-zoom" role="group" aria-label="カメラのズーム">
+            <button type="button" data-z="-1" title="カメラを引く (−キー / ホイール)" aria-label="カメラを引く">−</button>
+            <button type="button" data-z="0" id="cam-zoom-val" title="GIFと同じ大きさ(100%)に戻す (0キー)">100%</button>
+            <button type="button" data-z="1" title="カメラを寄せる (＝キー / ホイール)" aria-label="カメラを寄せる">＋</button>
+          </div>
+        </div>
+        <div class="panel right" id="p1">
+          <div class="portrait"><canvas></canvas></div>
+          <div class="info">
+            <div class="row1"><span class="status"></span><span class="types"></span><span class="name"></span></div>
+            <div class="hpbar"><i class="ghost"></i><i class="fill"></i></div>
+            <div class="row2"><span class="low">LOW HEALTH</span><span class="entag">ENERGY</span><span class="hp"></span></div>
+            <div class="enbar"><i class="fill"></i></div>
+          </div>
+          <div class="team"></div>
+          <div class="callout"></div><div class="combo"></div><div class="abil"></div>
+        </div>
+        <div id="skills">
+          <div class="util" id="u-dodge"><b>SPACE</b><span>かいひ</span></div>
+          <div class="card" data-i="0"><i class="cd"></i><b class="key">Z</b><span class="jp"></span><span class="meta"></span></div>
+          <div class="card" data-i="1"><i class="cd"></i><b class="key">X</b><span class="jp"></span><span class="meta"></span></div>
+          <div class="card" data-i="2"><i class="cd"></i><b class="key">C</b><span class="jp"></span><span class="meta"></span></div>
+          <div class="card" data-i="3"><i class="cd"></i><b class="key">V</b><span class="jp"></span><span class="meta"></span></div>
+          <div class="util" id="u-swap"><b>Q</b><span>こうたい</span></div>
+          <div class="util" id="u-mega"><b>M</b><span>メガ</span></div>
+        </div>
+        <div id="skills-foe">
+          <div class="fhead"><span class="who"></span><b class="tap">タップで そうさ</b></div>
+          <div class="frow">
+            <div class="fcard"><i class="cd"></i><span class="jp"></span><span class="meta"></span></div>
+            <div class="fcard"><i class="cd"></i><span class="jp"></span><span class="meta"></span></div>
+            <div class="fcard"><i class="cd"></i><span class="jp"></span><span class="meta"></span></div>
+            <div class="fcard"><i class="cd"></i><span class="jp"></span><span class="meta"></span></div>
+          </div>
+        </div>
+        <div id="msg" class="dqwin hidden"><p></p><i class="caret"></i></div>
+        <div id="banner"></div>
+        <div id="ko-cutin" aria-hidden="true">
+          <div class="ko-backdrop"></div>
+          <div class="ko-slash">
+            <span class="ko-kicker">KNOCKOUT!!</span>
+            <div class="ko-main">K.O.!</div>
+            <div class="ko-sub"></div>
+          </div>
+        </div>
+        <div id="vs" class="hidden">
+          <div class="lg"></div>
+          <div class="row">
+            <div class="side a"><canvas width="48" height="48"></canvas><div class="nm"></div><div class="jp"></div><div class="ty"></div></div>
+            <div class="mid">VS</div>
+            <div class="side b"><canvas width="48" height="48"></canvas><div class="nm"></div><div class="jp"></div><div class="ty"></div></div>
+          </div>
+        </div>
+      </div>
+      <div id="notice" hidden></div>
+    </div>
+    <div id="info"></div>
+    <div id="bar">
+      <span class="grp" id="panetog" title="デバッグパネルの表示切り替え">
+        <button id="tog-side" title="モンスター選択パネルを表示 / 非表示">モンスター選択</button>
+        <button id="tog-moves" title="技選択パネルを表示 / 非表示">技選択</button>
+        <button id="tog-dirs" title="8方向・公式GIFスプライト確認を表示 / 非表示">スプライト確認</button>
+        <button id="tog-hud" class="on" title="バトルHUD表示切替">HUD</button>
+      </span>
+      <span class="sep"></span>
+      <span class="grp" id="pad" title="向き（クリックでその方向を向く）"></span>
+      <button id="spin" title="8方向を順番に向く">くるくる</button>
+      <button id="walk" title="歩きながら装備技をランダムに出す（方向キー / WASD を押している間は自分で動かせる）">あるく</button>
+      <span class="sep"></span>
+      <button id="pause">一時停止</button>
+      <button id="stepf" title="1/60秒すすめる">コマ送り</button>
+      <select id="speed" title="再生速度"><option value="0.1">×0.1</option><option value="0.25">×0.25</option><option value="0.5">×0.5</option><option value="1" selected>×1</option><option value="2">×2</option></select>
+      <span class="sep"></span>
+      <label class="ck"><input id="shiny" type="checkbox">色違い</label>
+      <label class="ck"><input id="inf" type="checkbox" checked>HPむげん</label>
+      <label class="ck"><input id="foeMove" type="checkbox">相手もうごく</label>
+      <label class="ck"><input id="foeAtk" type="checkbox">相手もこうげき</label>
+      <span class="sep"></span>
+      <select id="arena" title="ステージ"></select>
+      <select id="weather" title="天気"><option value="">天気なし</option><option value="sun">はれ</option><option value="rain">あめ</option><option value="sand">すなあらし</option><option value="hail">あられ</option></select>
+      <select id="foe" title="相手"></select>
+      <select id="tr0" title="自分側のトレーナー"></select>
+      <select id="tr1" title="相手側のトレーナー"></select>
+      <button id="mega" title="メガシンカ / フォルムチェンジ">メガ</button>
+      <button id="reset" title="バトルを作り直す">リセット</button>
+      <label class="ck"><input id="mute" type="checkbox" checked>ミュート</label>
+      <span class="sep"></span>
+      <span class="grp" id="camzoom" title="カメラのズーム（ホイール / − ＝ 0 キー）">
+        <button data-z="-1" title="カメラを引く（−キー）">−</button>
+        <button data-z="0" id="camzoom-val" title="GIFと同じ大きさ(100%)に戻す（0キー）">100%</button>
+        <button data-z="1" title="カメラを寄せる（＝キー）">＋</button>
+      </span>
+    </div>
+  </section>
+
+  <section id="dirs">
+    <div class="head"><b id="dtitle">8方向スプライト</b><span class="src" id="dsrc"></span>
+      <span style="flex:1"></span>
+      <button id="dprev" title="前のコマ">◀</button><span id="dframe" class="src"></span><button id="dnext" title="次のコマ">▶</button>
+      <button id="dplay">停止</button>
+      <select id="dzoom"><option value="0">自動</option><option value="1">×1</option><option value="2">×2</option><option value="3">×3</option></select>
+    </div>
+    <div id="dirs-body">
+      <div id="strip"></div>
+      <div id="official" hidden></div>
+    </div>
+  </section>
+
+  <aside id="moves"></aside>
+</div>
+<pre id="errlog" style="position:fixed;left:0;bottom:0;margin:0;max-height:30vh;overflow:auto;color:#ff8a8a;background:#000c;font-size:11px;z-index:9;pointer-events:none"></pre>
+<script>
+addEventListener("error", (e) => { document.getElementById("errlog").textContent += (e.message || e) + " @" + (e.filename || "").split("/").pop() + ":" + e.lineno + "\n"; });
+</script>
+<script src="../data/monsterdex.js?v=20261115-hoopa1"></script>
+<script src="../data/trainers.js?v=20261102q"></script>
+<script src="js/util.js?v=20261102c"></script>
+<script src="js/pixel.js?v=20261102c"></script>
+<script src="js/gif.js?v=20261102c"></script>
+<script src="js/assets.js?v=20261116b"></script>
+<script src="../data/dir8.js?v=20261116-fb2"></script>
+<script src="../data/sprite_bounds.js?v=20261116-fb2"></script>
+<script src="js/dir8.js?v=20261116a"></script>
+<script src="js/motion.js?v=20261102c"></script>
+<script src="js/data.js?v=20261115w2"></script>
+<script src="js/ability.js?v=20261116flame1"></script>
+<script src="js/audio.js?v=20261115zb"></script>
+<script src="js/input.js?v=20261116s2"></script>
+<script src="js/arena.js?v=20261116s2"></script>
+<script src="../data/flame_hues.js?v=20261116flame2"></script>
+<script src="js/fx.js?v=20261116flame2"></script>
+<script src="js/slabs.js?v=20261102c"></script>
+<script src="js/ground.js?v=20261102c"></script>
+<script src="js/water.js?v=20261102c"></script>
+<script src="js/vfx.js?v=20261116flame1"></script>
+<script src="js/moves.js?v=20261116flame1"></script>
+<script src="js/fighter.js?v=20261116flame1"></script>
+<script src="js/ai.js?v=20261111a"></script>
+<script src="js/battle.js?v=20261116flame1"></script>
+<script src="js/scene3d.js?v=20261116s2"></script>
+<script src="js/scenes/stadium.js?v=20261116s2"></script>
+<script src="js/scenes/dirt.js?v=20261116s2"></script>
+<script src="js/scenes/stone.js?v=20261116s2"></script>
+<script src="js/scenes/colosseum.js?v=20261116s2"></script>
+<script src="js/scenes/pokeball.js?v=20261116s2"></script>
+<script src="js/scenes/ice.js?v=20261116s2"></script>
+<script src="js/scenes/volcano.js?v=20261116s2"></script>
+<script src="js/scenes/water.js?v=20261116s2"></script>
+<script src="js/scenes/cavern.js?v=20261116s2"></script>
+<script src="js/scenes/cosmic.js?v=20261116s2"></script>
+<script src="js/scenes/meadow.js?v=20261116s2"></script>
+<script src="js/post.js?v=20261116s4"></script>
+<script src="js/render.js?v=20261116s3"></script>
+<script src="js/hud.js?v=20261111b"></script>
+<script src="js/action_fit.js?v=20261104-fitbody4"></script>
+<script src="js/debug.js?v=20261116s3"></script>
+</body>
+</html>

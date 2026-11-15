@@ -1,0 +1,471 @@
+{
+  "forge_gen5_victini_actions": {
+    "ear": 16.0,
+    "arm": 22.0,
+    "wing": 22.0
+  },
+  "forge_gen5_snivy_actions": {
+    "leaf": 22.0
+  },
+  "forge_gen5_servine_actions": {
+    "collar": 22.0,
+    "tail": 22.0
+  },
+  "forge_gen5_serperior_actions": {
+    "crest": 22.0,
+    "vine": 16.0,
+    "tail": 16.0
+  },
+  "forge_gen5_tepig_actions": {
+    "ear": 18.0,
+    "tail": 12.0,
+    "hoof": 8.0
+  },
+  "forge_gen5_pignite_actions": {
+    "ear": 16.0,
+    "tail": 12.0,
+    "arm": 16.0
+  },
+  "forge_gen5_emboar_mega_actions": {
+    "mane": 12.0,
+    "flame": 10.0,
+    "crest": 12.0,
+    "beard": 8.0,
+    "arm": 14.0,
+    "arm_low": 10.0
+  },
+  "forge_gen5_emboar_actions": {
+    "mane": 16.0,
+    "beard": 14.0,
+    "arm": 18.0,
+    "arm_rear": 14.0,
+    "tail": 12.0
+  },
+  "forge_gen5_oshawott_actions": {
+    "shell": 18.0,
+    "paw": 16.0,
+    "tail": 12.0
+  },
+  "forge_gen5_dewott_actions": {
+    "shell_l": 18.0,
+    "shell_r": 18.0,
+    "arm": 16.0
+  },
+  "forge_gen5_stoutland_actions": {
+    "ear": 16.0,
+    "beard": 10.0,
+    "paw": 8.0,
+    "tail": 12.0
+  },
+  "forge_gen5_lillipup_actions": {
+    "ear": 16.0,
+    "tail": 12.0,
+    "paw": 8.0
+  },
+  "forge_gen5_herdier_actions": {
+    "ear": 18.0,
+    "tail": 12.0,
+    "paw": 8.0
+  },
+  "forge_gen5_watchog_actions": {
+    "tail": 16.0,
+    "kick": 3.0
+  },
+  "forge_gen5_patrat_actions": {
+    "cheek": 12.0,
+    "tail": 14.0,
+    "kick": 8.0
+  },
+  "forge_gen5_samurott_hisui_actions": {
+    "crest": 16.0,
+    "beard": 12.0,
+    "sword": 18.0,
+    "sword_rear": 14.0
+  },
+  "forge_gen5_samurott_actions": {
+    "horn": 18.0,
+    "whisker": 12.0,
+    "tail": 10.0
+  },
+  "forge_gen5_purrloin_actions": {
+    "ear": 18.0,
+    "tail": 14.0,
+    "paw": 8.0
+  },
+  "forge_gen5_liepard_actions": {
+    "ear": 14.0,
+    "tail": 20.0,
+    "paw": 18.0
+  },
+  "forge_gen5_pansage_actions": {
+    "sprout": 12.0,
+    "tail": 12.0,
+    "hand": 10.0,
+    "hand_low": 6.0
+  },
+  "forge_gen5_pansear_actions": {
+    "flame": 12.0,
+    "ear": 12.0,
+    "arm": 18.0,
+    "tail": 12.0
+  },
+  "forge_gen5_simisear_actions": {
+    "crest": 14.0,
+    "arm": 16.0,
+    "tail": 16.0
+  },
+  "forge_gen5_simisage_actions": {
+    "crest": 16.0,
+    "ear_l": 12.0,
+    "ear_r": 12.0,
+    "arm_l": 18.0,
+    "arm_r": 18.0,
+    "tail": 16.0
+  },
+  "forge_gen5_simipour_actions": {
+    "arm": 12.0,
+    "tail": 10.0,
+    "kick": 6.0
+  },
+  "forge_gen5_panpour_actions": {
+    "arm": 12.0,
+    "tail": 12.0,
+    "kick": 8.0
+  },
+  "forge_gen5_musharna_actions": {
+    "mist": 18.0
+  },
+  "forge_gen5_munna_actions": {
+    "flower": 34.0,
+    "snout": 18.0
+  },
+  "forge_gen5_pidove_actions": {
+    "beak": 30.0,
+    "wing": 34.0,
+    "tail": 16.0
+  },
+  "forge_gen5_tranquill_actions": {
+    "beak": 18.0,
+    "crest": 12.0,
+    "tail": 16.0
+  },
+  "forge_gen5_unfezant_actions": {
+    "lobe": 12.0,
+    "tail": 24.0
+  },
+  "forge_gen5_blitzle_actions": {
+    "bolt": 14.0,
+    "tail": 20.0,
+    "hoof": 16.0
+  },
+  "forge_gen5_roggenrola_actions": {
+    "crest": 18.0,
+    "kick_ang": 12.0
+  },
+  "forge_gen5_boldore_actions": {
+    "crown": 16.0,
+    "shard": 12.0,
+    "shard_low": 8.0,
+    "foot": 12.0,
+    "foot_low": 6.0
+  },
+  "forge_gen5_zebstrika_actions": {
+    "mane": 18.0,
+    "tail": 14.0,
+    "hoof": 8.0
+  },
+  "forge_gen5_woobat_actions": {
+    "wing": 34.0,
+    "jaw": 22.0,
+    "nose": 12.0
+  },
+  "forge_gen5_gigalith_actions": {
+    "horn_l": 14.0,
+    "horn_r": 12.0,
+    "arm_l": 12.0,
+    "arm_r": 10.0
+  },
+  "forge_gen5_swoobat_actions": {
+    "ear_l": 22.0,
+    "ear_r": 22.0,
+    "curl": 16.0,
+    "heart": 12.0
+  },
+  "forge_gen5_drilbur_actions": {
+    "lead": 18.0,
+    "off": 14.0
+  },
+  "forge_gen5_excadrill_actions": {
+    "drill": 22.0,
+    "claw_l": 22.0,
+    "claw_r": 22.0
+  },
+  "forge_gen5_excadrill_mega_actions": {
+    "drill": 20.0,
+    "claw_l": 20.0,
+    "claw_r": 14.0
+  },
+  "forge_gen5_audino_mega_actions": {
+    "ear": 16.0,
+    "hand": 14.0
+  },
+  "forge_gen5_audino_actions": {
+    "feeler_l": 8.0,
+    "feeler_r": 8.0,
+    "tail": 12.0,
+    "hand": 3.0,
+    "kick": 2.0
+  },
+  "forge_gen5_timburr_actions": {
+    "beam": 34.0,
+    "nose": 12.0
+  },
+  "forge_gen5_gurdurr_actions": {
+    "beam": 16.0
+  },
+  "forge_gen5_conkeldurr_actions": {
+    "pillar_l": 16.0,
+    "pillar_r": 12.0,
+    "crest": 8.0
+  },
+  "forge_gen5_palpitoad_actions": {
+    "foot_lead": 30.0,
+    "foot_trail": 18.0,
+    "tail": 22.0
+  },
+  "forge_gen5_tympole_actions": {
+    "tail": 34.0,
+    "fin": 22.0
+  },
+  "forge_gen5_sawk_actions": {
+    "arm": 14.0,
+    "arm_rear": 10.0
+  },
+  "forge_gen5_seismitoad_actions": {
+    "hand": 34.0,
+    "hand_far": 22.0
+  },
+  "forge_gen5_sewaddle_actions": {
+    "leaf": 18.0,
+    "kick": 8.0
+  },
+  "forge_gen5_swadloon_actions": {
+    "tip": 34.0,
+    "hem": 22.0,
+    "tail": 18.0
+  },
+  "forge_gen5_leavanny_actions": {
+    "arm": 16.0
+  },
+  "forge_gen5_throh_actions": {
+    "arm_hi": 16.0,
+    "arm_lo": 12.0
+  },
+  "forge_gen5_whirlipede_actions": {
+    "horn": 16.0
+  },
+  "forge_gen5_cottonee_actions": {
+    "leaf_l": 16.0,
+    "leaf_r": 16.0
+  },
+  "forge_gen5_scolipede_mega_actions": {
+    "horn": 22.0,
+    "scythe": 16.0,
+    "leg0": 8.0,
+    "leg1": 8.0,
+    "leg2": 8.0,
+    "leg3": 8.0
+  },
+  "forge_gen5_venipede_actions": {
+    "kick": 16.0,
+    "tail": 14.0
+  },
+  "forge_gen5_whimsicott_actions": {
+    "arm_l": 34.0,
+    "arm_r": 34.0
+  },
+  "forge_gen5_scolipede_actions": {
+    "horn_up": 16.0,
+    "horn_fwd": 16.0
+  },
+  "forge_gen5_sandile_actions": {
+    "snout": 18.0,
+    "tail": 16.0,
+    "paw": 12.0
+  },
+  "forge_gen5_lilligant_actions": {
+    "bloom": 14.0,
+    "leaf": 16.0,
+    "kick": 10.0
+  },
+  "forge_gen5_petilil_actions": {
+    "leaf_l": 18.0,
+    "leaf_c": 22.0,
+    "leaf_r": 16.0
+  },
+  "forge_gen5_basculin-red-striped_actions": {
+    "jaw": 20.0,
+    "dorsal": 12.0,
+    "tail": 34.0,
+    "anal": 22.0
+  },
+  "forge_gen5_krokorok_actions": {
+    "tail": 22.0
+  },
+  "forge_gen5_lilligant_hisui_actions": {
+    "arm": 18.0,
+    "kick": 16.0
+  },
+  "forge_gen5_krookodile_actions": {
+    "jaw": 34.0,
+    "tail": 30.0,
+    "arm": 22.0
+  },
+  "forge_gen5_darumaka_galar_actions": {
+    "horn": 16.0,
+    "crystal": 8.0,
+    "arm": 18.0,
+    "arm_low": 4.0
+  },
+  "forge_gen5_darumaka_actions": {
+    "brow_l": 16.0,
+    "brow_r": 10.0,
+    "arm": 12.0,
+    "arm_off": 8.0
+  },
+  "forge_gen5_scraggy_actions": {
+    "kick": 18.0
+  },
+  "forge_gen5_sigilyph_actions": {
+    "wing": 34.0,
+    "tail": 28.0
+  },
+  "forge_gen5_darmanitan-galar-zen_actions": {
+    "hand_big": 16.0,
+    "hand_small": 12.0,
+    "flame": 8.0
+  },
+  "forge_gen5_scrafty_actions": {
+    "fist": 16.0,
+    "arm": 8.0
+  },
+  "forge_gen5_maractus_actions": {
+    "arm_l": 18.0,
+    "arm_r": 18.0,
+    "bloom": 12.0,
+    "kick": 8.0
+  },
+  "forge_gen5_darmanitan-standard_actions": {
+    "arm": 18.0
+  },
+  "forge_gen5_yamask-galar_actions": {
+    "arm_l": 18.0,
+    "arm_r": 18.0,
+    "tablet": 14.0
+  },
+  "forge_gen5_cofagrigus_actions": {
+    "arms": 18.0
+  },
+  "forge_gen5_yamask_actions": {
+    "arm_l": 34.0,
+    "arm_r": 34.0,
+    "mask": 34.0
+  },
+  "forge_gen5_crustle_actions": {
+    "claw_l": 16.0,
+    "claw_r": 16.0
+  },
+  "forge_gen5_tirtouga_actions": {
+    "flip_lead": 30.0,
+    "flip_trail": 18.0,
+    "head": 16.0,
+    "hind": 14.0,
+    "tail": 12.0
+  },
+  "forge_gen5_scrafty_mega_actions": {
+    "kick": 16.0,
+    "tail": 14.0,
+    "crest": 8.0
+  },
+  "forge_gen5_darmanitan-galar-standard_actions": {
+    "arm": 12.0,
+    "arm_rear": 8.0
+  },
+  "forge_gen5_dwebble_actions": {
+    "claw_l": 20.0,
+    "claw_r": 16.0
+  },
+  "forge_gen5_carracosta_actions": {
+    "arm": 18.0,
+    "arm2": 14.0
+  },
+  "forge_gen5_archeops_actions": {
+    "wing_l": 34.0,
+    "wing_r": 34.0,
+    "tail": 28.0,
+    "plume": 18.0,
+    "foot": 20.0
+  },
+  "forge_gen5_garbodor_actions": {
+    "arm_l": 16.0,
+    "arm_r": 16.0
+  },
+  "forge_gen5_archen_actions": {
+    "crest": 20.0,
+    "wing": 34.0,
+    "wing_far": 16.0,
+    "tail": 20.0
+  },
+  "forge_gen5_zoroark_actions": {
+    "crest": 12.0,
+    "mane": 14.0,
+    "claw": 12.0
+  },
+  "forge_gen5_garbodor-gmax_actions": {
+    "spout": 12.0,
+    "horn_r": 10.0,
+    "arm_l": 14.0,
+    "arm_r": 12.0,
+    "tail": 8.0
+  },
+  "forge_gen5_zorua_actions": {
+    "paw": 18.0
+  },
+  "forge_gen5_trubbish_actions": {
+    "arm_l": 16.0,
+    "arm_r": 16.0,
+    "knot": 8.0
+  },
+  "forge_gen5_minccino_actions": {
+    "ear": 16.0,
+    "tail": 16.0,
+    "brush": 14.0
+  },
+  "forge_gen5_zorua_hisui_actions": {
+    "tail": 26.0,
+    "paw": 30.0
+  },
+  "forge_gen5_zoroark_hisui_actions": {
+    "kick": 16.0,
+    "lock": 12.0
+  },
+  "forge_gen5_gothitelle_actions": {
+    "hand_l": 16.0,
+    "hand_r": 16.0
+  },
+  "forge_gen5_gothorita_actions": {
+    "arm": 34.0
+  },
+  "forge_gen5_gothita_actions": {
+    "bow": 6.0,
+    "foot": 14.0
+  },
+  "forge_gen5_cinccino_actions": {
+    "ear": 14.0,
+    "scarf": 16.0,
+    "kick": 10.0
+  },
+  "forge_gen5_solosis_actions": {
+    "nucleus": 34.0
+  }
+}
