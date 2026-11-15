@@ -106,6 +106,10 @@ const VFX = (() => {
   function fireBlast(ctx, a, t) {
     const g = blastGeom(a), P = firePal(a.owner), seed = a.seed || 0, { c, sn } = g;
     ctx.save();
+    if (FXV.on) { // 3D: 炎の帯は口から着弾点までの線に沿わせ、爆発と「大」の字は着弾点に立てる
+      const f = a.owner, ang = Math.atan2(a.y - f.y, a.x - f.x);
+      FXV.seg(ctx, f.x + Math.cos(ang) * 18, f.y + Math.sin(ang) * 10, f.height * 0.55, a.x, a.y, 24);
+    }
     // 1) the stream: a fat rolling body from the mouth, widening toward a fireball head; it burns off from the mouth's end after the hit
     if (g.tail < 1) {
       const puffs = [], span = g.head - g.tail;
@@ -131,6 +135,7 @@ const VFX = (() => {
       fireBody(ctx, puffs, P, c, sn);
       if (g.post < 0) { ctx.fillStyle = P.hot; disc(ctx, g.ox, g.oy, 9); ctx.fillStyle = P.core; disc(ctx, g.ox, g.oy, 5.5); } // white-hot muzzle
     }
+    FXV.at(ctx, a.x, a.y);
     if (g.post >= 0) {
       const e = Math.min(1, g.post / 0.62), R = a.r * 0.5, cx = g.tx, cy = g.ty;
       // 2) dark smoke boiling up behind the fire

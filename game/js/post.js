@@ -195,6 +195,25 @@ const Post = (() => {
         vec3 fc=floor(f.rgb*6.0+0.5)/6.0;
         gl_FragColor=vec4(fc,max(fc.r,max(fc.g,fc.b)));
       }`,
+    // [ユーザー指定 2026-11-16] 空中のエフェクトの層（画面の座標、1 ドット = uQ 画素）。網点と減色は fx3 と同じ。モンスターの上に重ねる。
+    air3: `
+      #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+      #else
+      precision mediump float;
+      #endif
+      varying vec2 v;
+      uniform sampler2D uAir;uniform vec2 uRes,uAirSize;uniform float uQ;
+      float b2(vec2 a){a=floor(a);return fract(dot(a,vec2(0.5,a.y*0.75)));}
+      float bayer(vec2 a){return b2(0.5*a)*0.25+b2(a);}
+      void main(){
+        vec2 cell=floor(vec2(v.x,1.0-v.y)*uRes/uQ);
+        vec4 f=texture2D(uAir,(cell+0.5)/uAirSize);
+        float th=bayer(cell)+0.03;
+        if(f.a<0.02||f.a*1.12<th)discard;
+        vec3 fc=floor(f.rgb*6.0+0.5)/6.0;
+        gl_FragColor=vec4(fc,max(fc.r,max(fc.g,fc.b)));
+      }`,
     bright: COMMON + `
       uniform sampler2D uTex;uniform float uTh,uEm;
       void main(){vec4 c=texture2D(uTex,v);vec3 b=max(c.rgb-uTh,0.0)/(1.0-uTh);gl_FragColor=vec4(b*0.6+c.rgb*c.a*uEm,1.0);}`,
@@ -318,7 +337,7 @@ const Post = (() => {
       gl.bindBuffer(gl.ARRAY_BUFFER, quad);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
       gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
-      T.world = texture(gl.LINEAR); /* 中心を読めば元のドットそのまま。HD 加工は中間も読む */ T.fx = texture(gl.NEAREST); T.light = texture(gl.LINEAR); T.spr = texture(gl.LINEAR);
+      T.world = texture(gl.LINEAR); /* 中心を読めば元のドットそのまま。HD 加工は中間も読む */ T.fx = texture(gl.NEAREST); T.air = texture(gl.NEAREST); T.light = texture(gl.LINEAR); T.spr = texture(gl.LINEAR);
       gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
       ok = true;
     } catch (e) { console.warn("WebGL post disabled:", e); ok = false; }
@@ -367,7 +386,10 @@ const Post = (() => {
     const so = { lightTex: T.light, lowW: o.lowW, lowH: o.lowH, time: o.time, hype: o.three.hype || 0, on: o.three.on, fogCol };
     Scene3D.draw("back", so);
     quadAttr();
-    gl.disable(gl.DEPTH_TEST); gl.enable(gl.BLEND);
+    // 地面のエフェクト（予告範囲・輪・影）→ モンスター → 空中のエフェクト（立っている層）の順に重ねる
+    gl.disable(gl.DEPTH_TEST); gl.disable(gl.BLEND);
+    pass(P.fx3, F.comp, (u) => { bind(1, T.fx, u.uFx); gl.uniformMatrix4fv(u.uVP, false, V.vp); gl.uniform2f(u.uLow, o.lowW, o.lowH); });
+    gl.enable(gl.BLEND);
     gl.blendFuncSeparate(gl.ONE, gl.ONE_MINUS_SRC_ALPHA, gl.ZERO, gl.ONE_MINUS_SRC_ALPHA);
     pass(P.spr3, F.comp, (u) => {
       bind(0, T.spr, u.uSpr); bind(2, T.light, u.uLight);
@@ -375,7 +397,7 @@ const Post = (() => {
       gl.uniform3fv(u.uC, V.C); gl.uniform3fv(u.uU, V.u); gl.uniform3fv(u.uFw, V.f);
     });
     gl.disable(gl.BLEND);
-    pass(P.fx3, F.comp, (u) => { bind(1, T.fx, u.uFx); gl.uniformMatrix4fv(u.uVP, false, V.vp); gl.uniform2f(u.uLow, o.lowW, o.lowH); });
+    if (o.air) pass(P.air3, F.comp, (u) => { bind(1, T.air, u.uAir); gl.uniform2f(u.uRes, W, H); gl.uniform2f(u.uAirSize, o.air.width, o.air.height); gl.uniform1f(u.uQ, o.airQ); });
     gl.enable(gl.DEPTH_TEST);
     Scene3D.draw("front", so);
     quadAttr();
@@ -384,7 +406,7 @@ const Post = (() => {
 
   // o: { world, fx, light, lowW, lowH, S, fracX, fracY, zoom, time, grade:{tint,sat,con,vig,bloom,tilt,rays,fog,grain}, flash:[r,g,b,a] }
   function render(o) {
-    upload(T.world, o.world); upload(T.fx, o.fx); upload(T.light, o.light);
+    upload(T.world, o.world); upload(T.fx, o.fx); upload(T.light, o.light); if (o.air) upload(T.air, o.air);
     gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true); upload(T.spr, o.spr); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
     const g = o.grade;
     if (o.three) compose3d(o, g); else pass(P.compose, F.comp, (u) => {

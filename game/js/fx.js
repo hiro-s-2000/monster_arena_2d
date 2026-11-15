@@ -24,6 +24,36 @@ const THEMES = {
   normal: { c: ["#ffffff", "#fff4d6", "#ffd98a", "#a67c2e"], shape: "star", add: true, decal: null, grav: 200 },
 };
 
+// [ユーザー指定 2026-11-16] 技のエフェクトの 3D 化（HD-2D）。3D 表示のとき、空中のエフェクト（ビーム・弾・爆発・粒子・空中の輪）は
+// 地面に貼らず、「画面に正対して立つ板」として別のキャンバス（画面の座標）に描く。描く側のコードは今までどおり world 座標
+// （x, y − 高さ）で描き、その直前に FXV.at / FXV.seg で「その world 座標が画面のどこに来るか」の変換を ctx に入れる。
+//   FXV.at(ctx, x, y)                    足もとが地面の点 (x, y) にある板。上（y − 高さ）は画面の上へ、その奥行きの倍率で伸びる。
+//   FXV.seg(ctx, x0, y0, h0, x1, y1, h1)  地面の 2 点（それぞれ高さ h）を結ぶ線（ビーム）。線の向きと長さは遠近どおり、太さは奥行きの倍率。
+// FXV.p3 = いまのフレームが 3D か、FXV.on = いま空中の層を描いているか（平面表示では両方 false で、何もしない）。
+// 地面のエフェクト（予告範囲・地面の輪・影）は地面の面にそのまま乗る。平面表示用の「たてつぶし」は FXV.gsq(v) で 3D のとき 1 に戻す。
+const FXV = {
+  p3: false, on: false, q: 1,
+  gsq(v) { return this.p3 ? 1 : v; },
+  pt(x, y, h = 0) {
+    const K = Arenas.K, p = Scene3D.project(x / K, y / K, 0), m = p.s / K / this.q;
+    return { x: p.x / this.q, y: p.y / this.q - h * m, m };
+  },
+  at(ctx, x, y) {
+    if (!this.on) return;
+    const p = this.pt(x, y);
+    ctx.setTransform(p.m, 0, 0, p.m, p.x - x * p.m, p.y - y * p.m);
+  },
+  seg(ctx, x0, y0, h0, x1, y1, h1) {
+    if (!this.on) return;
+    const a = this.pt(x0, y0, h0), b = this.pt(x1, y1, h1);
+    const ax = x0, ay = y0 - h0, ux = x1 - x0, uy = (y1 - h1) - ay, la = Math.hypot(ux, uy), vx = b.x - a.x, vy = b.y - a.y, ls = Math.hypot(vx, vy);
+    if (la < 1e-3 || ls < 1e-3) { ctx.setTransform(a.m, 0, 0, a.m, a.x - ax * a.m, a.y - ay * a.m); return; }
+    const m = (a.m + b.m) / 2, k = ls / la, ca = ux / la, sa = uy / la, cs = vx / ls, ss = vy / ls;
+    const A = cs * k * ca + ss * m * sa, C = cs * k * sa - ss * m * ca, B = ss * k * ca - cs * m * sa, D = ss * k * sa + cs * m * ca;
+    ctx.setTransform(A, B, C, D, a.x - (A * ax + C * ay), a.y - (B * ax + D * ay));
+  },
+};
+
 class FX {
   constructor(arena) {
     this.arena = arena;
@@ -372,7 +402,8 @@ class FX {
       ctx.globalAlpha = (1 - t) * 0.9;
       ctx.globalCompositeOperation = r.add ? "lighter" : "source-over";
       ctx.strokeStyle = r.color; ctx.lineWidth = r.width * (1 - t * 0.5);
-      ctx.beginPath(); ctx.ellipse(r.x, r.y - r.z, rad, rad * r.squash, 0, 0, U.TAU); ctx.stroke();
+      if (!ground) FXV.at(ctx, r.x, r.y);
+      ctx.beginPath(); ctx.ellipse(r.x, r.y - r.z, rad, rad * (ground ? FXV.gsq(r.squash) : r.squash), 0, 0, U.TAU); ctx.stroke();
       ctx.restore();
     }
   }
@@ -389,6 +420,7 @@ class FX {
       if (add !== lastAdd) { ctx.globalCompositeOperation = add ? "lighter" : "source-over"; lastAdd = add; }
       const sz = p.size * (p.grow ? 1 + (1 - t) * (p.grow - 1) : (p.shape === "flame" || p.shape === "orb" || p.shape === "wisp" ? 0.4 + t * 0.6 : 1));
       const x = p.x, y = p.y - p.z;
+      if (FXV.on) { if (p.shape === "beamline") FXV.seg(ctx, p.x, p.y, p.z, p.x2 !== undefined ? p.x2 : p.x, p.y2 !== undefined ? p.y2 : p.y, p.z2 !== undefined ? p.z2 : 0); else FXV.at(ctx, p.x, p.y); }
       ctx.globalAlpha = (p.alpha !== undefined ? p.alpha : 1) * (t < 0.35 ? t / 0.35 : 1);
       ctx.fillStyle = p.color; ctx.strokeStyle = p.color;
       switch (p.shape) {

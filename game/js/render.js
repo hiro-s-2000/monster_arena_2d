@@ -9,6 +9,7 @@
 
 const Renderer = (() => {
   let glc, ovc, octx, world, wctx, sprc, sctx, fxc, fctx, lightc, lctx, ctx2d = null;
+  let airc, airx, airQ = 2; // 3D のときの空中エフェクトの層（画面の座標、1 ドット = airQ 画素）
   let W = 0, H = 0, S = 3, LW = 0, LH = 0, dpr = 1;
   // Monsters keep the same on-screen height and a hard pixel edge, with twice the texel density of the pitch.
   // [ユーザー指定 2026-11-15] モンスターは GIF の元のドットの細かさで描く。スプライト用キャンバスは「いま画面に映る範囲」だけを
@@ -33,6 +34,7 @@ const Renderer = (() => {
     world = U.canvas(2, 2); wctx = world.getContext("2d");
     sprc = U.canvas(2, 2); sctx = sprc.getContext("2d");
     fxc = U.canvas(2, 2); fctx = fxc.getContext("2d");
+    airc = U.canvas(2, 2); airx = airc.getContext("2d");
     lightc = U.canvas(2, 2); lctx = lightc.getContext("2d");
     if (!Post.init(glc)) ctx2d = glc.getContext("2d");
 
@@ -340,12 +342,25 @@ const Renderer = (() => {
     fctx.setTransform(1, 0, 0, 1, 0, 0); fctx.clearRect(0, 0, LW, LH);
     fctx.setTransform(1 / K, 0, 0, 1 / K, -ix, -iy);
     fctx.imageSmoothingEnabled = true;
+    FXV.p3 = P3;
     if (Moves.drawWindups) Moves.drawWindups(fctx, B, t);
     Moves.draw(fctx, B, "ground", t);
     fx.drawRings(fctx, true);
-    Moves.draw(fctx, B, "air", t);
-    fx.drawParticles(fctx, "air");
-    fx.drawRings(fctx, false);
+    // [ユーザー指定 2026-11-16] 3D: 空中のエフェクトは地面に貼らず、画面に正対して立つ層（airc、画面の座標）に描く。
+    // airQ = この層の 1 ドットの画素数（画面中央の地面の 1 art px と同じ大きさ。0.25 きざみ）。平面表示では今までどおり fx に描く。
+    let actx = fctx;
+    if (P3) {
+      airQ = U.clamp(Math.round(S * cam.zoom * 4) / 4, 1, 8) || 2;
+      const aw = Math.ceil(W / airQ), ah = Math.ceil(H / airQ);
+      if (airc.width !== aw || airc.height !== ah) { airc.width = aw; airc.height = ah; }
+      actx = airx; actx.setTransform(1, 0, 0, 1, 0, 0); actx.clearRect(0, 0, aw, ah); actx.imageSmoothingEnabled = true;
+      FXV.q = airQ; FXV.on = true;
+    }
+    Moves.draw(actx, B, "air", t);
+    fx.drawParticles(actx, "air");
+    fx.drawRings(actx, false);
+    FXV.on = false;
+    actx.setTransform(1, 0, 0, 1, 0, 0);
     fctx.setTransform(1, 0, 0, 1, 0, 0);
     if (!P3) weather(B, t);
     // ---- light ----
@@ -365,7 +380,7 @@ const Renderer = (() => {
     if (Post.ok()) {
       const three = P3 ? { A, hype: A.hype || 0, on: B.lightsOn === undefined ? 1 : B.lightsOn } : null;
       if (P3) g.tilt = Math.max(g.tilt || 0, (Scene3D.cfg() && Scene3D.cfg().dof) || 1.25);
-      Post.render({ three, world, fx: fxc, light: lightc, spr: sprc, sprW: sprc.width, sprH: sprc.height, lowW: LW, lowH: LH, sprX: sox, sprY: soy, sprK: SPR, S, fracX, fracY, zoom: cam.zoom, pad: 1 / BZ, time: t, hd: window.ARENA_HD_OFF ? null : HD_FLOOR[A.def.floor] || HD_FLOOR.grass, orgX: ix, orgY: iy, fld: [A.af.x, A.af.y, A.af.w, A.af.h], grade: g, flash: [fl[0], fl[1], fl[2], Math.min(0.85, fx.flash)], imp: impact(fx) });
+      Post.render({ three, air: P3 ? airc : null, airQ, world, fx: fxc, light: lightc, spr: sprc, sprW: sprc.width, sprH: sprc.height, lowW: LW, lowH: LH, sprX: sox, sprY: soy, sprK: SPR, S, fracX, fracY, zoom: cam.zoom, pad: 1 / BZ, time: t, hd: window.ARENA_HD_OFF ? null : HD_FLOOR[A.def.floor] || HD_FLOOR.grass, orgX: ix, orgY: iy, fld: [A.af.x, A.af.y, A.af.w, A.af.h], grade: g, flash: [fl[0], fl[1], fl[2], Math.min(0.85, fx.flash)], imp: impact(fx) });
     } else fallback(fl, fx.flash, g, t);
     overlay(B, t);
   }

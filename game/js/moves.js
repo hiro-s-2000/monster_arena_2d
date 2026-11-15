@@ -1096,26 +1096,26 @@ const Moves = (() => {
           const k = a.t / a.delay;
           ctx.save(); ctx.globalAlpha = 0.55 + 0.3 * Math.sin(t * 18);
           ctx.strokeStyle = th.c[1]; ctx.lineWidth = 3; ctx.setLineDash([10, 8]);
-          ctx.beginPath(); ctx.ellipse(a.x, a.y, a.r, a.r * 0.55, 0, 0, U.TAU); ctx.stroke();
+          ctx.beginPath(); ctx.ellipse(a.x, a.y, a.r, a.r * FXV.gsq(0.55), 0, 0, U.TAU); ctx.stroke();
           ctx.setLineDash([]); ctx.globalAlpha = 0.25; ctx.fillStyle = th.c[1];
-          ctx.beginPath(); ctx.ellipse(a.x, a.y, a.r * k, a.r * 0.55 * k, 0, 0, U.TAU); ctx.fill();
+          ctx.beginPath(); ctx.ellipse(a.x, a.y, a.r * k, a.r * FXV.gsq(0.55) * k, 0, 0, U.TAU); ctx.fill();
           ctx.restore();
-          for (const sb of a.sub) { ctx.save(); ctx.fillStyle = "rgba(0,0,0,0.3)"; const sr = 14 * (1 - sb.z / 600); ctx.beginPath(); ctx.ellipse(sb.x, sb.y, sr, sr * 0.5, 0, 0, U.TAU); ctx.fill(); ctx.restore(); }
+          for (const sb of a.sub) { ctx.save(); ctx.fillStyle = "rgba(0,0,0,0.3)"; const sr = 14 * (1 - sb.z / 600); ctx.beginPath(); ctx.ellipse(sb.x, sb.y, sr, sr * FXV.gsq(0.5), 0, 0, U.TAU); ctx.fill(); ctx.restore(); }
         } else if (a.kind === "zone") {
           ctx.save(); ctx.globalAlpha = 0.35 + 0.1 * Math.sin(t * 10);
           const g = ctx.createRadialGradient(a.x, a.y, a.r * 0.2, a.x, a.y, a.r);
           g.addColorStop(0, U.rgba(th.c[2], 0.1)); g.addColorStop(0.8, U.rgba(th.c[1], 0.5)); g.addColorStop(1, U.rgba(th.c[1], 0));
-          ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(a.x, a.y, a.r, a.r * 0.55, 0, 0, U.TAU); ctx.fill();
+          ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(a.x, a.y, a.r, a.r * FXV.gsq(0.55), 0, 0, U.TAU); ctx.fill();
           ctx.restore();
         } else if (a.kind === "uplift" && a.phase === "tele") { // the disc that will lift: pulsing violet cracks
-          const k = Math.min(1, a.t / s.tele);
+          const k = Math.min(1, a.t / s.tele), q62 = FXV.gsq(0.62), q25 = 0.4 * q62, q43 = 0.7 * q62;
           ctx.save(); ctx.globalCompositeOperation = "lighter";
-          ctx.globalAlpha = 0.12 + 0.1 * k; ctx.fillStyle = "#9a6aff"; ctx.beginPath(); ctx.ellipse(a.x, a.y, a.r, a.r * 0.62, 0, 0, U.TAU); ctx.fill();
+          ctx.globalAlpha = 0.12 + 0.1 * k; ctx.fillStyle = "#9a6aff"; ctx.beginPath(); ctx.ellipse(a.x, a.y, a.r, a.r * q62, 0, 0, U.TAU); ctx.fill();
           ctx.globalAlpha = 0.6 + 0.35 * Math.sin(t * 22); ctx.strokeStyle = "#d6b8ff"; ctx.lineWidth = 3;
           const rng = U.seeded((a.x * 7 + a.y) | 0);
-          ctx.beginPath(); for (let i = 0; i <= 40; i++) { const an = (i / 40) * U.TAU, rr = a.r * (0.94 + rng() * 0.12); i ? ctx.lineTo(a.x + Math.cos(an) * rr, a.y + Math.sin(an) * rr * 0.62) : ctx.moveTo(a.x + Math.cos(an) * rr, a.y + Math.sin(an) * rr * 0.62); } ctx.stroke();
+          ctx.beginPath(); for (let i = 0; i <= 40; i++) { const an = (i / 40) * U.TAU, rr = a.r * (0.94 + rng() * 0.12); i ? ctx.lineTo(a.x + Math.cos(an) * rr, a.y + Math.sin(an) * rr * q62) : ctx.moveTo(a.x + Math.cos(an) * rr, a.y + Math.sin(an) * rr * q62); } ctx.stroke();
           ctx.lineWidth = 2; ctx.globalAlpha *= k;
-          for (let j = 0; j < 6; j++) { const an = j * 1.05 + rng(); ctx.beginPath(); ctx.moveTo(a.x + Math.cos(an) * a.r * 0.4, a.y + Math.sin(an) * a.r * 0.25); ctx.lineTo(a.x + Math.cos(an + 0.2) * a.r * 0.7, a.y + Math.sin(an + 0.2) * a.r * 0.43); ctx.lineTo(a.x + Math.cos(an) * a.r, a.y + Math.sin(an) * a.r * 0.62); ctx.stroke(); }
+          for (let j = 0; j < 6; j++) { const an = j * 1.05 + rng(); ctx.beginPath(); ctx.moveTo(a.x + Math.cos(an) * a.r * 0.4, a.y + Math.sin(an) * a.r * q25); ctx.lineTo(a.x + Math.cos(an + 0.2) * a.r * 0.7, a.y + Math.sin(an + 0.2) * a.r * q43); ctx.lineTo(a.x + Math.cos(an) * a.r, a.y + Math.sin(an) * a.r * q62); ctx.stroke(); }
           ctx.restore();
         } else if (a.kind === "psybreak" && !a.fired) { // danger band on the floor
           ctx.save(); ctx.translate(a.owner.x, a.owner.y); ctx.rotate(a.aim);
@@ -1130,12 +1130,13 @@ const Moves = (() => {
           const zScale = U.clamp(1 - (a.z || 16) / 220, 0.42, 1);
           ctx.fillStyle = `rgba(0,0,0,${(0.32 * zScale).toFixed(2)})`;
           const sr = a.r * (a.size || 1) * 0.85 * zScale;
-          ctx.beginPath(); ctx.ellipse(a.x, a.y, sr, sr * 0.45, 0, 0, U.TAU); ctx.fill();
+          ctx.beginPath(); ctx.ellipse(a.x, a.y, sr, sr * FXV.gsq(0.45), 0, 0, U.TAU); ctx.fill();
           ctx.restore();
         }
         continue;
       }
       // air layer
+      airView(ctx, a);
       if (a.kind === "aoe" && s.wave) VFX.wave(ctx, a, t);
       if (a.kind === "spiral" && a.R) (s.pull ? VFX.whirlAir(ctx, a, t) : drawSpiral(ctx, a, th, t));
       else if (a.kind === "erupt") drawSpikes(ctx, a, th, t);
@@ -1147,11 +1148,13 @@ const Moves = (() => {
       else if (a.kind === "grab") drawTether(ctx, a, t);
       else if (a.kind === "strike") {
         for (const sb of a.sub) {
+          FXV.at(ctx, sb.x, sb.y);
           ctx.save(); ctx.translate(sb.x, sb.y - sb.z); ctx.rotate(sb.rot + t * 3);
           if (a.sky === "meteor") { ctx.globalCompositeOperation = "lighter"; const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 22); g.addColorStop(0, "#fff"); g.addColorStop(0.4, th.c[1]); g.addColorStop(1, "rgba(0,0,0,0)"); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, 22, 0, U.TAU); ctx.fill(); }
           else { ctx.fillStyle = th.c[2]; ctx.beginPath(); ctx.moveTo(-12, -6); ctx.lineTo(4, -13); ctx.lineTo(13, 2); ctx.lineTo(3, 12); ctx.lineTo(-10, 8); ctx.closePath(); ctx.fill(); ctx.fillStyle = th.c[1]; ctx.beginPath(); ctx.moveTo(-8, -4); ctx.lineTo(3, -9); ctx.lineTo(7, 0); ctx.closePath(); ctx.fill(); }
           ctx.restore();
         }
+        FXV.at(ctx, a.x, a.y);
         if (a.fired && a.sky === "bolt" && a.t < a.doneAt - 0.15) { // lightning from the sky
           ctx.save(); ctx.globalCompositeOperation = "lighter"; ctx.lineCap = "round";
           for (const [w, c] of [[14, U.rgba(th.c[2], 0.5)], [6, th.c[1]], [2.5, "#ffffff"]]) {
@@ -1176,8 +1179,26 @@ const Moves = (() => {
     }
   }
 
+  // [ユーザー指定 2026-11-16] 3D 表示で、この技の空中エフェクトをどこに立てるか（fx.js の FXV）。ビームは口から先端までの線、
+  // それ以外は技の中心（無ければ使い手）の足もとに立つ板。平面表示では何もしない。
+  function airView(ctx, a) {
+    if (!FXV.on) return;
+    const f = a.owner, s = a.spec;
+    if ((a.kind === "beam" || a.kind === "psybreak") && f) {
+      const c = Math.cos(a.aim), sn = Math.sin(a.aim), beam = a.kind === "beam";
+      const L = Math.max(30, beam ? (a.end ? a.end.d : s.len) : (a.clashEnd ? a.clashEnd.d : (a.len || s.range)));
+      const x0 = f.x + c * (beam ? 18 : 16), y0 = f.y + sn * (beam ? 10 : 8), h = f.height * (beam ? 0.55 : 0.5);
+      FXV.seg(ctx, x0, y0, h, x0 + c * L, y0 + sn * L, h);
+    } else if (a.kind === "grab" && f) {
+      const e = a.tgt;
+      FXV.seg(ctx, f.x + Math.cos(f.facing) * 14, f.y, f.height * 0.55, a.x, e ? e.y : a.y, e ? e.z + e.height * 0.5 : 30);
+    } else if (a.x !== undefined && a.y !== undefined) FXV.at(ctx, a.x, a.y);
+    else if (f) FXV.at(ctx, f.x, f.y);
+  }
+
   function drawClashNexus(ctx, cl, fx, t) {
     const x = cl.x, y = cl.y - 22;
+    FXV.at(ctx, cl.x, cl.y);
     const thA = fx.theme(cl.a.spec.type, cl.a.owner), thB = fx.theme(cl.b.spec.type, cl.b.owner);
     const R = (26 + 8 * Math.sin(t * 44)) * (1 + Math.min(0.4, cl.t * 0.35));
     ctx.save();
@@ -1284,7 +1305,7 @@ const Moves = (() => {
       const aim = c.aim;
       ctx.save();
       if (s.kind === "melee") {
-        const arc = s.arc || 1.4, R = s.r, ry = R * 0.62;
+        const arc = s.arc || 1.4, R = s.r, ry = R * FXV.gsq(0.62);
         ctx.translate(f.x, f.y);
         ctx.scale(1, ry / R);
         ctx.fillStyle = U.rgba(warn, 0.1 + 0.14 * u);
@@ -1316,11 +1337,11 @@ const Moves = (() => {
       } else if (s.kind === "aoe" || s.kind === "spiral") {
         const R = s.r1 || 180;
         ctx.fillStyle = U.rgba(warn, 0.08 + 0.12 * u);
-        ctx.beginPath(); ctx.ellipse(f.x, f.y, R, R * 0.58, 0, 0, U.TAU); ctx.fill();
+        ctx.beginPath(); ctx.ellipse(f.x, f.y, R, R * FXV.gsq(0.58), 0, 0, U.TAU); ctx.fill();
         ctx.fillStyle = U.rgba(warn, 0.2);
-        ctx.beginPath(); ctx.ellipse(f.x, f.y, R * u, R * 0.58 * u, 0, 0, U.TAU); ctx.fill();
+        ctx.beginPath(); ctx.ellipse(f.x, f.y, R * u, R * FXV.gsq(0.58) * u, 0, 0, U.TAU); ctx.fill();
         ctx.strokeStyle = U.rgba(warn, 0.68); ctx.lineWidth = 2; ctx.setLineDash([9, 7]);
-        ctx.beginPath(); ctx.ellipse(f.x, f.y, R, R * 0.58, 0, 0, U.TAU); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(f.x, f.y, R, R * FXV.gsq(0.58), 0, 0, U.TAU); ctx.stroke();
       } else if (s.kind === "leap" || s.kind === "strike" || s.kind === "uplift" || s.kind === "dig" || s.kind === "zone") {
         const tg = f.lockTarget;
         const maxR = s.range || 240;
@@ -1330,9 +1351,9 @@ const Moves = (() => {
         if (distT > maxR) { tx = f.x + ((tx - f.x) / distT) * maxR; ty = f.y + ((ty - f.y) / distT) * maxR; }
         const R = s.r || 90;
         ctx.strokeStyle = U.rgba(warn, 0.7); ctx.lineWidth = 2; ctx.setLineDash([7, 6]); ctx.lineDashOffset = -t * 45;
-        ctx.beginPath(); ctx.ellipse(tx, ty, R, R * 0.58, 0, 0, U.TAU); ctx.stroke();
+        ctx.beginPath(); ctx.ellipse(tx, ty, R, R * FXV.gsq(0.58), 0, 0, U.TAU); ctx.stroke();
         ctx.setLineDash([]); ctx.fillStyle = U.rgba(warn, 0.18 + 0.1 * u);
-        ctx.beginPath(); ctx.ellipse(tx, ty, R * u, R * 0.58 * u, 0, 0, U.TAU); ctx.fill();
+        ctx.beginPath(); ctx.ellipse(tx, ty, R * u, R * FXV.gsq(0.58) * u, 0, 0, U.TAU); ctx.fill();
       } else if (s.kind === "proj" || s.kind === "spread" || s.kind === "grab" || s.kind === "status") {
         const span = s.kind === "spread" ? (s.spread || 0.3) * ((s.n || 3) - 1) * 0.5 : 0;
         ctx.translate(f.x, f.y); ctx.rotate(aim);
@@ -1361,6 +1382,7 @@ const Moves = (() => {
   }
   function drawSpikes(ctx, a, th, t) {
     for (const sp of a.spikes) {
+      FXV.at(ctx, sp.x, sp.y);
       const k = Math.min(1, sp.t / 0.1), sink = a.t > a.n * 0.06 + 0.6 ? Math.min(1, (a.t - a.n * 0.06 - 0.6) / 0.3) : 0;
       const h = sp.h * U.easeOutBack(k) * (1 - sink), w = sp.h * 0.42;
       if (h < 2) continue;
@@ -1583,6 +1605,7 @@ const Moves = (() => {
     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(tx, ty, e ? e.r * 1.4 : 16, 0, U.TAU); ctx.fill();
     ctx.restore();
     if (e) { // telekinetic bubble around the held foe
+      FXV.at(ctx, e.x, e.y);
       ctx.save(); ctx.globalCompositeOperation = "lighter"; ctx.strokeStyle = "rgba(200,170,255,0.8)"; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.ellipse(e.x, e.y - e.z - e.height * 0.45, e.r * 1.5, e.height * 0.7, 0, 0, U.TAU); ctx.stroke(); ctx.restore();
     }
