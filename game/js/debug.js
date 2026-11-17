@@ -439,8 +439,12 @@
         const fig = document.createElement("figure");
         fig.hidden = true;
         official.appendChild(fig);
-        const im = new Image();
+        const im = document.createElement("img");
         im.alt = label;
+        const P = Assets.pages;
+        const mir = !!(P && P.mirrorRev && /-reverse\.gif$/i.test(file));
+        const loadFile = mir ? file.replace(/-reverse\.gif$/i, ".gif") : file;
+        if (mir) { im.dataset.mir = "1"; im.style.transform = "scaleX(-1)"; }
         im.onload = () => {
           if (gen !== gifGen || !im.naturalWidth) return;
           const z = im.naturalWidth < 80 ? 2 : 1;
@@ -473,9 +477,11 @@
           const still = new Image();
           still.onload = () => { if (gen !== gifGen) return; const z = still.naturalWidth < 80 ? 2 : 1; frameFrom(still.naturalWidth * z, still.naturalHeight * z); };
           still.onerror = markSettled;
-          still.src = ROOT + dir + "/" + file.replace(/\.gif$/, ".png");
+          still.src = ROOT + dir + "/" + loadFile.replace(/\.gif$/, ".png");
         };
-        im.src = ROOT + dir + "/" + file;
+        const remoteFb = !!(P && P.omitFbGifs && Assets.isFbDir && Assets.isFbDir(dir));
+        if (Assets.loadImg) Assets.loadImg(im, dir + "/" + loadFile, "", { remoteGif: remoteFb });
+        else im.src = ROOT + dir + "/" + loadFile;
       }
     }
     function frameFrom(w, h) {
@@ -576,7 +582,12 @@
         });
         img = new Image();
         img.onload = () => layout();
-        img.src = ROOT + p.dir + (is8Dir ? "/agent-sprite-forge/sheet.png?v=" + (m.v || "asf8d4") : "/actions/sheet.png?v=asf1");
+        {
+          const rel = p.dir + (is8Dir ? "/agent-sprite-forge/sheet.png" : "/actions/sheet.png");
+          const q = is8Dir ? "?v=" + (m.v || "asf8d4") : "?v=asf1";
+          if (Assets.loadImg) Assets.loadImg(img, rel, q, { sheet: true });
+          else img.src = ROOT + rel + q;
+        }
         const srcLabel = is8Dir ? "agent-sprite-forge/sheet.png（8方向）" : "actions/sheet.png";
         setSrc(`${srcLabel} · ${actList.map(([, jp], i) => `${jp} ${counts[i]}`).join(" / ")}コマ · ${base.cw}×${base.ch}px/コマ${alt ? " · 色違いシートは無いので通常色" : ""}`);
         updateFrameLabel();
@@ -599,19 +610,32 @@
           });
           layout();
         };
-        img.src = ROOT + p.dir + "/" + p.id + s + ".png" + (m.v ? "?v=" + m.v : "");
+        const q = m.v ? "?v=" + m.v : "";
+        if (Assets.loadImg) Assets.loadImg(img, p.dir + "/" + p.id + s + ".png", q, { sheet: true });
+        else img.src = ROOT + p.dir + "/" + p.id + s + ".png" + q;
         img2 = null;
-        if (m.layout === "fb") { img2 = new Image(); img2.onload = () => layout(); img2.src = ROOT + p.dir + "/" + p.id + "-b.png" + (m.v ? "?v=" + m.v : ""); }
+        if (m.layout === "fb") {
+          img2 = new Image(); img2.onload = () => layout();
+          if (Assets.loadImg) Assets.loadImg(img2, p.dir + "/" + p.id + "-b.png", q, { sheet: true });
+          else img2.src = ROOT + p.dir + "/" + p.id + "-b.png" + q;
+        }
         const n = m.n ? Math.max(...m.n) : 1;
         setSrc(`${p.id}${s}.png · ${m.layout === "fb" ? "GIFと同じコマ・同じ大きさ（正面・背面の全コマ）" : m.src === "gif" ? "GIFから作ったシート" : m.src === "png" ? "静止画（front.png / back.png）から作ったシート" : m.idle ? "手作りシート（待機アニメ付き）" : "手作りシート"} · ${m.cw}×${m.ch}px/コマ · 最大${n}コマ`);
       } else {
         // no sheet: the same rules the game uses at runtime (Dir8.view / Dir8.frame), as CSS on the GIFs
+        const P = Assets.pages;
         const PLAN = [["frontR", "n"], ["frontR", ""], ["frontR", "e+"], ["back", ""], ["back", "n"], ["backR", ""], ["front", "e-"], ["front", ""]];
         const file = { front: `front${s}.gif`, frontR: `front${s}-reverse.gif`, back: `back${s}.gif`, backR: `back${s}-reverse.gif` };
         cells.forEach((c, i) => {
           const [v, tf] = PLAN[i], im = document.createElement("img");
-          im.src = ROOT + p.dir + "/" + file[v]; im.dataset.tf = tf; im.alt = "";
+          const mir = !!(P && P.mirrorRev && /-reverse\.gif$/i.test(file[v]));
+          const loadFile = mir ? file[v].replace(/-reverse\.gif$/i, ".gif") : file[v];
+          if (mir) im.dataset.mir = "1";
+          im.dataset.tf = tf; im.alt = "";
           im.onload = layout; im.onerror = () => { if (im.isConnected) { const ni = noImage(); c.prepend(ni); im.remove(); layout(); } }; c.prepend(im);
+          const remoteFb = !!(P && P.omitFbGifs && Assets.isFbDir && Assets.isFbDir(p.dir) && !s);
+          if (Assets.loadImg) Assets.loadImg(im, p.dir + "/" + loadFile, "", { remoteGif: remoteFb });
+          else im.src = ROOT + p.dir + "/" + loadFile;
           if (tf) c.insertAdjacentHTML("beforeend", '<span class="ap" title="ゲーム内で変形して作る向き">変形</span>');
         });
         setSrc("8方向シートなし — ゲームと同じ規則で正面・背面GIFを変形して表示");
@@ -744,7 +768,8 @@
         c.style.width = zoom ? "" : Math.max(56, box.w + 2) + "px";
         c.style.height = zoom ? "" : (box.h + 20) + "px";
         im.style.transformOrigin = "50% 100%";
-        im.style.transform = tf === "n" ? "scaleX(0.8)" : tf === "e+" ? "scaleX(0.9) skewX(-8.5deg)" : tf === "e-" ? "scaleX(0.9) skewX(8.5deg)" : "";
+        const mir = im.dataset.mir === "1" ? " scaleX(-1)" : "";
+        im.style.transform = (tf === "n" ? "scaleX(0.8)" : tf === "e+" ? "scaleX(0.9) skewX(-8.5deg)" : tf === "e-" ? "scaleX(0.9) skewX(8.5deg)" : "") + mir;
       });
     }
     function frameAt(i, tt) {

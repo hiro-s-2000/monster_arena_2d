@@ -57,8 +57,14 @@ const Dir8 = (() => {
     const kick = () => {
       if (started || !recs.img || !recs.img2) return;
       started = true;
-      const base = "../monsterSprite/" + p.dir + "/" + p.id, q = m.v ? "?v=" + m.v : "";
-      imgs[0].src = base + ".png" + q; imgs[1].src = base + "-b.png" + q;
+      const baseRel = p.dir + "/" + p.id, q = m.v ? "?v=" + m.v : "";
+      if (typeof Assets !== "undefined" && Assets.loadImg) {
+        Assets.loadImg(imgs[0], baseRel + ".png", q, { sheet: true });
+        Assets.loadImg(imgs[1], baseRel + "-b.png", q, { sheet: true });
+      } else {
+        const base = "../monsterSprite/" + baseRel;
+        imgs[0].src = base + ".png" + q; imgs[1].src = base + "-b.png" + q;
+      }
     };
     recs._start = kick;
     recs.forEach((r) => { r._start = kick; });
@@ -135,7 +141,10 @@ const Dir8 = (() => {
     const kick = () => {
       if (started || !recs.img) return;
       started = true;
-      img.src = actions8 ? "../monsterSprite/" + p.dir + "/agent-sprite-forge/sheet.png?v=" + (m.v || "asf8d4") : actions ? "../monsterSprite/" + p.dir + "/actions/sheet.png?v=asf1" : "../monsterSprite/" + p.dir + "/" + key + ".png" + (m.v ? "?v=" + m.v : m.idle ? "?v=idle1" : "");
+      const rel = actions8 ? p.dir + "/agent-sprite-forge/sheet.png" : actions ? p.dir + "/actions/sheet.png" : p.dir + "/" + key + ".png";
+      const q = actions8 ? "?v=" + (m.v || "asf8d4") : actions ? "?v=asf1" : (m.v ? "?v=" + m.v : m.idle ? "?v=idle1" : "");
+      if (typeof Assets !== "undefined" && Assets.loadImg) Assets.loadImg(img, rel, q, { sheet: true });
+      else img.src = "../monsterSprite/" + rel + q;
     };
     recs._start = kick;
     recs.forEach((r) => { r._start = kick; });

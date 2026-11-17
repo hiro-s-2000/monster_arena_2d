@@ -6,8 +6,68 @@
 
 const Assets = (() => {
   const cache = new Map();
+  const blobCache = new Map();
   const canFetch = location.protocol.startsWith("http");
   const ROOT = "../monsterSprite/";
+  const P = window.ARENA_PAGES || null;
+
+  const relFromSrc = (src) => (src && src.startsWith(ROOT) ? src.slice(ROOT.length) : null);
+  const isFbDir = (dir) => !!(P && P.fbDirs && dir && P.fbDirs[dir]);
+  const isFbNormalGif = (rel) => {
+    if (!P || !P.omitFbGifs || !rel) return false;
+    const i = rel.lastIndexOf("/");
+    return i > 0 && isFbDir(rel.slice(0, i)) && /^(front|back)\.gif$/i.test(rel.slice(i + 1));
+  };
+
+  function fetchBlobUrl(url, mime) {
+    if (blobCache.has(url)) return blobCache.get(url);
+    const pr = fetch(url).then((r) => {
+      if (!r.ok) throw new Error("http " + r.status);
+      return r.arrayBuffer();
+    }).then((buf) => URL.createObjectURL(new Blob([buf], mime ? { type: mime } : undefined))).catch((err) => {
+      blobCache.delete(url);
+      throw err;
+    });
+    blobCache.set(url, pr);
+    return pr;
+  }
+
+  // Shared sprite/sheet image loader: local mode uses ROOT directly; GitHub Pages mode resolves
+  // lossless .webp sheets and fetches remote overflow / omitted fb GIFs via CORS-clean Blob URLs.
+  function loadImg(img, rel, query = "", opts = {}) {
+    if (!P) { img.src = ROOT + rel + query; return; }
+    if (opts.sheet) {
+      if (P.remote && P.remote[rel] && P.raw) {
+        fetchBlobUrl(P.raw + rel, "image/png").then((u) => { img.src = u; }).catch(() => { if (typeof img.onerror === "function") img.onerror(); });
+        return;
+      }
+      if (P.webpSheets && /\.png$/i.test(rel) && !(P.noWebp && P.noWebp[rel])) {
+        img.src = ROOT + rel.replace(/\.png$/i, ".webp") + query;
+        return;
+      }
+    } else if ((opts.remoteGif || (P.remote && P.remote[rel])) && P.raw) {
+      const mime = /\.gif$/i.test(rel) ? "image/gif" : "image/png";
+      fetchBlobUrl(P.raw + rel, mime).then((u) => { img.src = u; }).catch(() => { if (typeof img.onerror === "function") img.onerror(); });
+      return;
+    }
+    img.src = ROOT + rel + query;
+  }
+
+  function finishMirror(baseRec, rec) {
+    if (baseRec.failed || !baseRec.frames) { rec.failed = true; rec.ready = true; return; }
+    const W = baseRec.w, H = baseRec.h;
+    rec.scale = baseRec.scale || 1;
+    rec.frames = baseRec.frames.map((f) => {
+      const c = U.canvas(W, H), x = c.getContext("2d");
+      x.translate(W, 0); x.scale(-1, 1);
+      x.drawImage(f.canvas, 0, 0);
+      return { canvas: c, delay: f.delay };
+    });
+    const b = baseRec.bounds;
+    rec.bounds = b ? { x: Math.max(0, W - b.x - b.w), y: b.y, w: b.w, h: b.h } : null;
+    rec.total = baseRec.total; rec.w = W; rec.h = H;
+    rec.ready = true;
+  }
 
   let deferDepth = 0;
   function defer(fn) {
@@ -22,6 +82,10 @@ const Assets = (() => {
   }
 
   function get(src, opts = {}) {
+    const rel0 = relFromSrc(src);
+    if (P && P.omitFbGifs && opts.still && rel0 && isFbNormalGif(rel0)) {
+      src = src.replace(/\.gif$/i, ".png");
+    }
     const key = opts.raw ? src + "#raw" : opts.still ? src + "#still" : src;
     if (cache.has(key)) {
       const r = cache.get(key);
@@ -29,8 +93,29 @@ const Assets = (() => {
       if (!deferDepth && r._start) r._start();
       return r;
     }
+    if (P && P.mirrorRev && /-reverse\.gif$/i.test(src) && src.startsWith(ROOT)) {
+      const baseSrc = src.replace(/-reverse\.gif$/i, ".gif");
+      const baseRec = get(baseSrc, opts);
+      const rec = { src, img: baseRec.img, ready: false, failed: false, frames: null, total: 0, w: 0, h: 0, bounds: null, _tint: new Map(), raw: !!opts.raw, hd: !!opts.hd, artH: opts.artH || 0 };
+      rec._start = () => {
+        if (rec._started) return;
+        rec._started = true;
+        if (baseRec._start) baseRec._start();
+        const poll = () => {
+          if (baseRec.ready || baseRec.failed) finishMirror(baseRec, rec);
+          else setTimeout(poll, 16);
+        };
+        poll();
+      };
+      cache.set(key, rec);
+      if (!deferDepth) rec._start();
+      return rec;
+    }
     const isGif = /\.gif$/i.test(src);
     const useFetchGif = canFetch && isGif && !opts.still;
+    const rel = relFromSrc(src);
+    const remoteGif = !!(P && P.raw && rel && isFbNormalGif(rel));
+    const fetchUrl = remoteGif ? P.raw + rel : src;
     const rec = { src, img: new Image(), ready: false, failed: false, frames: null, total: 0, w: 0, h: 0, bounds: null, _tint: new Map(), raw: !!opts.raw, hd: !!opts.hd, artH: opts.artH || 0 };
     rec.img.decoding = "async";
     rec.img.onload = () => {
@@ -50,7 +135,7 @@ const Assets = (() => {
       rec._started = true;
       if (useFetchGif) {
         let fetchedOk = false;
-        fetch(src).then((r) => { if (!r.ok) throw new Error("missing"); fetchedOk = true; return r.arrayBuffer(); }).then((buf) => {
+        fetch(fetchUrl).then((r) => { if (!r.ok) throw new Error("missing"); fetchedOk = true; return r.arrayBuffer(); }).then((buf) => {
           const g = Gif.decode(buf);
           setFrames(rec, g.frames, g.W, g.H, g.bounds0);
           rec.ready = true;
@@ -63,9 +148,12 @@ const Assets = (() => {
               }
               rec.ready = true;
             };
-            rec.img.src = src;
+            if (remoteGif) fetchBlobUrl(fetchUrl, "image/gif").then((u) => { rec.img.src = u; }).catch(() => pngFallback(rec));
+            else rec.img.src = src;
           } else pngFallback(rec);
         });
+      } else if (remoteGif) {
+        fetchBlobUrl(fetchUrl, "image/gif").then((u) => { rec.img.src = u; }).catch(() => pngFallback(rec));
       } else {
         rec.img.src = src;
       }
@@ -241,5 +329,5 @@ const Assets = (() => {
     });
   }
 
-  return { get, defer, isDeferred, start, front, hd, artHeight, bodyArtPx, bigBoost, sheetScale, trainerArtPx, onFieldPx, TRAINER_M, frame, frameIndex, tinted, portrait, sprites, iconUrl, stillUrl, ball, whenReady, canFetch };
+  return { get, defer, isDeferred, start, front, hd, artHeight, bodyArtPx, bigBoost, sheetScale, trainerArtPx, onFieldPx, TRAINER_M, frame, frameIndex, tinted, portrait, sprites, iconUrl, stillUrl, ball, whenReady, canFetch, loadImg, pages: P, isFbDir };
 })();

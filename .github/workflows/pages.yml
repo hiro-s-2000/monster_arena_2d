@@ -1,0 +1,64 @@
+name: Deploy Monster Arena HD-2D to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sparse checkout runtime files (skip _work and -reverse.gif)
+        run: |
+          git init
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git sparse-checkout init --no-cone
+          git sparse-checkout set --no-cone '/*' '!_work/' '!*-reverse.gif' '!/monsterData/' '!/md/'
+          git fetch --depth=1 --filter=blob:none origin "${{ github.sha }}"
+          git checkout FETCH_HEAD
+
+      - name: Install webp tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq webp
+
+      - name: Restore WebP sheet cache
+        uses: actions/cache@v4
+        with:
+          path: .webp_cache
+          key: webp-sheets-${{ hashFiles('data/dir8.js', 'tools/build_pages.py') }}
+          restore-keys: |
+            webp-sheets-
+
+      - name: Build Pages site (< 860 MB)
+        run: |
+          python3 tools/build_pages.py --out _site --cache .webp_cache --max-mib 820 --workers 4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
