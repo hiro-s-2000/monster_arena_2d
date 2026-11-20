@@ -55,5 +55,13 @@ const Tournament = (() => {
       if (round >= 3) show(w); else show();
     });
   }
-  return { start };
+  function exit() {
+    const el = $("#bracket");
+    if (!el || el.classList.contains("hidden")) return false;
+    clearTimeout(autoT);
+    el.classList.add("hidden");
+    if (done) done();
+    return true;
+  }
+  return { start, exit };
 })();

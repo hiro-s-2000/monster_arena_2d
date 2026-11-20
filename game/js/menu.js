@@ -34,18 +34,25 @@ const Menu = (() => {
     onStart = startCb;
     // title menu
     const tm = $("#title-menu");
-    tm.innerHTML = Object.entries(MODES).map(([k, m], i) => `<button class="opt${i === 0 ? " sel" : ""}" data-mode="${k}"><span class="t">${m.title}</span><span class="sub">${m.sub}</span></button>`).join("");
-    tm.querySelectorAll(".opt").forEach((b, i) => {
+    tm.innerHTML = Object.entries(MODES).map(([k, m], i) => `<button class="opt${i === 0 ? " sel" : ""}" data-mode="${k}"><span class="t">${m.title}</span><span class="sub">${m.sub}</span></button>`).join("")
+      + `<button type="button" class="title-back">◀ タイトルへもどる (Esc)</button>`;
+    tm.querySelectorAll(".opt[data-mode]").forEach((b, i) => {
       b.addEventListener("mouseenter", () => setTitleCursor(i));
       b.addEventListener("click", () => openSelect(b.dataset.mode));
     });
+    const tBack = $(".title-back", tm);
+    if (tBack) tBack.addEventListener("click", () => { Audio.sfx("back"); showTitle(false); });
     addEventListener("keydown", (e) => {
       if ($("#title").classList.contains("hidden")) return;
       const k = e.key.toLowerCase();
-      if (!$("#press").classList.contains("hidden")) { pressStart(); e.preventDefault(); return; }
+      if (!$("#press").classList.contains("hidden")) {
+        if (k === "escape") return;
+        pressStart(); e.preventDefault(); return;
+      }
       if (k === "arrowdown" || k === "s") setTitleCursor((titleCursor + 1) % 4);
       else if (k === "arrowup" || k === "w") setTitleCursor((titleCursor + 3) % 4);
       else if (k === "enter" || k === "z" || k === " ") openSelect(Object.keys(MODES)[titleCursor]);
+      else if (k === "escape") { Audio.sfx("back"); showTitle(false); }
       else return;
       e.preventDefault();
     });
@@ -131,7 +138,7 @@ const Menu = (() => {
     if (!help) return;
     const keys = " ・ このがめん <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> いどう ・ <kbd>Enter</kbd> / <kbd>Z</kbd> けってい";
     help.innerHTML = (watch
-      ? "かんせん：あかコーナーに わざ <kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd> ・ かいひ <kbd>SPACE</kbd> ・ こうたい <kbd>Q</kbd>かアイコン ・ 進化の きりかえ <kbd>M</kbd>（CPUは つよい）"
+      ? "かんせん：あかコーナーに 移動 <kbd>WASD</kbd>/矢印 ・ わざ <kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd> ・ かいひ <kbd>SPACE</kbd> ・ こうたい <kbd>Q</kbd> ・ 進化きりかえ <kbd>M</kbd>（操作中は手動優先）"
       : "いどう <kbd>WASD</kbd> / <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> ・ わざ <kbd>Z</kbd><kbd>X</kbd><kbd>C</kbd><kbd>V</kbd> / クリック ・ かいひ <kbd>SPACE</kbd> ・ こうたい <kbd>Q</kbd>かアイコン ・ メガ <kbd>M</kbd> ・ ゲームパッド たいおう") + keys;
   }
   function setTitleCursor(i) { if (i !== titleCursor) Audio.sfx("cursor"); titleCursor = i; document.querySelectorAll("#title-menu .opt").forEach((b, k) => b.classList.toggle("sel", k === i)); }
@@ -499,5 +506,16 @@ const Menu = (() => {
     hideAll();
     onStart(cfg);
   }
-  return { init, showTitle, hideAll, openSelect, mode: () => mode };
+  function escape() {
+    if (!$("#select").classList.contains("hidden")) {
+      const a = document.activeElement;
+      if (a && $("#select").contains(a) && /INPUT|SELECT|TEXTAREA/.test(a.tagName)) { a.blur(); return true; }
+      Audio.sfx("back"); showTitle(true); return true;
+    }
+    if (!$("#title").classList.contains("hidden") && $("#press").classList.contains("hidden")) {
+      Audio.sfx("back"); showTitle(false); return true;
+    }
+    return false;
+  }
+  return { init, showTitle, hideAll, openSelect, escape, mode: () => mode };
 })();

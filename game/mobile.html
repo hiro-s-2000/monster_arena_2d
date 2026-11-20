@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#070814">
+<title>Monster Arena HD-2D</title>
+<link rel="icon" href="data:,">
+<!--
+  携帯用の外枠。ゲーム本体 (index.html) を iframe に入れ、縦持ちのときは 90 度回して横画面として見せる。
+  iframe の中は「横長の画面」そのものなので、本体の CSS（vw / vh / メディアクエリ / position: fixed）と
+  タッチ座標は、横持ちのときと同じに動く。横持ちにすれば回転は外れる。
+-->
+<style>
+html, body { margin: 0; width: 100%; height: 100%; background: #05060c; overflow: hidden; overscroll-behavior: none; -webkit-tap-highlight-color: transparent; }
+#safe { position: fixed; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); bottom: env(safe-area-inset-bottom, 0px); left: env(safe-area-inset-left, 0px); }
+#game { position: absolute; left: 0; top: 0; width: 100%; height: 100%; border: 0; display: block; transform-origin: 0 0; background: #05060c; }
+</style>
+</head>
+<body>
+<div id="safe"><iframe id="game" title="Monster Arena HD-2D" allow="autoplay; fullscreen; gamepad"></iframe></div>
+<script>
+(function () {
+  "use strict";
+  var safe = document.getElementById("safe");
+  var frame = document.getElementById("game");
+  var q = new URLSearchParams(location.search);
+  // rot=1 で常に回す、rot=0 で回さない（確認用）。ふつうは「縦長で、幅が携帯の幅」のときだけ回す。
+  var force = q.get("rot");
+
+  function layout() {
+    var w = safe.clientWidth, h = safe.clientHeight;
+    if (!w || !h) return;
+    var rot = force === "1" ? true : force === "0" ? false : (h > w && w < 600);
+    if (rot) {
+      frame.style.width = h + "px";
+      frame.style.height = w + "px";
+      frame.style.transform = "translateX(" + w + "px) rotate(90deg)";
+    } else {
+      frame.style.width = w + "px";
+      frame.style.height = h + "px";
+      frame.style.transform = "none";
+    }
+    document.documentElement.classList.toggle("rotated", rot);
+  }
+
+  layout();
+  addEventListener("resize", layout);
+  addEventListener("orientationchange", function () { setTimeout(layout, 60); });
+  if (window.visualViewport) visualViewport.addEventListener("resize", layout);
+  if (window.ResizeObserver) new ResizeObserver(layout).observe(safe);
+
+  // 回線の都合でスクリプトが 1 本でも欠けるとゲームが始まらない。そのときは 2 回まで読み直す。
+  var retries = 0;
+  frame.addEventListener("load", function () {
+    try {
+      frame.contentWindow.focus();
+      document.title = frame.contentDocument.title || document.title;
+      var log = frame.contentDocument.getElementById("errlog");
+      if (log && /is not defined/.test(log.textContent) && retries < 2) {
+        retries++;
+        setTimeout(function () { frame.contentWindow.location.reload(); }, 400 * retries);
+      }
+    } catch (e) {}
+  });
+  frame.src = "index.html" + location.search + location.hash;
+})();
+</script>
+</body>
+</html>

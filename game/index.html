@@ -7,10 +7,23 @@
 <meta name="theme-color" content="#070814">
 <title>Monster Arena HD-2D</title>
 <link rel="icon" href="data:,">
+<script>
+// 携帯（指で操作する小さい画面）は外枠 mobile.html に入れる。外枠が、縦持ちのとき横画面に回して見せる。
+(function () {
+  try {
+    if (window.top !== window.self) return;
+    if (/[?&]noshell=1\b/.test(location.search)) return;
+    if (!matchMedia("(pointer: coarse)").matches) return;
+    if (Math.min(screen.width, screen.height) >= 600) return;
+    if (window.stop) window.stop(); // 本体のスクリプト読み込みを止めてから移る（外枠の中で読み直すため）
+    location.replace("mobile.html" + location.search + location.hash);
+  } catch (e) {}
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="style.css?v=20261114a">
+<link rel="stylesheet" href="style.css?v=20261120a">
 </head>
 <body>
 <canvas id="screen"></canvas>
@@ -34,7 +47,10 @@
     <div id="league"></div>
     <div id="clash-tag" class="hidden">⚡ BEAM CLASH!</div>
     <div id="weather-tag" class="hidden"></div>
-    <button type="button" id="hud-skin-btn" aria-pressed="true" title="HUD表示切替 (Hキー)">HUD: eSPORTS</button>
+    <div id="hud-ctrls">
+      <button type="button" id="hud-skin-btn" aria-pressed="true" title="HUD表示切替 (Hキー)">HUD: eSPORTS</button>
+      <button type="button" id="hud-pause-btn" title="ポーズ / 画面退避 (Escキー)" aria-label="ポーズ・メニュー">≡ ESC</button>
+    </div>
     <div id="cam-zoom" role="group" aria-label="カメラのズーム">
       <button type="button" data-z="-1" title="カメラを引く (−キー / ホイール)" aria-label="カメラを引く">−</button>
       <button type="button" data-z="0" id="cam-zoom-val" title="GIFと同じ大きさ(100%)に戻す (0キー)">100%</button>
@@ -143,8 +159,18 @@
 
 <div id="touch" hidden>
   <div id="stick"><i id="stick-knob"></i></div>
-  <div class="tmoves"><button type="button" data-key="z">1</button><button type="button" data-key="x">2</button><button type="button" data-key="c">3</button><button type="button" data-key="v">4</button></div>
-  <div class="tutil"><button type="button" data-key=" ">かいひ</button><button type="button" data-key="q">こうたい</button><button type="button" data-key="m">メガ</button><button type="button" data-key="escape" aria-label="ポーズ">II</button></div>
+  <div class="tmoves">
+    <button type="button" data-key="z" data-slot="0"><b class="tkey">1</b><span class="tname">わざ1</span><span class="tcost"></span><i class="tcd"></i></button>
+    <button type="button" data-key="x" data-slot="1"><b class="tkey">2</b><span class="tname">わざ2</span><span class="tcost"></span><i class="tcd"></i></button>
+    <button type="button" data-key="c" data-slot="2"><b class="tkey">3</b><span class="tname">わざ3</span><span class="tcost"></span><i class="tcd"></i></button>
+    <button type="button" data-key="v" data-slot="3"><b class="tkey">4</b><span class="tname">わざ4</span><span class="tcost"></span><i class="tcd"></i></button>
+  </div>
+  <div class="tutil">
+    <button type="button" id="u-t-dodge" data-key=" "><span>かいひ</span></button>
+    <button type="button" id="u-t-swap" data-key="q"><span>こうたい</span></button>
+    <button type="button" id="u-t-mega" data-key="m"><span>メガ</span></button>
+    <button type="button" id="u-t-pause" data-key="escape" aria-label="ポーズ"><span>ESC</span></button>
+  </div>
 </div>
 <pre id="errlog" aria-hidden="true"></pre>
 <script>
@@ -164,7 +190,7 @@ addEventListener("unhandledrejection", (e) => { const el = document.getElementBy
 <script src="js/data.js?v=20261115w2"></script>
 <script src="js/ability.js?v=20261116fx3d2"></script>
 <script src="js/audio.js?v=20261115zb"></script>
-<script src="js/input.js?v=20261102c"></script>
+<script src="js/input.js?v=20261120a"></script>
 <script src="js/arena.js?v=20261116s2"></script>
 <script src="../data/flame_hues.js?v=20261116flame2"></script>
 <script src="js/fx.js?v=20261116fx3d2"></script>
@@ -175,7 +201,7 @@ addEventListener("unhandledrejection", (e) => { const el = document.getElementBy
 <script src="js/moves.js?v=20261116fx3d2"></script>
 <script src="js/fighter.js?v=20261116fx3d2"></script>
 <script src="js/ai.js?v=20261111a"></script>
-<script src="js/battle.js?v=20261116fx3d2"></script>
+<script src="js/battle.js?v=20261120a"></script>
 <script src="js/scene3d.js?v=20261116s2"></script>
 <script src="js/scenes/stadium.js?v=20261116s2"></script>
 <script src="js/scenes/dirt.js?v=20261116s2"></script>
@@ -190,11 +216,11 @@ addEventListener("unhandledrejection", (e) => { const el = document.getElementBy
 <script src="js/scenes/meadow.js?v=20261116s2"></script>
 <script src="js/post.js?v=20261116fx3d1"></script>
 <script src="js/render.js?v=20261116fx3d2"></script>
-<script src="js/hud.js?v=20261111b"></script>
-<script src="js/turn.js?v=20261115d"></script>
+<script src="js/hud.js?v=20261120a"></script>
+<script src="js/turn.js?v=20261120a"></script>
 <script src="js/title.js?v=20261102c"></script>
-<script src="js/tournament.js?v=20261102c"></script>
-<script src="js/menu.js?v=20261115ze"></script>
-<script src="js/main.js?v=20261115x"></script>
+<script src="js/tournament.js?v=20261120a"></script>
+<script src="js/menu.js?v=20261120a"></script>
+<script src="js/main.js?v=20261120a"></script>
 </body>
 </html>

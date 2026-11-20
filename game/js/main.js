@@ -23,7 +23,7 @@
       battle.setCommandSide(s);
     }, true);
     Renderer.init($("#screen"), $("#overlay"));
-    HUD.init();
+    HUD.init(handleEscape);
     TurnBattle.init(toMenu);
     Menu.init(fromMenu);
     stage = makeStage();
@@ -34,7 +34,15 @@
       if (act === "mute") Audio.setMuted(!Audio.isMuted());
       if (act === "again" && lastCfg) startBattle(lastCfg, lastHooks);
     }));
-    addEventListener("keydown", (e) => { if (e.key === "Escape" && state === "battle" && !(battle && battle.turnMode && !paused && document.querySelector("#turnmenu:not(.hidden)") && e.defaultPrevented)) setPaused(!paused); Audio.unlock(); });
+    addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (e.defaultPrevented) return;
+        e.preventDefault();
+        handleEscape();
+      } else {
+        Audio.unlock();
+      }
+    });
     addEventListener("pointerdown", () => Audio.unlock());
     // カメラの引き／寄せ：ホイール、− / ＝ / 0 キー、HUD の − 100% ＋ ボタン。倍率は保存され、演出ズームはその上に乗る。
     const zoomVal = $("#cam-zoom-val");
@@ -116,6 +124,7 @@
     if (cfg.turnMode) TurnBattle.attach(battle);
     if (q.get("cam")) { const [x, y] = q.get("cam").split(",").map(Number); window.CAM_OVERRIDE = { x, y }; }
     state = "battle"; paused = false; frozen = false;
+    syncTouchUi();
     const ff = +(q.get("ff") || 0);
     if (ff > 0 && q.get("auto")) {
       for (let t = 0; t < ff; t += 1 / 60) { battle.update(1 / 60, battle.playerSide >= 0 && !battle.turnMode ? AI.act(battle.active[0] || battle.teams[0][0], battle, 1 / 60, 0.8) : null); TurnBattle.update(1 / 60); Renderer.updateCamera(battle, 1 / 60, false); HUD.update(battle, 1 / 60); }
@@ -124,9 +133,32 @@
     window.BATTLE = battle;
   }
 
-  function setPaused(p) { paused = p; $("#pause").classList.toggle("hidden", !p); }
+  function syncTouchUi() {
+    document.body.classList.toggle("in-battle", state === "battle" && !paused && !endShown && !(battle && battle.turnMode));
+  }
+  function handleEscape() {
+    Audio.unlock();
+    if (state === "battle") {
+      if (!$("#result").classList.contains("hidden")) { Audio.sfx("back"); toMenu(); return; }
+      if (paused) { Audio.sfx("select"); setPaused(false); return; }
+      if (battle && battle.turnMode && TurnBattle.back && TurnBattle.back()) return;
+      Audio.sfx("cursor");
+      setPaused(true);
+      return;
+    }
+    if (state === "bracket" && Tournament.exit && Tournament.exit()) { Audio.sfx("back"); return; }
+    if (Menu.escape) Menu.escape();
+  }
+  function setPaused(p) {
+    paused = p;
+    $("#pause").classList.toggle("hidden", !p);
+    if (Input.resetTouch) Input.resetTouch();
+    syncTouchUi();
+  }
   function toMenu() {
-    battle = null; state = "menu"; paused = false; window.BATTLE = null;
+    battle = null; state = "menu"; paused = false; endShown = false; window.BATTLE = null;
+    if (Input.resetTouch) Input.resetTouch();
+    syncTouchUi();
     $("#pause").classList.add("hidden"); $("#result").classList.add("hidden"); $("#bracket").classList.add("hidden");
     HUD.hide(); TurnBattle.detach(); Audio.stopMusic(); Audio.stopCrowd();
     const c = $("#overlay").getContext("2d"); c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, 1e5, 1e5);
@@ -211,6 +243,8 @@
   }
 
   function showResult(B) {
+    if (Input.resetTouch) Input.resetTouch();
+    syncTouchUi();
     const w = B.winner;
     $("#result-title").textContent = w < 0 ? "ひきわけ" : B.playerSide < 0 ? (w === 0 ? "あかコーナーの かち！" : "あおコーナーの かち！") : w === B.playerSide ? "YOU WIN!" : "YOU LOSE…";
     const alive = [0, 1].map((s) => B.teams[s].filter((f) => !f.ko).length);
@@ -314,7 +348,7 @@
       // ヒットストップ中に押した技・回避・進化は、止まっている間に捨てず次のフレームへ残す。
       const holdKeys = !battle.turnMode && battle.fx.hitstop > 0;
       const act = holdKeys ? null : Input.poll(dt, Renderer.toWorld, me);
-      if (act && act.pause && !battle.turnMode) setPaused(true);
+      if (act && act.pause) setPaused(true);
       const steps = !act || dt <= 1 / 45 ? 1 : 2;
       for (let i = 0; i < steps; i++) battle.update((act ? dt / steps : dt), battle.turnMode || !act ? null : i === 0 ? act : { ...act, skill: [false, false, false, false], dodge: false, swap: false, mega: false });
       TurnBattle.update(dt);
@@ -323,7 +357,7 @@
       if (battle.phase === "end" && !endShown) {
         endShown = true;
         const B = battle, hooks = lastHooks;
-        setTimeout(() => { if (battle !== B) return; if (hooks && hooks.onEnd) { battle = null; state = "bracket"; HUD.hide(); Audio.stopMusic(); Audio.stopCrowd(); const c = $("#overlay").getContext("2d"); c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, 1e5, 1e5); hooks.onEnd(B.winner); } else showResult(B); }, hooks && hooks.onEnd ? 4200 : 3000);
+        setTimeout(() => { if (battle !== B) return; if (hooks && hooks.onEnd) { battle = null; state = "bracket"; syncTouchUi(); if (Input.resetTouch) Input.resetTouch(); HUD.hide(); Audio.stopMusic(); Audio.stopCrowd(); const c = $("#overlay").getContext("2d"); c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, 1e5, 1e5); hooks.onEnd(B.winner); } else showResult(B); }, hooks && hooks.onEnd ? 4200 : 3000);
       }
     } else if (frozen) { Input.poll(dt, Renderer.toWorld, null); HUD.update(battle, 0); }
     if (!battle) return;

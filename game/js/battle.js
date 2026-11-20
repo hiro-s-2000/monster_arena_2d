@@ -16,9 +16,11 @@ class Battle {
     this.events = [];
     this.mode = cfg.mode || "play";
     this.playerSide = this.mode === "play" ? 0 : -1;
-    // かんせんは観戦のまま、あかコーナー（side 0・左）へ技・回避・進化の指示だけ乗せる。
+    // かんせんは観戦のまま、あかコーナー（side 0・左）へ移動・技・回避・交代・進化の指示を優先して乗せる。
     // タイトルのエキシビションは入力を一切受けない。
     this.commandSide = this.mode === "watch" && !cfg.demo ? 0 : -1;
+    this.manualMoveT = 0;
+    this.manualActT = 0;
     this.skill = cfg.skill === undefined ? (this.mode === "watch" ? 1 : 0.8) : cfg.skill;
     this.cpuCdMul = 1 + (1 - this.skill) * 0.6;
     this.cpuAttack = cfg.cpuAttack !== false;
@@ -278,6 +280,8 @@ class Battle {
       this.clock += dt;
       if (this.clock >= this.duration) return this.timeUp();
     }
+    if (this.manualMoveT > 0) this.manualMoveT = Math.max(0, this.manualMoveT - dt);
+    if (this.manualActT > 0) this.manualActT = Math.max(0, this.manualActT - dt);
     // fighters
     for (let side = 0; side < 2; side++) {
       const f = this.active[side];
@@ -480,12 +484,40 @@ class Battle {
     const mine = this.playerSide >= 0 ? this.active[this.playerSide] : this.commandSide >= 0 ? this.active[this.commandSide] : null;
     if (f === mine) this.event("castfail", { i });
   }
-  // 移動と技の判断はCPUのまま。押した技・回避・交代・進化だけを上書きする。
+  // 観戦モード：入力が無い間はCPUに任せ、移動スティック/キー・技・回避・交代・進化が入力されたら手動側を優先する。
   overlayCommand(act, playerAct) {
-    if (playerAct.skill && playerAct.skill.some(Boolean)) act.skill = playerAct.skill.slice();
-    if (playerAct.dodge) act.dodge = true;
-    if (playerAct.swap) act.swap = true;
-    act.cycle = !!playerAct.mega; // CPU のメガシンカ判断（act.mega）はそのまま残す
+    const hasMove = Math.hypot(playerAct.mx || 0, playerAct.my || 0) > 0.08;
+    const hasSkill = !!(playerAct.skill && playerAct.skill.some(Boolean));
+    const hasHeld = !!(playerAct.skillHeld && playerAct.skillHeld.some(Boolean));
+    const hasUtil = !!(playerAct.dodge || playerAct.swap || playerAct.mega);
+    if (hasMove) {
+      this.manualMoveT = 0.65;
+      act.mx = playerAct.mx;
+      act.my = playerAct.my;
+      if (!playerAct.mouseAim) act.aim = null;
+    } else if (this.manualMoveT > 0) {
+      act.mx = 0;
+      act.my = 0;
+      if (!playerAct.mouseAim) act.aim = null;
+    }
+    if (hasSkill || hasHeld || hasUtil) this.manualActT = 1.3;
+    if (this.manualActT > 0) {
+      act.skill = hasSkill ? playerAct.skill.slice() : [false, false, false, false];
+      act.skillHeld = hasHeld ? playerAct.skillHeld.slice() : [false, false, false, false];
+      act.dodge = !!playerAct.dodge;
+      act.swap = !!playerAct.swap;
+      act.mega = false;
+      if (act.swap) act.swapTo = undefined;
+      if (!playerAct.mouseAim) act.aim = null;
+    } else if (hasMove) {
+      // 移動スティック／キー入力中はCPUが勝手に硬直技や交代を出さない
+      act.skill = [false, false, false, false];
+      act.skillHeld = [false, false, false, false];
+      act.dodge = false;
+      act.swap = false;
+      act.mega = false;
+    }
+    act.cycle = !!playerAct.mega; // 観戦中の M / きりかえボタンは手動フォーム切替
     if (playerAct.mouseAim && playerAct.aim != null) act.aim = playerAct.aim;
   }
 
@@ -493,6 +525,8 @@ class Battle {
   setCommandSide(s) {
     if (this.commandSide < 0 || this.turnMode || (s !== 0 && s !== 1) || s === this.commandSide) return;
     this.commandSide = s;
+    this.manualMoveT = 0;
+    this.manualActT = 0;
     this.event("command", { side: s });
     Audio.sfx("select");
   }

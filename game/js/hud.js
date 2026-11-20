@@ -5,7 +5,7 @@
 
 const HUD = (() => {
   const $ = (s, r = document) => r.querySelector(s);
-  let el, panels, cards, fcards, foeBox, banner, koCutin, koMain, koSub, koKicker, clashEl, skinBtn, vs, msg, msgText, timerEl, labelEl, weatherEl, B = null;
+  let el, panels, cards, tcards, tUtils, fcards, foeBox, banner, koCutin, koMain, koSub, koKicker, clashEl, skinBtn, pauseBtn, vs, msg, msgText, timerEl, labelEl, weatherEl, B = null, onPause = null;
   let bannerTimer = null, koTimer = null, lines = [], typing = null, lineT = 0, vsT = 0, skin = "esports";
 
   function setSkin(next) {
@@ -33,7 +33,8 @@ const HUD = (() => {
     lines = []; typing = null; lineT = 0; vsT = 0;
   }
 
-  function init() {
+  function init(pauseCb) {
+    onPause = pauseCb || null;
     el = $("#hud");
     panels = [$("#p0"), $("#p1")].map((p) => ({
       root: p, portrait: $(".portrait canvas", p), name: $(".name", p), types: $(".types", p), hp: $(".hp", p), hpbar: $(".hpbar", p),
@@ -41,6 +42,8 @@ const HUD = (() => {
       call: $(".callout", p), combo: $(".combo", p), abil: $(".abil", p), cur: null, sp: null, lastHp: -1, callT: 0, comboT: 0,
     }));
     cards = [...document.querySelectorAll("#skills .card")].map((c) => ({ root: c, cd: $(".cd", c), jp: $(".jp", c), meta: $(".meta", c), key: $(".key", c), spec: null }));
+    tcards = [...document.querySelectorAll("#touch .tmoves [data-slot]")].map((c) => ({ root: c, name: $(".tname", c), cost: $(".tcost", c), cd: $(".tcd", c), spec: null }));
+    tUtils = { dodge: $("#u-t-dodge"), swap: $("#u-t-swap"), mega: $("#u-t-mega"), megaLbl: $("#u-t-mega span") };
     foeBox = $("#skills-foe");
     fcards = [...document.querySelectorAll("#skills-foe .fcard")].map((c) => ({ root: c, cd: $(".cd", c), jp: $(".jp", c), meta: $(".meta", c), spec: null }));
     // かんせん：あいて側のコマンド欄・パネルをタップすると、そちらへ指示を出す
@@ -55,7 +58,7 @@ const HUD = (() => {
     $("#p1").addEventListener("pointerdown", take(1));
     banner = $("#banner"); vs = $("#vs"); msg = $("#msg"); msgText = $("#msg p"); timerEl = $("#timer"); labelEl = $("#league"); weatherEl = $("#weather-tag");
     koCutin = $("#ko-cutin"); koMain = $("#ko-cutin .ko-main"); koSub = $("#ko-cutin .ko-sub"); koKicker = $("#ko-cutin .ko-kicker");
-    clashEl = $("#clash-tag"); skinBtn = $("#hud-skin-btn");
+    clashEl = $("#clash-tag"); skinBtn = $("#hud-skin-btn"); pauseBtn = $("#hud-pause-btn");
     const urlSkin = new URLSearchParams(location.search).get("hud");
     setSkin(urlSkin === "retro" ? "retro" : "esports");
     if (skinBtn) {
@@ -64,6 +67,13 @@ const HUD = (() => {
         ev.stopPropagation();
         setSkin(skin === "esports" ? "retro" : "esports");
         Audio.sfx("cursor");
+      });
+    }
+    if (pauseBtn) {
+      pauseBtn.addEventListener("pointerdown", (ev) => ev.stopPropagation());
+      pauseBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        if (onPause) onPause();
       });
     }
     addEventListener("keydown", (ev) => {
@@ -87,6 +97,7 @@ const HUD = (() => {
     $("#skills").style.display = (b.playerSide >= 0 || b.commandSide >= 0) && !b.turnMode ? "" : "none";
     el.classList.toggle("duo", (b.playerSide >= 0 || b.commandSide >= 0) && !b.turnMode);
     fcards.forEach((c) => (c.spec = null)); cards.forEach((c) => (c.spec = null));
+    if (tcards) tcards.forEach((c) => (c.spec = null));
     for (let s = 0; s < 2; s++) {
       const p = panels[s];
       p.cur = null; p.sp = null; p.lastHp = -1; p.team.innerHTML = ""; p.call.className = "callout"; p.combo.className = "combo";
@@ -224,13 +235,41 @@ const HUD = (() => {
         c.root.classList.toggle("ready", cd <= 0 && me.energy >= s.cost); c.root.classList.toggle("noen", me.energy < s.cost && cd <= 0);
         c.root.classList.toggle("cast", !!me.cast && me.cast.slot === i);
       });
-      $("#u-dodge").classList.toggle("off", me.dodgeCd > 0 || me.energy < 15);
-      $("#u-swap").classList.toggle("off", !B.canSwap(pilotSide));
+      const dodgeOff = me.dodgeCd > 0 || me.energy < 15;
+      const swapOff = !B.canSwap(pilotSide);
+      $("#u-dodge").classList.toggle("off", dodgeOff);
+      $("#u-swap").classList.toggle("off", swapOff);
       const cycling = B.commandSide === pilotSide;
       const can = cycling ? B.canCycleForm(me) : B.canMega(me);
       const megaLabel = $("#u-mega span");
       if (megaLabel) megaLabel.textContent = cycling ? "きりかえ" : "メガ";
       $("#u-mega").classList.toggle("off", !can); $("#u-mega").classList.toggle("pulse", can && B.phase === "fight");
+      if (tcards) tcards.forEach((tc, i) => {
+        const s = me.moves[i];
+        if (!s) { tc.root.style.visibility = "hidden"; return; }
+        tc.root.style.visibility = "";
+        if (tc.spec !== s) {
+          tc.spec = s;
+          tc.root.style.setProperty("--tc", Data.typeColor(s.type)[0]);
+          if (tc.name) tc.name.textContent = s.jp;
+          if (tc.cost) tc.cost.textContent = `⚡${s.cost}`;
+        }
+        const cd = Math.max(0, me.cds[i]);
+        if (tc.cd) {
+          tc.cd.style.setProperty("--p", (cd > 0 ? (cd / (s.cd || 1)) * 100 : 0).toFixed(1));
+          const txt = cd > 0 ? cd.toFixed(1) : "";
+          if (tc.cd.textContent !== txt) tc.cd.textContent = txt;
+        }
+        tc.root.classList.toggle("ready", cd <= 0 && me.energy >= s.cost);
+        tc.root.classList.toggle("noen", me.energy < s.cost && cd <= 0);
+        tc.root.classList.toggle("cast", !!me.cast && me.cast.slot === i);
+      });
+      if (tUtils) {
+        if (tUtils.dodge) tUtils.dodge.classList.toggle("off", dodgeOff);
+        if (tUtils.swap) tUtils.swap.classList.toggle("off", swapOff);
+        if (tUtils.megaLbl) tUtils.megaLbl.textContent = cycling ? "きりかえ" : "メガ";
+        if (tUtils.mega) { tUtils.mega.classList.toggle("off", !can); tUtils.mega.classList.toggle("pulse", can && B.phase === "fight"); }
+      }
     }
     if (vsT > 0) { vsT -= dt; if (vsT <= 0) vs.classList.add("hidden"); }
     for (const e of B.events) handle(e);

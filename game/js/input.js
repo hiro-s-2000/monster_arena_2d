@@ -6,20 +6,35 @@ const Input = (() => {
   const keys = new Set(), edges = new Set();
   const mouse = { x: 0, y: 0, down: [false, false, false], moved: 0, worldX: 0, worldY: 0 };
   const touch = { active: false, stickId: null, sx: 0, sy: 0, dx: 0, dy: 0, buttons: {} };
+  const touchKeys = new Map(); // pointerId -> key
   let lastGamepadButtons = [];
   let canvas = null;
   const SKILL_KEYS = [["z", "1", "j"], ["x", "2", "k"], ["c", "3", "l"], ["v", "4", ";"]];
+
+  function resetTouch() {
+    touch.stickId = null;
+    touch.dx = touch.dy = 0;
+    const knob = document.getElementById("stick-knob");
+    if (knob) knob.style.transform = "";
+    for (const k of touchKeys.values()) keys.delete(k);
+    touchKeys.clear();
+    edges.clear();
+    mouse.down.fill(false);
+    const el = document.getElementById("touch");
+    if (el) el.querySelectorAll(".on").forEach((b) => b.classList.remove("on"));
+  }
 
   function init(cv) {
     canvas = cv;
     addEventListener("keydown", (e) => {
       const k = e.key.toLowerCase();
+      if (k === "escape") return; // Escape は main.js の handleEscape() で一元管理（再開時の二重発火防止）
       if (!keys.has(k)) edges.add(k);
       keys.add(k);
       if (["arrowup", "arrowdown", "arrowleft", "arrowright", " "].includes(k) && e.target === document.body) e.preventDefault();
     });
     addEventListener("keyup", (e) => keys.delete(e.key.toLowerCase()));
-    addEventListener("blur", () => keys.clear());
+    addEventListener("blur", () => { keys.clear(); resetTouch(); });
     cv.addEventListener("mousemove", (e) => {
       const r = cv.getBoundingClientRect();
       mouse.x = e.clientX - r.left;
@@ -41,24 +56,55 @@ const Input = (() => {
     el.hidden = false;
     document.body.classList.add("touch");
     const stick = document.getElementById("stick"), knob = document.getElementById("stick-knob");
-    const R = 46;
-    const move = (t) => {
+    const stickRadius = () => Math.max(28, (stick.clientWidth || 120) * 0.42);
+    const move = (pt) => {
       const r = stick.getBoundingClientRect();
-      let dx = t.clientX - (r.left + r.width / 2), dy = t.clientY - (r.top + r.height / 2);
+      const R = stickRadius();
+      let dx = pt.clientX - (r.left + r.width / 2), dy = pt.clientY - (r.top + r.height / 2);
       const d = Math.hypot(dx, dy);
       if (d > R) { dx *= R / d; dy *= R / d; }
       touch.dx = dx / R; touch.dy = dy / R;
       knob.style.transform = `translate(${dx}px,${dy}px)`;
     };
-    stick.addEventListener("touchstart", (e) => { touch.stickId = e.changedTouches[0].identifier; move(e.changedTouches[0]); e.preventDefault(); }, { passive: false });
-    stick.addEventListener("touchmove", (e) => { for (const t of e.changedTouches) if (t.identifier === touch.stickId) move(t); e.preventDefault(); }, { passive: false });
-    const end = (e) => { for (const t of e.changedTouches) if (t.identifier === touch.stickId) { touch.stickId = null; touch.dx = touch.dy = 0; knob.style.transform = ""; } };
-    stick.addEventListener("touchend", end); stick.addEventListener("touchcancel", end);
+    const endStick = (pid) => {
+      if (pid !== touch.stickId) return;
+      touch.stickId = null; touch.dx = touch.dy = 0; knob.style.transform = "";
+    };
+    stick.addEventListener("pointerdown", (e) => {
+      if (touch.stickId !== null) return;
+      if (typeof Audio !== "undefined" && Audio.unlock) Audio.unlock();
+      touch.stickId = e.pointerId;
+      if (stick.setPointerCapture) try { stick.setPointerCapture(e.pointerId); } catch (_) {}
+      move(e);
+      e.preventDefault(); e.stopPropagation();
+    });
+    stick.addEventListener("pointermove", (e) => {
+      if (e.pointerId !== touch.stickId) return;
+      move(e); e.preventDefault();
+    });
+    stick.addEventListener("pointerup", (e) => endStick(e.pointerId));
+    stick.addEventListener("pointercancel", (e) => endStick(e.pointerId));
     el.querySelectorAll("[data-key]").forEach((b) => {
       const k = b.dataset.key;
-      b.addEventListener("touchstart", (e) => { if (!keys.has(k)) edges.add(k); keys.add(k); b.classList.add("on"); e.preventDefault(); }, { passive: false });
-      const up = (e) => { keys.delete(k); b.classList.remove("on"); e.preventDefault(); };
-      b.addEventListener("touchend", up); b.addEventListener("touchcancel", up);
+      b.addEventListener("pointerdown", (e) => {
+        if (typeof Audio !== "undefined" && Audio.unlock) Audio.unlock();
+        if (b.setPointerCapture) try { b.setPointerCapture(e.pointerId); } catch (_) {}
+        touchKeys.set(e.pointerId, k);
+        if (!keys.has(k)) edges.add(k);
+        keys.add(k);
+        b.classList.add("on");
+        e.preventDefault(); e.stopPropagation();
+      });
+      const up = (e) => {
+        if (touchKeys.get(e.pointerId) !== k) return;
+        touchKeys.delete(e.pointerId);
+        let stillHeld = false;
+        for (const held of touchKeys.values()) if (held === k) { stillHeld = true; break; }
+        if (!stillHeld) { keys.delete(k); b.classList.remove("on"); }
+        e.preventDefault();
+      };
+      b.addEventListener("pointerup", up);
+      b.addEventListener("pointercancel", up);
     });
   }
 
@@ -119,5 +165,5 @@ const Input = (() => {
   }
 
   const isDown = (k) => keys.has(k);
-  return { init, poll, isDown, mouse, touch: () => touch.active };
+  return { init, poll, isDown, mouse, resetTouch, touch: () => touch.active };
 })();

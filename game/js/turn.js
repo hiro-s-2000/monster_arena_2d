@@ -18,10 +18,19 @@ const TurnBattle = (() => {
       else if (k === "arrowright" || k === "d") move(1);
       else if (k === "arrowleft" || k === "a") move(-1);
       else if (k === "z" || k === "enter" || k === " ") choose(cursor);
-      else if (k === "x" || k === "backspace" || k === "escape") { if (view !== "main") { Audio.sfx("back"); open("main"); } }
+      else if (k === "x" || k === "backspace" || k === "escape") {
+        if (view === "main") { if (k === "escape") return; Audio.sfx("back"); return; }
+        Audio.sfx("back"); open("main");
+      }
       else return;
       e.preventDefault(); e.stopPropagation();
     }, true);
+  }
+  function back() {
+    if (!B || state !== "command" || view === "main") return false;
+    Audio.sfx("back");
+    open("main");
+    return true;
   }
   function move(d) { if (!items.length) return; cursor = (cursor + d + items.length) % items.length; Audio.sfx("cursor"); paint(); }
 
@@ -44,8 +53,10 @@ const TurnBattle = (() => {
   function paint() {
     menu.classList.remove("hidden");
     menu.className = "dqwin turn-" + view;
-    menu.innerHTML = (view !== "main" ? `<div class="hint">X: もどる</div>` : "") + items.map((it, i) =>
+    menu.innerHTML = (view !== "main" ? `<button type="button" class="turn-back">◀ もどる (Esc / X)</button>` : "") + items.map((it, i) =>
       `<button class="opt${i === cursor ? " sel" : ""}${it.dis ? " dis" : ""}" data-i="${i}" ${it.type ? `style="--tc:${Data.typeColor(it.type)[0]}"` : ""}><span class="t">${it.t}</span>${it.sub ? `<span class="sub">${it.sub}</span>` : ""}${it.tag ? `<span class="tag ${it.eff > 1 ? "up" : it.eff < 1 ? "dn" : ""}">${it.tag}</span>` : ""}</button>`).join("");
+    const backBtn = $(".turn-back", menu);
+    if (backBtn) backBtn.addEventListener("click", () => { Audio.sfx("back"); open("main"); });
     menu.querySelectorAll(".opt").forEach((b) => {
       b.addEventListener("mouseenter", () => { const i = +b.dataset.i; if (i !== cursor) { cursor = i; Audio.sfx("cursor"); menu.querySelectorAll(".opt").forEach((x, k) => x.classList.toggle("sel", k === cursor)); } });
       b.addEventListener("click", () => choose(+b.dataset.i));
@@ -158,5 +169,5 @@ const TurnBattle = (() => {
     if (approachKinds(s) || s.kind === "leap") await tween(user, home.x, home.y, 0.4);
   }
 
-  return { init, attach, detach, update, active: () => !!B };
+  return { init, attach, detach, update, back, active: () => !!B };
 })();
