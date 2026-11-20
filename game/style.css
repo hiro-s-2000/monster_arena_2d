@@ -789,6 +789,8 @@ body.touch #hud.turn #msg, body.touch #hud.esports.turn #msg { left: 50%; transf
 .overlay > :first-child { margin-top: auto; }
 .overlay > :last-child { margin-bottom: auto; }
 body.touch #select { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+/* .card の幅指定（ポーズや結果の枠用）が、モンスター一覧のカードにまで効いて重なっていたのを戻す */
+#grid .card { width: auto; }
 body.touch #title { -webkit-overflow-scrolling: touch; }
 
 /* ---- 携帯の横画面（高さ 560px 以下。縦持ちを mobile.html が回したときもここに入る） ---- */
@@ -827,6 +829,21 @@ body.touch #title { -webkit-overflow-scrolling: touch; }
 
   /* 選択・結果・ポーズ・トーナメント表 */
   body.touch #select footer #start { padding: 9px 22px; font-size: 16px; }
+  /* モンスターをえらぶ枠：カードを小さくし、検索の列を 1 行にまとめる。ずかん欄は指では出せないので隠す */
+  body.touch #select .picker { min-height: 196px; flex: 1 1 196px; border-radius: 10px; }
+  body.touch #select .pbar { flex-wrap: nowrap; gap: 6px; padding: 6px 8px; }
+  body.touch #select .pbar input { min-width: 96px; }
+  body.touch #select .pbar select, body.touch #select .pbar input { padding: 5px 7px; font-size: 12px; border-radius: 6px; }
+  body.touch #select .pbar select { flex: none; max-width: 104px; }
+  body.touch #gens { flex: 0 1 auto; min-width: 0; gap: 3px; overflow-x: auto; scrollbar-width: none; }
+  body.touch #gens button { flex: none; min-width: 26px; height: 26px; padding: 0 5px; border-radius: 6px; font-size: 11px; }
+  body.touch #select #dex { display: none; }
+  body.touch #grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 4px; padding: 6px; }
+  body.touch #grid .card { height: 70px; padding: 2px; border-radius: 8px; contain-intrinsic-size: 60px 70px; }
+  body.touch #grid .card img { height: 38px; max-width: 54px; bottom: 16px; }
+  body.touch #grid .card .nm { left: 2px; right: 2px; bottom: 2px; font-size: 9px; text-overflow: ellipsis; }
+  body.touch #grid .card .dx { left: 3px; top: 2px; font-size: 8px; }
+  body.touch #grid .card.mega::after, body.touch #grid .card.gigantamax::after, body.touch #grid .card.regional::after { right: 2px; top: 2px; font-size: 7px; padding: 1px 3px; border-radius: 3px; }
   .card { padding: 14px 20px; }
   .card h2 { font-size: 18px; margin-bottom: 8px; }
   .card button { margin: 8px 0; }
