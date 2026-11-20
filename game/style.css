@@ -725,7 +725,7 @@ body.touch #hud.turn #msg, body.touch #hud.esports.turn #msg { left: 50%; transf
   #hud-skin-btn, #hud-pause-btn { font-size: 8px; padding: 3px 6px; min-height: 22px; }
   #cam-zoom button { min-height: 22px; min-width: 26px; padding: 3px 6px; font-size: 9px; }
   #cam-zoom #cam-zoom-val { min-width: 40px; }
-  body.touch #hud.duo #skills-foe { top: calc(96px + env(safe-area-inset-top)); }
+  body.touch #hud.duo #skills-foe { top: calc(124px + env(safe-area-inset-top)); }
   body.touch #skills-foe .fcard { width: 54px; height: 28px; padding: 2px 4px; }
   body.touch #skills-foe .fcard .jp { font-size: 9px; }
   body.touch #msg, body.touch #hud.esports #msg { bottom: calc(126px + env(safe-area-inset-bottom)); width: 92vw; font-size: 14px; padding: 8px 12px; }
@@ -794,9 +794,9 @@ body.touch #title { -webkit-overflow-scrolling: touch; }
 /* ---- 携帯の横画面（高さ 500px 以下。縦持ちを mobile.html が回したときもここに入る） ---- */
 @media (max-height: 500px) {
   /* バトル画面：スクロールさせず、全部を画面内に置く */
-  body.touch #hud .center { max-width: 160px; }
-  body.touch #hud .panel, body.touch #hud.esports .panel { width: calc(50vw - 88px); }
-  body.touch #hud-skin-btn { max-width: 88px; }
+  body.touch #hud .center { max-width: 172px; }
+  body.touch #hud .panel, body.touch #hud.esports .panel { width: calc(50vw - 92px); }
+  body.touch #hud-skin-btn { display: block; max-width: 100px; letter-spacing: 0; }
   body.touch #hud.duo #skills-foe { top: calc(78px + env(safe-area-inset-top)); }
   @media (max-width: 760px) { body.touch #skills-foe .fcard { width: 56px; } }
   @media (max-width: 679px) { body.touch #hud.duo #skills-foe { top: calc(100px + env(safe-area-inset-top)); } }
