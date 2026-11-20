@@ -29,18 +29,23 @@ html, body { margin: 0; width: 100%; height: 100%; background: #05060c; overflow
   // rot=1 で常に回す、rot=0 で回さない（確認用）。ふつうは「縦長で、幅が携帯の幅」のときだけ回す。
   var force = q.get("rot");
 
+  // 携帯では文字とボタンを全体に小さく見せる。iframe を 1/k 倍の大きさで作り、k 倍に縮めて画面に合わせる。
+  // ui=1 で等倍、ui=0.7〜1 で倍率を指定できる（確認用）。
+  var k = parseFloat(q.get("ui"));
+  if (!(k >= 0.6 && k <= 1)) k = 0.85;
+
   function layout() {
     var w = safe.clientWidth, h = safe.clientHeight;
     if (!w || !h) return;
     var rot = force === "1" ? true : force === "0" ? false : (h > w && w < 600);
     if (rot) {
-      frame.style.width = h + "px";
-      frame.style.height = w + "px";
-      frame.style.transform = "translateX(" + w + "px) rotate(90deg)";
+      frame.style.width = Math.round(h / k) + "px";
+      frame.style.height = Math.round(w / k) + "px";
+      frame.style.transform = "translateX(" + w + "px) rotate(90deg) scale(" + k + ")";
     } else {
-      frame.style.width = w + "px";
-      frame.style.height = h + "px";
-      frame.style.transform = "none";
+      frame.style.width = Math.round(w / k) + "px";
+      frame.style.height = Math.round(h / k) + "px";
+      frame.style.transform = "scale(" + k + ")";
     }
     document.documentElement.classList.toggle("rotated", rot);
   }
